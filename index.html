@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <!-- SEO Meta Tags -->
+    <title>VVavy - Free Live Audio Visualizer | Transform Music into Visual Art</title>
+    <meta name="description"
+        content="Experience music like never before with VVavy - a free, real-time audio visualizer that transforms sound into mesmerizing visual art. Upload MP3s, search SoundCloud or use your microphone for stunning audio-reactive visuals.">
+    <meta name="keywords"
+        content="audio visualizer, music visualizer, vvavy, audio reactive, visual music, mp3 visualizer, sound visualization, music to visual, audio spectrum analyzer, real-time audio visualization, web audio visualizer, free music visualizer">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="VVavy - Transform Music into Visual Art">
+    <meta property="og:description"
+        content="Free real time audio visualizer that transforms your music into mesmerizing visual experiences. Upload audio files, search SoundCloud or use your microphone.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vvavy.io">
+    <meta property="og:image" content="https://vvavy.io/images/preview.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VVavy - Transform Music into Visual Art">
+    <meta name="twitter:description"
+        content="Free real-time audio visualizer that transforms your music into mesmerizing visual experiences.">
+    <meta name="twitter:image" content="https://vvavy.io/images/preview.png">
+    <meta name="twitter:image:alt" content="Preview of the VVavy audio visualizer interface">
+    <meta name="twitter:url" content="https://vvavy.io">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://vvavy.io">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#772953">
+
+    <link rel="icon" type="image/svg+xml" href="./images/vvavy_favicon_256.png">
+    <link rel="apple-touch-icon" href="./images/vvavy_favicon_256.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VVavy",
+      "description": "Real-time audio visualizer that transforms music into visual art",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "browserRequirements": "Requires JavaScript. Works with modern web browsers.",
+      "featureList": "Real-time audio visualization, MP3 upload support, SoundCloud support, microphone input, multiple visualizer styles"
+    }
+    </script>
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/utilities.css" />
+  </head>
+  <body>
+    <div class="welcome-screen is-hidden" data-role="welcome"></div>
+    <div class="app-shell is-hidden" data-role="app-shell">
+      <div class="export-panel is-hidden" data-role="export-panel"></div>
+      <main class="visual-stage" aria-live="polite">
+        <canvas id="visualizer-canvas"></canvas>
+      </main>
+      <footer class="site-footer"></footer>
+    </div>
+
+    <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
+    <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
+
+    <script type="module" src="./app/main.js"></script>
+  </body>
+</html>

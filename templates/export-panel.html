@@ -1,0 +1,35 @@
+<template id="tpl-export-panel">
+  <div class="export-panel-shell" data-export-state="idle">
+    <button type="button" class="export-close-btn" data-action="export-close" aria-label="Close export panel">×</button>
+    <div class="export-panel-idle" data-role="export-idle">
+      <h2 class="export-panel-title">Capture Visual</h2>
+      <form class="export-panel-config" data-role="export-config">
+        <div class="export-field">
+          <label for="export-preset">Preset</label>
+          <select id="export-preset" name="export-preset"></select>
+          <p class="export-preset-meta" data-role="preset-meta"></p>
+        </div>
+        <div class="export-inline-fields">
+          <div class="export-field">
+            <label for="export-duration">Duration (seconds)</label>
+            <input id="export-duration" name="export-duration" type="number" min="5" max="300" value="30" />
+          </div>
+          <div class="export-field">
+            <label for="export-filename">File Name</label>
+            <input id="export-filename" name="export-filename" type="text" value="vvavy-export" />
+          </div>
+        </div>
+        <button type="button" class="export-primary-btn" data-action="export-start">Record</button>
+      </form>
+    </div>
+    <div class="export-countdown" data-role="export-countdown" hidden>3</div>
+    <div class="export-panel-active" data-role="export-active" hidden>
+      <div class="export-active-status">
+        <span class="export-active-label">Recording</span>
+        <span class="export-active-timer" data-role="export-timer">00:00</span>
+      </div>
+      <div class="export-active-meta" data-role="export-meta"></div>
+      <button type="button" class="export-stop-btn" data-action="export-stop">Stop</button>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,89 @@
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-y: hidden;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 25% 20%, rgba(119, 41, 83, 0.2), transparent 65%);
+}
+
+.site-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: var(--space-6) 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.footer-bar {
+  width: min(960px, 100%);
+}
+
+.welcome-screen,
+.overlay-backdrop,
+.overlay-panel {
+  position: fixed;
+  inset: 0;
+}
+
+.welcome-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-overlay);
+  z-index: 10;
+}
+
+.overlay-backdrop {
+  background: rgba(5, 6, 12, 0.75);
+  backdrop-filter: blur(16px);
+  z-index: 9;
+}
+
+.overlay-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-24);
+  z-index: 11;
+  overflow-y: auto;
+}
+
+
+.export-panel {
+  position: fixed;
+  top: var(--space-10);
+  right: var(--space-10);
+  pointer-events: none;
+  z-index: 13;
+}
+
+.export-panel:not(.is-hidden) {
+  pointer-events: auto;
+}
+
+.export-panel.is-hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .welcome-screen {
+    padding: 0;
+  }
+
+  .overlay-panel {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .export-panel {
+    top: var(--space-8);
+    right: var(--space-8);
+    left: var(--space-8);
+  }
+}

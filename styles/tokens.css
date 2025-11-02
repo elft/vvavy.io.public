@@ -1,0 +1,58 @@
+:root {
+  color-scheme: dark;
+
+  /* Color palette */
+  --color-dark: #0b0813;
+  --color-surface: #1a1326;
+  --color-surface-strong: #221830;
+  --color-overlay: rgba(12, 10, 20, 0.82);
+  --color-border: rgba(233, 84, 32, 0.35);
+  --color-border-strong: rgba(233, 84, 32, 0.6);
+  --color-border-muted: rgba(137, 119, 158, 0.35);
+
+  --color-primary: #e95420; /* ubuntu orange */
+  --color-primary-strong: #ff6e32;
+  --color-secondary: #772953; /* ubuntu purple */
+  --color-secondary-soft: rgba(119, 41, 83, 0.6);
+  --color-text: #f6f3ff;
+  --color-text-muted: rgba(246, 243, 255, 0.7);
+  --color-text-soft: rgba(246, 243, 255, 0.55);
+  --color-danger: #ff5e81;
+
+  /* Layout */
+  --overlay-width: 320px;
+  --overlay-width-desktop: 360px;
+  --overlay-radius: 4px;
+  --overlay-shadow: 0 16px 36px rgba(6, 4, 12, 0.65);
+
+  /* Typography */
+  --font-family-base: 'Ubuntu', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+
+  /* Spacing (px) */
+  --space-0: 0;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+
+  /* Timings */
+  --transition-fast: 120ms ease;
+  --transition-medium: 200ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --overlay-width: var(--overlay-width-desktop);
+  }
+}

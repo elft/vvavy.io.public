@@ -1,0 +1,32 @@
+<template id="tpl-visuals">
+  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="visuals-title">
+    <header class="overlay-sheet__header">
+      <button class="overlay-link" type="button" data-view="menu">Back</button>
+      <p class="overlay-title" id="visuals-title">Visuals</p>
+      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+    </header>
+    <form class="overlay-body overlay-form overlay-search visuals-form" data-role="visuals-form" novalidate>
+      <label class="overlay-label" for="visual-search">Search Visuals</label>
+      <div class="overlay-search__row">
+        <input
+          class="overlay-input overlay-search__input"
+          id="visual-search"
+          type="text"
+          autocomplete="off"
+          placeholder="Search by name, id, or tag"
+          data-role="visual-search"
+        />
+        <button class="overlay-menu__button overlay-search__submit" type="submit" data-role="visuals-submit">
+          Search
+        </button>
+      </div>
+      <p class="overlay-search__hint">Browse the visual library. Tags appear in smaller print.</p>
+      <div
+        class="overlay-results visuals-results"
+        data-role="visual-results"
+        role="listbox"
+        aria-live="polite"
+      ></div>
+    </form>
+  </section>
+</template>

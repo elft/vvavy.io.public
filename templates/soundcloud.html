@@ -1,0 +1,41 @@
+<template id="tpl-soundcloud">
+  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="soundcloud-title">
+    <header class="overlay-sheet__header">
+      <button class="overlay-link" type="button" data-view="audio">Back</button>
+      <p class="overlay-title" id="soundcloud-title">SoundCloud</p>
+      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+    </header>
+    <form class="overlay-body overlay-form overlay-search" data-role="soundcloud-form" novalidate>
+      <label class="overlay-label" for="soundcloud-search">Search SoundCloud</label>
+      <div class="overlay-search__row">
+        <input
+          class="overlay-input overlay-search__input"
+          id="soundcloud-search"
+          name="soundcloud-search"
+          type="text"
+          autocomplete="off"
+          placeholder="Enter a SoundCloud link or keywords"
+          data-role="soundcloud-query"
+        />
+        <button class="overlay-menu__button overlay-search__submit" type="submit" data-role="soundcloud-submit">
+          Search
+        </button>
+      </div>
+      <p class="overlay-search__hint">Paste a track URL or search by artist, track, or genre.</p>
+      <div class="overlay-feedback">
+        <p class="overlay-feedback__message" data-role="soundcloud-message" hidden></p>
+        <p class="overlay-feedback__status" data-role="soundcloud-status" hidden></p>
+        <p class="overlay-feedback__summary" data-role="soundcloud-summary" hidden></p>
+      </div>
+      <div class="overlay-results" data-role="soundcloud-results" role="listbox" aria-live="polite"></div>
+      <button
+        class="overlay-menu__button overlay-results__more"
+        type="button"
+        data-role="soundcloud-more"
+        hidden
+      >
+        Load more
+      </button>
+    </form>
+  </section>
+</template>

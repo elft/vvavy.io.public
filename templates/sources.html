@@ -1,0 +1,14 @@
+<template id="tpl-audio">
+  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="audio-title">
+    <header class="overlay-sheet__header">
+      <button class="overlay-link" type="button" data-view="menu">Back</button>
+      <p class="overlay-title" id="audio-title">Audio</p>
+      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+    </header>
+    <div class="overlay-menu overlay-menu--tight">
+      <button class="overlay-menu__button" type="button" data-source="file">File</button>
+      <button class="overlay-menu__button" type="button" data-source="mic">Mic</button>
+      <button class="overlay-menu__button" type="button" data-source="soundcloud">SoundCloud</button>
+    </div>
+  </section>
+</template>

@@ -77,6 +77,16 @@
     <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
     <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
 
-    <script type="module" src="./app/main.js"></script>
+    <script type="module">
+      const bootstrap = async () => {
+        try {
+          await import('./scripts/app.min.js');
+        } catch (error) {
+          console.warn('Falling back to development module', error);
+          await import('./app/main.js');
+        }
+      };
+      bootstrap();
+    </script>
   </body>
 </html>

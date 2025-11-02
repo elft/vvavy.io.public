@@ -164,6 +164,16 @@
   border-color: var(--color-border-strong);
 }
 
+.footer-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.footer-btn.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .overlay-sheet {
   width: 100%;
   max-width: var(--overlay-width);

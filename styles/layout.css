@@ -1,19 +1,27 @@
 .app-shell {
   position: relative;
   min-height: 100vh;
-  overflow-y: hidden;
+  min-height: 100svh;
   min-width: 100vw;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: radial-gradient(circle at 25% 20%, rgba(119, 41, 83, 0.2), transparent 65%);
 }
 
+@supports (min-height: 100dvh) {
+  .app-shell {
+    min-height: 100dvh;
+  }
+}
+
 .site-footer {
   position: fixed;
-  left: 0;
-  bottom: 0;
+  inset-inline: 0;
+  inset-block-end: env(safe-area-inset-bottom, 0);
   width: 100%;
   padding: var(--space-6) 0;
+  padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0));
   display: flex;
   justify-content: center;
   pointer-events: none;

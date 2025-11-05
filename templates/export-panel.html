@@ -15,10 +15,21 @@
             <input id="export-duration" name="export-duration" type="number" min="5" max="300" value="30" />
           </div>
           <div class="export-field">
+            <label for="export-fps">FPS</label>
+            <input id="export-fps" name="export-fps" type="number" min="24" max="120" value="60" />
+          </div>
+          <div class="export-field">
             <label for="export-filename">File Name</label>
             <input id="export-filename" name="export-filename" type="text" value="vvavy-export" />
           </div>
         </div>
+        <div class="export-field" data-role="watermark-toggle-container" hidden>
+          <label>
+            <input id="export-watermark" name="export-watermark" type="checkbox" checked />
+            <span>Include Watermark</span>
+          </label>
+        </div>
+        <button type="button" class="export-secondary-btn" data-action="resize-canvases">Resize to Preset</button>
         <button type="button" class="export-primary-btn" data-action="export-start">Record</button>
       </form>
     </div>

@@ -676,6 +676,21 @@
   color: var(--color-text-muted);
 }
 
+.export-field label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-8);
+  text-transform: none;
+  cursor: pointer;
+}
+
+.export-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin: 0;
+}
+
 .export-field input,
 .export-field select {
   padding: var(--space-8) var(--space-10);
@@ -713,6 +728,29 @@
 }
 
 .export-primary-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.export-secondary-btn {
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background var(--transition-medium), border-color var(--transition-medium);
+}
+
+.export-secondary-btn:hover {
+  background: rgba(148, 163, 184, 0.18);
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+.export-secondary-btn[disabled] {
   opacity: 0.6;
   cursor: not-allowed;
 }

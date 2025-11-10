@@ -36,16 +36,6 @@
   flex-shrink: 0;
 }
 
-.footer-logo-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  font-weight: 600;
-  transition: opacity var(--transition-medium);
-}
-
 .footer-logo-image {
   display: none;
   max-width: 100%;
@@ -56,10 +46,6 @@
 
 .footer-logo.has-logo {
   border-color: transparent;
-}
-
-.footer-logo.has-logo .footer-logo-fallback {
-  opacity: 0;
 }
 
 .footer-logo.has-logo .footer-logo-image {

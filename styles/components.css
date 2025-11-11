@@ -557,10 +557,17 @@
   line-height: 1.4;
 }
 
+.visual-result__footer {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
 .visual-result__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  flex: 1;
 }
 
 .visual-result__tag {
@@ -570,6 +577,13 @@
   padding: 0 var(--space-6);
   letter-spacing: 0;
   text-transform: none;
+}
+
+.visual-result__creator {
+  margin-left: auto;
+  font-size: 8px;
+  color: rgba(203, 213, 225, 0.65);
+  white-space: nowrap;
 }
 
 .visual-result__empty {

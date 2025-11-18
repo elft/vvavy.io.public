@@ -1,0 +1,30 @@
+<template id="tpl-visuals-create">
+  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="visuals-create-title">
+    <header class="overlay-sheet__header">
+      <button class="overlay-link" type="button" data-view="menu">Back</button>
+      <p class="overlay-title" id="visuals-create-title">Create Visual</p>
+      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+    </header>
+    <div class="overlay-body overlay-form visuals-form" data-role="visuals-create-form">
+      <div class="visuals-create__header">
+        <p class="overlay-title--subdued">Paste the instructions into any agentic AI (gemini, copilot, etc)</p>
+        <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
+      </div>
+      <label class="overlay-label" for="custom-visual-code">Paste response from AI (gemini, copilot, etc)</label>
+      <textarea class="overlay-input overlay-textarea" id="custom-visual-code" rows="10" placeholder="// Paste your visual JS here" data-role="custom-visual-code"></textarea>
+      <br />
+      <label class="overlay-label" for="custom-visual-name">Display Name (auto-filled from code)</label>
+      <input class="overlay-input" id="custom-visual-name" type="text" placeholder="My Custom Visual" data-role="custom-visual-name" />
+      <br />
+      <label class="overlay-label" for="custom-visual-id">Visual ID (auto-filled; edits sync into code)</label>
+      <input class="overlay-input" id="custom-visual-id" type="text" placeholder="my-custom-visual" data-role="custom-visual-id" />
+      <div class="visuals-create__actions">
+        <button class="overlay-menu__button" type="button" data-role="custom-visuals-preview">Preview</button>
+        <button class="overlay-menu__button" type="button" data-role="custom-visuals-save">Save</button>
+      </div>
+      <br />
+      <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="custom-visual-copy-error">Copy last error</button>
+      <p class="visuals-create__status" data-role="custom-visual-status" aria-live="polite"></p>
+    </div>
+  </section>
+</template>

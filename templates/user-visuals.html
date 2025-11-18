@@ -1,0 +1,77 @@
+<template id="tpl-user-visuals">
+  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="user-visuals-title">
+    <header class="overlay-sheet__header">
+      <button class="overlay-link" type="button" data-view="menu">Back</button>
+      <p class="overlay-title" id="user-visuals-title">Create Visual</p>
+      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+    </header>
+
+    <div class="overlay-body overlay-form overlay-scroll">
+      <section class="overlay-group">
+        <div class="overlay-group__header">
+          <h3 class="overlay-label">AGENTS.md (copy to your AI)</h3>
+          <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="user-visual-copy">
+            Copy instructions
+          </button>
+        </div>
+        <textarea
+          class="overlay-input overlay-textarea"
+          rows="6"
+          readonly
+          data-role="user-visual-instructions"
+          aria-label="AGENTS instructions"
+        >Loading instructions…</textarea>
+      </section>
+
+      <section class="overlay-group">
+        <label class="overlay-label" for="user-visual-code">Visual code</label>
+        <textarea
+          id="user-visual-code"
+          class="overlay-input overlay-textarea"
+          rows="10"
+          placeholder="Paste the JS the AI produced. Imports from base/webgl/visual-tags are auto-wired."
+          data-role="user-visual-code"
+        ></textarea>
+        <p class="overlay-help">
+          We auto-attach <code>WebGLFeatureVisualizer</code>, <code>FeatureVisualizer</code>, <code>registerFeatureVisualizer</code>,
+          and <code>VISUAL_TAGS</code> (no imports required; <code>user-</code> id prefix keeps things unique). If you import shaders,
+          add them in the attachments field below.
+        </p>
+      </section>
+
+      <section class="overlay-group">
+        <label class="overlay-label" for="user-visual-attachments">Attachments (JSON map)</label>
+        <textarea
+          id="user-visual-attachments"
+          class="overlay-input overlay-textarea"
+          rows="6"
+          placeholder='{ "./shaders/my-visual/fragment.glsl": "precision mediump float; ..."}'
+          data-role="user-visual-attachments"
+        ></textarea>
+        <p class="overlay-help">
+          Optional: provide extra files (e.g., shader strings) keyed by the import specifier used in your code.
+        </p>
+      </section>
+
+      <div class="overlay-actions overlay-actions--spread">
+        <button class="overlay-menu__button" type="button" data-role="user-visual-validate">Validate &amp; Preview</button>
+        <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="user-visual-export">
+          Copy submission payload
+        </button>
+        <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="user-visual-email">
+          Email submission
+        </button>
+      </div>
+
+      <section class="overlay-group">
+        <h4 class="overlay-label">Saved visuals</h4>
+        <div class="overlay-pills" data-role="user-visual-saved"></div>
+      </section>
+
+      <section class="overlay-group">
+        <h4 class="overlay-label">Status</h4>
+        <p class="overlay-help" data-role="user-visual-status" data-tone="info">Paste code and press Validate.</p>
+      </section>
+    </div>
+  </section>
+</template>

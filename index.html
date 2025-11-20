@@ -82,7 +82,6 @@
         try {
           await import('./scripts/main.min.js');
         } catch (error) {
-          console.warn('Falling back to development module', error);
           await import('./app/main.min.js');
         }
       };

@@ -19,6 +19,14 @@
   --color-text-soft: rgba(246, 243, 255, 0.55);
   --color-danger: #ff5e81;
 
+  /* Scrollbars */
+  --scrollbar-size: 12px;
+  --scrollbar-radius: 12px;
+  --scrollbar-track-color: rgba(246, 243, 255, 0.06);
+  --scrollbar-thumb-color: rgba(233, 84, 32, 0.9);
+  --scrollbar-thumb-hover-color: rgba(233, 84, 32, 1);
+  --scrollbar-thumb-gradient: linear-gradient(180deg, var(--color-primary-strong), var(--color-secondary));
+
   /* Layout */
   --overlay-width: 320px;
   --overlay-width-desktop: 360px;

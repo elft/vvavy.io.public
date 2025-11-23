@@ -65,19 +65,57 @@
     <link rel="stylesheet" href="./styles/utilities.css" />
   </head>
   <body>
+    <div style="position: absolute; width: 32px; height: 32px; top: 16px; right: 16px; z-index: 1000;">
+      <button is="google-cast-button" id="cast-button"></button>
+    </div>
     <div class="welcome-screen is-hidden" data-role="welcome"></div>
     <div class="app-shell is-hidden" data-role="app-shell">
       <div class="export-panel is-hidden" data-role="export-panel"></div>
       <main class="visual-stage" aria-live="polite">
         <canvas id="visualizer-canvas"></canvas>
+        <div class="cast-overlay" data-role="cast-overlay" hidden aria-live="polite">
+          <div class="cast-overlay__panel">
+            <p class="cast-overlay__eyebrow">Casting</p>
+            <h2 class="cast-overlay__title">
+              Casting to <span data-role="cast-device-label">receiver</span>
+            </h2>
+            <p class="cast-overlay__hint">
+              Playback runs on your Cast device. Controls here will steer the receiver.
+            </p>
+            <label class="cast-overlay__volume">
+              <span class="cast-overlay__volume-label">Receiver volume</span>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value="100"
+                data-role="cast-volume-input"
+                aria-label="Receiver volume"
+              />
+            </label>
+          </div>
+        </div>
       </main>
       <footer class="site-footer"></footer>
     </div>
 
     <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
     <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
-
     <script type="module">
+      var initializeCastApi = function() {
+          let applicationId = 'FD7D29B2'; //CC1AD845,B2B73543,FD7D29B2
+          cast.framework.CastContext.getInstance().setOptions({
+              receiverApplicationId: applicationId,
+              autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+          });
+      };
+      window['__onGCastApiAvailable'] = function(isAvailable) {
+        if (isAvailable) {
+          console.log('Cast API is available');
+          initializeCastApi();
+        }
+      };
       const bootstrap = async () => {
         try {
           await import('./scripts/main.min.js');
@@ -87,5 +125,6 @@
       };
       bootstrap();
     </script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
   </body>
 </html>

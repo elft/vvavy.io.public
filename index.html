@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="./styles/utilities.css" />
   </head>
   <body>
-    <div style="position: absolute; width: 32px; height: 32px; top: 16px; right: 16px; z-index: 1000;">
+    <div style="position: absolute; width: 32px; height: 32px; top: 16px; right: 16px; z-index: 1;">
       <button is="google-cast-button" id="cast-button"></button>
     </div>
     <div class="welcome-screen is-hidden" data-role="welcome"></div>
@@ -94,6 +94,9 @@
                 aria-label="Receiver volume"
               />
             </label>
+            <button type="button" class="cast-overlay__debug" data-role="cast-debug-toggle" aria-pressed="false">
+              Show debug overlay
+            </button>
           </div>
         </div>
       </main>

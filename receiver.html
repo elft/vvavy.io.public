@@ -27,6 +27,43 @@
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
       z-index: 2;
     }
+    #fps-overlay {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #e8f5ff;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      z-index: 3;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+    }
+    #fps-overlay strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #9ad1ff;
+      margin-bottom: 2px;
+    }
+    #fps-overlay .fps-row {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+    }
+    #fps-overlay .fps-current {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    #fps-overlay .fps-cap {
+      color: rgba(232, 245, 255, 0.8);
+      font-size: 12px;
+    }
   </style>
     <link rel="stylesheet" href="./styles/tokens.css" />
     <link rel="stylesheet" href="./styles/base.css" />
@@ -36,6 +73,13 @@
 </head>
 
 <body>
+  <div id="fps-overlay" aria-live="polite" hidden>
+    <strong>FPS</strong>
+    <div class="fps-row">
+      <div class="fps-current" data-role="fps-value">--</div>
+      <div class="fps-cap" data-role="fps-cap">Display: --</div>
+    </div>
+  </div>
   <canvas id="visualizer-canvas"></canvas>
   <audio id="receiver-audio" playsinline></audio>
   <script type="module" src="./scripts/cast/receiver.min.js"></script>

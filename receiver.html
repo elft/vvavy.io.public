@@ -29,25 +29,27 @@
     }
     #fps-overlay {
       position: fixed;
-      top: 16px;
-      right: 16px;
-      padding: 10px 14px;
-      background: rgba(0, 0, 0, 0.7);
+      top: 10px;
+      right: 10px;
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.78);
       color: #e8f5ff;
       font-family: system-ui, -apple-system, sans-serif;
-      font-size: 13px;
-      line-height: 1.4;
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      font-size: 11px;
+      line-height: 1.3;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       z-index: 3;
       pointer-events: none;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(5px);
+      max-width: min(340px, 52vw);
     }
     #fps-overlay strong {
       display: block;
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 700;
       color: #9ad1ff;
+      letter-spacing: 0.02em;
       margin-bottom: 2px;
     }
     #fps-overlay .fps-row {
@@ -56,13 +58,38 @@
       align-items: baseline;
     }
     #fps-overlay .fps-current {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
     #fps-overlay .fps-cap {
       color: rgba(232, 245, 255, 0.8);
-      font-size: 12px;
+      font-size: 11px;
+    }
+    #fps-overlay .debug-title {
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #cbe6ff;
+      letter-spacing: 0.01em;
+    }
+    #fps-overlay .debug-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3px 6px;
+      margin-top: 3px;
+      color: rgba(232, 245, 255, 0.9);
+      font-size: 10px;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+    #fps-overlay .debug-label {
+      color: rgba(232, 245, 255, 0.65);
+    }
+    #fps-overlay .debug-value {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
     }
   </style>
     <link rel="stylesheet" href="./styles/tokens.css" />
@@ -78,6 +105,32 @@
     <div class="fps-row">
       <div class="fps-current" data-role="fps-value">--</div>
       <div class="fps-cap" data-role="fps-cap">Display: --</div>
+    </div>
+    <span class="debug-title">GPU</span>
+    <div class="debug-grid">
+      <div class="debug-label">Status</div>
+      <div class="debug-value" data-role="gdebugger-status">--</div>
+      <div class="debug-label">Context</div>
+      <div class="debug-value" data-role="gl-context">--</div>
+      <div class="debug-label">Renderer</div>
+      <div class="debug-value" data-role="gpu-renderer">--</div>
+      <div class="debug-label">Vendor</div>
+      <div class="debug-value" data-role="gpu-vendor">--</div>
+      <div class="debug-label">GL</div>
+      <div class="debug-value" data-role="gl-version">--</div>
+      <div class="debug-label">Shader</div>
+      <div class="debug-value" data-role="gl-shading-language">--</div>
+    </div>
+    <span class="debug-title">Canvas</span>
+    <div class="debug-grid">
+      <div class="debug-label">CSS size</div>
+      <div class="debug-value" data-role="canvas-css">--</div>
+      <div class="debug-label">Resolution</div>
+      <div class="debug-value" data-role="canvas-res">--</div>
+      <div class="debug-label">DPR</div>
+      <div class="debug-value" data-role="device-pixel-ratio">--</div>
+      <div class="debug-label">AA</div>
+      <div class="debug-value" data-role="gl-aa">--</div>
     </div>
   </div>
   <canvas id="visualizer-canvas"></canvas>

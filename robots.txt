@@ -1,0 +1,9 @@
+# vvavy.io robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://vvavy.io/sitemap.xml
+
+# Crawl-delay (optional, helps prevent overloading)
+Crawl-delay: 1

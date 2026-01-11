@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Main page -->
+  <url>
+    <loc>https://vvavy.io/</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://vvavy.io/images/preview.png</image:loc>
+      <image:title>VVavy Audio Visualizer</image:title>
+    </image:image>
+  </url>
+
+  <!-- Legal page -->
+  <url>
+    <loc>https://vvavy.io/legal.html</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Receiver page -->
+  <url>
+    <loc>https://vvavy.io/receiver.html</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

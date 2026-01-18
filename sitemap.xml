@@ -5,13 +5,61 @@
   <!-- Main page -->
   <url>
     <loc>https://vvavy.io/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://vvavy.io/images/preview.png</image:loc>
       <image:title>VVavy Audio Visualizer</image:title>
     </image:image>
+  </url>
+
+  <!-- Feature: Create Visuals -->
+  <url>
+    <loc>https://vvavy.io/#create</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Feature: Upload Audio -->
+  <url>
+    <loc>https://vvavy.io/#upload</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Feature: SoundCloud -->
+  <url>
+    <loc>https://vvavy.io/#soundcloud</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Feature: Export -->
+  <url>
+    <loc>https://vvavy.io/#export</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Feature: Chromecast -->
+  <url>
+    <loc>https://vvavy.io/#chromecast</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact & Social -->
+  <url>
+    <loc>https://vvavy.io/#contact</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Legal page -->

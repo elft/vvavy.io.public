@@ -485,7 +485,7 @@
 .overlay-sheet__socials {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 .overlay-sheet__social-link {
@@ -513,11 +513,16 @@
   flex-shrink: 0;
 }
 
-.overlay-sheet__footer-links {
+.overlay-sheet__footer-right {
   display: flex;
   align-items: center;
   gap: var(--space-8);
   flex: 0 1 auto;
+}
+
+.overlay-sheet__footer-separator {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
 }
 
 .overlay-sheet__footer-link {
@@ -1243,34 +1248,102 @@
 }
 
 @media (max-width: 600px) {
-  .footer-bar {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-  }
-
-  .footer-progress {
-    height: 32px;
-    margin-top: var(--space-3);
-  }
-
-  .footer-progress__input::-webkit-slider-thumb,
-  .footer-progress__input::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+  /* Hide footer when overlay is open */
+  body:has(.overlay-backdrop:not(.is-hidden)) .footer-bar {
+    display: none;
   }
 
   .overlay-sheet {
     max-width: 100%;
+    height: 100dvh;
+    width: 100vw;
+    border: none;
     border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+
+  .overlay-sheet__header {
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: var(--space-6) var(--space-8);
+  }
+
+  .overlay-menu {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--space-8) var(--space-8);
+  }
+
+  .overlay-menu__button {
+    padding: var(--space-6) var(--space-8);
+    font-size: 12px;
+  }
+
+  .overlay-sheet__footer {
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: var(--space-6);
+    flex-direction: row;
+    gap: var(--space-6);
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--color-border-muted);
   }
 
   .overlay-sheet__header,
   .overlay-body,
-  .overlay-menu,
   .overlay-form {
-    padding-left: var(--space-10);
-    padding-right: var(--space-10);
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .overlay-sheet__footer-left {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .overlay-sheet__footer-label {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .overlay-sheet__socials {
+    gap: var(--space-3);
+  }
+
+  .overlay-sheet__social-link {
+    width: 24px;
+    height: 24px;
+  }
+
+  .overlay-sheet__social-link svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .overlay-sheet__footer-right {
+    flex: 0 1 auto;
+    gap: var(--space-3);
+  }
+
+  .overlay-sheet__footer-separator {
+    font-size: 9px;
+    padding: 0 12px;
+  }
+
+  .overlay-sheet__footer-link {
+    padding: var(--space-3) var(--space-4);
+    font-size: 9px;
   }
 }
 

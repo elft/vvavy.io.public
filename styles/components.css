@@ -853,9 +853,20 @@
   gap: var(--space-4);
 }
 
+.visuals-create__header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
 .visuals-create__actions {
   display: flex;
   gap: var(--space-4);
+  margin-top: 0;
+}
+
+.visuals-create__actions .overlay-menu__button + .overlay-menu__button {
   margin-top: 0;
 }
 

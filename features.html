@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>VVavy Features | Audio Reactive Visuals, Exports, Chromecast</title>
+    <meta
+      name="description"
+      content="VVavy is a free, no-signup audio visualizer that runs in your browser. Create audio-reactive visuals with no code, choose from 60+ visuals, export for social, and Chromecast." />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="VVavy Features" />
+    <meta property="og:site_name" content="VVavy" />
+    <meta
+      property="og:description"
+      content="Free, no-signup audio visualizer in your browser: 60+ visuals, no-code creation, exports for social, custom visuals, and Chromecast." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vvavy.io/features.html" />
+    <meta property="og:image" content="https://vvavy.io/images/preview.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VVavy Features" />
+    <meta
+      name="twitter:description"
+      content="Free, no-signup audio visualizer in your browser: 60+ visuals, no-code creation, exports for social, custom visuals, and Chromecast." />
+    <meta name="twitter:image" content="https://vvavy.io/images/preview.png" />
+    <meta name="twitter:url" content="https://vvavy.io/features.html" />
+
+    <link rel="canonical" href="https://vvavy.io/features.html" />
+    <meta name="theme-color" content="#772953" />
+
+    <link rel="icon" type="image/x-icon" href="./images/vvavy_favicon_32.ico" />
+    <link rel="icon" type="image/png" sizes="256x256" href="./images/vvavy_favicon_256.png" />
+    <link rel="apple-touch-icon" sizes="256x256" href="./images/vvavy_favicon_256.png" />
+    <link rel="shortcut icon" href="./images/vvavy_favicon_32.ico" />
+
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/utilities.css" />
+
+    <link rel="preconnect" href="https://www.tiktok.com" crossorigin />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "VVavy Features",
+        "description": "VVavy is a free, no-signup audio visualizer that runs in your browser. Create audio-reactive visuals with no code, choose from 60+ visuals, export for social, and Chromecast.",
+        "url": "https://vvavy.io/features.html",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "VVavy",
+          "url": "https://vvavy.io/"
+        },
+        "about": {
+          "@type": "SoftwareApplication",
+          "name": "VVavy",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": 0,
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Free, no-signup, in-browser",
+            "No-code audio reactive visuals",
+            "60+ built-in visuals",
+            "Custom visual creator",
+            "Export clips for social",
+            "Multiple audio sources",
+            "Chromecast / Google Cast"
+          ]
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is VVavy free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. VVavy is free to use in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to sign up or download anything?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No signup and no download required. Open VVavy and start creating visuals immediately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What audio sources can I use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can use uploaded audio files, SoundCloud tracks, or your microphone for live input."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export videos for TikTok/Reels/Shorts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. VVavy can export audio + visuals as shareable clips designed for vertical feeds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I make my own visuals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use VVavy's custom visual editor to create your own audio-reactive visuals without coding."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      html,
+      body {
+        overflow: auto;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100svh;
+      }
+
+      .features-shell {
+        min-height: 100vh;
+        min-height: 100svh;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(233, 84, 32, 0.22), transparent 58%),
+          radial-gradient(circle at 82% 18%, rgba(119, 41, 83, 0.24), transparent 58%),
+          radial-gradient(circle at 60% 80%, rgba(233, 84, 32, 0.14), transparent 60%),
+          var(--color-dark);
+        padding: var(--space-24) var(--space-16) calc(var(--space-24) * 2);
+      }
+
+      .features-wrap {
+        width: min(980px, 100%);
+        margin: 0 auto;
+        display: grid;
+        gap: var(--space-20);
+      }
+
+      .features-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-12);
+        padding: var(--space-10) var(--space-12);
+        background: var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        box-shadow: var(--overlay-shadow);
+      }
+
+      .features-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-10);
+        text-decoration: none;
+        color: var(--color-text);
+      }
+
+      .features-brand img {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        box-shadow: 0 14px 32px rgba(6, 4, 12, 0.55);
+      }
+
+      .features-brand strong {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: var(--font-size-sm);
+      }
+
+      .features-nav {
+        display: flex;
+        gap: var(--space-10);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .features-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-6) var(--space-10);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+        background: var(--color-overlay);
+        transition: background var(--transition-medium), border-color var(--transition-medium);
+      }
+
+      .features-nav a:hover,
+      .features-nav a:focus-visible {
+        background: rgba(246, 243, 255, 0.06);
+        border-color: var(--color-border);
+      }
+
+      .features-hero {
+        border-radius: var(--overlay-radius);
+        background: linear-gradient(135deg, rgba(233, 84, 32, 0.14), rgba(119, 41, 83, 0.18)),
+          var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        box-shadow: var(--overlay-shadow);
+        backdrop-filter: blur(12px);
+        padding: var(--space-20);
+      }
+
+      .features-shell .overlay-menu__button.features-btn--secondary {
+        background: transparent;
+        color: var(--color-text);
+        border-color: var(--color-border-muted);
+        box-shadow: none;
+      }
+
+      .features-shell .overlay-menu__button.features-btn--secondary:hover,
+      .features-shell .overlay-menu__button.features-btn--secondary:focus-visible {
+        background: rgba(246, 243, 255, 0.06);
+        border-color: var(--color-border);
+      }
+
+      .features-hero h1 {
+        margin: 0;
+        font-size: clamp(26px, 3.4vw, 38px);
+        letter-spacing: 0.04em;
+      }
+
+      .features-hero p {
+        margin: var(--space-10) 0 0;
+        color: var(--color-text-soft);
+        max-width: 70ch;
+      }
+
+      .features-grid {
+        display: grid;
+        gap: var(--space-12);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .feature-card {
+        position: relative;
+        background: var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        box-shadow: var(--overlay-shadow);
+        border-radius: var(--overlay-radius);
+        padding: var(--space-16);
+        display: grid;
+        gap: var(--space-8);
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: radial-gradient(circle at 18% 12%, rgba(233, 84, 32, 0.38), transparent 55%),
+          radial-gradient(circle at 85% 80%, rgba(119, 41, 83, 0.32), transparent 55%);
+        opacity: 0.12;
+        pointer-events: none;
+      }
+
+      .feature-card__top {
+        display: flex;
+        align-items: center;
+        gap: var(--space-10);
+      }
+
+      .feature-card__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        border: 1px solid var(--color-border-muted);
+        background: linear-gradient(135deg, rgba(233, 84, 32, 0.18), rgba(119, 41, 83, 0.18)),
+          rgba(12, 10, 20, 0.55);
+        display: grid;
+        place-items: center;
+        color: var(--color-text);
+        flex-shrink: 0;
+      }
+
+      .feature-card__icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .feature-card h2 {
+        margin: 0;
+        font-size: var(--font-size-lg);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--color-text-soft);
+      }
+
+      .features-subhead {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .features-section-title {
+        margin: 0;
+        font-size: clamp(18px, 2.2vw, 22px);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--color-text);
+      }
+
+      .features-lede {
+        margin: 0;
+        color: var(--color-text-muted);
+        max-width: 72ch;
+      }
+
+      .tier-grid {
+        display: grid;
+        gap: var(--space-12);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .tier-card {
+        position: relative;
+        background: var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        padding: var(--space-16);
+        box-shadow: var(--overlay-shadow);
+        overflow: hidden;
+      }
+
+      .tier-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      }
+
+      .tier-kicker {
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-8);
+      }
+
+      .tier-title {
+        margin: 0;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-text);
+      }
+
+      .tier-copy {
+        margin: var(--space-8) 0 0;
+        color: var(--color-text-soft);
+      }
+
+      .tier-list {
+        margin: var(--space-12) 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: var(--space-6);
+        color: var(--color-text-muted);
+      }
+
+      .tier-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-8);
+      }
+
+      .tier-list li::before {
+        content: '•';
+        color: var(--color-secondary);
+        line-height: 1;
+        margin-top: 2px;
+      }
+
+      .features-section {
+        position: relative;
+        display: grid;
+        gap: var(--space-12);
+        padding: var(--space-16);
+        background: rgba(12, 10, 20, 0.42);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        box-shadow: 0 18px 44px rgba(6, 4, 12, 0.45);
+      }
+
+      .features-section::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        opacity: 0.55;
+      }
+
+      .features-steps {
+        display: grid;
+        gap: var(--space-12);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .features-step {
+        background: var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        padding: var(--space-16);
+        box-shadow: var(--overlay-shadow);
+      }
+
+      .social-strip {
+        display: flex;
+        gap: var(--space-12);
+        overflow-x: auto;
+        padding: var(--space-8);
+        margin: calc(var(--space-8) * -1);
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .social-card {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        width: min(320px, 86vw);
+        border: 1px solid var(--color-border-muted);
+        background: var(--color-overlay);
+        box-shadow: var(--overlay-shadow);
+        border-radius: var(--overlay-radius);
+        overflow: hidden;
+        display: grid;
+      }
+
+      .social-card__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-10);
+        padding: var(--space-10) var(--space-12);
+        border-bottom: 1px solid var(--color-border-muted);
+      }
+
+      .social-card__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-8);
+        min-width: 0;
+      }
+
+      .social-card__avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(233, 84, 32, 0.32), rgba(119, 41, 83, 0.22));
+        border: 1px solid var(--color-border-muted);
+        flex-shrink: 0;
+      }
+
+      .social-card__handle {
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .social-card__badge {
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        border: 1px solid var(--color-border-muted);
+        padding: 4px 8px;
+        background: rgba(233, 84, 32, 0.12);
+      }
+
+      .social-card__media {
+        aspect-ratio: 9 / 16;
+        background: rgba(246, 243, 255, 0.04);
+        border-bottom: 1px solid var(--color-border-muted);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .social-card__media .tiktok-embed {
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        height: 100% !important;
+      }
+
+      .social-card__media .tiktok-embed iframe {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .social-card__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .social-card__bottom {
+        padding: var(--space-12);
+        display: grid;
+        gap: var(--space-8);
+      }
+
+      .social-card__line {
+        height: 10px;
+        background: rgba(246, 243, 255, 0.10);
+      }
+
+      .social-card__line.is-short {
+        width: 65%;
+      }
+
+      .social-card__line.is-mid {
+        width: 85%;
+      }
+
+      .social-card__cta {
+        margin-top: var(--space-4);
+        display: flex;
+        gap: var(--space-8);
+        flex-wrap: wrap;
+      }
+
+      .social-card__link {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color var(--transition-medium), color var(--transition-medium);
+        width: fit-content;
+      }
+
+      .social-card__link:hover,
+      .social-card__link:focus-visible {
+        color: var(--color-text);
+        border-color: var(--color-border-strong);
+      }
+
+      .features-step strong {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+      }
+
+      .features-step p {
+        margin: var(--space-8) 0 0;
+        color: var(--color-text-soft);
+      }
+
+      .features-footer {
+        margin-top: var(--space-16);
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-10);
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-10) var(--space-12);
+        background: var(--color-overlay);
+        border: 1px solid var(--color-border-muted);
+        border-radius: var(--overlay-radius);
+        box-shadow: var(--overlay-shadow);
+      }
+
+      .features-footer a {
+        color: var(--color-text);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color var(--transition-medium);
+      }
+
+      .features-footer a:hover,
+      .features-footer a:focus-visible {
+        border-color: var(--color-border-strong);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="features-shell">
+      <div class="features-wrap">
+        <header class="features-header">
+          <a class="features-brand" href="/" aria-label="Back to VVavy">
+            <img src="/images/vvavy_favicon_256.png" alt="VVavy" decoding="async" />
+            <strong>VVavy</strong>
+          </a>
+          <nav class="features-nav" aria-label="Feature page navigation">
+            <a href="/">Open VVavy</a>
+            <a href="#overview">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#examples">Examples</a>
+          </nav>
+        </header>
+
+        <main class="stack-lg" role="main">
+          <section class="features-hero">
+            <p class="features-subhead">Audio visualizer for artists, DJs &amp; creators</p>
+            <h1>Make your music look as good as it sounds</h1>
+            <p>
+              Drop in a track (or use SoundCloud / mic), pick a visual, and VVavy turns your audio into real‑time motion.
+              No signup. No download. Just open a tab and start. Make teaser clips, live backdrops, or a vibe for your stream.
+            </p>
+          </section>
+
+          <section class="features-section" id="features" aria-label="VVavy feature highlights">
+            <h2 class="features-section-title">The stuff you actually care about</h2>
+            <p class="features-lede">
+              Quick start, lots of looks, and easy ways to share. VVavy is built for making something you’d actually post.
+            </p>
+            <div class="features-grid">
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M8.5 12l2.2 2.2L15.8 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h2>Open it and go</h2>
+                </div>
+                <p>
+                  No signup. No download. If you can open a tab, you can make audio‑reactive visuals.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 14c2-6 6-10 10-10 3.5 0 6 2.5 6 6 0 4-3 8-7 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M4 14c2 2 4.5 3 7 3 5 0 8-4 9-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h2>Audio‑reactive, zero code</h2>
+                </div>
+                <p>
+                  Pick a visual, pick your audio source, and watch it move with the beat. Clean, trippy, loud, minimal.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 8h14M5 12h14M5 16h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M7 6v12M17 6v12" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                    </svg>
+                  </div>
+                  <h2>60+ built‑in looks</h2>
+                </div>
+                <p>
+                  Choose from 60+ visuals and styles (and growing). From minimal to chaotic, you can match the track fast.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3v18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M7 7l10 10" stroke="currentColor" stroke-width="1.2" opacity="0.65"/>
+                      <path d="M17 7L7 17" stroke="currentColor" stroke-width="1.2" opacity="0.65"/>
+                    </svg>
+                  </div>
+                  <h2>Make it yours</h2>
+                </div>
+                <p>
+                  Want a look nobody else has? Use the custom visual editor to build your own audio‑reactive style—no coding.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M8 9l4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M5 14v5h14v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h2>Export for the feed</h2>
+                </div>
+                <p>
+                  Export vertical clips that look right in TikTok/Reels/Shorts. Perfect for teasers, drops, and promos.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 14c2.5-2 5-3 8-3s5.5 1 8 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M6 18c2-1.4 3.8-2 6-2s4 .6 6 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
+                      <path d="M8 8l4-3 4 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h2>Use whatever audio</h2>
+                </div>
+                <p>
+                  Upload files, play SoundCloud tracks, or use your mic live for vocals, instruments, and reactions.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-card__top">
+                  <div class="feature-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M9 20h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M6 16V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M9 8h6" stroke="currentColor" stroke-width="1.4" opacity="0.7" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h2>Cast to a big screen</h2>
+                </div>
+                <p>
+                  Cast visuals to Chromecast / Google Cast devices for a full‑screen vibe on TVs and displays.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="features-section" id="examples" aria-label="Social preview">
+            <h2 class="features-section-title">Looks like a post (because it is one)</h2>
+            <p class="features-lede">
+              Swipe through real VVavy clips. If your track makes you feel something, your visuals should too.
+            </p>
+            <div class="social-strip" aria-label="Scrollable social previews">
+              <article class="social-card" aria-label="TikTok preview 1">
+                <div class="social-card__top">
+                  <div class="social-card__brand">
+                    <div class="social-card__avatar" aria-hidden="true"></div>
+                    <div class="social-card__handle">@vvavy.io</div>
+                  </div>
+                  <div class="social-card__badge">TikTok</div>
+                </div>
+                <div class="social-card__media" style="aspect-ratio: 9 / 16;">
+                  <blockquote
+                    class="tiktok-embed"
+                    cite="https://www.tiktok.com/@vvavy.io/video/7575299787138829582"
+                    data-video-id="7575299787138829582"
+                    style="max-width: 605px; min-width: 0;">
+                    <section>
+                      <a target="_blank" title="@vvavy.io" href="https://www.tiktok.com/@vvavy.io?refer=embed">@vvavy.io</a>
+                      <a target="_blank" title="Watch on TikTok" href="https://www.tiktok.com/@vvavy.io/video/7575299787138829582?refer=embed">Watch on TikTok</a>
+                    </section>
+                  </blockquote>
+                </div>
+                <div class="social-card__bottom">
+                  <a
+                    class="social-card__link"
+                    href="https://www.tiktok.com/@vvavy.io/video/7575299787138829582"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open on TikTok
+                  </a>
+                </div>
+              </article>
+
+              <article class="social-card" aria-label="TikTok preview 2">
+                <div class="social-card__top">
+                  <div class="social-card__brand">
+                    <div class="social-card__avatar" aria-hidden="true"></div>
+                    <div class="social-card__handle">@vvavy.io</div>
+                  </div>
+                  <div class="social-card__badge">TikTok</div>
+                </div>
+                <div class="social-card__media" style="aspect-ratio: 9 / 16;">
+                  <blockquote
+                    class="tiktok-embed"
+                    cite="https://www.tiktok.com/@vvavy.io/video/7578959582748347703"
+                    data-video-id="7578959582748347703"
+                    style="max-width: 605px; min-width: 0;">
+                    <section>
+                      <a target="_blank" title="@vvavy.io" href="https://www.tiktok.com/@vvavy.io?refer=embed">@vvavy.io</a>
+                      free live audio reactive visuals straight from your browser: https:&#47;&#47;vvavy.io
+                      <a title="vvavy" target="_blank" href="https://www.tiktok.com/tag/vvavy?refer=embed">#vvavy</a>
+                      <a title="realtime" target="_blank" href="https://www.tiktok.com/tag/realtime?refer=embed">#realtime</a>
+                      <a title="visualizer" target="_blank" href="https://www.tiktok.com/tag/visualizer?refer=embed">#visualizer</a>
+                      <a title="livevisuals" target="_blank" href="https://www.tiktok.com/tag/livevisuals?refer=embed">#livevisuals</a>
+                      <a target="_blank" title="♬ original sound - VVavy.io" href="https://www.tiktok.com/music/original-sound-7578959719617465102?refer=embed">♬ original sound - VVavy.io</a>
+                    </section>
+                  </blockquote>
+                </div>
+                <div class="social-card__bottom">
+                  <a
+                    class="social-card__link"
+                    href="https://www.tiktok.com/@vvavy.io/video/7578959582748347703"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open on TikTok
+                  </a>
+                </div>
+              </article>
+
+              <article class="social-card" aria-label="TikTok preview 3">
+                <div class="social-card__top">
+                  <div class="social-card__brand">
+                    <div class="social-card__avatar" aria-hidden="true"></div>
+                    <div class="social-card__handle">@vvavy.io</div>
+                  </div>
+                  <div class="social-card__badge">TikTok</div>
+                </div>
+                <div class="social-card__media" style="aspect-ratio: 9 / 16;">
+                  <blockquote
+                    class="tiktok-embed"
+                    cite="https://www.tiktok.com/@vvavy.io/video/7569386692612721933"
+                    data-video-id="7569386692612721933"
+                    style="max-width: 605px; min-width: 0;">
+                    <section>
+                      <a target="_blank" title="@vvavy.io" href="https://www.tiktok.com/@vvavy.io?refer=embed">@vvavy.io</a>
+                      Can your music make those pixels dance? Try your audio now https:&#47;&#47;vvavy.io
+                      <a title="audioreactivevisuals" target="_blank" href="https://www.tiktok.com/tag/audioreactivevisuals?refer=embed">#audioreactivevisuals</a>
+                      <a title="visualizers" target="_blank" href="https://www.tiktok.com/tag/visualizers?refer=embed">#visualizers</a>
+                      <a title="realtime" target="_blank" href="https://www.tiktok.com/tag/realtime?refer=embed">#realtime</a>
+                      <a title="soundcloud" target="_blank" href="https://www.tiktok.com/tag/soundcloud?refer=embed">#soundcloud</a>
+                      Song by @beaknasty
+                      <a target="_blank" title="♬ original sound  - VVavy.io" href="https://www.tiktok.com/music/original-sound-VVavyio-7569386702528154423?refer=embed">♬ original sound  - VVavy.io</a>
+                    </section>
+                  </blockquote>
+                </div>
+                <div class="social-card__bottom">
+                  <a
+                    class="social-card__link"
+                    href="https://www.tiktok.com/@vvavy.io/video/7569386692612721933"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open on TikTok
+                  </a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <footer class="features-footer" role="contentinfo">
+            <span>VVavy — we paint sound in color.</span>
+            <span>
+              <a href="/">Open VVavy</a>
+              ·
+              <a href="/legal.html">Terms &amp; privacy</a>
+            </span>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var loaded = false;
+        function loadTikTok() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.tiktok.com/embed.js';
+          document.body.appendChild(s);
+        }
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadTikTok, { timeout: 1500 });
+        } else {
+          setTimeout(loadTikTok, 900);
+        }
+
+        var el = document.querySelector('.social-strip');
+        if (!el || !('IntersectionObserver' in window)) return;
+        var io = new IntersectionObserver(function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              loadTikTok();
+              io.disconnect();
+              return;
+            }
+          }
+        });
+        io.observe(el);
+      })();
+    </script>
+  </body>
+</html>

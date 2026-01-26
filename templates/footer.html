@@ -46,12 +46,45 @@
     </div>
     <div class="footer-center">
       <button class="footer-btn footer-play" id="btn-footer-toggle" type="button" aria-label="Play or pause">
-        Play
+        <svg class="footer-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+          <polygon class="play-icon" points="5 3 19 12 5 21 5 3"></polygon>
+          <rect class="pause-icon" x="6" y="4" width="4" height="16" rx="1"></rect>
+          <rect class="pause-icon" x="14" y="4" width="4" height="16" rx="1"></rect>
+        </svg>
       </button>
     </div>
     <div class="footer-controls">
-      <button class="footer-btn" id="btn-menu" type="button" aria-label="Open menu">
-        Menu
+      <div class="footer-volume-container">
+        <button class="footer-btn footer-btn-icon-only" id="btn-volume-toggle" type="button" aria-label="Volume control">
+          <svg class="footer-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon class="volume-icon" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="volume-high" d="M15 9a3 3 0 0 1 0 6"></path>
+            <path class="volume-higher" d="M19 7a7 7 0 0 1 0 10"></path>
+            <line class="volume-mute" x1="23" y1="9" x2="17" y2="15"></line>
+            <line class="volume-mute" x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+        <div class="footer-volume-slider-container">
+          <input
+            class="footer-volume-slider"
+            id="volume-slider"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="100"
+            aria-label="Volume control"
+            orient="vertical"
+          />
+        </div>
+      </div>
+      <button class="footer-btn footer-btn-icon-only" id="btn-menu" type="button" aria-label="Menu">
+        <svg class="footer-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span class="footer-btn-text">Menu</span>
       </button>
     </div>
   </div>

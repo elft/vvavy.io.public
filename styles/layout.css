@@ -132,6 +132,7 @@
     padding: 0;
     align-items: stretch;
     justify-content: stretch;
+    overflow-y: hidden;
   }
   .export-panel {
     top: var(--space-8);

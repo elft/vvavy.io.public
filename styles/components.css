@@ -282,6 +282,10 @@
 }
 
 /* Play/Pause button state */
+.footer-play .footer-btn-text {
+  display: none !important;
+}
+
 .app-shell:not(.is-playing) .footer-play .pause-icon {
   display: none;
 }

@@ -1,14 +1,30 @@
 <template id="tpl-audio">
-  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="audio-title">
+  <section class="overlay-sheet overlay-sheet--audio" role="dialog" aria-modal="true" aria-labelledby="audio-title">
     <header class="overlay-sheet__header">
       <button class="overlay-link" type="button" data-view="menu">Back</button>
       <p class="overlay-title" id="audio-title">Audio</p>
       <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
     </header>
     <div class="overlay-menu overlay-menu--tight">
-      <button class="overlay-menu__button" type="button" data-source="file">File</button>
-      <button class="overlay-menu__button" type="button" data-source="mic">Mic</button>
-      <button class="overlay-menu__button" type="button" data-source="soundcloud">SoundCloud</button>
+      <button class="overlay-menu__button overlay-menu__button--icon" type="button" data-source="file">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="overlay-menu__label">File</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon" type="button" data-source="mic">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M19 11a7 7 0 0 1-14 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 21v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="overlay-menu__label">Mic</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon" type="button" data-source="soundcloud">
+        <img class="overlay-menu__icon overlay-menu__icon--image" src="/images/soundcloud.png" alt="" aria-hidden="true" />
+        <span class="overlay-menu__label">SoundCloud</span>
+      </button>
     </div>
   </section>
 </template>

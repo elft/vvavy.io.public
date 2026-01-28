@@ -266,11 +266,6 @@
   height: 20px;
 }
 
-.footer-play .footer-btn-icon {
-  width: 24px;
-  height: 24px;
-}
-
 .footer-btn-text {
   font-size: var(--font-size-xs);
   text-transform: uppercase;
@@ -404,10 +399,10 @@
   display: none;
 }
 
-/* Mobile: hide volume slider entirely */
+/* Mobile: keep volume slider available for tap */
 @media (max-width: 600px) {
   .footer-volume-slider-container {
-    display: none;
+    display: flex;
   }
 }
 
@@ -537,6 +532,13 @@
   overflow: hidden;
 }
 
+@media (max-width: 600px) {
+  .overlay-sheet--menu {
+    height: 100svh;
+    max-height: 100svh;
+  }
+}
+
 .overlay-sheet__header {
   display: flex;
   align-items: center;
@@ -607,6 +609,31 @@
 
 .overlay-menu__button + .overlay-menu__button {
   margin-top: var(--space-6);
+}
+
+.overlay-menu__button--icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-8);
+}
+
+.overlay-menu__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+}
+
+.overlay-menu__icon--image {
+  object-fit: contain;
+  filter: saturate(1.1);
+}
+
+.overlay-menu__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .overlay-menu__button:hover,
@@ -754,6 +781,11 @@
 
 .overlay-select {
   min-height: 140px;
+}
+
+.export-panel-shell .overlay-select {
+  min-height: 44px;
+  height: 44px;
 }
 
 .overlay-form {
@@ -1236,19 +1268,107 @@
 
 .export-panel-shell {
   width: 320px;
-  background: rgba(17, 12, 27, 0.92);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  border-radius: var(--radius-md);
-  padding: var(--space-14);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--overlay-radius);
   color: var(--color-text);
   pointer-events: auto;
-  box-shadow: 0 20px 40px rgba(5, 6, 12, 0.45);
-  position: relative;
+  box-shadow: var(--overlay-shadow);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.export-panel-shell .overlay-form__actions {
+  align-items: center;
+}
+
+.export-panel-shell .overlay-form__actions .overlay-menu__button {
+  margin-top: 0;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 600px) {
   .export-panel-shell {
-    width: 100%;
+    width: min(92vw, 320px);
+    top: var(--space-8);
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    max-height: 70svh;
+    border-radius: var(--overlay-radius);
+    border: 1px solid var(--color-border-muted);
+  }
+
+  .export-panel-shell .overlay-sheet__header {
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .export-panel-shell .overlay-title {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  .export-panel-shell .overlay-close {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .export-panel-shell .overlay-body {
+    padding: var(--space-6);
+  }
+
+  .export-panel-config {
+    gap: var(--space-6);
+  }
+
+  .export-field label,
+  .export-preset-meta,
+  .export-active-meta {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .export-field input,
+  .export-field select {
+    padding: var(--space-5) var(--space-6);
+    font-size: 11px;
+  }
+
+  .export-inline-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .export-panel-shell .overlay-form__actions {
+    margin-top: var(--space-6);
+    gap: var(--space-6);
+  }
+
+  .export-panel-shell .overlay-form__actions .overlay-menu__button {
+    min-height: 38px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .export-active-status {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .export-stop-btn,
+  .export-primary-btn,
+  .export-secondary-btn {
+    padding: var(--space-5) var(--space-10);
+    font-size: 11px;
   }
 }
 
@@ -1324,8 +1444,31 @@
 
 .export-inline-fields {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-8);
+}
+
+.export-inline-fields .overlay-field + .overlay-field {
+  margin-top: 0;
+}
+
+.export-inline-fields .overlay-field {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.export-inline-fields .overlay-label {
+  line-height: 1.1;
+  min-height: 14px;
+  margin: 0;
+}
+
+.export-resize-btn {
+  margin-top: var(--space-6);
+  align-self: flex-start;
+  width: auto;
 }
 
 .export-preset-meta {
@@ -1346,6 +1489,19 @@
   font-size: var(--font-size-sm);
   cursor: pointer;
   transition: background var(--transition-medium), border-color var(--transition-medium);
+}
+
+.export-panel-actions {
+  display: flex;
+}
+
+.export-panel-shell[data-export-state='idle'] .export-stop-btn,
+.export-panel-shell[data-export-state='countdown'] .export-stop-btn {
+  display: none;
+}
+
+.export-panel-shell[data-export-state='active'] .export-primary-btn {
+  display: none;
 }
 
 .export-primary-btn[disabled] {
@@ -1377,10 +1533,10 @@
 }
 
 .export-countdown {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1388,7 +1544,11 @@
   background: rgba(17, 12, 27, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: var(--radius-md);
-  padding: var(--space-16) 0;
+  padding: var(--space-4) 0;
+}
+
+.export-panel-shell[data-export-state='countdown'] .export-countdown {
+  display: flex;
 }
 
 .export-panel-active {
@@ -1480,6 +1640,7 @@
     border-top: 1px solid var(--color-border-muted);
   }
 
+
   .overlay-sheet__header,
   .overlay-body,
   .overlay-form {
@@ -1527,6 +1688,16 @@
     padding: var(--space-3) var(--space-4);
     font-size: 9px;
   }
+
+  .export-panel-shell.overlay-sheet {
+    width: min(92vw, 320px);
+    height: auto;
+    max-height: 70svh;
+    border: 1px solid var(--color-border-muted);
+    border-radius: var(--overlay-radius);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 #cast-button {
@@ -1535,4 +1706,8 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
+}
+
+.js-loaded .seo-content {
+  display: none;
 }

@@ -1,6 +1,8 @@
 # vvavy.io robots.txt
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /features.html
 
 # Sitemaps
 Sitemap: https://vvavy.io/sitemap.xml

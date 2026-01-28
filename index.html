@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <!-- SEO Meta Tags -->
-    <title>VVavy - Free Real-Time Audio Visualizer | MP3, SoundCloud, Microphone</title>
-    <meta name="description"
-        content="Create stunning audio visualizations for free. Real-time music visualizer for MP3, SoundCloud, microphone, and more. No signup required. Try trippy visual art now.">
-    <meta name="keywords"
-        content="audio visualizer, music visualizer, vvavy, audio reactive, visual music, mp3 visualizer, sound visualization, music to visual, audio spectrum analyzer, real-time audio visualization, web audio visualizer, free music visualizer">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE_HERE" />
 
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="VVavy - Transform Music into Visual Art">
-    <meta property="og:description"
-        content="Free real time audio visualizer that transforms your music into mesmerizing visual experiences. Upload audio files, search SoundCloud or use your microphone.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vvavy.io">
-    <meta property="og:image" content="https://vvavy.io/images/preview.png">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- SEO Meta Tags -->
+  <title>VVavy - Free Real-Time Audio Visualizer | MP3, SoundCloud, Microphone</title>
+  <meta name="description"
+    content="Create stunning audio visualizations for free. Real-time music visualizer for MP3, SoundCloud, microphone, and more. No signup required. Try trippy visual art now.">
+  <meta name="keywords"
+    content="audio visualizer, music visualizer, vvavy, audio reactive, visual music, mp3 visualizer, sound visualization, music to visual, audio spectrum analyzer, real-time audio visualization, web audio visualizer, free music visualizer">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE_HERE" />
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VVavy - Transform Music into Visual Art">
-    <meta name="twitter:description"
-        content="Free real-time audio visualizer that transforms your music into mesmerizing visual experiences.">
-    <meta name="twitter:image" content="https://vvavy.io/images/preview.png">
-    <meta name="twitter:image:alt" content="Preview of the VVavy audio visualizer interface">
-    <meta name="twitter:url" content="https://vvavy.io">
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="VVavy - Transform Music into Visual Art">
+  <meta property="og:description"
+    content="Free real time audio visualizer that transforms your music into mesmerizing visual experiences. Upload audio files, search SoundCloud or use your microphone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vvavy.io">
+  <meta property="og:image" content="https://vvavy.io/images/preview.png">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://vvavy.io">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VVavy - Transform Music into Visual Art">
+  <meta name="twitter:description"
+    content="Free real-time audio visualizer that transforms your music into mesmerizing visual experiences.">
+  <meta name="twitter:image" content="https://vvavy.io/images/preview.png">
+  <meta name="twitter:image:alt" content="Preview of the VVavy audio visualizer interface">
+  <meta name="twitter:url" content="https://vvavy.io">
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#772953">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://vvavy.io">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./images/vvavy_favicon_32.ico">
-    <link rel="icon" type="image/png" sizes="256x256" href="./images/vvavy_favicon_256.png">
-    <link rel="apple-touch-icon" sizes="256x256" href="./images/vvavy_favicon_256.png">
-    <link rel="shortcut icon" href="./images/vvavy_favicon_32.ico">
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#772953">
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="./images/vvavy_favicon_256.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="./images/vvavy_favicon_256.png">
+  <link rel="shortcut icon" href="./images/favicon.ico">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -97,8 +95,8 @@
     }
     </script>
 
-    <!-- FAQ Schema for Rich Snippets -->
-    <script type="application/ld+json">
+  <!-- FAQ Schema for Rich Snippets -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -154,76 +152,141 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="./styles/tokens.css" />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/layout.css" />
-    <link rel="stylesheet" href="./styles/components.css" />
-    <link rel="stylesheet" href="./styles/utilities.css" />
-  </head>
-  <body>
-    <div style="position: absolute; width: 32px; height: 32px; top: 16px; right: 16px; z-index: 1;">
-      <button is="google-cast-button" id="cast-button"></button>
-    </div>
-    <div class="welcome-screen is-hidden" data-role="welcome"></div>
-    <div class="app-shell is-hidden" data-role="app-shell">
-      <div class="export-panel is-hidden" data-role="export-panel"></div>
-      <main class="visual-stage" aria-live="polite">
-        <canvas id="visualizer-canvas"></canvas>
-        <div class="cast-overlay" data-role="cast-overlay" hidden aria-live="polite">
-          <div class="cast-overlay__panel">
-            <p class="cast-overlay__eyebrow">Casting</p>
-            <h2 class="cast-overlay__title">
-              Casting to <span data-role="cast-device-label">receiver</span>
-            </h2>
-            <p class="cast-overlay__hint">
-              Playback runs on your Cast device. Controls here will steer the receiver.
-            </p>
-            <label class="cast-overlay__volume">
-              <span class="cast-overlay__volume-label">Receiver volume</span>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                step="1"
-                value="100"
-                data-role="cast-volume-input"
-                aria-label="Receiver volume"
-              />
-            </label>
-            <button type="button" class="cast-overlay__debug" data-role="cast-debug-toggle" aria-pressed="false">
-              Show debug overlay
-            </button>
-          </div>
-        </div>
-      </main>
-      <footer class="site-footer"></footer>
-    </div>
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/layout.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/utilities.css" />
+</head>
 
-    <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
-    <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
-    <script type="module">
-      var initializeCastApi = function() {
-          let applicationId = 'FD7D29B2'; //CC1AD845,B2B73543,FD7D29B2
-          cast.framework.CastContext.getInstance().setOptions({
-              receiverApplicationId: applicationId,
-              autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
-          });
-      };
-      window['__onGCastApiAvailable'] = function(isAvailable) {
-        if (isAvailable) {
-          console.log('Cast API is available');
-          initializeCastApi();
-        }
-      };
-      const bootstrap = async () => {
-        try {
-          await import('./scripts/main.min.js');
-        } catch (error) {
-          await import('./app/main.min.js');
-        }
-      };
-      bootstrap();
-    </script>
-    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-  </body>
+<body>
+  <div style="position: absolute; width: 32px; height: 32px; top: 16px; right: 16px; z-index: 1;">
+    <button is="google-cast-button" id="cast-button"></button>
+  </div>
+  <div class="welcome-screen is-hidden" data-role="welcome"></div>
+  <div class="app-shell is-hidden" data-role="app-shell">
+    <div class="export-panel is-hidden" data-role="export-panel"></div>
+    <main class="visual-stage" aria-live="polite">
+      <canvas id="visualizer-canvas"></canvas>
+      <div class="cast-overlay" data-role="cast-overlay" hidden aria-live="polite">
+        <div class="cast-overlay__panel">
+          <p class="cast-overlay__eyebrow">Casting</p>
+          <h2 class="cast-overlay__title">
+            Casting to <span data-role="cast-device-label">receiver</span>
+          </h2>
+          <p class="cast-overlay__hint">
+            Playback runs on your Cast device. Controls here will steer the receiver.
+          </p>
+          <label class="cast-overlay__volume">
+            <span class="cast-overlay__volume-label">Receiver volume</span>
+            <input type="range" min="0" max="100" step="1" value="100" data-role="cast-volume-input"
+              aria-label="Receiver volume" />
+          </label>
+          <button type="button" class="cast-overlay__debug" data-role="cast-debug-toggle" aria-pressed="false">
+            Show debug overlay
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer"></footer>
+  </div>
+
+  <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
+  <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
+   <!-- SEO CONTENT: Visible to search engines, optional to hide after app loads -->
+  <section class="seo-content" role="region" aria-label="Free Audio Visualizer Information">
+    <header>
+      <h1>Free Real-Time Audio Visualizer Online</h1>
+      <p>
+        <strong>VVavy</strong> is a free, browser-based audio visualizer that transforms
+        music and sound into real-time, audio-reactive visuals. Visualize MP3 files,
+        stream music from SoundCloud, or use your microphone for live audio visualization —
+        no signup, no installs, and no watermarks.
+      </p>
+    </header>
+
+    <section>
+      <h2>What Is a Real-Time Audio Visualizer?</h2>
+      <p>
+        A real-time audio visualizer converts sound frequencies, beats, and volume into
+        animated visuals as the audio plays. Unlike pre-rendered music visualizer videos,
+        VVavy reacts instantly to live audio, making it ideal for DJs, streamers, VJs,
+        live performances, and creative experimentation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Use VVavy?</h2>
+      <ul>
+        <li>Free audio visualizer with no account required</li>
+        <li>True real-time audio-reactive visuals (not pre-generated)</li>
+        <li>Works directly in your browser using WebGL</li>
+        <li>Supports MP3, WAV, OGG, SoundCloud, and microphone input</li>
+        <li>Ideal for live music visuals, streaming overlays, and visual art</li>
+        <li>Optional video export for sharing on YouTube and social media</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Free Audio Visualizer for Music, Streaming, and Live Sound</h2>
+      <p>
+        VVavy is commonly used as a live audio visualizer for music streams, DJ sets,
+        ambient visuals, coding experiments, and audio-reactive art. Because everything
+        runs locally in your browser, your audio stays private and responsive with
+        low latency.
+      </p>
+    </section>
+
+    <section>
+      <h2>Supported Audio Sources</h2>
+      <p>
+        This free online audio visualizer works with uploaded audio files, SoundCloud
+        tracks, and live microphone input. Whether you want to visualize music, voice,
+        or environmental sound, VVavy adapts in real time.
+      </p>
+    </section>
+
+    <section>
+      <h2>Is VVavy Really Free?</h2>
+      <p>
+        Yes. VVavy is a completely free audio visualizer. There are no subscriptions,
+        no watermarks, and no forced signups. Simply open the site and start visualizing
+        your sound instantly.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Looking for a free audio visualizer online that reacts in real time?
+        VVavy lets you visualize sound the moment it plays.
+      </p>
+    </footer>
+  </section>
+  <script type="module">
+    document.documentElement.classList.add('js-loaded');
+    var initializeCastApi = function () {
+      let applicationId = 'FD7D29B2'; //CC1AD845,B2B73543,FD7D29B2
+      cast.framework.CastContext.getInstance().setOptions({
+        receiverApplicationId: applicationId,
+        autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+      });
+    };
+    window['__onGCastApiAvailable'] = function (isAvailable) {
+      if (isAvailable) {
+        console.log('Cast API is available');
+        initializeCastApi();
+      }
+    };
+    const bootstrap = async () => {
+      try {
+        await import('./scripts/main.min.js');
+      } catch (error) {
+        await import('./app/main.min.js');
+      }
+    };
+    bootstrap();
+  </script>
+  <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+</body>
+
 </html>

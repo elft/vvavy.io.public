@@ -16,7 +16,7 @@
 
   <!-- Features overview -->
   <url>
-    <loc>https://vvavy.io/features.html</loc>
+    <loc>https://vvavy.io/features</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -24,18 +24,10 @@
 
   <!-- Legal page -->
   <url>
-    <loc>https://vvavy.io/legal.html</loc>
+    <loc>https://vvavy.io/legal</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
-  </url>
-
-  <!-- Receiver page -->
-  <url>
-    <loc>https://vvavy.io/receiver.html</loc>
-    <lastmod>2026-01-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 
 </urlset>

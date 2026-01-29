@@ -990,10 +990,31 @@
   background: rgba(70, 52, 110, 0.85);
 }
 
+.visual-result--new {
+  border-color: rgba(245, 197, 66, 0.6);
+  box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.35);
+}
+
 .visual-result__description {
   font-size: var(--font-size-xs);
   color: var(--color-text-soft);
   line-height: 1.4;
+}
+
+.visual-result__new-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--space-4);
+  padding: 0 var(--space-4);
+  border-radius: 999px;
+  border: 1px solid rgba(245, 197, 66, 0.65);
+  background: rgba(245, 197, 66, 0.18);
+  color: #f5c542;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .visual-result__footer {

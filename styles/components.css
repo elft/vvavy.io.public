@@ -534,8 +534,17 @@
 
 @media (max-width: 600px) {
   .overlay-sheet--menu {
+    height: 100vh;
+    max-height: 100vh;
     height: 100svh;
     max-height: 100svh;
+  }
+
+  @supports (height: 100dvh) {
+    .overlay-sheet--menu {
+      height: 100dvh;
+      max-height: 100dvh;
+    }
   }
 }
 

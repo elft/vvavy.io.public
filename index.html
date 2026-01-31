@@ -190,7 +190,7 @@
   <div class="overlay-backdrop is-hidden" data-role="overlay-backdrop"></div>
   <div class="overlay-panel is-hidden" data-role="controls-overlay"></div>
    <!-- SEO CONTENT: Visible to search engines, optional to hide after app loads -->
-  <section class="seo-content" role="region" aria-label="Free Audio Visualizer Information">
+  <section style="visibility: hidden;" role="region" aria-label="Free Audio Visualizer Information">
     <header>
       <h1>Free Real-Time Audio Visualizer Online</h1>
       <p>
@@ -259,7 +259,6 @@
     </footer>
   </section>
   <script type="module">
-    document.documentElement.classList.add('js-loaded');
     var initializeCastApi = function () {
       let applicationId = 'FD7D29B2'; //CC1AD845,B2B73543,FD7D29B2
       cast.framework.CastContext.getInstance().setOptions({

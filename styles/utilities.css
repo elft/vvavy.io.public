@@ -9,10 +9,6 @@
   border: 0;
 }
 
-.stack-sm > * + * {
-  margin-top: var(--space-6);
-}
-
 .stack-md > * + * {
   margin-top: var(--space-12);
 }

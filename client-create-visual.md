@@ -72,6 +72,7 @@ precision mediump int;
 - Dynamics / stereo: `lowRise` (sub+bass lift), `midSideRatio` (mid vs side energy), `interchannelCorrelation` (phase alignment), `stereoBalance` (-1 left → +1 right), `stereoSpread` (width 0–1).
 - Rhythm & timbre: `melodyChangeScore` (smoothed melodic change), `isBeat` (boolean beat flag), `beatConfidence` (0–1 trust), `novelty` (onset strength), `flutterIntensity` (rapid oscillation), `reverbTail` (decay presence).
 - Optional extras: `tempo` (BPM), `beatPhase` (0–1 within beat), `loudnessShortDb` / `loudnessIntegratedDb` (LUFS-long term).
+- Bucket rankings: `bucketRankings` (sorted array of `{ id, label, raw, score }`), `activeBucket` (top label), `bucketConfidence` (0–1 score of top bucket). You can override buckets with `config.audioBuckets`.
 
 ## Audio cues (discrete triggers from the analyzer)
 - `dropStart`: rising energy event (bool). `dropBloom`: post-drop bloom (bool). `dropScore`/`dropIntensity`: numeric strength for those drops.

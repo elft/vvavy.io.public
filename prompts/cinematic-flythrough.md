@@ -8,11 +8,11 @@ Geometry deformation and scale
 
 Camera movement and speed
 
-Color shifts and brightness
+Color shifts
 
 Spatial warping and distortion
 
-Emissive glow, pulses, or shockwaves
+Emissive pulses, or shockwaves
 
 On big drops or strong transients, the screen should visibly react: heavy distortion, space bending, brief chaos, explosive motion, or dramatic scene transitions that make the visual feel like it “hits” with the music.
 

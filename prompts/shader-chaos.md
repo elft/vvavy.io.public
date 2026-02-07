@@ -12,8 +12,6 @@ Bass: Drive the scale of the recursive folds and the intensity of the domain war
 
 Mids: Drive the fine-grained detail/complexity of the noise patterns.
 
-Highs/Treble: Drive the brightness, emissive glow pulses, and high-frequency 'shimmer.'
-
 Transients: A 'punch' uniform (0.0 to 1.0) that decays rapidly, triggering the physical distortion of the screen boundaries.
 
 Aesthetic Goals:

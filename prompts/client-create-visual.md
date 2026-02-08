@@ -44,6 +44,7 @@ precision mediump int;
 - Smooth inputs with lerp/attack-release and let metric history bias the big sweeps (centroid-driven palettes, LUT shifts) over full phrases so the scene evolves instead of flickering.
 - Use dropIntensity, spectralFlux, and novelty as set-piece triggers that resolve over a few seconds rather than constant pulsing.
 - Keep the camera steady unless requested; never drive camera transforms from stereoBalance (use stereo only for lateral effects), and avoid flashes unless explicitly asked for.
+- Maintain a baseline time advance that does not depend on audio metrics so motion never freezes unless the user explicitly requests freeze-on-silence behavior.
 
 ## GPU tricks to reach for
 - Shader patterns: SDF and CSG for impossible or soft geometry; procedural noise (value/Perlin/simplex/cell) with fbm or ridged variants; triplanar mapping; dFdx/dFdy for AA, mips, and edges; bit packing in RGBA.

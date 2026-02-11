@@ -82,7 +82,7 @@ precision mediump int;
 
 ## Visual tag taxonomy (use these exact strings)
 - Vibe: `chill`, `dreamy`, `melancholy`, `uplifting`, `euphoric`, `mysterious`, `dark`, `playful`, `cinematic`, `trippy`
-- Tech: `3d`
+- Tech: `hd`
 - Energy: `low-energy`, `mid-energy`, `high-energy`, `calm`, `punchy`, `aggressive`, `meditative`
 - Tempo: `slow`, `steady`, `groovy`, `fast`, `very-fast`, `stop-go`
 
@@ -112,7 +112,7 @@ The host injects `registerFeatureVisualizer`, `WebGLFeatureVisualizer`, and `VIS
     static meta = {
       createdBy: 'you',
       description: 'Floating orb that pulses and shifts hue with energy, centroid, and beats.',
-      tags: [VISUAL_TAGS.TECH.THREE_D, VISUAL_TAGS.VIBE.TRIPPY, VISUAL_TAGS.ENERGY.MID],
+      tags: [VISUAL_TAGS.TECH.HD, VISUAL_TAGS.VIBE.TRIPPY, VISUAL_TAGS.ENERGY.MID],
     };
 
     constructor(ctx) {

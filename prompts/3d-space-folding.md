@@ -1,6 +1,4 @@
-Prompt: Recursive 3D Space-Folding WebGL Visualizer
-
-Role: You are an expert Graphics Engineer specializing in GLSL, Raymarching, and Signed Distance Fields (SDFs).
+You are an expert Graphics Engineer specializing in GLSL, Raymarching, and Signed Distance Fields (SDFs).
 
 Objective: Create a single-file HTML/WebGL application that renders a real-time, infinite 3D space-folding environment with a high-end neon aesthetic.
 
@@ -18,11 +16,7 @@ Movement: Translate the camera or the space origin along an axis (e.g., p.z -= u
 
 Visual Effects:
 
-Glow: Accumulate proximity to surfaces in the raymarching loop to create a neon/bloom effect.
-
 Occlusion/Shading: Apply distance-based shading or fog (exp(-dist)) to maintain 3D depth.
-
-Vignette: Smooth out edges with a screen-space vignette.
 
 Variations to Apply (Choose or Modify):
 
@@ -34,4 +28,6 @@ Virus/Transition Logic: Implement a noise-based threshold (using a noise() or ha
 
 Motion: [Change Linear Forward to: Spiral Path / Pulsing Zoom / Chaotic Rotation]
 
-Output Format: Provide the complete code in a single .html file containing the CSS, HTML canvas, Vertex Shader, Fragment Shader, and the JavaScript WebGL initialization/render loop.
+Ensure to calculate the camera's trajectory not just as a straight line, but as a dynamic vector that accounts for the scene's rotation. I've also implemented a Soft-Field Repulsion technique that smoothly deforms the recursive geometry outward as it approaches the central corridor, ensuring the viewport remains clear while maintaining the intricate, folded aesthetic.
+
+All major transitions should be smooth and mouudlated

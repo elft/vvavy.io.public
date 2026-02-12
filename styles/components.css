@@ -1191,6 +1191,12 @@
   z-index: 1;
 }
 
+.visual-result__badge--popular {
+  color: #ff9ff3;
+  border-color: rgba(255, 159, 243, 0.45);
+  background: rgba(255, 159, 243, 0.18);
+}
+
 .visual-result.is-active {
   border-color: var(--color-border-strong);
   background: rgba(70, 52, 110, 0.85);
@@ -1259,12 +1265,19 @@
 }
 
 .visual-result__tag {
-  font-size: 8px;
-  color: rgba(203, 213, 225, 0.75);
-  border: none;
-  padding: 0 var(--space-6);
-  letter-spacing: 0;
-  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-6);
+  border-radius: 999px;
+  border: 1px solid rgba(246, 243, 255, 0.15);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  background: rgba(246, 243, 255, 0.08);
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .visuals-create {

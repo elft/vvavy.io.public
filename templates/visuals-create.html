@@ -1,73 +1,79 @@
 <template id="tpl-visuals-create">
-  <section class="side-drawer" role="dialog" aria-modal="true" aria-labelledby="visuals-create-title">
-    <header class="side-drawer__header">
-      <div class="side-drawer__header-main">
-        <p class="overlay-title" id="visuals-create-title">Visual Creator</p>
-      </div>
-      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+  <section class="side-drawer flex flex-col" role="dialog" aria-modal="true" aria-labelledby="visuals-create-title">
+    <header class="side-drawer__header relative flex items-center px-12 py-8">
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="visuals-create-title">Visual Creator</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </header>
-    <div class="side-drawer__body" data-role="visuals-create-form">
-      <div class="visuals-create__library">
+    <div class="side-drawer__body p-12 flex-1 overflow-y-auto flex flex-col gap-8" data-role="visuals-create-form">
+      <div class="visuals-create__library flex flex-col gap-4">
         <label class="overlay-label" for="custom-visual-selector">Your Custom Visuals</label>
-        <div class="visuals-create__library-row">
-          <select class="overlay-input" id="custom-visual-selector" data-role="custom-visual-selector">
+        <div class="visuals-create__library-row flex items-center gap-6">
+          <select class="overlay-input flex-1" id="custom-visual-selector" data-role="custom-visual-selector">
             <option value="new">+ Create New Visual</option>
           </select>
           <button
-            class="overlay-menu__button overlay-menu__button--ghost visuals-create__delete"
+            class="overlay-menu__button overlay-menu__button--ghost overlay-menu__button--danger py-8 px-10 text-sm uppercase"
             type="button"
             data-role="custom-visual-delete-current"
             disabled
           >Delete</button>
         </div>
       </div>
-      <br />
-      <div class="visuals-create__instructions">
+
+      <hr class="border-0 border-t border-muted my-8" />
+
+      <div class="visuals-create__instructions flex flex-row items-center gap-6 flex-wrap">
         <label class="overlay-label" for="custom-visual-code">
           1. Click "COPY INSTRUCTIONS" below and paste into chatgpt, grok, gemini, or any agentic AI
           <a href="https://youtu.be/1NXt5WelHHw?si=C5bZSVDjNxdQuw_y" target="_blank" rel="noreferrer noopener">Watch tutorial</a>
         </label>
-        <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
-        <br />
-        <div class="visuals-create__prompt-row">
+        <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
+
+        <hr class="border-0 border-t border-muted my-6" />
+
+        <div class="visuals-create__prompt-row flex flex-col gap-4 w-full">
           <label class="overlay-label" for="custom-visual-prompt">2. Additional prompts, optional</label>
-          <div class="visuals-create__prompt-controls">
-            <select class="overlay-input" id="custom-visual-prompt" data-role="custom-visual-prompt">
+          <div class="visuals-create__prompt-controls flex items-center gap-6 flex-wrap">
+            <select class="overlay-input" id="custom-visual-prompt" data-role="custom-visual-prompt" style="flex: 1 1 220px;">
               <option value="">Select a prompt</option>
               <option value="/prompts/cinematic-flythrough.md">Cinematic fly-through (moving camera)</option>
               <option value="/prompts/shader-chaos.md">Shader chaos (no camera, UV-warped)</option>
               <option value="/prompts/kaleidoscope.md">Kaleidoscope</option>
             </select>
             <button
-              class="overlay-menu__button overlay-menu__button--ghost"
+              class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase"
               type="button"
               data-role="custom-visuals-copy-prompt"
             >Copy prompt</button>
           </div>
         </div>
       </div>
-      <br />
-      <div class="visuals-create__code">
+
+      <hr class="border-0 border-t border-muted my-8" />
+
+      <div class="visuals-create__code flex flex-col gap-4">
         <label class="overlay-label" for="custom-visual-code">3. Paste AI response</label>
         <textarea class="overlay-input overlay-textarea" id="custom-visual-code" rows="8" placeholder="Paste the AI generated code here" data-role="custom-visual-code"></textarea>
       </div>
-      <br />
-      <div class="visuals-create__metadata">
-        <div class="visuals-create__field">
+
+      <hr class="border-0 border-t border-muted my-8" />
+
+      <div class="visuals-create__metadata grid gap-6" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="visuals-create__field flex flex-col gap-4">
           <label class="overlay-label" for="custom-visual-name">Name</label>
           <input class="overlay-input" id="custom-visual-name" type="text" placeholder="My Custom Visual" data-role="custom-visual-name" />
         </div>
-        <div class="visuals-create__field">
+        <div class="visuals-create__field flex flex-col gap-4">
           <label class="overlay-label" for="custom-visual-id">Visual ID</label>
           <input class="overlay-input" id="custom-visual-id" type="text" placeholder="my-custom-visual" data-role="custom-visual-id" />
         </div>
       </div>
-      <div class="visuals-create__actions visuals-create__actions--sticky">
-        <button class="overlay-menu__button" type="button" data-role="custom-visuals-preview">Preview (Live)</button>
-        <button class="overlay-menu__button" type="button" data-role="custom-visuals-save">Save changes</button>
+      <div class="visuals-create__actions visuals-create__actions--sticky py-6 flex gap-4 m-0">
+        <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-preview">Preview (Live)</button>
+        <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-save">Save changes</button>
       </div>
-      <div class="visuals-create__status-area">
-        <button class="overlay-menu__button overlay-menu__button--ghost" type="button" data-role="custom-visual-copy-error">Copy last error</button>
+      <div class="visuals-create__status-area flex flex-col gap-4">
+        <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-role="custom-visual-copy-error">Copy last error</button>
         <p class="visuals-create__status" data-role="custom-visual-status" aria-live="polite"></p>
       </div>
     </div>

@@ -1,55 +1,55 @@
 <template id="tpl-export-panel">
-  <div class="overlay-sheet export-panel-shell" data-export-state="idle">
-    <div class="overlay-sheet__header">
-      <h2 class="overlay-title">Capture Visual</h2>
-      <button type="button" class="overlay-close" data-action="export-close" aria-label="Close export panel">X</button>
+  <div class="overlay-sheet export-panel-shell flex flex-col overflow-hidden" data-export-state="idle">
+    <div class="overlay-sheet__header relative flex items-center px-12 py-8">
+      <h2 class="overlay-title m-0 text-sm uppercase text-muted">Capture Visual</h2>
+      <button type="button" class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" data-action="export-close" aria-label="Close export panel" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </div>
-    <div class="overlay-body">
-      <div class="export-panel-idle" data-role="export-idle">
-        <form class="overlay-form export-panel-config" data-role="export-config">
-          <div class="overlay-field">
+    <div class="overlay-body p-12 flex-1 overflow-y-auto flex flex-col">
+      <div class="export-panel-idle grid gap-10" data-role="export-idle">
+        <form class="overlay-form export-panel-config p-12 grid gap-10" data-role="export-config">
+          <div class="overlay-field flex flex-col">
             <select id="export-preset" name="export-preset" class="overlay-select"></select>
             <p class="export-preset-meta" data-role="preset-meta"></p>
           </div>
-          <div class="export-inline-fields">
-            <div class="overlay-field">
+          <div class="export-inline-fields grid gap-8" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
               <label class="overlay-label" for="export-duration">Duration (sec)</label>
               <input id="export-duration" name="export-duration" type="number" min="5" max="600" value="30" class="overlay-input" />
             </div>
-            <div class="overlay-field">
+            <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
               <label class="overlay-label" for="export-fps">FPS</label>
               <input id="export-fps" name="export-fps" type="number" min="24" max="120" value="60" class="overlay-input" />
             </div>
           </div>
-          <div class="overlay-field">
+          <div class="overlay-field flex flex-col">
             <label class="overlay-label" for="export-filename">File Name</label>
             <input id="export-filename" name="export-filename" type="text" value="vvavy-export" class="overlay-input" />
           </div>
-          <div class="overlay-field" data-role="watermark-toggle-container" hidden>
-            <label class="overlay-label" style="display: flex; align-items: center; gap: 8px; text-transform: none;">
+          <div class="overlay-field flex flex-col" data-role="watermark-toggle-container" hidden>
+            <label class="overlay-label flex items-center gap-8" style="text-transform: none;">
               <input id="export-watermark" name="export-watermark" type="checkbox" checked />
               <span>Include Watermark</span>
             </label>
           </div>
-          <div class="overlay-field" data-role="export-mic-mute-container" hidden>
-            <label class="overlay-label" style="display: flex; align-items: center; gap: 8px; text-transform: none;">
+          <div class="overlay-field flex flex-col" data-role="export-mic-mute-container" hidden>
+            <label class="overlay-label flex items-center gap-8" style="text-transform: none;">
               <input id="export-mic-mute" name="export-mic-mute" type="checkbox" />
               <span>Mute mic in export</span>
             </label>
           </div>
         </form>
       </div>
-      <div class="export-panel-active" data-role="export-active" hidden>
-        <div class="export-active-status">
+      <div class="export-panel-active grid gap-10" data-role="export-active" hidden>
+        <div class="export-active-status flex justify-between">
           <span class="export-active-label">Recording</span>
           <span class="export-active-timer" data-role="export-timer">00:00</span>
         </div>
         <div class="export-active-meta" data-role="export-meta"></div>
       </div>
-      <div class="export-countdown" data-role="export-countdown" hidden>5</div>
-      <div class="overlay-form__actions export-panel-actions" style="margin-top: var(--space-12); gap: var(--space-8);">
-        <button type="button" class="overlay-menu__button export-primary-btn" data-action="export-start" style="width: auto; flex: 1; border-color: var(--color-primary); color: var(--color-primary);">Record</button>
-        <button type="button" class="overlay-menu__button export-stop-btn" data-action="export-stop" style="width: auto; flex: 1; border-color: var(--color-danger); color: var(--color-danger);">Stop</button>
+      <div class="export-countdown p-4 flex items-center justify-center" data-role="export-countdown" hidden>5</div>
+      <div class="overlay-form__actions export-panel-actions mt-12 flex justify-end gap-8">
+        <button type="button" class="overlay-menu__button export-primary-btn w-auto flex-1" data-action="export-start" style="border-color: var(--color-primary); color: var(--color-primary);">Record</button>
+        <button type="button" class="overlay-menu__button export-stop-btn w-auto flex-1" data-action="export-stop" style="border-color: var(--color-danger); color: var(--color-danger);">Stop</button>
       </div>
     </div>
   </div>

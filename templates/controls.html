@@ -1,25 +1,25 @@
 <template id="tpl-menu">
-  <section class="overlay-sheet overlay-sheet--menu" role="dialog" aria-modal="true" aria-labelledby="menu-title">
-    <header class="overlay-sheet__header">
-      <p class="overlay-title" id="menu-title">Menu</p>
-      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+  <section class="overlay-sheet overlay-sheet--menu flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <header class="overlay-sheet__header relative flex items-center px-12 py-8">
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="menu-title">Menu</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </header>
-    <nav class="overlay-menu">
-      <button class="overlay-menu__button" type="button" data-view="visuals">Visuals</button>
-      <button class="overlay-menu__button" type="button" data-view="audio">Audio</button>
-      <button class="overlay-menu__button" type="button" data-view="export">Export</button>
-      <button class="overlay-menu__button" type="button" data-view="share">Share</button>
-      <button class="overlay-menu__button" type="button" data-view="visuals-create">Create</button>
+    <nav class="overlay-menu p-12 flex flex-col">
+      <button class="overlay-menu__button w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-view="visuals">Visuals</button>
+      <button class="overlay-menu__button w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-view="audio">Audio</button>
+      <button class="overlay-menu__button w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-view="export">Export</button>
+      <button class="overlay-menu__button w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-view="share">Share</button>
+      <button class="overlay-menu__button w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-view="visuals-create">Create</button>
     </nav>
-    <div class="overlay-sheet__footer">
-      <div class="overlay-sheet__footer-left">
+    <div class="overlay-sheet__footer mt-auto p-12 flex items-center justify-between gap-12 flex-wrap">
+      <div class="overlay-sheet__footer-left flex items-center gap-10 flex-1">
         <span class="overlay-sheet__footer-label">Connect</span>
-        <div class="overlay-sheet__socials">
+        <div class="overlay-sheet__socials flex items-center gap-8">
           <a
             href="https://www.tiktok.com/@vvavy.io"
             target="_blank"
             rel="noopener"
-            class="overlay-sheet__social-link"
+            class="overlay-sheet__social-link inline-flex items-center justify-center"
             aria-label="Follow on TikTok"
             title="TikTok"
           >
@@ -31,7 +31,7 @@
             href="https://www.instagram.com/vvavy.io"
             target="_blank"
             rel="noopener"
-            class="overlay-sheet__social-link"
+            class="overlay-sheet__social-link inline-flex items-center justify-center"
             aria-label="Follow on Instagram"
             title="Instagram"
           >
@@ -41,10 +41,10 @@
           </a>
         </div>
       </div>
-      <div class="overlay-sheet__footer-right">
-        <button class="overlay-sheet__footer-link" type="button" data-view="faq">FAQ</button>
+      <div class="overlay-sheet__footer-right flex items-center gap-8 flex-shrink-0">
+        <button class="overlay-sheet__footer-link py-6 px-8" type="button" data-view="faq">FAQ</button>
         <span class="overlay-sheet__footer-separator">|</span>
-        <a href="/legal.html" class="overlay-sheet__footer-link">Terms & Privacy</a>
+        <a href="/legal.html" class="overlay-sheet__footer-link py-6 px-8">Terms & Privacy</a>
       </div>
     </div>
   </section>

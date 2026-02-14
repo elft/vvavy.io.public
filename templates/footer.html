@@ -1,38 +1,38 @@
 <template id="tpl-footer">
-  <div class="footer-bar" role="contentinfo">
-    <div class="footer-media">
-      <div class="footer-logo" data-provider-logo aria-label="Source logo">
-        <img class="footer-logo-image" data-provider-logo-img/>
+  <div class="footer-bar flex items-center justify-between gap-12 px-16 py-8" role="contentinfo">
+    <div class="footer-media flex items-center flex-auto gap-8">
+      <div class="footer-logo relative flex-center flex-shrink-0" data-provider-logo aria-label="Source logo">
+        <img class="footer-logo-image w-auto h-auto" data-provider-logo-img/>
       </div>
-      <div class="footer-art" data-track-art aria-hidden="true"></div>
-      <div class="footer-track">
-        <span class="footer-track-title">
+      <div class="footer-art flex-shrink-0 overflow-hidden" data-track-art aria-hidden="true"></div>
+      <div class="footer-track flex flex-col flex-auto gap-2">
+        <span class="footer-track-title uppercase truncate">
           <a
-            class="footer-track-link"
+            class="footer-track-link block truncate transition-colors"
             data-track-title-link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
           >VVavy Visuals</a>
         </span>
-        <span class="footer-track-meta">
+        <span class="footer-track-meta flex items-center gap-4 truncate">
           <a
-            class="footer-track-link footer-track-artist"
+            class="footer-track-link footer-track-artist transition-colors"
             data-track-artist-link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
             hidden
           >Artist</a>
-          <span class="footer-track-meta-divider" data-track-meta-divider aria-hidden="true" hidden>•</span>
+          <span class="footer-track-meta-divider opacity-60" data-track-meta-divider aria-hidden="true" hidden>•</span>
           <span data-track-time>--:-- / --:--</span>
         </span>
-        <div class="footer-progress" data-track-progress hidden>
-          <div class="footer-progress__track" aria-hidden="true">
-            <div class="footer-progress__fill" data-track-progress-fill></div>
+        <div class="footer-progress relative w-full flex items-center mt-2" data-track-progress hidden>
+          <div class="footer-progress__track absolute overflow-hidden" aria-hidden="true">
+            <div class="footer-progress__fill absolute rounded-0 transition-medium" data-track-progress-fill></div>
           </div>
           <input
-            class="footer-progress__input"
+            class="footer-progress__input relative w-full h-full cursor-pointer"
             type="range"
             min="0"
             max="1000"
@@ -41,35 +41,35 @@
             data-track-progress-input
             aria-label="Seek within the track"
           />
-          <div class="footer-progress__bubble" data-track-progress-bubble hidden>
+          <div class="footer-progress__bubble absolute pointer-events-none opacity-0 transition-fast" data-track-progress-bubble hidden>
             <span class="footer-progress__bubble-time" data-track-progress-bubble-time>--:-- / --:--</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-center">
-      <button class="footer-btn footer-play" id="btn-footer-toggle" type="button" aria-label="Play or pause">
-        <svg class="footer-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+    <div class="footer-center flex items-center gap-8 flex-shrink-0">
+      <button class="footer-btn footer-play inline-flex items-center justify-center gap-6 px-8 py-6 cursor-pointer transition-colors" id="btn-footer-toggle" type="button" aria-label="Play or pause">
+        <svg class="footer-btn-icon flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
           <polygon class="play-icon" points="5 3 19 12 5 21 5 3"></polygon>
           <rect class="pause-icon" x="6" y="4" width="4" height="16" rx="1"></rect>
           <rect class="pause-icon" x="14" y="4" width="4" height="16" rx="1"></rect>
         </svg>
       </button>
     </div>
-    <div class="footer-controls">
+    <div class="footer-controls flex items-center gap-8 flex-shrink-0">
       <button
-        class="footer-btn"
+        class="footer-btn inline-flex items-center justify-center gap-6 px-8 py-6 cursor-pointer transition-colors"
         id="btn-captions-toggle"
         type="button"
         aria-label="Toggle captions"
         aria-pressed="true"
         style="display: none;"
       >
-        <span class="footer-btn-text">CC</span>
+        <span class="footer-btn-text text-xs uppercase">CC</span>
       </button>
-      <div class="footer-volume-container">
-        <button class="footer-btn footer-btn-icon-only" id="btn-volume-toggle" type="button" aria-label="Volume control">
-          <svg class="footer-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="footer-volume-container relative flex items-end gap-4">
+        <button class="footer-btn footer-btn-icon-only inline-flex items-center justify-center gap-6 px-8 py-6 cursor-pointer transition-colors" id="btn-volume-toggle" type="button" aria-label="Volume control">
+          <svg class="footer-btn-icon flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polygon class="volume-icon" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path class="volume-high" d="M15 9a3 3 0 0 1 0 6"></path>
             <path class="volume-higher" d="M19 7a7 7 0 0 1 0 10"></path>
@@ -77,9 +77,9 @@
             <line class="volume-mute" x1="17" y1="9" x2="23" y2="15"></line>
           </svg>
         </button>
-        <div class="footer-volume-slider-container">
+        <div class="footer-volume-slider-container absolute flex items-center justify-center px-4 py-8 pointer-events-none opacity-0 transition-medium invisible">
           <input
-            class="footer-volume-slider"
+            class="footer-volume-slider cursor-pointer"
             id="volume-slider"
             type="range"
             min="0"
@@ -91,14 +91,14 @@
           />
         </div>
       </div>
-      <button class="footer-btn footer-btn-icon-only" id="btn-menu" type="button" aria-label="Menu">
-        <svg class="footer-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <button class="footer-btn footer-btn-icon-only inline-flex items-center justify-center gap-6 px-8 py-6 cursor-pointer transition-colors" id="btn-menu" type="button" aria-label="Menu">
+        <svg class="footer-btn-icon flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-        <span class="footer-btn-text">Menu</span>
-        <span class="footer-btn-badge" data-role="visual-notify-count" hidden>0</span>
+        <span class="footer-btn-text text-xs uppercase">Menu</span>
+        <span class="footer-btn-badge absolute rounded-pill text-center pointer-events-none z-10" data-role="visual-notify-count" hidden>0</span>
       </button>
     </div>
   </div>

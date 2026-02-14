@@ -1,15 +1,15 @@
 <template id="tpl-soundcloud">
-  <section class="overlay-sheet" role="dialog" aria-modal="true" aria-labelledby="soundcloud-title">
-    <header class="overlay-sheet__header">
-      <button class="overlay-link" type="button" data-view="audio">Back</button>
-      <p class="overlay-title" id="soundcloud-title">SoundCloud</p>
-      <button class="overlay-close" type="button" data-action="close" aria-label="Close">✕</button>
+  <section class="overlay-sheet flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="soundcloud-title">
+    <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
+      <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="audio" style="left: var(--space-12);">← Back</button>
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="soundcloud-title">SoundCloud</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </header>
-    <form class="overlay-body overlay-form overlay-search" data-role="soundcloud-form" novalidate>
+    <form class="overlay-body overlay-form overlay-search p-12 flex-1 overflow-y-auto flex flex-col" data-role="soundcloud-form" novalidate>
       <label class="overlay-label" for="soundcloud-search">Search SoundCloud</label>
-      <div class="overlay-search__row">
+      <div class="overlay-search__row flex gap-4">
         <input
-          class="overlay-input overlay-search__input"
+          class="overlay-input overlay-search__input flex-1"
           id="soundcloud-search"
           name="soundcloud-search"
           type="text"
@@ -17,7 +17,7 @@
           placeholder="Enter your mood"
           data-role="soundcloud-query"
         />
-        <button class="overlay-menu__button overlay-search__submit" type="submit" data-role="soundcloud-submit">
+        <button class="overlay-menu__button overlay-search__submit py-10 px-16 text-sm uppercase" type="submit" data-role="soundcloud-submit">
           Search
         </button>
       </div>
@@ -27,15 +27,17 @@
         <p class="overlay-feedback__status" data-role="soundcloud-status" hidden></p>
         <p class="overlay-feedback__summary" data-role="soundcloud-summary" hidden></p>
       </div>
-      <div class="overlay-results" data-role="soundcloud-results" role="listbox" aria-live="polite"></div>
+      <div class="overlay-results flex flex-col gap-4" data-role="soundcloud-results" role="listbox" aria-live="polite"></div>
+    </form>
+    <footer class="overlay-sheet__footer flex items-center justify-center px-12 py-8">
       <button
-        class="overlay-menu__button overlay-results__more"
+        class="overlay-menu__button w-full py-8 px-10 text-sm uppercase"
         type="button"
         data-role="soundcloud-more"
         hidden
       >
         Load more
       </button>
-    </form>
+    </footer>
   </section>
 </template>

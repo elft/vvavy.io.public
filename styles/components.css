@@ -1964,3 +1964,36 @@
   height: 32px;
   cursor: pointer;
 }
+
+/* Tally Popup Overrides */
+.tally-popup {
+  font-family: var(--font-family-base) !important;
+  font-size: 12px !important;
+  background: transparent !important;
+  border-radius: var(--overlay-radius) !important;
+  box-shadow: 0 12px 28px rgba(6, 4, 12, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(14px) !important;
+  scrollbar-color: rgba(233, 84, 32, 0.9) rgba(246, 243, 255, 0.06) !important;
+  scrollbar-width: thin !important;
+  max-width: 420px !important;
+  width: 400px !important;
+  color-scheme: dark !important;
+  transform: scale(0.9) !important;
+  transform-origin: bottom right !important;
+}
+
+.tally-popup ._popupContainer_evhv6_200 {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border-radius: var(--overlay-radius) !important;
+  overflow: hidden !important;
+}
+
+.tally-popup iframe {
+  border-radius: var(--overlay-radius) !important;
+  background: transparent !important;
+}
+
+.tally-popup ._emoji_evhv6_237 {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3)) !important;
+}

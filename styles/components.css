@@ -461,6 +461,22 @@
   max-height: min(90vh, 720px);
 }
 
+@media (min-width: 601px) {
+  .overlay-sheet--visuals {
+    width: 50vw;
+    max-width: none;
+    min-width: 200px;
+    height: min(90vh, 720px);
+  }
+
+  .overlay-sheet--soundcloud {
+    width: 50vw;
+    max-width: none;
+    min-width: 200px;
+    height: min(90vh, 720px);
+  }
+}
+
 
 .side-drawer {
   width: min(520px, 92vw);
@@ -757,6 +773,20 @@
   color: inherit;
   cursor: pointer;
   transition: border-color 0.18s ease, background 0.18s ease, transform 0.12s ease;
+}
+
+.visuals-results .overlay-result {
+  max-width: 300px;
+  flex: 0 1 300px;
+  width: auto;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.soundcloud-results .overlay-result {
+  max-width: 300px;
+  flex: 1 1 260px;
+  width: auto;
 }
 
 .overlay-result:hover,
@@ -1131,6 +1161,16 @@
   .visuals-results {
     min-height: 100%;
   }
+
+  .overlay-sheet--visuals .overlay-results {
+    max-height: none;
+  }
+
+  .visuals-results .overlay-result {
+    max-width: 100%;
+    flex: 0 0 100%;
+    width: 100%;
+  }
 }
 
 .export-panel-shell {
@@ -1392,6 +1432,18 @@
 
   .overlay-menu__button {
     font-size: 12px;
+  }
+
+  .overlay-sheet--visuals {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .overlay-sheet--soundcloud {
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
   }
 
   .overlay-sheet__footer {

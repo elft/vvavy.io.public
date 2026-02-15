@@ -1,5 +1,5 @@
 <template id="tpl-visuals">
-  <section class="overlay-sheet flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="visuals-title">
+  <section class="overlay-sheet overlay-sheet--visuals flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="visuals-title">
     <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
       <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="menu" style="left: var(--space-12);">← Back</button>
       <p class="overlay-title m-0 text-sm uppercase text-muted" id="visuals-title">Visuals</p>
@@ -27,7 +27,7 @@
         <button class="visuals-tab" type="button" data-tab="favorites">Favorites</button>
       </div>
       <div
-        class="overlay-results visuals-results flex flex-col gap-4"
+        class="overlay-results visuals-results flex flex-wrap gap-4"
         data-role="visual-results"
         role="listbox"
         aria-live="polite"

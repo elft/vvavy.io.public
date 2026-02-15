@@ -17,8 +17,12 @@
               <input id="export-duration" name="export-duration" type="number" min="5" max="600" value="30" class="overlay-input" />
             </div>
             <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
-              <label class="overlay-label" for="export-fps">FPS</label>
-              <input id="export-fps" name="export-fps" type="number" min="24" max="120" value="60" class="overlay-input" />
+              <label class="overlay-label" for="export-fps">Frame Rate</label>
+              <select id="export-fps" name="export-fps" class="overlay-select">
+                <option value="30">30 FPS</option>
+                <option value="60">60 FPS</option>
+                <option value="0" selected>Uncapped</option>
+              </select>
             </div>
           </div>
           <div class="overlay-field flex flex-col">
@@ -44,9 +48,9 @@
           <span class="export-active-label">Recording</span>
           <span class="export-active-timer" data-role="export-timer">00:00</span>
         </div>
-        <div class="export-active-meta" data-role="export-meta"></div>
       </div>
       <div class="export-countdown p-4 flex items-center justify-center" data-role="export-countdown" hidden>5</div>
+      <div class="export-active-meta" data-role="export-meta" hidden></div>
       <div class="overlay-form__actions export-panel-actions mt-12 flex justify-end gap-8">
         <button type="button" class="overlay-menu__button export-primary-btn w-auto flex-1" data-action="export-start" style="border-color: var(--color-primary); color: var(--color-primary);">Record</button>
         <button type="button" class="overlay-menu__button export-stop-btn w-auto flex-1" data-action="export-stop" style="border-color: var(--color-danger); color: var(--color-danger);">Stop</button>

@@ -1069,6 +1069,7 @@
 
 .visuals-tabs {
   flex-shrink: 0;
+  margin-bottom: var(--space-12);
 }
 
 .visuals-tab {
@@ -1091,6 +1092,12 @@
 .visuals-tab.is-active {
   color: var(--color-accent);
   border-bottom-color: var(--color-accent);
+}
+
+.visuals-tabs__divider {
+  color: var(--color-border-muted);
+  align-self: center;
+  pointer-events: none;
 }
 
 .visuals-results {

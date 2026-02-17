@@ -9,6 +9,7 @@ As an expert audio visualizer AI, do the following to create epic visuals. Your 
 - Do **not** import from relative paths in your pasted file. The runtime pre-injects `registerFeatureVisualizer`, `registerVisualizer`, `WebGLFeatureVisualizer`, `FeatureVisualizer`, `BaseVisualizer`, and `VISUAL_TAGS` globally. Call `registerFeatureVisualizer('<kebab-id>', ClassRef, { meta: ClassRef.meta });` at the bottom of your file.
 - Default camera should stay static unless explicitly requested; never tie camera motion to stereo balance. Keep visuals drawing every frame—no blank canvases.
 - For any update/iteration request, return the entire, ready-to-paste single JS file (minified, no comments). Never ask the user to find/replace snippets—always send the full file content for copy/paste.
+- When in doubt, mirror safety patterns from the built-in `safe-best-practices-demo` visual (`src/app/visuals/safe-best-practices-demo.js`): bright but non-flashy color, smoothed metrics, and throttled beat- or loudness-driven events (e.g., effects that trigger at most once every 0.5s with fade durations that never drop below ~0.4s).
 - After you hand back the `.js` file, explicitly tell the user to copy/paste that output into vvavy.io’s “Paste the AI generated code here” input so they know the next action. If the user hits an error in preview, tell them to click “COPY LAST ERROR” in the UI and paste it back here so you can fix it.
 - Keep everything viewport-safe: render against the provided canvas dimensions (`this.width`, `this.height`, or a `uResolution` uniform) instead of hard-coded sizes; normalize coords (e.g., `vec2 uv = (gl_FragCoord.xy / uResolution) * 2.0 - 1.0;`) so it fits any screen and DPR.
 - Initialize every property and uniform default to sane values (numbers, vecs) to avoid `undefined` in the loop; clamp inputs where needed. Ensure shaders have defaults for uniforms (set every uniform each frame) and JS fields are set in the constructor.
@@ -105,102 +106,283 @@ precision mediump int;
 - The visual center must mathematically land at screen center, not “close enough”.
    - vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution.xy) / uResolution.y;
 
-## Example: pasteable 3D glow orb visual
+## Example: best practice webgl baseline visual
 The host injects `registerFeatureVisualizer`, `WebGLFeatureVisualizer`, and `VISUAL_TAGS` globally—no imports needed.
 
 ```js
-// id: glow-orb-demo
-(function () {
-  class GlowOrbDemo extends WebGLFeatureVisualizer {
-    static meta = {
-      createdBy: 'you',
-      description: 'Floating orb that pulses and shifts hue with energy, centroid, and beats.',
-      tags: [VISUAL_TAGS.TECH.HD, VISUAL_TAGS.VIBE.TRIPPY, VISUAL_TAGS.ENERGY.MID],
-    };
+/**
+ * SafeBestPracticesDemo
+ *
+ * A conservative WebGL visual that demonstrates vvavy safety + UX guardrails
+ * while still using bright, clearly defined color like `colors.js`:
+ * - No tunnel/porthole vignette or heavy edge darkening.
+ * - No bloom/glow or alpha-heavy flashes by default.
+ * - Steady camera; stereo drives lateral bias only, never camera tilt.
+ * - Uses smoothed audio metrics with gentle attack/release.
+ * - Clamps brightness and motion to avoid eye strain and motion sickness.
+ */
+class SafeBestPracticesDemo extends WebGLFeatureVisualizer {
+  static meta = {
+    hidden: true,
+    savedAt: 1771204707884,
+    createdBy: 'vvavy',
+    description:
+      'Safe reference visual: bright color bands, steady camera, no default glow or vignette.',
+    tags: [
+      VISUAL_TAGS.TECH.GEOMETRY,
+      VISUAL_TAGS.VIBE.CHILL,
+      VISUAL_TAGS.ENERGY.MID,
+      VISUAL_TAGS.TEMPO.GROOVY,
+    ],
+  };
 
-    constructor(ctx) {
-      super(ctx);
-      this.program = null;
-      this.buf = null;
-      this.time = 0;
-      this.energy = 0;
-      this.centroid = 0.5;
-      this.beat = 0;
-    }
+  constructor(ctx) {
+    super(ctx);
+    this.program = null;
+    this.buffer = null;
+    this.uTimeLoc = null;
+    this.uResolutionLoc = null;
+    this.uEnergyLoc = null;
+    this.uBassLoc = null;
+    this.uCentroidLoc = null;
+    this.uStereoLoc = null;
+    this.uSquareALoc = null;
+    this.uSquareBLoc = null;
+    this.uSquareFadeLoc = null;
+    this.uSquareSizeLoc = null;
+    this.time = 0;
+    this.energy = 0;
+    this.bass = 0;
+    this.centroid = 0.3;
+    this.stereo = 0;
+    this.lastFrameTime = null;
+    this.squareFade = 0;
+    this.squareFadeDuration = 1;
+    this.squareTimer = 0;
+    this.squarePosA = { x: -0.25, y: 0.0 };
+    this.squarePosB = { x: 0.25, y: 0.0 };
+    this.squareSize = 0.3;
+    this.lastSquareTriggerTime = 0;
+  }
 
-    init() {
-      const gl = this.gl;
-      if (!gl) return;
+  init() {
+    const gl = this.gl;
+    if (!gl) return;
 
-      const vert = `
-        attribute vec2 aPosition;
-        void main(){ gl_Position = vec4(aPosition, 0.0, 1.0); }
-      `;
-      const frag = `
-        #ifdef GL_FRAGMENT_PRECISION_HIGH
-        precision highp float;
-        #else
-        precision mediump float;
-        #endif
-        precision mediump int;
-        uniform float uTime, uEnergy, uCentroid, uBeat;
-        void main(){
-          vec2 uv = gl_FragCoord.xy / vec2(640.0, 640.0);
-          uv = uv * 2.0 - 1.0;
-          float r = length(uv);
-          float glow = exp(-r * 6.0) * (0.6 + uEnergy * 1.6 + uBeat * 1.2);
-          float hue = 0.55 + uCentroid * 0.35 + uBeat * 0.1;
-          vec3 col = vec3(0.0);
-          col.r = abs(mod(hue * 6.0 + 0.0, 6.0) - 3.0) - 1.0;
-          col.g = abs(mod(hue * 6.0 + 4.0, 6.0) - 3.0) - 1.0;
-          col.b = abs(mod(hue * 6.0 + 2.0, 6.0) - 3.0) - 1.0;
-          col = clamp(col, 0.0, 1.0);
-          gl_FragColor = vec4(col * glow, glow);
-        }
-      `;
-
-      this.program = this.createProgram(vert, frag);
-      this.autoDispose(this.program);
-
-      const quad = new Float32Array([
-        -1, -1, 3, -1, -1, 3,
-      ]);
-      const buf = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-      gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
-      this.buf = buf;
-      this.autoDispose(buf, (g, b) => g.deleteBuffer(b));
-    }
-
-    onMetrics(metrics, cues) {
-      this.time = metrics.time || 0;
-      this.energy = metrics.overallEnergy ?? metrics.energy ?? 0;
-      this.centroid = Math.min(1, (metrics.centroid || 0) / 8000);
-      if (cues?.accentPulse || cues?.isBeat || cues?.dropStart) {
-        this.beat = 1;
+    const vertexSource = `
+      attribute vec2 aPosition;
+      void main() {
+        gl_Position = vec4(aPosition, 0.0, 1.0);
       }
+    `;
+
+    const fragmentSource = `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
+      precision mediump float;
+      #endif
+      precision mediump int;
+
+      uniform float uTime;
+      uniform vec2 uResolution;
+      uniform float uEnergy;
+      uniform float uBass;
+      uniform float uCentroid;
+      uniform float uStereo;
+      uniform vec2 uSquareA;
+      uniform vec2 uSquareB;
+      uniform float uSquareFade;
+      uniform float uSquareSize;
+
+      vec3 hsv2rgb(vec3 c) {
+        vec3 p = abs(fract(c.xxx + vec3(0.0, 2.0/3.0, 1.0/3.0)) * 6.0 - 3.0);
+        return c.z * mix(vec3(1.0), clamp(p - 1.0, 0.0, 1.0), c.y);
+      }
+
+      void main() {
+        // Normalized coordinates with aspect correction.
+        vec2 resolution = max(uResolution, vec2(1.0));
+        float minDim = min(resolution.x, resolution.y);
+        vec2 uv = (gl_FragCoord.xy / resolution - 0.5) * (resolution / minDim);
+
+        // Stereo affects lateral balance only.
+        uv.x += uStereo * 0.18;
+
+        // Discrete grid for clear color blocks.
+        vec2 gridUv = uv + 0.5;
+        vec2 cell = floor(gridUv * 8.0);
+        float cellIndex = cell.x + cell.y * 8.0;
+        float stripe = mod(cell.x, 2.0);
+
+        // Audio-driven hue and value.
+        float centroidNorm = clamp(uCentroid, 0.0, 1.0);
+        float baseHue = mix(0.04, 0.8, centroidNorm);
+        float energyMix = clamp(uEnergy + uBass * 0.7, 0.0, 1.0);
+        float hue = baseHue + cellIndex * 0.03 + 0.12 * energyMix;
+        float sat = mix(0.65, 1.0, energyMix);
+        float val = 0.38 + 0.5 * energyMix;
+
+        vec3 colorA = hsv2rgb(vec3(fract(hue), sat, val));
+        vec3 colorB = hsv2rgb(vec3(fract(hue + 0.35), sat, val * 0.9));
+        vec3 baseColor = mix(colorA, colorB, stripe);
+
+        // Mild center emphasis without dark tunnel edges.
+        float r = length(uv);
+        float centerBoost = 1.0 - 0.45 * r;
+        float brightness = clamp(centerBoost, 0.25, 1.0);
+
+        float gammaSafe = 1.0 / 2.2;
+        vec3 color = pow(baseColor * brightness, vec3(gammaSafe));
+
+        // Two gently cross-fading squares that swap locations on beats / loudness.
+        float halfSize = uSquareSize * 0.5;
+        float inA =
+          step(-halfSize, uv.x - uSquareA.x) *
+          step(-halfSize, uv.y - uSquareA.y) *
+          step(uv.x - uSquareA.x, halfSize) *
+          step(uv.y - uSquareA.y, halfSize);
+        float inB =
+          step(-halfSize, uv.x - uSquareB.x) *
+          step(-halfSize, uv.y - uSquareB.y) *
+          step(uv.x - uSquareB.x, halfSize) *
+          step(uv.y - uSquareB.y, halfSize);
+
+        vec3 squareColor = hsv2rgb(vec3(fract(hue + 0.18), 0.9, 0.9));
+        float squareMask = clamp(mix(inA, inB, clamp(uSquareFade, 0.0, 1.0)), 0.0, 1.0);
+        vec3 finalColor = mix(color, squareColor, squareMask * 0.8);
+        gl_FragColor = vec4(finalColor, 1.0);
+      }
+    `;
+
+    const program = this.createProgram(vertexSource, fragmentSource);
+    this.program = program;
+    this.autoDispose(program);
+
+    const quad = new Float32Array([-1, -1, 3, -1, -1, 3]);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+    this.buffer = buffer;
+    this.autoDispose(buffer, (g, b) => g.deleteBuffer(b));
+
+    this.uTimeLoc = gl.getUniformLocation(program, 'uTime');
+    this.uResolutionLoc = gl.getUniformLocation(program, 'uResolution');
+    this.uEnergyLoc = gl.getUniformLocation(program, 'uEnergy');
+    this.uBassLoc = gl.getUniformLocation(program, 'uBass');
+    this.uCentroidLoc = gl.getUniformLocation(program, 'uCentroid');
+    this.uStereoLoc = gl.getUniformLocation(program, 'uStereo');
+    this.uSquareALoc = gl.getUniformLocation(program, 'uSquareA');
+    this.uSquareBLoc = gl.getUniformLocation(program, 'uSquareB');
+    this.uSquareFadeLoc = gl.getUniformLocation(program, 'uSquareFade');
+    this.uSquareSizeLoc = gl.getUniformLocation(program, 'uSquareSize');
+
+    gl.disable(gl.BLEND);
+  }
+
+  onMetrics(metrics, cues) {
+    const now = metrics?.time ?? 0;
+    const dt = this.lastFrameTime != null ? Math.max(0, Math.min(now - this.lastFrameTime, 1 / 20)) : 1 / 60;
+    this.lastFrameTime = now;
+
+    const energyRaw = metrics?.overallEnergy ?? metrics?.energy ?? 0;
+    const bassRaw = metrics?.smooth?.bassEnergy ?? metrics?.bassEnergy ?? 0;
+    const centroidHz = metrics?.centroid ?? 0;
+    const stereoRaw = metrics?.stereoBalance ?? 0;
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const clamp = (v, min, max) => (v < min ? min : v > max ? max : v);
+
+    const energyTarget = clamp(energyRaw, 0, 1);
+    const energyT = dt * 2.5;
+    this.energy = lerp(this.energy, energyTarget, energyT);
+
+    const bassTarget = clamp(bassRaw * 1.2, 0, 1);
+    const bassT = dt * 3.0;
+    this.bass = lerp(this.bass, bassTarget, bassT);
+
+    const nyquistHz = 12000;
+    const centroidNorm = clamp(centroidHz / nyquistHz, 0, 1);
+    const centroidT = dt * 1.2;
+    this.centroid = lerp(this.centroid, centroidNorm, centroidT);
+
+    const stereoTarget = clamp(stereoRaw, -1, 1);
+    const stereoT = dt * 4.0;
+    this.stereo = lerp(this.stereo, stereoTarget, stereoT);
+
+    const baseSpeed = 0.25;
+    const speed = baseSpeed + 0.7 * this.energy;
+    this.time += dt * speed;
+
+    const loudTrigger = energyTarget > 0.05;
+    const beatTrigger = Boolean(cues && cues.isBeat);
+    const canTriggerSquares = now - this.lastSquareTriggerTime >= 0.5;
+    if (canTriggerSquares && (beatTrigger || loudTrigger)) {
+      const minDuration = 0.4;
+      this.squareFadeDuration = Math.max(
+        minDuration,
+        this.squareFadeDuration - 0.01
+      );
+      this.lastSquareTriggerTime = now;
+      this.squareFade = 1;
+      this.squareTimer = 0;
+      const prevB = this.squarePosB;
+      this.squarePosA = { x: prevB.x, y: prevB.y };
+      const rndX = Math.random() * 1.2 - 0.6;
+      const rndY = Math.random() * 0.8 - 0.4;
+      this.squarePosB = { x: rndX, y: rndY };
     }
 
-    onRender(gl) {
-      if (!this.program || !this.buf) return;
-      gl.clearColor(0, 0, 0, 1);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.useProgram(this.program);
-      gl.bindBuffer(gl.ARRAY_BUFFER, this.buf);
-      const loc = gl.getAttribLocation(this.program, 'aPosition');
-      gl.enableVertexAttribArray(loc);
-      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-
-      gl.uniform1f(gl.getUniformLocation(this.program, 'uTime'), this.time);
-      gl.uniform1f(gl.getUniformLocation(this.program, 'uEnergy'), this.energy);
-      gl.uniform1f(gl.getUniformLocation(this.program, 'uCentroid'), this.centroid);
-      gl.uniform1f(gl.getUniformLocation(this.program, 'uBeat'), this.beat);
-
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      this.beat *= 0.88;
+    if (this.squareFade > 0 && this.squareFadeDuration > 0) {
+      this.squareTimer += dt;
+      const t = this.squareTimer / this.squareFadeDuration;
+      this.squareFade = t < 1 ? 1 - t : 0;
     }
   }
 
-  registerFeatureVisualizer('glow-orb-demo', GlowOrbDemo, { meta: GlowOrbDemo.meta });
-})();
+  onRender(gl) {
+    if (!this.program || !this.buffer) return;
+
+    const width = gl.drawingBufferWidth || this.width || 1;
+    const height = gl.drawingBufferHeight || this.height || 1;
+
+    gl.viewport(0, 0, width, height);
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    gl.useProgram(this.program);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
+    const aPositionLoc = gl.getAttribLocation(this.program, 'aPosition');
+    if (aPositionLoc >= 0) {
+      gl.enableVertexAttribArray(aPositionLoc);
+      gl.vertexAttribPointer(aPositionLoc, 2, gl.FLOAT, false, 0, 0);
+    }
+
+    gl.uniform1f(this.uTimeLoc, this.time);
+    gl.uniform2f(this.uResolutionLoc, width, height);
+    gl.uniform1f(this.uEnergyLoc, this.energy);
+    gl.uniform1f(this.uBassLoc, this.bass);
+    gl.uniform1f(this.uCentroidLoc, this.centroid);
+    gl.uniform1f(this.uStereoLoc, this.stereo);
+    if (this.uSquareALoc) {
+      gl.uniform2f(this.uSquareALoc, this.squarePosA.x, this.squarePosA.y);
+    }
+    if (this.uSquareBLoc) {
+      gl.uniform2f(this.uSquareBLoc, this.squarePosB.x, this.squarePosB.y);
+    }
+    if (this.uSquareFadeLoc) {
+      gl.uniform1f(this.uSquareFadeLoc, this.squareFade);
+    }
+    if (this.uSquareSizeLoc) {
+      gl.uniform1f(this.uSquareSizeLoc, this.squareSize);
+    }
+
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+}
+
+registerFeatureVisualizer('safe-best-practices-demo', SafeBestPracticesDemo, {
+  meta: SafeBestPracticesDemo.meta,
+});
 ```

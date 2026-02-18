@@ -1,3 +1,8 @@
+.is-warming {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .app-shell {
   position: relative;
   min-height: 100vh;

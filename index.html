@@ -33,6 +33,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://vvavy.io">
 
+  <!-- Performance: preconnect to third-party origins -->
+  <link rel="preconnect" href="https://www.gstatic.com" />
+  <link rel="preconnect" href="https://tally.so" crossorigin />
+
+  <!-- Performance: preload LCP image for new users -->
+  <link rel="preload" as="image" href="/images/vvavy_full_logo.png" />
+
   <!-- Theme Color -->
   <meta name="theme-color" content="#772953">
 
@@ -153,6 +160,8 @@
   <link rel="stylesheet" href="./styles/layout.css" />
   <link rel="stylesheet" href="./styles/components.css" />
   <link rel="stylesheet" href="./styles/utilities.css" />
+  <!-- Performance: preload main JS module -->
+  <link rel="modulepreload" href="./scripts/main.min.js" />
   <!-- Tally feedback form -->
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
@@ -292,7 +301,7 @@
     };
     bootstrap();
   </script>
-  <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+  <script defer src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </body>
 
 </html>

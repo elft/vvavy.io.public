@@ -1019,6 +1019,55 @@
   color: var(--color-text-muted);
 }
 
+/* Desktop visual card hover — more visible lift when preview is active */
+@media (pointer: fine) and (min-width: 601px) {
+  .visuals-results .overlay-result:hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: rgba(246, 243, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(6, 4, 12, 0.5);
+    z-index: 1;
+  }
+}
+
+/* Visual hover preview popup */
+.visual-preview-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  pointer-events: none;
+  padding: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--overlay-radius);
+  box-shadow: var(--overlay-shadow), 0 0 0 1px rgba(246, 243, 255, 0.04);
+  will-change: transform;
+}
+
+.visual-preview-popup__canvas-wrap {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #04050a;
+}
+
+.visual-preview-popup__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.visual-preview-popup__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
 /* welcome-panel uses utility classes */
 
 .welcome-panel {

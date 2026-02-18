@@ -3,21 +3,21 @@
 
   /* Color palette */
   --color-dark: #0b0813;
-  --color-surface: #1a1326;
-  --color-surface-strong: #221830;
+  --color-surface: #221540;
+  --color-surface-strong: #2e1f52;
   --color-overlay: rgba(12, 10, 20, 0.82);
-  --color-border: rgba(233, 84, 32, 0.35);
-  --color-border-strong: rgba(233, 84, 32, 0.6);
-  --color-border-muted: rgba(137, 119, 158, 0.35);
+  --color-border: rgba(233, 84, 32, 0.50);
+  --color-border-strong: rgba(233, 84, 32, 0.80);
+  --color-border-muted: rgba(180, 155, 210, 0.50);
 
   --color-primary: #e95420; /* ubuntu orange */
   --color-primary-strong: #ff6e32;
   --color-secondary: #772953; /* ubuntu purple */
   --color-secondary-soft: rgba(119, 41, 83, 0.6);
   --color-text: #f6f3ff;
-  --color-text-muted: rgba(246, 243, 255, 0.7);
-  --color-text-soft: rgba(246, 243, 255, 0.55);
-  --color-text-disabled: rgba(246, 243, 255, 0.4);
+  --color-text-muted: rgba(246, 243, 255, 0.82);
+  --color-text-soft: rgba(246, 243, 255, 0.68);
+  --color-text-disabled: rgba(246, 243, 255, 0.50);
   --color-danger: #ff5e81;
   --color-accent: #43d9ad;
   --color-error: #ff6b81;
@@ -25,9 +25,13 @@
   --color-success: #43d9ad;
 
   /* Surface variants */
-  --color-surface-light: rgba(255, 255, 255, 0.05);
-  --color-surface-lighter: rgba(255, 255, 255, 0.02);
-  --color-border-faint: rgba(137, 119, 158, 0.2);
+  --color-surface-light: rgba(255, 255, 255, 0.08);
+  --color-surface-lighter: rgba(255, 255, 255, 0.04);
+  --color-border-faint: rgba(180, 155, 210, 0.30);
+
+  /* Button surfaces */
+  --color-button-surface: rgba(38, 26, 68, 0.90);
+  --color-button-surface-hover: rgba(50, 35, 85, 0.95);
 
   /* Scrollbars */
   --scrollbar-size: 12px;

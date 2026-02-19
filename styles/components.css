@@ -1,3 +1,60 @@
+/* ── Toast notifications ─────────────────────────────────────── */
+
+.toast-container {
+  position: fixed;
+  top: var(--space-20);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  max-width: min(480px, calc(100vw - 32px));
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  line-height: 1.4;
+  color: var(--color-text);
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border-muted);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity var(--transition-medium),
+    transform var(--transition-medium);
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast--hiding {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.toast[data-tone='warning'] {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.toast[data-tone='error'] {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+
 .footer-bar {
   pointer-events: auto;
   width: min(960px, 100%);

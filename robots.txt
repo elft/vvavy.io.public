@@ -4,6 +4,9 @@ Allow: /
 Allow: /favicon.ico
 Allow: /features
 Allow: /features.html
+Allow: /visuals
+Allow: /visuals.html
+Allow: /visuals.json
 
 # Sitemaps
 Sitemap: https://vvavy.io/sitemap.xml

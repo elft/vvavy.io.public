@@ -22,6 +22,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Visual catalog page -->
+  <url>
+    <loc>https://vvavy.io/visuals</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Visual catalog JSON for AI agents -->
+  <url>
+    <loc>https://vvavy.io/visuals.json</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal page -->
   <url>
     <loc>https://vvavy.io/legal</loc>

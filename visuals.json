@@ -1,0 +1,978 @@
+{
+  "version": 1,
+  "generatedAt": "2026-02-19T13:47:03.774Z",
+  "catalogUrl": "https://vvavy.io/visuals",
+  "visuals": [
+    {
+      "id": "aura-orb-hyper-geometric",
+      "name": "Aura Orb Hyper-Geometric",
+      "description": "Hyper-geometric aura orb with continuous folding and phase shifts tied to BPM and loudness.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=aura-orb-hyper-geometric",
+      "dateModified": "2026-02-18T20:36:49.418Z"
+    },
+    {
+      "id": "beat-drop-grid",
+      "name": "Beat Drop Grid",
+      "description": "A perspective 50×50 board where randomized tiles flare into neon shapes whenever the drop hits, pulsing color with the beat.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "punchy",
+        "stop-go"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=beat-drop-grid",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "bio-digital-entropy",
+      "name": "Bio-Digital Entropy",
+      "description": "11-stage fractal engine reacting to audio metrics with seamless transitions.",
+      "tags": [
+        "trippy",
+        "dark",
+        "high-energy",
+        "fast",
+        "High Definition",
+        "raymarching"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=bio-digital-entropy",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "bioluminescent-journey",
+      "name": "Bioluminescent Journey",
+      "description": "Evolving bioluminescent journey synchronized with song progress. Features drifters and filaments that react to audio.",
+      "tags": [
+        "trippy",
+        "low-energy",
+        "slow",
+        "High Definition"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=bioluminescent-journey",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "centroid-crystalline-tunnel",
+      "name": "Centroid Crystalline Tunnel",
+      "description": "Kaleidoscopic tunnel woven from crystalline layers where centroid-driven momentum paces the warp and energy accelerates lush color drifts.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "mid-energy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=centroid-crystalline-tunnel",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "cloud-flight",
+      "name": "Cloud Flight",
+      "description": "Audio-reactive cloud flight where camera banking, rolls, and sunlight swell with intense stereo energy and towering dynamics.",
+      "tags": [
+        "High Definition",
+        "dreamy",
+        "low-energy"
+      ],
+      "createdBy": "cineshader",
+      "url": "https://vvavy.io/?visual=cloud-flight",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "cloud-tunnel-raymarch",
+      "name": "Cloud Tunnel Raymarch",
+      "description": "Volumetric cloud tunnel inspired by Shadertoy classics, pushing clouds faster with song energy while hues and shapes morph with timbre and drops.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "Nox",
+      "url": "https://vvavy.io/?visual=cloud-tunnel-raymarch",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "color-vortex-suck",
+      "name": "Color Vortex Suck",
+      "description": "A 3D tunnel of shrinking color snapshots that twist into the void.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=color-vortex-suck",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "colors",
+      "name": "Colors",
+      "description": "A 3D domain-warped, spatially folded field with red/blue faction lighting and time-driven spatial breaks.",
+      "tags": [
+        "cinematic",
+        "mysterious",
+        "High Definition",
+        "mid-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=colors",
+      "dateModified": "2026-02-18T17:11:53.520Z"
+    },
+    {
+      "id": "complicating-things",
+      "name": "Complicating Things",
+      "description": "Layered kaleidoscopic “Complicating things even further” -mrange",
+      "tags": [
+        "High Definition"
+      ],
+      "createdBy": "mrange",
+      "url": "https://vvavy.io/?visual=complicating-things",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "cozy-apartment-vinyl-session",
+      "name": "Cozy Apartment Vinyl Session",
+      "description": "A warm apartment corner with a spinning record and neon TV glow that gently reacts to the music.",
+      "tags": [
+        "chill",
+        "cinematic",
+        "low-energy",
+        "steady",
+        "High Definition",
+        "geometry"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=cozy-apartment-vinyl-session",
+      "dateModified": "2026-02-11T22:34:51.517Z"
+    },
+    {
+      "id": "cyber-punk-punch",
+      "name": "Cyber Punk Punch",
+      "description": "Cyber Punk Punch :D",
+      "tags": [
+        "High Definition",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=cyber-punk-punch",
+      "dateModified": "2026-02-19T00:20:20.234Z"
+    },
+    {
+      "id": "Debug",
+      "name": "Debug HUD",
+      "description": "Audio metrics HUD for inspecting the full analysis stream.",
+      "tags": [
+        "cinematic",
+        "low-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=Debug",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "deep-house-velvet-drift",
+      "name": "Deep House Velvet Drift",
+      "description": "Velvet neon ribbons and liquid halos that breathe with deep-house basslines, with tempo-locked pulses and long, silky trails.",
+      "tags": [
+        "High Definition",
+        "dreamy",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=deep-house-velvet-drift",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "deep-house",
+      "name": "Deep House",
+      "description": "A raymarching visual inspired by Deep House music with fractal tunnels and energy-reactive lighting, evolving through distinct system states.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "trippy",
+        "dark",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=deep-house",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "disolve",
+      "name": "Disolve",
+      "description": "Recursive space folding with morphing primitives, driven by bass pulses and spectral flux for a slow-breathing, dissolving tunnel.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "mysterious",
+        "trippy",
+        "mid-energy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=disolve",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "droste-temple",
+      "name": "Droste Temple",
+      "description": "Infinite mirrored corridor loops through a droste temple; bass eases the zoom, centroid drift bends the hallway, high-end orbit paints the doors.",
+      "tags": [
+        "High Definition",
+        "mysterious",
+        "trippy",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=droste-temple",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "echo-halo",
+      "name": "Echo Halo",
+      "description": "A living halo of rings that remembers the music, with each pulse drifting outward like a fading echo.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=echo-halo",
+      "dateModified": "2026-02-18T20:52:50.032Z"
+    },
+    {
+      "id": "EDM Show",
+      "name": "EDM Show",
+      "description": "Festival lasers, morphing blobs, and crowd-shaking bursts tuned for mainstage drops.",
+      "tags": [
+        "euphoric",
+        "cinematic",
+        "high-energy",
+        "very-fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=EDM%20Show",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "Endless Road",
+      "name": "Endless Road",
+      "description": "Neon motorway perspective tuned for drops stereo-swaying lanes with shockwaves racing to the horizon on impact.",
+      "tags": [
+        "cinematic",
+        "dark",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=Endless%20Road",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "energy-unlocked",
+      "name": "Energy Unlocked",
+      "description": "Lets unlocked that energy within",
+      "tags": [
+        "trippy",
+        "High Definition",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=energy-unlocked",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "fractal-symphony-bloom",
+      "name": "Fractal Symphony Bloom",
+      "description": "Max trippy fractal vortex with intense color cycling and screen ripple.",
+      "tags": [
+        "trippy",
+        "high-energy",
+        "High Definition"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=fractal-symphony-bloom",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "galactic-kaleidoscope",
+      "name": "Galactic Kaleidoscope",
+      "description": "A kaleidoscope that has been to space and back.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=galactic-kaleidoscope",
+      "dateModified": "2026-02-15T13:33:12.847Z"
+    },
+    {
+      "id": "glitch-matrix",
+      "name": "Glitch Matrix",
+      "description": "Cyberpunk rain of characters with glitch ripples and digital sparks.",
+      "tags": [
+        "dark",
+        "trippy",
+        "mid-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=glitch-matrix",
+      "dateModified": "2026-02-18T17:07:09.297Z"
+    },
+    {
+      "id": "groove",
+      "name": "Groove",
+      "description": "Temporal feedback currents with beat-toggled drift and volume-steered vertical flow.",
+      "tags": [
+        "geometry",
+        "trippy",
+        "mid-energy",
+        "groovy",
+        "High Definition",
+        "interactive",
+        "Most Popular"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=groove",
+      "dateModified": "2026-02-13T23:50:31.651Z"
+    },
+    {
+      "id": "guess-what",
+      "name": "Guess What",
+      "description": "Audio-reactive geometric chaos engine with folded SDF scenes, spark streaks, and scene-to-scene morphs.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=guess-what",
+      "dateModified": "2026-02-19T13:43:44.588Z"
+    },
+    {
+      "id": "hash-core-atrium",
+      "name": "Hash Core Atrium",
+      "description": "Primary-colored hash bloom that pulses, twists, and thickens to the music.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=hash-core-atrium",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "hyperspace-tunnel",
+      "name": "Hyperspace Tunnel",
+      "description": "Enhanced hyperspace tunnel with chromatic aberration, particle stars, glowing rings, and intense audio-reactive effects that pulse and warp through space.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=hyperspace-tunnel",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "hypno-spiral",
+      "name": "Hypno Spiral",
+      "description": "Concentric memory rings rotate outward while bass pulses bloom softly.",
+      "tags": [
+        "chill",
+        "trippy",
+        "meditative",
+        "slow"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=hypno-spiral",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "Hpno Vortex Illusion",
+      "name": "Hpno Vortex Illusion",
+      "description": "Hypnotic sacred-geometry vortex packed with choir harmonics and orbiting sparks.",
+      "tags": [
+        "trippy",
+        "mysterious",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=Hpno%20Vortex%20Illusion",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "kaleidoscope-tunnel",
+      "name": "Kaleidoscope Tunnel",
+      "description": "Hypnotic kaleidoscope tunnel with audio-driven speed and color shifts. Centroid controls tunnel layer velocity, energy modulates color shift tempo.",
+      "tags": [
+        "High Definition",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=kaleidoscope-tunnel",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "kali-neon-horizon",
+      "name": "Kali Neon Horizon",
+      "description": "Cathedral-scale neon vistas that bend and shimmer with the music, bass tilts the horizon, treble paints laser ridges, and stereo swirl warps the sky portal.",
+      "tags": [
+        "High Definition",
+        "trippy"
+      ],
+      "createdBy": "mrange",
+      "url": "https://vvavy.io/?visual=kali-neon-horizon",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "koi-pond",
+      "name": "Koi Pond",
+      "description": "WebfGL koi glide through a rippling pond; bass pushes rings, treble drifts the hue, and stereo steers the school.",
+      "tags": [
+        "High Definition",
+        "chill",
+        "calm",
+        "slow"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=koi-pond",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "lava-lamp-3d",
+      "name": "Lava Lamp",
+      "description": "Warm yellow-orange-red metaballs drifting and fusing, matching the provided GPU lava lamp reference.",
+      "tags": [
+        "trippy",
+        "mid-energy",
+        "groovy",
+        "High Definition"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=lava-lamp-3d",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "liminal-space-folding",
+      "name": "Liminal Space Folding",
+      "description": "Liminal space folding corridor with recursive frames and neon fog drift.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "mysterious",
+        "mid-energy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=liminal-space-folding",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "liquid-kaleido-feedback",
+      "name": "Liquid Kaleido Feedback",
+      "description": "Liquid kaleidoscopic feedback tunnel with mirrored shards, dye trails, and drop-driven blooms—built to scratch the Butterchurn itch.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=liquid-kaleido-feedback",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "lock-in",
+      "name": "Lock In",
+      "description": "Lock in - AIM bot tactical simulator",
+      "tags": [
+        "High Definition",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=lock-in",
+      "dateModified": "2026-02-17T00:38:52.493Z"
+    },
+    {
+      "id": "lunar-dragon",
+      "name": "Lunar Dragon Fireworks",
+      "description": "A lunar dragon ascends in ember trails and radiant bursts, with audio-guided firework arcs and shimmering crackle glow.",
+      "tags": [
+        "High Definition",
+        "cinematic",
+        "trippy",
+        "mid-energy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=lunar-dragon",
+      "dateModified": "2026-02-18T01:45:36.115Z"
+    },
+    {
+      "id": "memory-spiral",
+      "name": "Memory Spiral",
+      "description": "Celestial pulse spiral with aura orbits and motes that weave emotion into evolving tapestries.",
+      "tags": [
+        "dreamy",
+        "melancholy",
+        "mid-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=memory-spiral",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "neon-fold-odyssey",
+      "name": "Neon Fold Odyssey",
+      "description": "Eight-phase neon fold odyssey: a calm raymarched tunnel of shifting SDF forms with audio-driven glow and hue drift.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "trippy",
+        "dreamy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=neon-fold-odyssey",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "neon-matrix-grid",
+      "name": "Neon Matrix Grid",
+      "description": "",
+      "tags": [],
+      "createdBy": "Kali",
+      "url": "https://vvavy.io/?visual=neon-matrix-grid",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "neon-space-fold",
+      "name": "Neon Space Fold",
+      "description": "Advanced audio-reactive 3D space folding. Bass drives propulsion, while overall loudness controls the geometric breathing/expansion.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "trippy",
+        "punchy"
+      ],
+      "createdBy": "vvavy x Gemini",
+      "url": "https://vvavy.io/?visual=neon-space-fold",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "neon-tunnel-kaleidoscope",
+      "name": "Neon Tunnel Kaleidoscope",
+      "description": "Neon tunnel kaleidoscope that slices the beat into electric shards.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "dark",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=neon-tunnel-kaleidoscope",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "neural-constellation",
+      "name": "Neural Constellation",
+      "description": "Neural lattice of glowing axons, synapse pulses, and traversal couriers.",
+      "tags": [
+        "mysterious",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=neural-constellation",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "neural-flow",
+      "name": "Neural Flow",
+      "description": "Procedural neural tunnel with reactive core, particle drift, and audio-driven shader deformation.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=neural-flow",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "parallax-starfields",
+      "name": "Parallax Starfields",
+      "description": "Layered starfields race past wispy nebula sheets with camera sway, stereo parallax, and chroma bursts.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=parallax-starfields",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "particle-swarm-ballet",
+      "name": "Particle Swarm Ballet",
+      "description": "Particle Swarm Ballet: A living, shape shifting, glowing swarm that dances in perfect sync with the music",
+      "tags": [
+        "High Definition",
+        "high-energy",
+        "fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=particle-swarm-ballet",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "polar-tilt-grid",
+      "name": "Polar Tilt Grid",
+      "description": "A polar mosaic of tiles that rise and shimmer with the music beats ignite the grid, centroid swings the palette, and stereo tilt bends the field.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mid-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=polar-tilt-grid",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "prismatic-kaleidoscope",
+      "name": "Prismatic Kaleidoscope",
+      "description": "Prismatic wheel of mirrored shards organic ink, aurora ribbons, and crystalline bursts that bloom with beats and stereo ripple.",
+      "tags": [
+        "trippy",
+        "euphoric",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=prismatic-kaleidoscope",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "psychadelic-trail",
+      "name": "Psychadelic Trail",
+      "description": "A psychedelic forest trail that decays into the void. Use WASD to move around and Mouse to tilt.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "interactive",
+        "trippy",
+        "mysterious",
+        "cinematic"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=psychadelic-trail",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "pulse-warp-tunnel",
+      "name": "Pulse Warp Tunnel",
+      "description": "Raymarched chrome tunnel that shudders, pulses, and blooms in sync with beats while timbre bends its colors and stereo tilt leans the vortex.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "diatribes",
+      "url": "https://vvavy.io/?visual=pulse-warp-tunnel",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "pulsed-ripple-grid",
+      "name": "Pulsed Ripple Grid",
+      "description": "A top-down ripple grid where beats fire shockwaves. Energy, bass, and flux reshape the crest height, speed, and sparkles.",
+      "tags": [
+        "High Definition",
+        "mid-energy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=pulsed-ripple-grid",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "mercury-core",
+      "name": "Mercury Core",
+      "description": "A living mercury core that twists, boils, and ignites into shrapnel on every beat, featuring a dynamic camera that orbits during the drop.",
+      "tags": [
+        "hd",
+        "organic",
+        "shatter",
+        "ferrofluid",
+        "cinematic"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=mercury-core",
+      "dateModified": "2026-02-11T22:34:51.517Z"
+    },
+    {
+      "id": "retro-windows-dreamscape",
+      "name": "Retro Windows Dreamscape",
+      "description": "Neon tunnel morphs like classic Windows visualizers, blending prismatic ribbons with audio-reactive vortex pulses.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=retro-windows-dreamscape",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "ring-runner",
+      "name": "Ring Runner",
+      "description": "Clean concentric rings that evolve into a warped tunnel as you fly through.",
+      "tags": [
+        "High Definition",
+        "cinematic",
+        "mid-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=ring-runner",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "serpent-of-harmony",
+      "name": "Serpent Of Harmony",
+      "description": "Mythic serpent woven from intertwining sine spines, iridescent scales, and drifting skin veils that answer every bass swell and treble shimmer.",
+      "tags": [
+        "mysterious",
+        "dreamy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=serpent-of-harmony",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "shadow-lit-forge",
+      "name": "Shadow-Lit Forge",
+      "description": "Cathedral pillars, a hovering core, and fractal forge cracks that ignite with audio-driven impact waves.",
+      "tags": [
+        "dark",
+        "cinematic",
+        "punchy",
+        "steady",
+        "High Definition",
+        "particles",
+        "geometry"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=shadow-lit-forge",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "a-smoke",
+      "name": "A Smoke",
+      "description": "Dense plumes and iridescent ribbons that react to every swell, from gentle exhales to drop-sized shockwaves.",
+      "tags": [
+        "High Definition",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=a-smoke",
+      "dateModified": "2026-02-18T17:11:53.520Z"
+    },
+    {
+      "id": "sound-weaver",
+      "name": "Sound Weaver",
+      "description": "Luminous lattice of threads weaving pulses and ripples in endless motion.",
+      "tags": [
+        "cinematic",
+        "chill",
+        "low-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=sound-weaver",
+      "dateModified": "2026-02-18T17:07:09.297Z"
+    },
+    {
+      "id": "spin-contour",
+      "name": "Spin Contour",
+      "description": "Facet-cut tunnel echoes the provided shader with smooth raymarched cubes that accelerate with volume and glow on loudness lifts.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "high-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=spin-contour",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "sponge-dance-raymarch",
+      "name": "Im ready",
+      "description": "A raymarching dance party with a certain sponge",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "playful",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=sponge-dance-raymarch",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "star-traveling",
+      "name": "Star Traveling",
+      "description": "Warp-speed starfield with comet trails and nebula blooms around a spinning core.",
+      "tags": [
+        "cinematic",
+        "euphoric",
+        "high-energy",
+        "very-fast"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=star-traveling",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "summoning-rings",
+      "name": "Summoning Rings",
+      "description": "Rings spawn from the edges, pulse with singing/treble energy, converge when 9 are present, then explode into a brief crazy scene.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=summoning-rings",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "swirling-colors",
+      "name": "Swirling Colors",
+      "description": "A nice gentle melting pot of swirling colors.",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "mysterious",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=swirling-colors",
+      "dateModified": "2026-02-15T16:09:26.340Z"
+    },
+    {
+      "id": "the-eye",
+      "name": "The Eye",
+      "description": "A visualizer inspired by an eye, reacting to audio features.",
+      "tags": [],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=the-eye",
+      "dateModified": "2026-02-18T17:07:09.297Z"
+    },
+    {
+      "id": "The Gambler",
+      "name": "The Gambler",
+      "description": "Audio-reactive triangular plinko run volume rises drop neon balls, pegs scramble their paths, edge jackpots blast shockwaves across the board.",
+      "tags": [
+        "playful",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=The%20Gambler",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "the-infinite-grid",
+      "name": "The Infinite Grid",
+      "description": "Cyan grids warp under sub-bass pressure, storing dents that redirect ripples while drops raise spires along the horizon.",
+      "tags": [
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=the-infinite-grid",
+      "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "ukg-skyline-pulse",
+      "name": "UKG Skyline Pulse",
+      "description": "A neon skyline that steps with UKG swing. Bass builds the city, off-beats flicker short peaks, and vocal chops arc as light trails.",
+      "tags": [
+        "cinematic",
+        "euphoric",
+        "mid-energy",
+        "groovy",
+        "High Definition"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=ukg-skyline-pulse",
+      "dateModified": "2026-02-18T17:07:09.297Z"
+    },
+    {
+      "id": "winamp-hyperspace",
+      "name": "Winamp Hyperspace",
+      "description": "A classic Winamp-style hyperspace tunnel rebuilt in 3D: rainbow ribbons and star streaks that whip forward, flare on drops, and bend with stereo sway.",
+      "tags": [
+        "trippy",
+        "high-energy",
+        "groovy",
+        "High Definition"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=winamp-hyperspace",
+      "dateModified": "2026-02-12T00:52:09.949Z"
+    }
+  ]
+}

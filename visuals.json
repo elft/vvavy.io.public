@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-20T12:59:13.716Z",
+  "generatedAt": "2026-02-20T15:37:17.865Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -944,6 +944,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=the-infinite-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "the-mountain-range",
+      "name": "The Mountain Range",
+      "description": "Acid-green and magenta raymarched mountains with topographic pulses, neon grid ridges, and audio-reactive motion.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=the-mountain-range",
+      "dateModified": "2026-02-20T15:33:59.696Z"
     },
     {
       "id": "ukg-skyline-pulse",

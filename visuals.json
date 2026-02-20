@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-19T13:56:19.899Z",
+  "generatedAt": "2026-02-20T12:59:13.716Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -231,7 +231,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=disolve",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-02-20T01:05:32.464Z"
     },
     {
       "id": "droste-temple",
@@ -821,7 +821,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=a-smoke",
-      "dateModified": "2026-02-18T17:11:53.520Z"
+      "dateModified": "2026-02-20T01:02:01.706Z"
     },
     {
       "id": "sound-weaver",

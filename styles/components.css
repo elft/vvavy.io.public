@@ -53,6 +53,129 @@
   color: var(--color-error);
 }
 
+/* ── Getting Started Tip ───────────────────────────────────── */
+
+.getting-started-tip {
+  position: fixed;
+  inset: 0;
+  z-index: 14;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-12);
+  background: transparent;
+}
+
+.getting-started-tip__panel {
+  position: relative;
+  width: min(520px, calc(100vw - 24px));
+  pointer-events: auto;
+  padding: var(--space-16);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-muted);
+  background: linear-gradient(
+    160deg,
+    rgba(46, 31, 82, 0.94),
+    rgba(34, 21, 64, 0.92)
+  );
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+}
+
+.getting-started-tip__close {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 107, 129, 0.75);
+  background: rgba(255, 107, 129, 0.2);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.getting-started-tip__close:hover,
+.getting-started-tip__close:focus-visible {
+  background: rgba(255, 107, 129, 0.35);
+  border-color: var(--color-error);
+}
+
+.getting-started-tip__eyebrow {
+  margin: 0 0 var(--space-6);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.getting-started-tip__title {
+  margin: 0 0 var(--space-10);
+  font-size: var(--font-size-lg);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.getting-started-tip__steps {
+  margin: 0 0 var(--space-12);
+  padding-left: 18px;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  line-height: 1.45;
+}
+
+.getting-started-tip__steps li + li {
+  margin-top: var(--space-6);
+}
+
+.getting-started-tip__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.getting-started-tip__dismiss {
+  border: 1px solid var(--color-border);
+  background: var(--color-button-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6) var(--space-10);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.getting-started-tip__dismiss:hover,
+.getting-started-tip__dismiss:focus-visible {
+  border-color: var(--color-border-strong);
+  background: var(--color-button-surface-hover);
+}
+
+@media (max-width: 600px) {
+  .getting-started-tip {
+    padding:
+      max(12px, env(safe-area-inset-top, 0))
+      var(--space-10)
+      max(12px, env(safe-area-inset-bottom, 0));
+  }
+
+  .getting-started-tip__panel {
+    padding: var(--space-12);
+  }
+
+  .getting-started-tip__title {
+    font-size: var(--font-size-md);
+  }
+
+  .getting-started-tip__steps {
+    font-size: var(--font-size-sm);
+  }
+}
+
 /* ── Footer ──────────────────────────────────────────────────── */
 
 .footer-bar {

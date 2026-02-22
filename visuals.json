@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-22T16:24:19.894Z",
+  "generatedAt": "2026-02-22T22:08:38.085Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -357,12 +357,11 @@
         "mid-energy",
         "groovy",
         "High Definition",
-        "interactive",
-        "Most Popular"
+        "interactive"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=groove",
-      "dateModified": "2026-02-13T23:50:31.651Z"
+      "dateModified": "2026-02-22T21:50:17.564Z"
     },
     {
       "id": "guess-what",
@@ -908,6 +907,25 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=swirling-colors",
       "dateModified": "2026-02-15T16:09:26.340Z"
+    },
+    {
+      "id": "temporal-feedback-ghost",
+      "name": "Temporal Feedback Ghost",
+      "description": "A temporal ghost that smears through time with cyan-to-violet feedback trails.",
+      "tags": [
+        "interactive",
+        "High Definition",
+        "geometry",
+        "trippy",
+        "mysterious",
+        "mid-energy",
+        "groovy",
+        "Most Popular",
+        "no-stage-toggle"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=temporal-feedback-ghost",
+      "dateModified": "2026-02-22T22:08:38.058Z"
     },
     {
       "id": "the-eye",

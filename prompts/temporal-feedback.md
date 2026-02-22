@@ -40,3 +40,25 @@ Creates "ghost trails," motion blur, and infinite recursive tunnels by feeding t
 - **Rotation**: -0.05 to 0.05 radians per frame
 - **Scale**: 0.98 to 1.02 (zooming effect)
 - **Blend Mode**: Additive, multiplicative, or alpha blend
+
+## Seamless Screen-Wrap Ghosts (No Edge Bounce)
+- For wrap-around visuals, represent center positions in normalized UV space (`0..1`) and wrap with:
+  - `value = ((value % 1.0) + 1.0) % 1.0`
+- Do not compute follow velocity with plain subtraction near edges.
+  - Bad: `delta = target - current`
+  - Good (shortest torus path):
+    - `delta = target - current`
+    - `if (delta > 0.5) delta -= 1.0`
+    - `if (delta < -0.5) delta += 1.0`
+- In shader sampling, wrap previous-frame UVs to avoid clipping at borders:
+  - `prev = texture(u_buffer, fract(uv + flowDrift))`
+- For radial ghost distance to a wrapped center, use wrapped delta:
+  - `wrappedDelta = mod(uv - center + 0.5, 1.0) - 0.5`
+
+## Recommended Smoothing Values (Temporal Feedback Ghost Style)
+- `idleTimeout`: `0.5` seconds before autonomous movement starts.
+- `flowLerp`: `1.0 - pow(0.95, dt * 60.0)` for stable frame-rate-independent smoothing.
+- `mouseFollowGain`: `0.1` (`vx = dx * 0.1`, `vy = dy * 0.1`) for soft but responsive easing.
+- `driftSpeed`: `0.0015 + audioIntensity * 0.009` (optionally multiply by `1.35` on beat).
+- `beatCooldown`: `0.22` seconds to avoid rapid direction flipping.
+- Feedback persistence: start around `0.94` to keep trails without runaway accumulation.

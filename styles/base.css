@@ -39,6 +39,24 @@ button {
   padding: 0;
 }
 
+/* Prevent browser tap/selection highlights when holding pointer on controls. */
+:where(button, [role='button'], [type='button'], [type='submit'], [type='reset'], a) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(button, [role='button'], [type='button'], [type='submit'], [type='reset']) {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+:where(button, [role='button'], [type='button'], [type='submit'], [type='reset'], a):focus:not(:focus-visible) {
+  outline: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
 canvas {
   display: block;
 }

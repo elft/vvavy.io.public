@@ -975,7 +975,7 @@
   flex: 0 1 300px;
   width: auto;
   max-height: 300px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .soundcloud-results .overlay-result {
@@ -1085,6 +1085,122 @@
 .visual-result--new {
   border-color: rgba(245, 197, 66, 0.6);
   box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.35);
+}
+
+.visual-result--popular {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.visual-result--popular::before,
+.visual-result--popular::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.visual-result--popular::before {
+  inset: -38%;
+  background: linear-gradient(
+    132deg,
+    rgba(255, 255, 255, 0) 42%,
+    rgba(255, 255, 255, 0.1) 46%,
+    rgba(255, 246, 210, 0.6) 50%,
+    rgba(199, 255, 255, 0.24) 54%,
+    rgba(255, 255, 255, 0) 58%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translate3d(-76%, -76%, 0) rotate(-15deg);
+  animation: visual-popular-shimmer 4.4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.visual-result--popular::after {
+  width: 84px;
+  height: 84px;
+  right: -28px;
+  bottom: -28px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 250, 232, 0.92) 0, rgba(255, 250, 232, 0.72) 10%, rgba(255, 250, 232, 0) 58%),
+    conic-gradient(
+      from 0deg,
+      rgba(255, 249, 210, 0) 0deg,
+      rgba(255, 249, 210, 0.85) 20deg,
+      rgba(255, 249, 210, 0) 40deg,
+      rgba(214, 255, 255, 0.8) 65deg,
+      rgba(214, 255, 255, 0) 90deg,
+      rgba(255, 249, 210, 0.85) 120deg,
+      rgba(255, 249, 210, 0) 145deg,
+      rgba(214, 255, 255, 0.75) 185deg,
+      rgba(214, 255, 255, 0) 210deg,
+      rgba(255, 249, 210, 0.85) 250deg,
+      rgba(255, 249, 210, 0) 280deg,
+      rgba(214, 255, 255, 0.8) 320deg,
+      rgba(214, 255, 255, 0) 360deg
+    );
+  filter: blur(0.3px);
+  opacity: 0;
+  transform: scale(0.32) rotate(0deg);
+  animation: visual-popular-starburst 4.4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.visual-result--popular > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes visual-popular-shimmer {
+  0% {
+    opacity: 0;
+    transform: translate3d(-78%, -78%, 0) rotate(-15deg);
+  }
+  8% {
+    opacity: 0.14;
+  }
+  30% {
+    opacity: 0.35;
+    transform: translate3d(-30%, -30%, 0) rotate(-15deg);
+  }
+  56% {
+    opacity: 0.18;
+  }
+  74% {
+    opacity: 0.08;
+    transform: translate3d(12%, 12%, 0) rotate(-15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(38%, 38%, 0) rotate(-15deg);
+  }
+}
+
+@keyframes visual-popular-starburst {
+  0%, 70% {
+    opacity: 0;
+    transform: scale(0.26) rotate(0deg);
+  }
+  82% {
+    opacity: 0.52;
+    transform: scale(0.78) rotate(18deg);
+  }
+  90% {
+    opacity: 0.2;
+    transform: scale(1.05) rotate(34deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.18) rotate(54deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-result--popular::before,
+  .visual-result--popular::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 
@@ -1217,7 +1333,7 @@
 /* Desktop visual card hover — more visible lift when preview is active */
 @media (pointer: fine) and (min-width: 601px) {
   .visuals-results .overlay-result:hover {
-    transform: translateY(-2px) scale(1.01);
+    transform: translateY(-2px);
     border-color: rgba(246, 243, 255, 0.3);
     box-shadow: 0 6px 20px rgba(6, 4, 12, 0.5);
     z-index: 1;

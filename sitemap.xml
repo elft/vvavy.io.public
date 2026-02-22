@@ -5,7 +5,7 @@
   <!-- Main page -->
   <url>
     <loc>https://vvavy.io/</loc>
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,7 +17,7 @@
   <!-- Features overview -->
   <url>
     <loc>https://vvavy.io/features</loc>
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,7 +25,7 @@
   <!-- Visual catalog page -->
   <url>
     <loc>https://vvavy.io/visuals</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -33,7 +33,7 @@
   <!-- Visual catalog JSON for AI agents -->
   <url>
     <loc>https://vvavy.io/visuals.json</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

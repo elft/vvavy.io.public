@@ -77,7 +77,7 @@
             <line class="volume-mute" x1="17" y1="9" x2="23" y2="15"></line>
           </svg>
         </button>
-        <div class="footer-volume-slider-container absolute flex items-center justify-center px-4 py-8 pointer-events-none opacity-0 transition-medium invisible">
+        <div class="footer-volume-slider-container absolute flex flex-col items-center justify-center gap-8 px-6 py-8 pointer-events-none opacity-0 transition-medium invisible">
           <input
             class="footer-volume-slider cursor-pointer"
             id="volume-slider"
@@ -89,6 +89,15 @@
             aria-label="Volume control"
             orient="vertical"
           />
+          <button
+            class="footer-volume-visual-mute footer-btn text-xs uppercase px-8 py-4"
+            id="btn-visual-audio-mute"
+            type="button"
+            aria-label="Mute visual generated audio"
+            aria-pressed="false"
+          >
+            FX On
+          </button>
         </div>
       </div>
       <button class="footer-btn footer-btn-icon-only inline-flex items-center justify-center gap-6 px-8 py-6 cursor-pointer transition-colors" id="btn-menu" type="button" aria-label="Menu">

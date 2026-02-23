@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-22T22:35:13.188Z",
+  "generatedAt": "2026-02-23T14:20:40.244Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -361,7 +361,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=groove",
-      "dateModified": "2026-02-22T21:50:17.564Z"
+      "dateModified": "2026-02-23T13:26:11.424Z"
     },
     {
       "id": "guess-what",
@@ -925,7 +925,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=temporal-feedback-ghost",
-      "dateModified": "2026-02-22T22:35:13.160Z"
+      "dateModified": "2026-02-23T14:20:24.364Z"
     },
     {
       "id": "the-eye",

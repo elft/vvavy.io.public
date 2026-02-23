@@ -1560,6 +1560,34 @@
   min-height: 48px;
 }
 
+.export-panel-actions {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  width: 100%;
+  min-height: 48px;
+}
+
+.export-panel-actions .overlay-menu__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  margin: 0 !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  line-height: 1.2;
+}
+
+.export-panel-actions .export-primary-btn,
+.export-panel-actions .export-stop-btn {
+  margin-top: 0 !important;
+}
+
 @media (max-width: 600px) {
   .export-panel-shell {
     width: min(92vw, 320px);
@@ -1614,6 +1642,17 @@
     gap: var(--space-5);
   }
 
+  .export-option-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .export-option-label {
+    min-height: 30px;
+    padding: var(--space-5) var(--space-6);
+    font-size: 11px;
+  }
+
   .export-panel-shell .overlay-form__actions {
     margin-top: var(--space-6);
     gap: var(--space-6);
@@ -1621,8 +1660,18 @@
 
   .export-panel-shell .overlay-form__actions .overlay-menu__button {
     min-height: 38px;
+    height: 38px;
     font-size: 11px;
     letter-spacing: 0.06em;
+  }
+
+  .export-panel-actions {
+    min-height: 38px;
+  }
+
+  .export-panel-actions .overlay-menu__button {
+    min-height: 38px !important;
+    height: 38px !important;
   }
 
   .export-active-status {
@@ -1679,6 +1728,45 @@
   min-height: 14px;
 }
 
+.export-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.export-option-grid .overlay-field + .overlay-field {
+  margin-top: 0;
+}
+
+.export-option {
+  margin: 0;
+}
+
+.export-option-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  min-height: 32px;
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-sm);
+  background: rgba(12, 9, 20, 0.45);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.export-option-label input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.export-option-label:has(input[type='checkbox']:disabled) {
+  opacity: 0.55;
+}
+
 .export-preset-meta {
   margin: 0;
   font-size: var(--font-size-xs);
@@ -1703,11 +1791,11 @@
 
 .export-panel-shell[data-export-state='idle'] .export-stop-btn,
 .export-panel-shell[data-export-state='countdown'] .export-stop-btn {
-  display: none;
+  display: none !important;
 }
 
 .export-panel-shell[data-export-state='active'] .export-primary-btn {
-  display: none;
+  display: none !important;
 }
 
 .export-primary-btn[disabled] {

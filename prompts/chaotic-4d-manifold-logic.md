@@ -53,13 +53,3 @@ To prevent "snapping" or "resetting" visuals:
 Procedural Time: Use uTime as the phase in all shader calculations. Never reset the physical position of the mesh.
 
 Modular Geometry: Use a cylinder or torus that is significantly longer than the viewport to ensure the "edges" of the manifold are never visible to the camera.
-
-5. Application Strategy
-
-You can apply this same "Chaos + Manifold + Step-Color" stack to:
-
-Character Skins: Making a character's "flesh" appear to be a window into another dimension.
-
-UI Elements: Buttons that buckle and fold mathematically when hovered.
-
-Environmental Transitions: Portals that use 4D logic to visually explain "impossible" travel.

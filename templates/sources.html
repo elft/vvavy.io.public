@@ -6,14 +6,14 @@
       <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </header>
     <div class="overlay-menu overlay-menu--tight">
-      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="file">
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="file" title="Supports common audio formats including MP3, WAV, OGG, AAC, and FLAC on most modern browsers.">
         <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <span class="overlay-menu__label inline-flex items-center gap-4">File</span>
       </button>
-      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="mic">
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="mic" title="Streams live mic audio data and supports real-time closed captions while Mic is active.">
         <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M19 11a7 7 0 0 1-14 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -21,14 +21,21 @@
         </svg>
         <span class="overlay-menu__label inline-flex items-center gap-4">Mic</span>
       </button>
-      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="midi">
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="midi" title="Uses MIDI note/control input from connected controllers.">
         <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.8" />
           <path d="M7 8v8M11 8v8M15 8v8M19 8v8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
         </svg>
         <span class="overlay-menu__label inline-flex items-center gap-4">MIDI</span>
       </button>
-      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="soundcloud">
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="tab" title="Streams live audio from a shared tab or system source. This will support any audio coming from your machine">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          <path d="M3 9.5h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <span class="overlay-menu__label inline-flex items-center gap-4">Capture system/tab audio</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="soundcloud" title="Stream music from SoundCloud. SoundCloud is a massive audio repository with music from artist who are up next." data-default-title="Stream music from SoundCloud. SoundCloud is a massive audio repository with music from artist who are up next.">
         <img class="overlay-menu__icon overlay-menu__icon--image" src="/images/soundcloud.png" alt="" aria-hidden="true" />
         <span class="overlay-menu__label inline-flex items-center gap-4">SoundCloud</span>
       </button>

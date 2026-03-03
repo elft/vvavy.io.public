@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-02T00:27:28.516Z",
+  "generatedAt": "2026-03-03T01:15:31.911Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -31,21 +31,6 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=beat-drop-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
-    },
-    {
-      "id": "try-this-one",
-      "name": "Try this one seriously",
-      "description": "Try this one, seriuosly",
-      "tags": [
-        "High Definition",
-        "interactive",
-        "trippy",
-        "mid-energy",
-        "groovy"
-      ],
-      "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=try-this-one",
-      "dateModified": "2026-03-02T00:27:28.479Z"
     },
     {
       "id": "centroid-crystalline-tunnel",
@@ -421,6 +406,21 @@
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
+      "id": "in-your-face",
+      "name": "In Your Face",
+      "description": "Edge detection that pops towards you on beat detection",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "geometry",
+        "mid-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=in-your-face",
+      "dateModified": "2026-03-03T00:22:54.814Z"
+    },
+    {
       "id": "kaleidoscope-tunnel",
       "name": "Kaleidoscope Tunnel",
       "description": "Hypnotic kaleidoscope tunnel with audio-driven speed and color shifts. Centroid controls tunnel layer velocity, energy modulates color shift tempo.",
@@ -706,7 +706,7 @@
       ],
       "createdBy": "diatribes",
       "url": "https://vvavy.io/?visual=pulse-warp-tunnel",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-02T13:07:06.060Z"
     },
     {
       "id": "pulsed-ripple-grid",
@@ -963,6 +963,21 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/?visual=the-mountain-range",
       "dateModified": "2026-02-20T15:33:59.696Z"
+    },
+    {
+      "id": "try-this-one",
+      "name": "Try this one seriously",
+      "description": "Try this one, seriuosly",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=try-this-one",
+      "dateModified": "2026-03-03T00:22:54.814Z"
     },
     {
       "id": "ukg-skyline-pulse",

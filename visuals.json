@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-03T01:15:31.911Z",
+  "generatedAt": "2026-03-04T00:58:20.442Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -75,6 +75,21 @@
       "createdBy": "Nox",
       "url": "https://vvavy.io/?visual=cloud-tunnel-raymarch",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "color-inversion",
+      "name": "Color Inversion",
+      "description": "Edges-only motion outlines with color-reactive shockwave trails.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/?visual=color-inversion",
+      "dateModified": "2026-03-04T00:58:20.409Z"
     },
     {
       "id": "color-vortex-suck",

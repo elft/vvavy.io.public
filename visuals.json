@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-04T00:58:20.442Z",
+  "generatedAt": "2026-03-05T16:18:21.646Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -15,7 +15,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=aura-orb-hyper-geometric",
+      "url": "https://vvavy.io/app?visual=aura-orb-hyper-geometric",
       "dateModified": "2026-02-22T12:41:22.601Z"
     },
     {
@@ -29,7 +29,7 @@
         "stop-go"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=beat-drop-grid",
+      "url": "https://vvavy.io/app?visual=beat-drop-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -45,7 +45,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=centroid-crystalline-tunnel",
+      "url": "https://vvavy.io/app?visual=centroid-crystalline-tunnel",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -58,7 +58,7 @@
         "low-energy"
       ],
       "createdBy": "cineshader",
-      "url": "https://vvavy.io/?visual=cloud-flight",
+      "url": "https://vvavy.io/app?visual=cloud-flight",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -73,7 +73,7 @@
         "groovy"
       ],
       "createdBy": "Nox",
-      "url": "https://vvavy.io/?visual=cloud-tunnel-raymarch",
+      "url": "https://vvavy.io/app?visual=cloud-tunnel-raymarch",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -88,8 +88,8 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=color-inversion",
-      "dateModified": "2026-03-04T00:58:20.409Z"
+      "url": "https://vvavy.io/app?visual=color-inversion",
+      "dateModified": "2026-03-05T14:51:58.280Z"
     },
     {
       "id": "color-vortex-suck",
@@ -102,7 +102,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=color-vortex-suck",
+      "url": "https://vvavy.io/app?visual=color-vortex-suck",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -117,7 +117,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=colors",
+      "url": "https://vvavy.io/app?visual=colors",
       "dateModified": "2026-02-18T17:11:53.520Z"
     },
     {
@@ -128,7 +128,7 @@
         "High Definition"
       ],
       "createdBy": "mrange",
-      "url": "https://vvavy.io/?visual=complicating-things",
+      "url": "https://vvavy.io/app?visual=complicating-things",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -144,7 +144,7 @@
         "geometry"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=cozy-apartment-vinyl-session",
+      "url": "https://vvavy.io/app?visual=cozy-apartment-vinyl-session",
       "dateModified": "2026-02-11T22:34:51.517Z"
     },
     {
@@ -157,7 +157,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=cyber-punk-punch",
+      "url": "https://vvavy.io/app?visual=cyber-punk-punch",
       "dateModified": "2026-02-19T00:20:20.234Z"
     },
     {
@@ -170,7 +170,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=Debug",
+      "url": "https://vvavy.io/app?visual=Debug",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -185,7 +185,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=deep-house-velvet-drift",
+      "url": "https://vvavy.io/app?visual=deep-house-velvet-drift",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -200,7 +200,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=deep-house",
+      "url": "https://vvavy.io/app?visual=deep-house",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -215,7 +215,7 @@
         "mid-energy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=disolve",
+      "url": "https://vvavy.io/app?visual=disolve",
       "dateModified": "2026-02-20T01:05:32.464Z"
     },
     {
@@ -231,7 +231,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=droste-temple",
+      "url": "https://vvavy.io/app?visual=droste-temple",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -246,7 +246,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=echo-halo",
+      "url": "https://vvavy.io/app?visual=echo-halo",
       "dateModified": "2026-02-18T20:52:50.032Z"
     },
     {
@@ -260,7 +260,7 @@
         "very-fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=EDM%20Show",
+      "url": "https://vvavy.io/app?visual=EDM%20Show",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -274,7 +274,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=Endless%20Road",
+      "url": "https://vvavy.io/app?visual=Endless%20Road",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -288,7 +288,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=energy-unlocked",
+      "url": "https://vvavy.io/app?visual=energy-unlocked",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -301,7 +301,7 @@
         "High Definition"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=fractal-symphony-bloom",
+      "url": "https://vvavy.io/app?visual=fractal-symphony-bloom",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -315,7 +315,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=galactic-kaleidoscope",
+      "url": "https://vvavy.io/app?visual=galactic-kaleidoscope",
       "dateModified": "2026-02-15T13:33:12.847Z"
     },
     {
@@ -329,7 +329,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=glitch-matrix",
+      "url": "https://vvavy.io/app?visual=glitch-matrix",
       "dateModified": "2026-02-18T17:07:09.297Z"
     },
     {
@@ -345,7 +345,7 @@
         "interactive"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=groove",
+      "url": "https://vvavy.io/app?visual=groove",
       "dateModified": "2026-02-23T13:26:11.424Z"
     },
     {
@@ -360,7 +360,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=guess-what",
+      "url": "https://vvavy.io/app?visual=guess-what",
       "dateModified": "2026-02-19T13:43:44.588Z"
     },
     {
@@ -374,7 +374,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=hash-core-atrium",
+      "url": "https://vvavy.io/app?visual=hash-core-atrium",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -389,7 +389,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=hyperspace-tunnel",
+      "url": "https://vvavy.io/app?visual=hyperspace-tunnel",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -403,7 +403,7 @@
         "slow"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=hypno-spiral",
+      "url": "https://vvavy.io/app?visual=hypno-spiral",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -417,7 +417,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=Hpno%20Vortex%20Illusion",
+      "url": "https://vvavy.io/app?visual=Hpno%20Vortex%20Illusion",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -432,7 +432,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=in-your-face",
+      "url": "https://vvavy.io/app?visual=in-your-face",
       "dateModified": "2026-03-03T00:22:54.814Z"
     },
     {
@@ -445,7 +445,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=kaleidoscope-tunnel",
+      "url": "https://vvavy.io/app?visual=kaleidoscope-tunnel",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -457,7 +457,7 @@
         "trippy"
       ],
       "createdBy": "mrange",
-      "url": "https://vvavy.io/?visual=kali-neon-horizon",
+      "url": "https://vvavy.io/app?visual=kali-neon-horizon",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -471,7 +471,7 @@
         "slow"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=koi-pond",
+      "url": "https://vvavy.io/app?visual=koi-pond",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -485,7 +485,7 @@
         "High Definition"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=lava-lamp-3d",
+      "url": "https://vvavy.io/app?visual=lava-lamp-3d",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -499,7 +499,7 @@
         "mid-energy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=liminal-space-folding",
+      "url": "https://vvavy.io/app?visual=liminal-space-folding",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -513,7 +513,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=liquid-kaleido-feedback",
+      "url": "https://vvavy.io/app?visual=liquid-kaleido-feedback",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -526,7 +526,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=lock-in",
+      "url": "https://vvavy.io/app?visual=lock-in",
       "dateModified": "2026-02-17T00:38:52.493Z"
     },
     {
@@ -540,7 +540,7 @@
         "mid-energy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=lunar-dragon",
+      "url": "https://vvavy.io/app?visual=lunar-dragon",
       "dateModified": "2026-02-18T01:45:36.115Z"
     },
     {
@@ -554,7 +554,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=memory-spiral",
+      "url": "https://vvavy.io/app?visual=memory-spiral",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -568,7 +568,7 @@
         "dreamy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=neon-fold-odyssey",
+      "url": "https://vvavy.io/app?visual=neon-fold-odyssey",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -577,7 +577,7 @@
       "description": "",
       "tags": [],
       "createdBy": "Kali",
-      "url": "https://vvavy.io/?visual=neon-matrix-grid",
+      "url": "https://vvavy.io/app?visual=neon-matrix-grid",
       "dateModified": "2026-02-21T11:46:36.507Z"
     },
     {
@@ -591,7 +591,7 @@
         "punchy"
       ],
       "createdBy": "vvavy x Gemini",
-      "url": "https://vvavy.io/?visual=neon-space-fold",
+      "url": "https://vvavy.io/app?visual=neon-space-fold",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -606,7 +606,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=neon-tunnel-kaleidoscope",
+      "url": "https://vvavy.io/app?visual=neon-tunnel-kaleidoscope",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -620,7 +620,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=neural-constellation",
+      "url": "https://vvavy.io/app?visual=neural-constellation",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -634,7 +634,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=neural-flow",
+      "url": "https://vvavy.io/app?visual=neural-flow",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -648,7 +648,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=parallax-starfields",
+      "url": "https://vvavy.io/app?visual=parallax-starfields",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -661,7 +661,7 @@
         "fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=particle-swarm-ballet",
+      "url": "https://vvavy.io/app?visual=particle-swarm-ballet",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -675,7 +675,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=polar-tilt-grid",
+      "url": "https://vvavy.io/app?visual=polar-tilt-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -689,7 +689,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=prismatic-kaleidoscope",
+      "url": "https://vvavy.io/app?visual=prismatic-kaleidoscope",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -705,7 +705,7 @@
         "cinematic"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=psychadelic-trail",
+      "url": "https://vvavy.io/app?visual=psychadelic-trail",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -720,7 +720,7 @@
         "groovy"
       ],
       "createdBy": "diatribes",
-      "url": "https://vvavy.io/?visual=pulse-warp-tunnel",
+      "url": "https://vvavy.io/app?visual=pulse-warp-tunnel",
       "dateModified": "2026-03-02T13:07:06.060Z"
     },
     {
@@ -732,7 +732,7 @@
         "mid-energy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=pulsed-ripple-grid",
+      "url": "https://vvavy.io/app?visual=pulsed-ripple-grid",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -747,7 +747,7 @@
         "cinematic"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=mercury-core",
+      "url": "https://vvavy.io/app?visual=mercury-core",
       "dateModified": "2026-02-11T22:34:51.517Z"
     },
     {
@@ -761,7 +761,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=retro-windows-dreamscape",
+      "url": "https://vvavy.io/app?visual=retro-windows-dreamscape",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -775,7 +775,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=ring-runner",
+      "url": "https://vvavy.io/app?visual=ring-runner",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -789,7 +789,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=serpent-of-harmony",
+      "url": "https://vvavy.io/app?visual=serpent-of-harmony",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -806,7 +806,7 @@
         "geometry"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=shadow-lit-forge",
+      "url": "https://vvavy.io/app?visual=shadow-lit-forge",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -819,7 +819,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=a-smoke",
+      "url": "https://vvavy.io/app?visual=a-smoke",
       "dateModified": "2026-02-22T13:13:09.669Z"
     },
     {
@@ -833,7 +833,7 @@
         "steady"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=sound-weaver",
+      "url": "https://vvavy.io/app?visual=sound-weaver",
       "dateModified": "2026-02-18T17:07:09.297Z"
     },
     {
@@ -847,7 +847,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=spin-contour",
+      "url": "https://vvavy.io/app?visual=spin-contour",
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
@@ -862,7 +862,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=sponge-dance-raymarch",
+      "url": "https://vvavy.io/app?visual=sponge-dance-raymarch",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -876,7 +876,7 @@
         "very-fast"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=star-traveling",
+      "url": "https://vvavy.io/app?visual=star-traveling",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -891,7 +891,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=summoning-rings",
+      "url": "https://vvavy.io/app?visual=summoning-rings",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -905,7 +905,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=swirling-colors",
+      "url": "https://vvavy.io/app?visual=swirling-colors",
       "dateModified": "2026-02-15T16:09:26.340Z"
     },
     {
@@ -924,7 +924,7 @@
         "no-stage-toggle"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=temporal-feedback-ghost",
+      "url": "https://vvavy.io/app?visual=temporal-feedback-ghost",
       "dateModified": "2026-02-28T16:18:28.468Z"
     },
     {
@@ -933,7 +933,7 @@
       "description": "A visualizer inspired by an eye, reacting to audio features.",
       "tags": [],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=the-eye",
+      "url": "https://vvavy.io/app?visual=the-eye",
       "dateModified": "2026-02-18T17:07:09.297Z"
     },
     {
@@ -946,7 +946,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=The%20Gambler",
+      "url": "https://vvavy.io/app?visual=The%20Gambler",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -960,7 +960,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=the-infinite-grid",
+      "url": "https://vvavy.io/app?visual=the-infinite-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
@@ -976,7 +976,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=the-mountain-range",
+      "url": "https://vvavy.io/app?visual=the-mountain-range",
       "dateModified": "2026-02-20T15:33:59.696Z"
     },
     {
@@ -991,7 +991,7 @@
         "groovy"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=try-this-one",
+      "url": "https://vvavy.io/app?visual=try-this-one",
       "dateModified": "2026-03-03T00:22:54.814Z"
     },
     {
@@ -1006,7 +1006,7 @@
         "High Definition"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=ukg-skyline-pulse",
+      "url": "https://vvavy.io/app?visual=ukg-skyline-pulse",
       "dateModified": "2026-02-18T17:07:09.297Z"
     },
     {
@@ -1020,7 +1020,7 @@
         "High Definition"
       ],
       "createdBy": "vvavy",
-      "url": "https://vvavy.io/?visual=winamp-hyperspace",
+      "url": "https://vvavy.io/app?visual=winamp-hyperspace",
       "dateModified": "2026-02-12T00:52:09.949Z"
     }
   ]

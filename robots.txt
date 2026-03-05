@@ -2,8 +2,8 @@
 User-agent: *
 Allow: /
 Allow: /favicon.ico
-Allow: /features
-Allow: /features.html
+Allow: /app
+Allow: /app.html
 Allow: /visuals
 Allow: /visuals.html
 Allow: /visuals.json

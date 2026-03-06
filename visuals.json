@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-05T16:18:21.646Z",
+  "generatedAt": "2026-03-06T13:16:25.054Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -59,7 +59,7 @@
       ],
       "createdBy": "cineshader",
       "url": "https://vvavy.io/app?visual=cloud-flight",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-06T01:11:34.372Z"
     },
     {
       "id": "cloud-tunnel-raymarch",
@@ -74,7 +74,7 @@
       ],
       "createdBy": "Nox",
       "url": "https://vvavy.io/app?visual=cloud-tunnel-raymarch",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-06T01:11:34.372Z"
     },
     {
       "id": "color-inversion",
@@ -83,13 +83,14 @@
       "tags": [
         "High Definition",
         "interactive",
+        "tech.livestream",
         "trippy",
         "mid-energy",
         "groovy"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=color-inversion",
-      "dateModified": "2026-03-05T14:51:58.280Z"
+      "dateModified": "2026-03-06T01:35:47.140Z"
     },
     {
       "id": "color-vortex-suck",
@@ -247,7 +248,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=echo-halo",
-      "dateModified": "2026-02-18T20:52:50.032Z"
+      "dateModified": "2026-03-05T20:46:26.689Z"
     },
     {
       "id": "EDM Show",
@@ -289,7 +290,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=energy-unlocked",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-06T01:11:34.372Z"
     },
     {
       "id": "fractal-symphony-bloom",
@@ -427,13 +428,14 @@
       "tags": [
         "High Definition",
         "interactive",
+        "tech.livestream",
         "geometry",
         "mid-energy",
         "steady"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=in-your-face",
-      "dateModified": "2026-03-03T00:22:54.814Z"
+      "dateModified": "2026-03-05T22:30:30.990Z"
     },
     {
       "id": "kaleidoscope-tunnel",
@@ -446,7 +448,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=kaleidoscope-tunnel",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-06T01:35:47.140Z"
     },
     {
       "id": "kali-neon-horizon",
@@ -514,7 +516,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liquid-kaleido-feedback",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-06T01:53:10.521Z"
     },
     {
       "id": "lock-in",
@@ -986,13 +988,14 @@
       "tags": [
         "High Definition",
         "interactive",
+        "tech.livestream",
         "trippy",
         "mid-energy",
         "groovy"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=try-this-one",
-      "dateModified": "2026-03-03T00:22:54.814Z"
+      "dateModified": "2026-03-05T22:30:30.990Z"
     },
     {
       "id": "ukg-skyline-pulse",
@@ -1007,7 +1010,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=ukg-skyline-pulse",
-      "dateModified": "2026-02-18T17:07:09.297Z"
+      "dateModified": "2026-03-06T01:45:53.864Z"
     },
     {
       "id": "winamp-hyperspace",

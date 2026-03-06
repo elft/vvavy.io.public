@@ -61,7 +61,7 @@
           "AI-assisted custom visual creator",
           "SoundCloud OAuth integration",
           "Live microphone input",
-          "Browser tab audio capture",
+          "System audio capture",
           "MIDI controller support",
           "Video export for TikTok, Reels, Shorts, YouTube",
           "Google Cast / Chromecast support",
@@ -92,7 +92,7 @@
             "@type": "HowToStep",
             "position": 1,
             "name": "Choose your audio source",
-            "text": "Upload an audio file, paste a SoundCloud link, use your microphone live, capture browser tab audio, or connect a MIDI controller."
+            "text": "Upload an audio file, paste a SoundCloud link, use your microphone live, capture system audio, or connect a MIDI controller."
           },
           {
             "@type": "HowToStep",
@@ -137,7 +137,7 @@
             "name": "What audio sources does VVavy support?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "VVavy supports five audio inputs: uploaded audio files (MP3, WAV, FLAC, and more), SoundCloud tracks, your device microphone for live input, browser tab audio capture, and MIDI controllers."
+              "text": "VVavy supports five audio inputs: uploaded audio files (MP3, WAV, FLAC, and more), SoundCloud tracks, your device microphone for live input, system audio capture, and MIDI controllers."
             }
           },
           {
@@ -161,7 +161,7 @@
             "name": "Can DJs use VVavy for live performances?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Connect your microphone or use browser tab audio to capture your mix in real time. Visuals react instantly to every beat, drop, and frequency shift  perfect for live DJ sets, club nights, and events."
+              "text": "Yes. Connect your microphone or use system audio to capture your mix in real time. Visuals react instantly to every beat, drop, and frequency shift  perfect for live DJ sets, club nights, and events."
             }
           },
           {
@@ -169,7 +169,7 @@
             "name": "Can streamers use VVavy as a stream overlay or background?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Use browser tab audio capture to drive VVavy's visuals with your stream audio. Add VVavy as a browser source in OBS or Streamlabs as a reactive background or overlay for your Twitch, YouTube, or Kick streams."
+              "text": "Yes. Use system audio capture to drive VVavy's visuals with your stream audio. Add VVavy as a browser source in OBS or Streamlabs as a reactive background or overlay for your Twitch, YouTube, or Kick streams."
             }
           },
           {
@@ -242,6 +242,7 @@
         <p class="lp-hero-sub">
           VVavy turns any audio or video stream into stunning real-time visuals right in your browser.
           Drop in a track, stream, live mic or capture your system audio and watch the visuals dance.
+          Create your own look or go full-screen and unwind.
           60+ audio-reactive visuals, video export for TikTok and Reels, or cast to your TV.
         </p>
 
@@ -285,10 +286,10 @@
     <section class="lp-section lp-section--alt" id="who" aria-labelledby="who-title">
       <div class="lp-section-head">
         <span class="lp-eyebrow">Who it's for</span>
-        <h2 id="who-title">Built for every kind of creator</h2>
+        <h2 id="who-title">Built for creators and listeners</h2>
         <p>
           Whether you're performing live, dropping a single, streaming to thousands, or just in the mood
-          to vibe VVavy has a use case for you.
+          to relax and vibe, VVavy has a use case for you.
         </p>
       </div>
 
@@ -350,12 +351,12 @@
           <h3>Streamers</h3>
           <p>
             Add an audio-reactive visual background to your Twitch, YouTube, or Kick stream.
-            VVavy reads your browser audio in real time add it as a browser source in OBS
+            VVavy reads your system audio in real time add it as a browser source in OBS
             or Streamlabs for a backdrop that reacts to every moment.
           </p>
         </article>
 
-        <!-- 3D Artists -->
+        <!-- 2D/3D Artists -->
         <article class="lp-persona">
           <div class="lp-persona__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -368,11 +369,11 @@
               <circle cx="17.5" cy="11.5" r="1.5" fill="currentColor" />
             </svg>
           </div>
-          <span class="lp-persona__tag">Visual &amp; 3D Artists</span>
+          <span class="lp-persona__tag">Visual, 2D &amp; 3D Artists</span>
           <h3>Your art deserves an audience</h3>
           <p>
             Musicians need visuals. Visual artists need reach. VVavy is where those two worlds
-            collide. Bring your shaders, your renders, your creative vision and let a musician's
+            collide. Bring your shaders, renders, illustrations, and creative vision and let a musician's
             track carry it to listeners who've never seen work like yours. Build audio-reactive
             scenes from scratch with the AI creator, or drop in your own WebGL/GLSL shader and
             we'll wire it into the engine. Export clips for reels, portfolio pieces, and
@@ -414,7 +415,7 @@
         <div class="lp-step">
           <p class="lp-step-num">Step 01</p>
           <h3>Pick your audio</h3>
-          <p>Upload an audio file, paste a SoundCloud link, use your mic live, capture browser tab audio, or connect a
+          <p>Upload an audio file, paste a SoundCloud link, use your mic live, capture system audio, or connect a
             MIDI controller. Your setup, your way.</p>
         </div>
         <div class="lp-step">
@@ -654,8 +655,8 @@
                 stroke-linejoin="round" opacity="0.75" />
             </svg>
           </div>
-          <h3>Browser tab audio</h3>
-          <p>Capture any browser tab's audio ideal for streamers who want VVavy to react to whatever is already playing.
+          <h3>System audio</h3>
+          <p>Capture any system audio ideal for streamers who want VVavy to react to whatever is already playing.
           </p>
         </article>
 
@@ -758,7 +759,7 @@
             <path d="M2 8h20" stroke="currentColor" stroke-width="1.3" opacity="0.45" />
           </svg>
           <div class="lp-source-text">
-            <strong>Browser Tab</strong>
+            <strong>System Audio</strong>
             <span>Capture any system's audio/video</span>
           </div>
         </div>
@@ -809,13 +810,13 @@
         <details class="lp-faq-item">
           <summary>Do I need to sign up or download anything?</summary>
           <p>No signup and no download required. Open VVavy in any modern browser and start creating visuals
-            immediately.</p>
+            immediately, or just press play and enjoy.</p>
         </details>
 
         <details class="lp-faq-item">
           <summary>What audio sources does VVavy support?</summary>
           <p>VVavy supports five audio inputs: uploaded audio files (MP3, WAV, FLAC, and more), SoundCloud tracks via
-            OAuth, your device microphone for live input, browser tab audio capture, and MIDI controllers. You can
+            OAuth, your device microphone for live input, system audio capture, and MIDI controllers. You can
             switch between sources at any time.</p>
         </details>
 
@@ -835,21 +836,21 @@
 
         <details class="lp-faq-item">
           <summary>Can DJs use VVavy for live performances?</summary>
-          <p>Absolutely. Connect your microphone or use browser tab audio to capture your mix in real time. Sixty-plus
+          <p>Absolutely. Connect your microphone or use system audio to capture your mix in real time. Sixty-plus
             visuals react instantly to every beat, drop, and frequency shift making VVavy a natural fit for live DJ
             sets, club nights, and events.</p>
         </details>
 
         <details class="lp-faq-item">
           <summary>Can streamers use VVavy as a stream overlay or background?</summary>
-          <p>Yes. Use browser tab audio capture to drive VVavy's visuals with your stream audio. Add VVavy as a browser
+          <p>Yes. Use system audio capture to drive VVavy's visuals with your stream audio. Add VVavy as a browser
             source in OBS or Streamlabs as a reactive background or overlay for your Twitch, YouTube, or Kick streams no
             plugins or capture cards needed.</p>
         </details>
 
         <details class="lp-faq-item">
-          <summary>How can 3D artists use VVavy?</summary>
-          <p>Bring your own shader code and wire it into VVavy's audio-reactive engine. Your visuals finally get the
+          <summary>How can 2D/3D artists use VVavy?</summary>
+          <p>Whether you work in 2D or 3D, bring your own visual style and wire it into VVavy's audio-reactive engine. Your visuals finally get the
             audience they deserve export clips for portfolio pieces, social reels, and collabs, or share a live link
             so people can experience it with their own music.</p>
         </details>

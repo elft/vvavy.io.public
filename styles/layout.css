@@ -7,6 +7,8 @@
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
   min-width: 100vw;
   overflow: hidden;
   display: flex;
@@ -17,15 +19,22 @@
 @supports (min-height: 100dvh) {
   .app-shell {
     min-height: 100dvh;
+    height: 100dvh;
   }
 }
 
 .visual-stage {
   position: relative;
   flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
   display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
   place-items: center;
   overflow: hidden;
+  transition: filter 0.25s ease;
 }
 
 .visual-stage canvas {
@@ -78,6 +87,23 @@
   justify-content: center;
   pointer-events: none;
   z-index: 12;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition:
+    opacity var(--transition-medium),
+    transform var(--transition-medium),
+    visibility var(--transition-medium);
+}
+
+.site-footer.is-idle-hidden {
+  opacity: 0;
+  transform: translateY(var(--space-16));
+  visibility: hidden;
+}
+
+.site-footer.is-idle-hidden .footer-bar {
+  pointer-events: none;
 }
 
 .footer-bar {
@@ -163,6 +189,22 @@ body.overlay-drawer-open .overlay-panel .overlay-sheet {
 }
 
 .export-panel.is-hidden {
+  display: none;
+}
+
+.effects-panel {
+  position: fixed;
+  top: var(--space-10);
+  left: var(--space-10);
+  pointer-events: none;
+  z-index: 13;
+}
+
+.effects-panel:not(.is-hidden) {
+  pointer-events: auto;
+}
+
+.effects-panel.is-hidden {
   display: none;
 }
 

@@ -24,7 +24,7 @@
 
       <div class="visuals-create__instructions flex flex-row items-center gap-6 flex-wrap">
         <label class="overlay-label" for="custom-visual-code">
-          1. Click "COPY INSTRUCTIONS" below and paste into chatgpt, grok, gemini, or any agentic AI
+          1. Click "COPY INSTRUCTIONS" and paste it into ChatGPT, Grok, Gemini, or your favorite AI tool.
           <a href="https://youtu.be/1NXt5WelHHw?si=C5bZSVDjNxdQuw_y" target="_blank" rel="noreferrer noopener">Watch tutorial</a>
         </label>
         <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
@@ -32,7 +32,7 @@
         <hr class="border-0 border-t border-muted my-6" />
 
         <div class="visuals-create__prompt-row flex flex-col gap-4 w-full">
-          <label class="overlay-label" for="custom-visual-prompt">2. Additional prompts, optional</label>
+          <label class="overlay-label" for="custom-visual-prompt">2. Optional style prompts</label>
           <div class="visuals-create__prompt-controls flex items-center gap-6 flex-wrap">
             <select class="overlay-input" id="custom-visual-prompt" data-role="custom-visual-prompt" style="flex: 1 1 220px;">
               <option value="">Select a prompt</option>
@@ -53,7 +53,7 @@
 
       <div class="visuals-create__code flex flex-col gap-4">
         <label class="overlay-label" for="custom-visual-code">3. Paste AI response</label>
-        <textarea class="overlay-input overlay-textarea" id="custom-visual-code" rows="8" placeholder="Paste the AI generated code here" data-role="custom-visual-code"></textarea>
+        <textarea class="overlay-input overlay-textarea" id="custom-visual-code" rows="8" placeholder="Paste the AI-generated code here" data-role="custom-visual-code"></textarea>
       </div>
 
       <hr class="border-0 border-t border-muted my-8" />
@@ -61,7 +61,7 @@
       <div class="visuals-create__metadata grid gap-6" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <div class="visuals-create__field flex flex-col gap-4">
           <label class="overlay-label" for="custom-visual-name">Name</label>
-          <input class="overlay-input" id="custom-visual-name" type="text" placeholder="My Custom Visual" data-role="custom-visual-name" />
+          <input class="overlay-input" id="custom-visual-name" type="text" placeholder="My Custom Scene" data-role="custom-visual-name" />
         </div>
         <div class="visuals-create__field flex flex-col gap-4">
           <label class="overlay-label" for="custom-visual-id">Visual ID</label>
@@ -69,7 +69,7 @@
         </div>
       </div>
       <div class="visuals-create__actions visuals-create__actions--sticky py-6 flex gap-4 m-0">
-        <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-preview">Preview (Live)</button>
+        <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-preview">Preview Live</button>
         <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-save">Save changes</button>
       </div>
       <div class="visuals-create__status-area flex flex-col gap-4">

@@ -1098,6 +1098,21 @@
   cursor: pointer;
 }
 
+.overlay-sheet__contact-link {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-medium);
+}
+
+.overlay-sheet__contact-link:hover,
+.overlay-sheet__contact-link:focus-visible {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
 /* overlay-field uses utility classes */
 
 .overlay-field + .overlay-field {

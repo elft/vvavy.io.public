@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-06T18:53:39.091Z",
+  "generatedAt": "2026-03-06T23:40:45.649Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -665,6 +665,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=particle-swarm-ballet",
       "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "pixelated-feedback",
+      "name": "Pixelated Feedback",
+      "description": "GPU frame-diff object detection for live stream (auidio and video).",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "punchy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=pixelated-feedback",
+      "dateModified": "2026-03-06T23:38:24.140Z"
     },
     {
       "id": "polar-tilt-grid",

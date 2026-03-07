@@ -1,8 +1,25 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-06T23:40:45.649Z",
+  "generatedAt": "2026-03-07T04:32:33.184Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
+    {
+      "id": "8bit-showdown",
+      "name": "8bit Showdown",
+      "description": "8bit-showdown: machine-vision styled stream capture with block-quantized slit-scan time curl, edge injection, and beat-snapped temporal glitches.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=8bit-showdown",
+      "dateModified": "2026-03-07T04:00:17.316Z"
+    },
     {
       "id": "aura-orb-hyper-geometric",
       "name": "Aura Orb Hyper-Geometric",
@@ -808,7 +825,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=serpent-of-harmony",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-07T04:32:33.151Z"
     },
     {
       "id": "shadow-lit-forge",
@@ -896,6 +913,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=star-traveling",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "stereo-orb-pixel-drift",
+      "name": "Stereo Orb Pixel Drift",
+      "description": "Capture stream orb that glides with stereo balance while left/right channels split pixel drift and temporal trails.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=stereo-orb-pixel-drift",
+      "dateModified": "2026-03-07T04:32:33.151Z"
     },
     {
       "id": "summoning-rings",

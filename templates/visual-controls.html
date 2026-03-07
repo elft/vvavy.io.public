@@ -64,6 +64,27 @@
       </div>
 
       <div class="visual-control-group flex flex-col gap-8">
+        <div class="flex items-center justify-between">
+          <label class="visual-control-label text-sm uppercase text-muted" for="vc-sensitivity">Sensitivity</label>
+          <span class="visual-control-value text-sm" data-role="vc-sensitivity-value">1.00x</span>
+        </div>
+        <input
+          class="visual-control-slider w-full cursor-pointer"
+          id="vc-sensitivity"
+          type="range"
+          min="0.1"
+          max="3.0"
+          step="0.05"
+          value="1.0"
+          data-role="vc-sensitivity"
+          aria-label="Global audio sensitivity"
+        />
+        <p class="visual-control-hint m-0 text-soft" style="font-size: var(--font-size-xs);">
+          Scales all audio reactivity uniformly across every visual.
+        </p>
+      </div>
+
+      <div class="visual-control-group flex flex-col gap-8">
         <p class="visual-control-label text-sm uppercase text-muted m-0">Per-Metric Sensitivity</p>
 
         <div class="flex flex-col gap-8">

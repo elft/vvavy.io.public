@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-07T04:32:33.184Z",
+  "generatedAt": "2026-03-07T14:13:22.930Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -235,6 +235,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=disolve",
       "dateModified": "2026-02-20T01:05:32.464Z"
+    },
+    {
+      "id": "drifter",
+      "name": "Drifter",
+      "description": "Drift away to the beat",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=drifter",
+      "dateModified": "2026-03-07T13:58:06.214Z"
     },
     {
       "id": "droste-temple",
@@ -913,22 +929,6 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=star-traveling",
       "dateModified": "2026-02-11T22:24:59.268Z"
-    },
-    {
-      "id": "stereo-orb-pixel-drift",
-      "name": "Stereo Orb Pixel Drift",
-      "description": "Capture stream orb that glides with stereo balance while left/right channels split pixel drift and temporal trails.",
-      "tags": [
-        "High Definition",
-        "interactive",
-        "tech.livestream",
-        "trippy",
-        "punchy",
-        "groovy"
-      ],
-      "createdBy": "vvavy",
-      "url": "https://vvavy.io/app?visual=stereo-orb-pixel-drift",
-      "dateModified": "2026-03-07T04:32:33.151Z"
     },
     {
       "id": "summoning-rings",

@@ -266,7 +266,8 @@ body {
   }
 }
 
-.lp-hero h1 {
+.lp-hero h1,
+.lp-headline-effect {
   margin: 0 auto 36px;
   font-size: clamp(44px, 7.5vw, 84px);
   line-height: 1.04;
@@ -283,7 +284,8 @@ body {
   animation: lp-hero-headline-pan 8s linear infinite, lp-hero-headline-float 4.2s ease-in-out infinite;
 }
 
-.lp-hero h1::after {
+.lp-hero h1::after,
+.lp-headline-effect::after {
   content: '';
   position: absolute;
   left: 50%;
@@ -314,13 +316,15 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lp-hero h1 {
+  .lp-hero h1,
+  .lp-headline-effect {
     animation: none;
     background-position: 50% 50%;
     transform: none;
   }
 
-  .lp-hero h1::after {
+  .lp-hero h1::after,
+  .lp-headline-effect::after {
     animation: none;
   }
 }

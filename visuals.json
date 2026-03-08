@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-07T21:04:24.714Z",
+  "generatedAt": "2026-03-08T16:10:26.118Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -79,7 +79,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=chopped-liver",
-      "dateModified": "2026-03-07T21:01:46.600Z"
+      "dateModified": "2026-03-08T01:46:40.186Z"
     },
     {
       "id": "cloud-flight",
@@ -687,6 +687,23 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=neural-flow",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "oil-float",
+      "name": "Kuwahara Oil Paint",
+      "description": "An anisotropic Kuwahara oil-paint filter for tab capture, with energy-sized brushstrokes and drop-triggered impressionist bursts.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=oil-float",
+      "dateModified": "2026-03-08T16:06:47.801Z"
     },
     {
       "id": "parallax-starfields",

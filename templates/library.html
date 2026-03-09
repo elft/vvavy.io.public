@@ -1,0 +1,14 @@
+<template id="tpl-library">
+  <section class="overlay-sheet overlay-sheet--library flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="library-title">
+    <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
+      <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="audio" style="left: var(--space-12);">← Back</button>
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="library-title">Library</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+    </header>
+    <div class="overlay-body flex-1 overflow-y-auto p-12">
+      <ul class="library-track-list flex flex-col gap-4" data-role="library-track-list" role="list" aria-label="Available tracks">
+        <li class="library-track-loading text-sm text-muted" aria-live="polite">Loading tracks…</li>
+      </ul>
+    </div>
+  </section>
+</template>

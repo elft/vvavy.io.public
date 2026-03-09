@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-08T18:40:03.805Z",
+  "generatedAt": "2026-03-09T00:49:48.504Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -79,7 +79,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=chopped-liver",
-      "dateModified": "2026-03-08T01:46:40.186Z"
+      "dateModified": "2026-03-09T00:09:00.903Z"
     },
     {
       "id": "cloud-flight",
@@ -835,6 +835,22 @@
       "dateModified": "2026-02-11T22:34:51.517Z"
     },
     {
+      "id": "red-sea-drifter",
+      "name": "Red Sea Drifter",
+      "description": "An ambient red sea under drifting clouds and sparse stars, with a lone surfer gliding gentle swells that breathe with the music.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "cinematic",
+        "dreamy",
+        "low-energy",
+        "steady"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=red-sea-drifter",
+      "dateModified": "2026-03-09T00:09:00.903Z"
+    },
+    {
       "id": "retro-windows-dreamscape",
       "name": "Retro Windows Dreamscape",
       "description": "Neon tunnel morphs like classic Windows visualizers, blending prismatic ribbons with audio-reactive vortex pulses.",
@@ -918,7 +934,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=sound-weaver",
-      "dateModified": "2026-02-18T17:07:09.297Z"
+      "dateModified": "2026-03-09T00:31:52.101Z"
     },
     {
       "id": "spin-contour",

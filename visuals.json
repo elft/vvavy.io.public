@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-09T00:49:48.504Z",
+  "generatedAt": "2026-03-09T14:46:53.825Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -33,7 +33,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=aura-orb-hyper-geometric",
-      "dateModified": "2026-02-22T12:41:22.601Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "beat-drop-grid",
@@ -107,7 +107,7 @@
       ],
       "createdBy": "Nox",
       "url": "https://vvavy.io/app?visual=cloud-tunnel-raymarch",
-      "dateModified": "2026-03-06T01:11:34.372Z"
+      "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
       "id": "color-inversion",
@@ -137,7 +137,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=color-vortex-suck",
-      "dateModified": "2026-02-12T00:52:09.949Z"
+      "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
       "id": "colors",
@@ -282,7 +282,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=droste-temple",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
       "id": "echo-halo",
@@ -297,7 +297,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=echo-halo",
-      "dateModified": "2026-03-05T20:46:26.689Z"
+      "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
       "id": "EDM Show",
@@ -412,20 +412,6 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=guess-what",
       "dateModified": "2026-02-19T13:43:44.588Z"
-    },
-    {
-      "id": "hash-core-atrium",
-      "name": "Hash Core Atrium",
-      "description": "Primary-colored hash bloom that pulses, twists, and thickens to the music.",
-      "tags": [
-        "High Definition",
-        "trippy",
-        "mid-energy",
-        "groovy"
-      ],
-      "createdBy": "vvavy",
-      "url": "https://vvavy.io/app?visual=hash-core-atrium",
-      "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
       "id": "hyperspace-tunnel",
@@ -556,7 +542,7 @@
     {
       "id": "liquid-kaleido-feedback",
       "name": "Liquid Kaleido Feedback",
-      "description": "Liquid kaleidoscopic feedback tunnel with mirrored shards, dye trails, and drop-driven blooms—built to scratch the Butterchurn itch.",
+      "description": "Liquid kaleidoscopic feedback tunnel with mirrored shards, dye trails, and drop-driven blooms built to scratch the Butterchurn itch.",
       "tags": [
         "High Definition",
         "trippy",
@@ -565,7 +551,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liquid-kaleido-feedback",
-      "dateModified": "2026-03-06T14:02:28.580Z"
+      "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
       "id": "lock-in",
@@ -629,7 +615,7 @@
       "tags": [],
       "createdBy": "Kali",
       "url": "https://vvavy.io/app?visual=neon-matrix-grid",
-      "dateModified": "2026-02-21T11:46:36.507Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "neon-space-fold",
@@ -774,7 +760,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=prismatic-kaleidoscope",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "psychadelic-trail",
@@ -876,7 +862,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=ring-runner",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "serpent-of-harmony",
@@ -890,7 +876,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=serpent-of-harmony",
-      "dateModified": "2026-03-07T04:32:33.151Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "shadow-lit-forge",
@@ -907,7 +893,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=shadow-lit-forge",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "a-smoke",
@@ -934,7 +920,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=sound-weaver",
-      "dateModified": "2026-03-09T00:31:52.101Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "spin-contour",
@@ -948,7 +934,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=spin-contour",
-      "dateModified": "2026-02-12T00:52:09.949Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
       "id": "sponge-dance-raymarch",
@@ -992,7 +978,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=summoning-rings",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-09T14:43:42.822Z"
     },
     {
       "id": "swirling-colors",
@@ -1122,7 +1108,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=winamp-hyperspace",
-      "dateModified": "2026-02-12T00:52:09.949Z"
+      "dateModified": "2026-03-09T13:28:40.694Z"
     }
   ]
 }

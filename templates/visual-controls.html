@@ -8,22 +8,22 @@
 
       <div class="visual-control-group flex flex-col gap-8">
         <div class="flex items-center justify-between">
-          <label class="visual-control-label text-sm uppercase text-muted" for="vc-hue">Color Shift</label>
-          <span class="visual-control-value text-sm" data-role="vc-hue-value">0°</span>
+          <label class="visual-control-label text-sm uppercase text-muted" for="vc-tint">Color</label>
+          <span class="visual-control-value text-sm uppercase" data-role="vc-tint-value">Off</span>
         </div>
-        <input
-          class="visual-control-slider visual-control-slider--hue w-full cursor-pointer"
-          id="vc-hue"
-          type="range"
-          min="0"
-          max="360"
-          step="1"
-          value="0"
-          data-role="vc-hue"
-          aria-label="Hue rotation"
-        />
+        <label class="visual-control-color-field flex items-center gap-12" for="vc-tint">
+          <input
+            class="visual-control-color-picker cursor-pointer"
+            id="vc-tint"
+            type="color"
+            value="#ffffff"
+            data-role="vc-tint"
+            aria-label="Visual tint color"
+          />
+          <span class="visual-control-color-copy text-sm text-soft">Pick an exact tint for the stage output.</span>
+        </label>
         <p class="visual-control-hint m-0 text-soft" style="font-size: var(--font-size-xs);">
-          Rotates the color palette of the visual output.
+          Applies a color tint to the visual output.
         </p>
       </div>
 

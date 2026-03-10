@@ -22,12 +22,43 @@
 
       <hr class="border-0 border-t border-muted my-8" />
 
-      <div class="visuals-create__instructions flex flex-row items-center gap-6 flex-wrap">
+      <div class="visuals-create__instructions flex flex-col gap-8">
         <label class="overlay-label" for="custom-visual-code">
           1. Click "COPY INSTRUCTIONS" and paste it into ChatGPT, Grok, Gemini, or your favorite AI tool.
           <a href="https://youtu.be/1NXt5WelHHw?si=C5bZSVDjNxdQuw_y" target="_blank" rel="noreferrer noopener">Watch tutorial</a>
         </label>
-        <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
+        <div class="flex flex-row items-center gap-6 flex-wrap">
+          <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-role="visuals-copy-instructions">Copy instructions</button>
+        </div>
+        <section class="visuals-create__markdown-panel rounded-md p-8">
+          <div class="visuals-create__preview-header flex flex-row items-center justify-between gap-6">
+            <p class="overlay-label m-0">What gets copied</p>
+            <button
+              class="visuals-create__preview-toggle flex flex-row items-center gap-6"
+              type="button"
+              data-role="custom-visual-preview-toggle"
+              data-preview-key="instructions"
+              aria-expanded="false"
+              aria-controls="custom-visual-instructions-preview-panel"
+            >
+              <span class="visuals-create__preview-toggle-label text-xs text-muted">Show preview</span>
+              <span class="visuals-create__preview-chevron" aria-hidden="true">▾</span>
+            </button>
+          </div>
+          <div
+            class="visuals-create__preview-content mt-6"
+            data-role="custom-visual-preview-content"
+            data-preview-key="instructions"
+            id="custom-visual-instructions-preview-panel"
+            hidden
+          >
+            <div
+              class="visuals-create__markdown visuals-create__markdown--instructions overflow-y-auto"
+              data-role="custom-visual-instructions-preview"
+              aria-live="polite"
+            ></div>
+          </div>
+        </section>
 
         <hr class="border-0 border-t border-muted my-6" />
 
@@ -36,9 +67,18 @@
           <div class="visuals-create__prompt-controls flex items-center gap-6 flex-wrap">
             <select class="overlay-input" id="custom-visual-prompt" data-role="custom-visual-prompt" style="flex: 1 1 220px;">
               <option value="">Select a prompt</option>
+              <option value="/prompts/3d-model.md">3D model</option>
+              <option value="/prompts/3d-space-folding.md">3D space folding</option>
+              <option value="/prompts/chaotic-4d-manifold-logic.md">Chaotic 4D manifold logic</option>
+              <option value="/prompts/chromatic-aberration.md">Chromatic aberration</option>
               <option value="/prompts/cinematic-flythrough.md">Cinematic fly-through (moving camera)</option>
-              <option value="/prompts/shader-chaos.md">Shader chaos (no camera, UV-warped)</option>
+              <option value="/prompts/domain-warping.md">Domain warping</option>
+              <option value="/prompts/flow-fields.md">Flow fields</option>
               <option value="/prompts/kaleidoscope.md">Kaleidoscope</option>
+              <option value="/prompts/reaction-diffusion.md">Reaction diffusion</option>
+              <option value="/prompts/shader-chaos.md">Shader chaos (no camera, UV-warped)</option>
+              <option value="/prompts/temporal-feedback.md">Temporal feedback</option>
+              <option value="/prompts/vertex-displacement.md">Vertex displacement</option>
             </select>
             <button
               class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase"
@@ -46,6 +86,38 @@
               data-role="custom-visuals-copy-prompt"
             >Copy prompt</button>
           </div>
+          <section class="visuals-create__markdown-panel rounded-md p-8">
+            <div class="visuals-create__preview-header flex flex-row items-center justify-between gap-6 flex-wrap">
+              <div class="flex flex-row items-center gap-6 flex-wrap">
+                <p class="overlay-label m-0">Selected prompt preview</p>
+                <p class="visuals-create__markdown-note m-0 text-xs text-muted" data-role="custom-visual-prompt-preview-label">Nothing selected yet.</p>
+              </div>
+              <button
+                class="visuals-create__preview-toggle flex flex-row items-center gap-6"
+                type="button"
+                data-role="custom-visual-preview-toggle"
+                data-preview-key="prompt"
+                aria-expanded="false"
+                aria-controls="custom-visual-prompt-preview-panel"
+              >
+                <span class="visuals-create__preview-toggle-label text-xs text-muted">Show preview</span>
+                <span class="visuals-create__preview-chevron" aria-hidden="true">▾</span>
+              </button>
+            </div>
+            <div
+              class="visuals-create__preview-content mt-6"
+              data-role="custom-visual-preview-content"
+              data-preview-key="prompt"
+              id="custom-visual-prompt-preview-panel"
+              hidden
+            >
+              <div
+                class="visuals-create__markdown visuals-create__markdown--prompt overflow-y-auto"
+                data-role="custom-visual-prompt-preview"
+                aria-live="polite"
+              ></div>
+            </div>
+          </section>
         </div>
       </div>
 

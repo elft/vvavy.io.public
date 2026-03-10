@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-09T14:46:53.825Z",
+  "generatedAt": "2026-03-10T01:15:46.283Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -19,6 +19,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=8bit-showdown",
       "dateModified": "2026-03-07T04:00:17.316Z"
+    },
+    {
+      "id": "anime-counter-scan",
+      "name": "Anime Counter Scan",
+      "description": "Cel-shaded anime conversion that ping-pong sweeps the live capture, posterizing colors and injecting neon edge crawlers that react to bass, treble, and spectral flux.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=anime-counter-scan",
+      "dateModified": "2026-03-10T00:59:32.253Z"
     },
     {
       "id": "aura-orb-hyper-geometric",
@@ -79,7 +95,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=chopped-liver",
-      "dateModified": "2026-03-09T00:09:00.903Z"
+      "dateModified": "2026-03-09T20:05:09.023Z"
     },
     {
       "id": "cloud-flight",
@@ -554,6 +570,23 @@
       "dateModified": "2026-03-09T14:15:22.071Z"
     },
     {
+      "id": "liquid-mirror-hush",
+      "name": "Liquid Mirror Hush",
+      "description": "Quiet sections pool the tab capture into delayed smoked-glass reflections, then loud transitions crack the mirror into liquid ribbons.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "dreamy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=liquid-mirror-hush",
+      "dateModified": "2026-03-09T23:44:49.692Z"
+    },
+    {
       "id": "lock-in",
       "name": "Lock In",
       "description": "Lock in - AIM bot tactical simulator",
@@ -630,6 +663,22 @@
       "createdBy": "vvavy x Gemini",
       "url": "https://vvavy.io/app?visual=neon-space-fold",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "neon-spiral-journey",
+      "name": "Neon Spiral Journey",
+      "description": "A procedural neon spiral climb: instanced polygons trace a mathematically-driven helix, then the camera dives back through the stack.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "trippy",
+        "cinematic",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=neon-spiral-journey",
+      "dateModified": "2026-03-09T19:32:01.658Z"
     },
     {
       "id": "neon-tunnel-kaleidoscope",

@@ -1,21 +1,58 @@
+# Cinematic Flythrough
+
 Create a real-time, audio-reactive visual that feels alive and constantly evolving. The scene should never loop obviously and should continuously introduce new motion, transformations, and spatial changes to keep the viewer guessing what comes next.
 
-The camera or viewpoint should feel like it is moving with the visual—floating, drifting, diving, or being pulled through the scene. The visual should use the full viewport and interact with the screen boundaries (warping edges, stretching space, bending perspective, or breaking the frame).
+## Camera And Viewpoint
 
-Use multiple audio features (bass, mids, highs, overall energy, transients/peaks) to drive different aspects of the scene such as:
+The camera or viewpoint should feel like it is moving with the visual by floating, drifting, diving, or being pulled through the scene.
 
-Geometry deformation and scale
+The visual should:
 
-Camera movement and speed
+- Use the full viewport.
+- Interact with the screen boundaries.
+- Warp edges, stretch space, bend perspective, or break the frame when appropriate.
 
-Color shifts
+## Audio-Reactive Mapping
 
-Spatial warping and distortion
+Use multiple audio features such as bass, mids, highs, overall energy, and transients or peaks to drive different aspects of the scene, including:
 
-Emissive pulses, or shockwaves
+- Geometry deformation and scale
+- Camera movement and speed
+- Color shifts
+- Spatial warping and distortion
+- Emissive pulses or shockwaves
 
-On big drops or strong transients, the screen should visibly react: heavy distortion, space bending, brief chaos, explosive motion, or dramatic scene transitions that make the visual feel like it “hits” with the music.
+## Drop And Transient Behavior
 
-The visual style should feel dynamic, immersive, and cinematic—like traveling through a living world made of light, shapes, and energy. Avoid static compositions. Favor flow, motion, transformation, and surprise.
+On big drops or strong transients, the screen should visibly react with effects such as:
 
-The result should feel organic, hypnotic, and unpredictable, while still being tightly synchronized to the music. The goal is to make the screen feel alive, reactive, and immersive, as if the viewer is inside the visual and moving through it.
+- Heavy distortion
+- Space bending
+- Brief chaos
+- Explosive motion
+- Dramatic scene transitions
+
+The visual should feel like it hits with the music.
+
+## Style Direction
+
+The visual style should feel dynamic, immersive, and cinematic, like traveling through a living world made of light, shapes, and energy.
+
+Avoid static compositions. Favor:
+
+- Flow
+- Motion
+- Transformation
+- Surprise
+
+## Desired Result
+
+The result should feel organic, hypnotic, and unpredictable while still being tightly synchronized to the music.
+
+The goal is to make the screen feel:
+
+- Alive
+- Reactive
+- Immersive
+
+The viewer should feel like they are inside the visual and moving through it.

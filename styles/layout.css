@@ -38,6 +38,8 @@
 }
 
 .visual-stage canvas {
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
 }
@@ -58,6 +60,7 @@
 .cast-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   display: grid;
   place-items: center;
   padding: var(--space-16);

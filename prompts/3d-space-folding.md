@@ -1,37 +1,49 @@
-You are an expert Graphics Engineer specializing in GLSL, Raymarching, and Signed Distance Fields (SDFs).
+# 3D Space Folding
 
-Objective: Create a single-file HTML/WebGL application that renders a real-time, infinite 3D space-folding environment with a high-end neon aesthetic.
+You are an expert graphics engineer specializing in GLSL, raymarching, and signed distance fields (SDFs).
 
-Core Technical Requirements:
+## Objective
 
-Rendering Engine: Use a Raymarching loop (at least 64 steps) with a Fragment Shader to render SDF geometry.
+Create a single-file HTML/WebGL application that renders a real-time, infinite 3D space-folding environment with a high-end neon aesthetic.
 
-Space Folding Logic: - Implement a map() function that uses mod() for infinite repetition.
+## Core Technical Requirements
 
-Inside the map function, use a loop (4-8 iterations) to "fold" space using abs(p) mirroring and rotation matrices (mat2 or mat3) to create recursive complexity.
+- **Rendering engine**: Use a raymarching loop with at least 64 steps in a fragment shader to render SDF geometry.
+- **Space folding logic**: Implement a `map()` function that uses `mod()` for infinite repetition.
+- **Recursive folding**: Inside `map()`, use a loop with 4 to 8 iterations to fold space using `abs(p)` mirroring and rotation matrices (`mat2` or `mat3`) to create recursive complexity.
+- **Geometry**: Use a specific SDF primitive such as `sdBoxFrame`, `sdTorus`, or `sdOctahedron`.
+- **Movement**: Translate the camera or the space origin along an axis such as `p.z -= u_time` to simulate endless forward travel.
 
-Geometry: Use a specific SDF primitive (e.g., sdBoxFrame, sdTorus, sdOctahedron).
+## Visual Effects
 
-Movement: Translate the camera or the space origin along an axis (e.g., p.z -= u_time) to simulate endless forward travel.
+- **Occlusion and shading**: Apply distance-based shading or fog such as `exp(-dist)` to maintain 3D depth.
 
-Visual Effects:
+## Variations To Apply
 
-Occlusion/Shading: Apply distance-based shading or fog (exp(-dist)) to maintain 3D depth.
+Choose or modify from these directions:
 
-Variations to Apply (Choose or Modify):
+- **Shapes**: Change `sdBoxFrame` to `sdOctahedron`, `sdTorus`, or a Menger sponge.
+- **Colors**: Change neon red and cyan to neon purple and toxic green, or gold and deep blue.
+- **Virus or transition logic**: Implement a noise-based threshold using a `noise()` or `hash()` function that triggers a color inversion or shape morph based on `u_time`.
+- **Motion**: Change linear forward motion to a spiral path, pulsing zoom, or chaotic rotation.
 
-Shapes: [Change sdBoxFrame to: sdOctahedron / sdTorus / Menger Sponge]
+## Camera And Corridor Logic
 
-Colors: [Change Neon Red/Cyan to: Neon Purple/Toxic Green / Gold/Deep Blue]
+- Calculate the camera trajectory as a dynamic vector that accounts for scene rotation, not just a straight line.
+- Use a spline-based path so the camera turns corners in the corridor rather than traveling in a straight line.
 
-Virus/Transition Logic: Implement a noise-based threshold (using a noise() or hash() function) that triggers a color inversion or shape morphing based on u_time.
+## Repulsion Field Requirement
 
-Motion: [Change Linear Forward to: Spiral Path / Pulsing Zoom / Chaotic Rotation]
+Implement a localized repulsion field inside the `map()` function.
 
-Ensure to calculate the camera's trajectory not just as a straight line, but as a dynamic vector that accounts for the scene's rotation. I've also implemented a Soft-Field Repulsion technique that smoothly deforms the recursive geometry outward as it approaches the central corridor, ensuring the viewport remains clear while maintaining the intricate, folded aesthetic.
+- This field should calculate the distance from the camera's current path to the surrounding geometry in real time.
+- If an object is about to obscure the view, the field should push the geometry out of the way locally using a smooth-minimum subtraction.
+- The result should feel like a dynamic portal opening through the architecture while preserving the intricate folded aesthetic.
 
-All major transitions should be smooth and modulated
+## Soft-Field Repulsion Goal
 
-spline-based path so the camera "turns corners" in the corridor rather than traveling in a straight line
+Use a soft-field repulsion technique that smoothly deforms recursive geometry outward as it approaches the central corridor, keeping the viewport clear while maintaining the scene's complexity.
 
-Localized Repulsion Field in the map function. This field calculates the distance from the camera's current path to the surrounding geometry in real-time. If an object is about to obscure the view, the field "pushes" the geometry out of the way locally using a smooth-minimum subtraction, creating a dynamic portal through the architecture that feels intentional and programmatic.
+## Transition Rules
+
+- All major transitions should be smooth and modulated.

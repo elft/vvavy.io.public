@@ -1,55 +1,54 @@
-Technique Blueprint: Chaotic 4D Manifold Logic
+# Chaotic 4D Manifold Logic
 
-This document outlines the technical architecture used in the "Non-Euclidean Simpson-wave" visual. This "skill" can be applied to any 3D environment to create infinite, non-repeating, and mathematically alien motion.
+This document outlines the technical architecture used in the "Non-Euclidean Simpson-wave" visual. This technique can be applied to any 3D environment to create infinite, non-repeating, and mathematically alien motion.
 
-1. The Chaotic Engine: Lorenz Attractor
+## 1. The Chaotic Engine: Lorenz Attractor
 
-To move beyond "human" loops, we use a Strange Attractor. Unlike a Sine wave (which repeats), a Lorenz system is a set of differential equations that are sensitive to initial conditions.
+To move beyond human-looking loops, use a strange attractor. Unlike a sine wave, which repeats, a Lorenz system is a set of differential equations that is sensitive to initial conditions.
 
-The Bot-Readable Logic:
+### Bot-Readable Logic
 
-Purpose: Generate a 3-dimensional coordinate $(x, y, z)$ that evolves infinitely without ever crossing the same path.
+- **Purpose**: Generate a 3D coordinate `(x, y, z)` that evolves infinitely without retracing the same path.
 
-Equations:
+### Equations
 
-$dx = \sigma(y - x) dt$
+- `dx = σ(y - x) dt`
+- `dy = (x(ρ - z) - y) dt`
+- `dz = (xy - βz) dt`
 
-$dy = (x(\rho - z) - y) dt$
+### Standard Constants
 
-$dz = (xy - \beta z) dt$
+- `σ = 10`
+- `ρ = 28`
+- `β = 8/3`
 
-Standard Constants: $\sigma = 10, \rho = 28, \beta = 8/3$.
+### Implementation
 
-Implementation: Update these values every frame and pass them as a uniform vec3 to the GPU.
+Update these values every frame and pass them to the GPU as a `vec3` uniform.
 
-2. The 4D Manifold: Vertex Displacement
+## 2. The 4D Manifold: Vertex Displacement
 
-Instead of moving the object through space, we warp the space inside the object.
+Instead of moving the object through space, warp the space inside the object.
 
-The Logic:
+### Logic
 
-Manifold Folding: Use the Lorenz $X$ and $Y$ values to modulate the frequency and amplitude of a spatial distortion.
+- **Manifold folding**: Use the Lorenz `X` and `Y` values to modulate the frequency and amplitude of a spatial distortion.
+- **Pinch points**: Calculate `length(position.xy)` to find the distance from the center, then apply a `sin()` wave offset using the chaotic variables.
+- **Non-Euclidean twist**: Multiply the `xy` coordinates by a rotation matrix where the angle is tied to the chaotic `Z` value and current time. This should make the geometry appear to swallow itself.
 
-Pinch Points: Calculate length(position.xy) to find the distance from the center, then apply a sin() wave offset by the chaotic variables.
+## 3. The Simpson-Wave Shader: Color Segmentation
 
-Non-Euclidean Twist: Multiply the xy coordinates by a rotation matrix where the angle is tied to the chaotic $Z$ value and current time. This makes the geometry appear to "swallow itself."
+To achieve a 2D pop-art-in-3D look, avoid smooth gradients and use step logic instead.
 
-3. The "Simpson-wave" Shader: Color Segmentation
+### Logic
 
-To achieve the 2D-pop-art-in-3D look, we avoid smooth gradients in favor of Step Logic.
+- **UV striation**: Generate high-frequency sine waves based on `V` coordinates, such as `sin(vUv.y * density)`.
+- **Conditional masking**: Instead of returning a color directly, use `if` statements or `step()` functions to create hard borders between yellow, blue, and pink.
+- **Chaotic drift**: Add the Lorenz `X` value to the UV offset so the patterns crawl and stretch in sync with the physical warping of the mesh.
 
-The Logic:
+## 4. Seamlessness Protocol
 
-UV Striation: Generate high-frequency sine waves based on $V$ coordinates (sin(vUv.y * density)).
+To prevent snapping or resetting visuals:
 
-Conditional Masking: Instead of returning a color directly, use if statements or step() functions to create hard borders between Yellow, Blue, and Pink.
-
-Chaotic Drift: Add the Lorenz $X$ value to the $UV$ offset so the patterns crawl and stretch in sync with the physical warping of the mesh.
-
-4. Seamlessness Protocol
-
-To prevent "snapping" or "resetting" visuals:
-
-Procedural Time: Use uTime as the phase in all shader calculations. Never reset the physical position of the mesh.
-
-Modular Geometry: Use a cylinder or torus that is significantly longer than the viewport to ensure the "edges" of the manifold are never visible to the camera.
+- **Procedural time**: Use `uTime` as the phase in all shader calculations. Never reset the physical position of the mesh.
+- **Modular geometry**: Use a cylinder or torus that is significantly longer than the viewport so the edges of the manifold are never visible to the camera.

@@ -1,1 +1,0 @@
-as an expert 3d artist help me think of real time reactive visuals that transform over the course of time. I don't want your typical kalidoscope visuals or single color or shape visuals, really thing outside the box

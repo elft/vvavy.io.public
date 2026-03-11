@@ -1,0 +1,13 @@
+<template id="tpl-video-library">
+  <section class="overlay-sheet overlay-sheet--video-library flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="video-library-title">
+    <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="video-library-title">Video Library</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+    </header>
+    <div class="overlay-body flex-1 overflow-y-auto p-12">
+      <ul class="video-clip-list flex flex-col gap-4" data-role="video-clip-list" role="list" aria-label="Available video clips">
+        <li class="video-clip-loading text-sm text-muted" aria-live="polite">Loading clips…</li>
+      </ul>
+    </div>
+  </section>
+</template>

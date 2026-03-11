@@ -147,7 +147,7 @@ The host injects `registerFeatureVisualizer`, `WebGLFeatureVisualizer`, and `VIS
  */
 class SafeBestPracticesDemo extends WebGLFeatureVisualizer {
   static meta = {
-    hidden: true,
+    hidden: false,
     savedAt: 1771204707884,
     createdBy: 'vvavy',
     description:

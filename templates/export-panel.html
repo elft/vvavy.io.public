@@ -2,7 +2,8 @@
   <div class="overlay-sheet export-panel-shell flex flex-col overflow-hidden" data-export-state="idle">
     <div class="overlay-sheet__header relative flex items-center px-12 py-8">
       <h2 class="overlay-title m-0 text-sm uppercase text-muted">Capture Visual</h2>
-      <button type="button" class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" data-action="export-close" aria-label="Close export panel" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+      <button type="button" class="export-header-toggle overlay-menu__button" data-action="export-toggle-collapse" aria-expanded="false" hidden>Expand</button>
+      <button type="button" class="overlay-close export-header-close absolute flex-center text-sm cursor-pointer transition-transform" data-action="export-close" aria-label="Close export panel">✕</button>
     </div>
     <div class="overlay-body p-12 flex-1 overflow-y-auto flex flex-col">
       <div class="export-panel-idle grid gap-10" data-role="export-idle">
@@ -15,7 +16,7 @@
             <label class="overlay-label" for="export-format">Format</label>
             <select id="export-format" name="export-format" class="overlay-select"></select>
           </div>
-          <div class="export-inline-fields grid gap-8" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="export-inline-fields grid gap-8">
             <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
               <label class="overlay-label" for="export-duration">Duration (sec)</label>
               <input id="export-duration" name="export-duration" type="number" min="5" max="600" value="30" class="overlay-input" />
@@ -63,12 +64,12 @@
       </div>
       <div class="export-countdown p-4 flex items-center justify-center" data-role="export-countdown" hidden>5</div>
       <div class="export-active-meta" data-role="export-meta" hidden></div>
-      <p class="text-xs text-muted mt-4">
+      <p class="export-help-copy text-xs text-muted mt-4">
         If you run into issues with exports (no motion, missing audio, or playback glitches), try recording and viewing using the latest Chrome or Edge.
       </p>
       <div class="overlay-form__actions export-panel-actions">
-        <button type="button" class="overlay-menu__button export-primary-btn" data-action="export-start" style="border-color: var(--color-primary); color: var(--color-primary);">Record</button>
-        <button type="button" class="overlay-menu__button export-stop-btn" data-action="export-stop" style="border-color: var(--color-danger); color: var(--color-danger);">Stop</button>
+        <button type="button" class="overlay-menu__button export-primary-btn" data-action="export-start">Record</button>
+        <button type="button" class="overlay-menu__button export-stop-btn" data-action="export-stop">Stop</button>
       </div>
     </div>
   </div>

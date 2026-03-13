@@ -51,7 +51,7 @@ In both creation paths, let the user know what audio metrics are available and h
 4) Wire audio:
    - `onMetrics(metrics, cues)` receives the raw metrics and discrete cues.
    - `onUpdate(frame)` (from `FeatureVisualizer` helpers) uses smoothed features; `frame` includes `metrics` and convenience bands.
-   - Map features to motion: beats/novelty → pulses, energy/overallEnergy → scale/brightness, centroid/rolloff → color/hue, stereoBalance → lateral parallax (not camera).
+   - Map features to motion: beats/novelty → pulses, energy/overallEnergy → scale/brightness, centroid/rolloff → color/hue, sawLikelihood → serration/ridge density or harmonic edge detail, stereoBalance → lateral parallax (not camera).
    - For every audio metric you use, first run it through attack/release or at least a lerp-based smoother with a gentle initial attack and longer release so motion never whips too fast or causes motion sickness. Start with conservative scaling and only increase sensitivity if the user asks for “more intense” motion.
 5) For the UI paste-and-preview flow, keep everything inline in the single JS file (embed shader strings) so the browser can load it without extra files.
 6) Hand the single `.js` file (plus any shaders) back to the user so they can drop paste it
@@ -93,7 +93,7 @@ precision mediump int;
 ## Audio metrics
 - Time + transport: `time` (seconds since audio context start), `mediaTime`/`mediaDuration` (seconds when available), `mediaPaused` (boolean).
 - Energy + dynamics: `energy`, `overallEnergy`, `energyChange`, `energyChangeIntensity`, `spectralFlux`, `lowRise` (sub+bass lift).
-- Spectrum + tone: `centroid` (Hz), `spectralRolloff85`/`spectralRolloff95` (Hz), `flatness` (0 tonal → 1 noise), `spectralKurtosis`, `spectralSkewness` (-1 low-heavy → +1 high-heavy), `chromaDeviation` (detune 0–1).
+- Spectrum + tone: `centroid` (Hz), `spectralRolloff85`/`spectralRolloff95` (Hz), `flatness` (0 tonal → 1 noise), `spectralKurtosis`, `spectralSkewness` (-1 low-heavy → +1 high-heavy), `chromaDeviation` (detune 0–1), `sawLikelihood` (0–1 heuristic confidence that the timbre is bright, harmonic-rich, and saw-like).
 - Band energies: `subBassEnergy`, `bassEnergy`, `lowMidEnergy`, `midEnergy`, `upperMidEnergy`, `presenceEnergy`, `trebleEnergy`, `brillianceEnergy`, `ultrasonicEnergy`, `bandCountActive`.
 - High/low twist: `highLowTwistRatio` (0 when either low or high bands clearly dominate; closer to 1 when low and high bands are both active and trading energy—use this to drive zigzag/twisting patterns, alternating band ribbons, or “snaking” motions that react when highs and lows light up together).
 - Smoothed envelopes (preferred defaults for new visuals): `smooth.subBassEnergy`, `smooth.bassEnergy`, `smooth.lowMidEnergy`, `smooth.midEnergy`, `smooth.upperMidEnergy`, `smooth.presenceEnergy`, `smooth.trebleEnergy`, `smooth.brillianceEnergy`, `smooth.ultrasonicEnergy`, `smooth.centroid`, `smooth.flatness`. These mirror the raw metrics above but with attack/release smoothing so motion feels fluid instead of flickering—default to these for first-time visual creations.
@@ -101,6 +101,8 @@ precision mediump int;
 - Rhythm + timing: `isBeat`, `beatConfidence`, `beatPhase` (0–1), `tempo` (BPM), `novelty` (onset), `melodyChangeScore`.
 - Stereo + space: `midSideRatio`, `interchannelCorrelation`, `stereoBalance` (-1 left → +1 right), `stereoSpread` (0–1).
 - Texture + ambience: `flutterIntensity` (rapid oscillation), `reverbTail` (decay), `mfcc` (Float32Array timbre features).
+
+- Saw-oriented mapping guidance: use `sawLikelihood` for sustained jaggedness, comb-line density, spoke count, prism slicing, or hard-edged deformation. Do not use it as a beat trigger. If the visual should “bite” harder on note attacks, combine `sawLikelihood` with `spectralFlux` or `novelty` so the saw character stays present between transients.
 
 ## Audio cues (discrete triggers)
 - `dropStart`, `dropBloom`, `dropScore`, `dropIntensity`.

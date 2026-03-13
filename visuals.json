@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-11T23:12:49.984Z",
+  "generatedAt": "2026-03-13T00:15:17.797Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -34,7 +34,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=anime-counter-scan",
-      "dateModified": "2026-03-11T23:12:49.919Z"
+      "dateModified": "2026-03-13T00:05:55.982Z"
     },
     {
       "id": "aura-orb-hyper-geometric",
@@ -299,7 +299,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=drifter",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-12T23:38:59.402Z"
     },
     {
       "id": "droste-temple",
@@ -331,6 +331,21 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=echo-halo",
       "dateModified": "2026-03-09T14:15:22.071Z"
+    },
+    {
+      "id": "edm-escapism",
+      "name": "EDM Escapism",
+      "description": "Wiggle wiggle",
+      "tags": [
+        "High Definition",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=edm-escapism",
+      "dateModified": "2026-03-13T00:05:55.982Z"
     },
     {
       "id": "EDM Show",
@@ -973,6 +988,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=a-smoke",
       "dateModified": "2026-02-22T13:13:09.669Z"
+    },
+    {
+      "id": "sonic-flow",
+      "name": "Sonic Flow",
+      "description": "Curl-noise feedback turns the frame into a sculpted liquid heightfield, swelling and brightening with the track.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=sonic-flow",
+      "dateModified": "2026-03-12T23:38:59.402Z"
     },
     {
       "id": "sound-weaver",

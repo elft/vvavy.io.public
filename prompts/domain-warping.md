@@ -1,47 +1,50 @@
-# Domain Warping (Nested Noise)
+# Domain Warping Baseline
 
-## Description
-A mathematical technique using nested noise functions to distort coordinates, creating organic, fluid-like textures that look like swirling marble, moving clouds, or flowing lava.
+Use this as an optional baseline module inside the VVavy create-client workflow.
+It should tell an agentic AI model how to approach domain warping in a VVavy-compatible visual after discovery is complete.
 
-## Visual Effect
-- Swirling marble textures
-- Moving clouds or gas simulations
-- Flowing lava patterns
-- Incredibly complex, non-repetitive organic textures
-- Fluid-like distortions
+## Workflow Placement
 
-## How It Works
+- Confirm whether the user wants the result to feel like marble, smoke, liquid, plasma, lava, clouds, or something more abstract.
+- Ask whether the warping should drive the whole image or only a layer within a larger composition.
+- Confirm how readable versus chaotic the pattern should be.
 
-### Core Formula
-Calculate nested noise: `f(p + g(p + h(p)))`
+## Baseline Effect Goal
 
-Where:
-- `f`, `g`, `h` are different noise functions (typically Fractal Brownian Motion)
-- Each layer distorts the coordinates of the next
-- Creates complex, natural-looking patterns
+Build organic, nested-noise motion by warping coordinates with other noise fields.
+This should create a fluid, non-repetitive surface that still feels musically driven and controllable.
 
-### Implementation Steps
-1. Start with base coordinates `p`
-2. Calculate innermost noise: `h(p)`
-3. Use result to offset coordinates: `p + h(p)`
-4. Calculate middle noise: `g(p + h(p))`
-5. Use result for final offset: `p + g(p + h(p))`
-6. Calculate final noise: `f(p + g(p + h(p)))`
+## Baseline Technical Pattern
 
-## Required Uniforms
-- `u_time` (float) - Animates the noise over time
-- `u_resolution` (vec2) - Screen resolution
-- `u_audioLow` (float) - Modulates displacement strength
-- `u_scale` (float) - Controls overall pattern scale
+- Start from normalized coordinates.
+- Build nested offsets such as `f(p + g(p + h(p)))`.
+- Use different frequencies, gains, or flow directions per layer so the result does not collapse into one noisy blob.
+- Animate the fields with time and smoothed audio values.
 
-## Audio Integration
-- Use `u_audioLow` to modulate displacement strength in inner noise layers
-- Apply `u_audioMid` to control the number of octaves in fBM
-- Map `u_audioHigh` to rotation or flow speed
+## Effect Levers
 
-## Parameters
-- **Octaves**: Number of noise layers (3-8 typical)
-- **Lacunarity**: Frequency multiplier between octaves (1.5-3.0)
-- **Gain**: Amplitude multiplier between octaves (0.3-0.7)
-- **Displacement Strength**: How much each layer warps (0.1-2.0)
-- **Flow Speed**: Animation rate (0.01-0.5)
+- Pattern scale.
+- Warp strength.
+- Octave count.
+- Flow speed.
+- Rotation or directional drift.
+
+## Audio Mapping Baseline
+
+- `bassEnergy`: inner displacement strength and large, slow warps.
+- `midEnergy`: octave weight or turbulence density.
+- `trebleEnergy`: fine detail motion or directional shimmer.
+- `overallEnergy`: contrast and total warp amplitude ceiling.
+- `spectralFlux`: temporary distortion spikes or pattern inversion moments.
+
+## Recommended Usage
+
+- Use this module for fluid surfaces, smoke-like tunnels, living backgrounds, or heat-haze distortion.
+- Combine it with shape logic, feedback, or kaleidoscopic folding when the user wants a richer effect.
+- Smooth every audio input before it reaches the warp math to avoid noisy flicker.
+
+## VVavy Output Expectations
+
+- Return one minified `.js` file only.
+- Default to `WebGLFeatureVisualizer`.
+- Keep shader code inline and viewport-safe.

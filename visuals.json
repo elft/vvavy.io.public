@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-13T12:29:00.034Z",
+  "generatedAt": "2026-03-13T19:20:55.191Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -534,7 +534,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=in-your-face",
-      "dateModified": "2026-03-11T12:43:05.968Z"
+      "dateModified": "2026-03-13T14:03:30.673Z"
     },
     {
       "id": "kaleidoscope-tunnel",
@@ -1109,6 +1109,23 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=temporal-feedback-ghost",
       "dateModified": "2026-02-28T16:18:28.468Z"
+    },
+    {
+      "id": "textures",
+      "name": "Textures",
+      "description": "Textures, lets give that stream a little extra depth",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=textures",
+      "dateModified": "2026-03-13T19:20:55.155Z"
     },
     {
       "id": "the-eye",

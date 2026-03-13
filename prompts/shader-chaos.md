@@ -1,33 +1,51 @@
-# Shader Chaos
+# Shader Chaos Baseline
 
-Develop a high-performance, single-file WebGL audio visualizer using the Web Audio API and a custom fragment shader.
+Use this module after the client-create workflow establishes that the user wants a new visual.
+This is a baseline for an agentic AI model building a chaotic, high-energy VVavy visual, not permission to skip user discovery.
 
-Strictly no external libraries. Do not use Three.js, p5.js, or similar frameworks.
+## Workflow Placement
 
-## Core Visual Logic
+- Confirm the user wants a regular music visualizer.
+- Ask how far they want the chaos pushed: atmospheric, unstable, ruptured, or full breakdown.
+- Ask whether the image should stay mostly readable or deliberately fracture during intense moments.
 
-- **Technique**: Use domain warping layered with recursive spatial folding. The coordinate system (`UV`s) must be warped by multiple octaves of simplex noise.
-- **Living camera**: Do not use traditional matrix-based camera movement. Instead, create a phantom camera effect by modulating UV offsets and noise scales over time. It should feel like drifting, diving, and being pulled through a fluid fractal dimension.
-- **Spatial breaks**: Implement a transient listener in JavaScript. When audio energy exceeds a dynamic threshold, the shader must trigger a spatial break.
+## Baseline Effect Goal
 
-## Spatial Break Behavior
+Create a high-performance WebGL visual that feels fluid, unstable, and cinematic.
+The motion should come from nested coordinate warping, recursive folding, and time-varying structure, while still staying within VVavy’s single-file create-client constraints.
 
-A spatial break should include:
+## Baseline Technical Pattern
 
-- Immediate coordinate mirroring for a kaleidoscope effect
-- Extreme chromatic aberration
-- A temporary inversion of the spatial folding logic
+- Use a fragment shader as the core visual engine.
+- Build the main look from domain warping plus recursive spatial folding.
+- Simulate “camera” movement by changing UV offsets, scale, rotation, and field drift instead of relying on literal camera transforms.
+- Add a transient-driven rupture state that temporarily changes how the space is folded or colored.
 
-## Audio Integration
+## Spatial Break Baseline
 
-Use uniforms to map audio to behavior:
+When the music crosses a meaningful transient or energy threshold:
 
-- **Bass**: Drive the scale of the recursive folds and the intensity of the domain warping.
-- **Mids**: Drive the fine-grained detail and complexity of the noise patterns.
-- **Transients**: Use a `punch` uniform from `0.0` to `1.0` that decays rapidly and triggers physical distortion of the screen boundaries.
+- Mirror or re-slice coordinates for a short kaleidoscopic break.
+- Increase chromatic split or edge stress briefly.
+- Invert or perturb one part of the folding logic.
+- Let the break decay over time instead of persisting indefinitely.
 
-## Aesthetic Goals
+## Audio Mapping Baseline
 
-- **Cinematic chaos**: The visual should never loop and must constantly evolve by mixing time-based variables with audio data.
-- **Edge interaction**: The visual must interact with the viewport edges by stretching, bending perspective, or breaking the frame during heavy drops.
-- **Color theory**: Use a dynamic palette that shifts from deep, atmospheric voids to explosive, high-energy light based on the `overall_energy` uniform.
+- `bassEnergy`: large fold scale, warp amplitude, and low-frequency pressure.
+- `midEnergy`: fine detail density and noise complexity.
+- `overallEnergy`: palette intensity and overall turbulence ceiling.
+- `spectralFlux`, `novelty`, or `accentPulse`: trigger punch events and rupture states.
+- `dropStart` or `dropIntensity`: larger scene-wide breaks with cooldowns.
+
+## Style Guardrails
+
+- Keep the effect alive and evolving, not loop-obvious.
+- Let the frame edges participate during heavy moments, but do not lose total image control.
+- Use smoothing, clamping, and cooldowns so chaos stays intentional.
+
+## VVavy Output Expectations
+
+- Return one minified `.js` file only.
+- Use `WebGLFeatureVisualizer`.
+- No external libraries, imports, or extra files.

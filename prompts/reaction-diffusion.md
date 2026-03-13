@@ -1,66 +1,54 @@
-# Reaction-Diffusion (Gray-Scott Model)
+# Reaction-Diffusion Baseline
 
-## Description
-Simulates chemical interactions to create organic, growing patterns found in nature like zebra stripes, coral growth, fingerprint ridges, or cellular division.
+Use this module as a baseline inside the `client-create-visual` workflow after the user chooses a new visual direction.
+It should guide an agentic AI model on how to build this effect for VVavy rather than acting like a standalone code request.
 
-## Visual Effect
-- Zebra stripes and animal patterns
-- Coral growth and organic structures
-- Fingerprint-like ridges
-- Cellular division patterns
-- Living, breathing textures that evolve over time
+## Workflow Placement
 
-## How It Works
+- Ask what kind of organic pattern the user wants: coral, cells, worms, stripes, growth, fingerprints, or abstract biology.
+- Ask whether the effect should fill the screen, live on geometry, or act as a texture layer.
+- Confirm whether the user prefers slow evolution or frequent morphing.
 
-### Gray-Scott Model Equations
-$$\frac{\partial A}{\partial t} = D_A \nabla^2 A - AB^2 + F(1-A)$$
+## Baseline Effect Goal
 
-$$\frac{\partial B}{\partial t} = D_B \nabla^2 B + AB^2 - (K+F)B$$
+Create a living chemical-pattern simulation using a Gray-Scott-style update loop.
+The visual should feel self-evolving, musical, and temporally rich rather than like simple noise.
 
-Where:
-- `A` and `B` are concentrations of two "chemicals"
-- `D_A`, `D_B` are diffusion rates
-- `F` is the feed rate
-- `K` is the kill rate
-- `∇²` is the Laplacian (neighbor calculation)
+## Baseline Technical Pattern
 
-### Implementation
-**Requires multi-pass shader**:
-1. **Update Pass**: Calculate new chemical concentrations based on neighbors
-2. **Render Pass**: Map concentrations to colors
+- Use a ping-pong simulation buffer.
+- In the update pass, compute diffusion and reaction from neighboring pixels.
+- In the render pass, map the concentrations to a readable palette.
+- Keep the simulation stable with conservative parameter ranges and a clamped time step.
 
-### Neighbor Calculation
-Sample 8 surrounding pixels to calculate Laplacian:
-```glsl
-vec2 laplacian =
-    -1.0 * center +
-    0.2 * (top + bottom + left + right) +
-    0.05 * (topLeft + topRight + bottomLeft + bottomRight);
-```
+## Gray-Scott Baseline
 
-## Required Uniforms
-- `u_buffer` (sampler2D) - Previous state texture
-- `u_feedRate` (float) - Chemical feed rate (0.01-0.1)
-- `u_killRate` (float) - Chemical kill rate (0.045-0.07)
-- `u_diffusionA` (float) - Diffusion rate for chemical A (1.0)
-- `u_diffusionB` (float) - Diffusion rate for chemical B (0.5)
-- `u_time` (float) - Time for initialization
-- `u_resolution` (vec2) - Screen resolution
+- `dA = DA * laplacianA - A * B * B + F * (1.0 - A)`
+- `dB = DB * laplacianB + A * B * B - (K + F) * B`
 
-## Audio Integration
-- Map `u_audioMid` to Feed Rate (`F`) to make patterns "bloom" with the beat
-- Use `u_audioLow` to modulate Kill Rate (`K`) for pattern morphing
-- Apply `u_audioHigh` for diffusion rate changes (creates faster/slower growth)
+Typical baseline ranges:
 
-## Parameters
-- **Feed Rate (F)**: 0.01-0.1 (higher = more "food" for growth)
-- **Kill Rate (K)**: 0.045-0.07 (higher = more death/clearing)
-- **Diffusion A**: Typically 1.0
-- **Diffusion B**: Typically 0.5
-- **Time Step**: 0.5-1.5 (simulation speed)
+- `F`: roughly `0.01` to `0.1`
+- `K`: roughly `0.045` to `0.07`
+- `DA`: around `1.0`
+- `DB`: around `0.5`
 
-## Preset Patterns
-- **Coral**: F=0.0545, K=0.062
-- **Mitosis**: F=0.0367, K=0.0649
-- **Spirals**: F=0.014, K=0.054
-- **Worms**: F=0.078, K=0.061
+## Audio Mapping Baseline
+
+- `midEnergy`: feed rate drift and growth activation.
+- `bassEnergy`: kill rate modulation and broad morphological shifts.
+- `trebleEnergy` or `presenceEnergy`: diffusion speed or edge crispness.
+- `overallEnergy`: simulation speed ceiling and palette intensity.
+- `spectralFlux` or `accentPulse`: seed injections, bloom events, or local perturbations.
+
+## Recommended Usage
+
+- Use this module when the user wants slow biological growth, pattern intelligence, or a feedback-driven surface.
+- Combine it with domain warping or temporal feedback when the user wants more memory and instability.
+- Keep parameter changes smoothed so the chemistry evolves musically instead of tearing.
+
+## VVavy Output Expectations
+
+- Return one minified `.js` file only.
+- Use `WebGLFeatureVisualizer`.
+- Embed all simulation and render shaders inline.

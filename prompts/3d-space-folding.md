@@ -1,49 +1,57 @@
-# 3D Space Folding
+# 3D Space Folding Baseline
 
-You are an expert graphics engineer specializing in GLSL, raymarching, and signed distance fields (SDFs).
+Use this module only after following the interaction gate in `src/prompts/client-create-visual.md`.
+This is not a standalone instruction to skip discovery. Treat it as a baseline recipe for an agentic AI model when the user wants an infinite, folded-space flythrough.
 
-## Objective
+## Role In The Client Create Workflow
 
-Create a single-file HTML/WebGL application that renders a real-time, infinite 3D space-folding environment with a high-end neon aesthetic.
+- First confirm the user chose `create new visual`.
+- Then confirm they want a regular music visualizer, not a capture-video effect.
+- Ask what should stay constant versus mutate: shape language, palette, camera intensity, and how aggressive the folding should feel.
+- Summarize the plan before generating the final single-file VVavy output.
 
-## Core Technical Requirements
+## Baseline Effect Goal
 
-- **Rendering engine**: Use a raymarching loop with at least 64 steps in a fragment shader to render SDF geometry.
-- **Space folding logic**: Implement a `map()` function that uses `mod()` for infinite repetition.
-- **Recursive folding**: Inside `map()`, use a loop with 4 to 8 iterations to fold space using `abs(p)` mirroring and rotation matrices (`mat2` or `mat3`) to create recursive complexity.
-- **Geometry**: Use a specific SDF primitive such as `sdBoxFrame`, `sdTorus`, or `sdOctahedron`.
-- **Movement**: Translate the camera or the space origin along an axis such as `p.z -= u_time` to simulate endless forward travel.
+Build a VVavy-compatible WebGL visual that feels like moving through impossible architecture.
+The core look should come from recursive SDF folding, repeated structures, and depth-preserving fog or glow, while still following VVavy safety rules: smoothed audio input, no uncontrolled flashes, and no viewport clipping.
 
-## Visual Effects
+## Baseline Technical Direction
 
-- **Occlusion and shading**: Apply distance-based shading or fog such as `exp(-dist)` to maintain 3D depth.
+- Use a fragment-shader raymarcher as the main renderer.
+- Keep the shader WebGL1-safe by default.
+- Use a `map()` function with `mod()` or tiled space repetition for infinite continuation.
+- Fold space inside `map()` with `abs()` mirroring plus 4 to 8 iterations of rotation-based transforms.
+- Build the scene from one or more strong SDF primitives such as `sdBoxFrame`, `sdTorus`, or `sdOctahedron`.
+- Create forward motion through the world with time-driven translation of space or the camera path.
+- Maintain readable depth with fog, glow accumulation, or distance-based shading.
 
-## Variations To Apply
+## What The Agent Should Clarify Before Building
 
-Choose or modify from these directions:
+- Does the user want boxy architecture, smoother tunnels, or mixed geometry?
+- Should the corridor feel steady, spiraling, or path-driven with turns?
+- Should the palette be neon, metallic, void-like, toxic, or restrained?
+- Should the center path stay mostly clear, or should geometry crowd the frame more aggressively?
 
-- **Shapes**: Change `sdBoxFrame` to `sdOctahedron`, `sdTorus`, or a Menger sponge.
-- **Colors**: Change neon red and cyan to neon purple and toxic green, or gold and deep blue.
-- **Virus or transition logic**: Implement a noise-based threshold using a `noise()` or `hash()` function that triggers a color inversion or shape morph based on `u_time`.
-- **Motion**: Change linear forward motion to a spiral path, pulsing zoom, or chaotic rotation.
+## Audio Mapping Baseline
 
-## Camera And Corridor Logic
+- `bassEnergy` or `subBassEnergy`: forward momentum, corridor expansion, and large-scale fold amplitude.
+- `overallEnergy`: fog density, glow ceiling, and structural contrast.
+- `centroid` or `spectralRolloff95`: color temperature and edge sharpness.
+- `spectralFlux` or `novelty`: brief fold inversions, path turbulence, or pattern mutations.
+- `beatConfidence` plus `isBeat`: discrete structural transitions with cooldowns, never every frame.
 
-- Calculate the camera trajectory as a dynamic vector that accounts for scene rotation, not just a straight line.
-- Use a spline-based path so the camera turns corners in the corridor rather than traveling in a straight line.
+Smooth every mapping with attack/release logic before it reaches the shader.
 
-## Repulsion Field Requirement
+## Corridor And Repulsion Baseline
 
-Implement a localized repulsion field inside the `map()` function.
+- Prefer a path-aware camera vector instead of a flat straight-line flight.
+- If the user wants a readable corridor, add a soft repulsion field near the active path so nearby geometry deforms away from the center.
+- Use soft deformation rather than hard clipping so the folded look remains intact.
 
-- This field should calculate the distance from the camera's current path to the surrounding geometry in real time.
-- If an object is about to obscure the view, the field should push the geometry out of the way locally using a smooth-minimum subtraction.
-- The result should feel like a dynamic portal opening through the architecture while preserving the intricate folded aesthetic.
+## VVavy Output Expectations
 
-## Soft-Field Repulsion Goal
-
-Use a soft-field repulsion technique that smoothly deforms recursive geometry outward as it approaches the central corridor, keeping the viewport clear while maintaining the scene's complexity.
-
-## Transition Rules
-
-- All major transitions should be smooth and modulated.
+- Return one minified `.js` file only.
+- Use `WebGLFeatureVisualizer`.
+- Inline shader strings.
+- Register with `registerFeatureVisualizer(...)`.
+- Keep the center mathematically stable and render every frame.

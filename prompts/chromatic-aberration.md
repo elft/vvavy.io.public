@@ -1,95 +1,64 @@
-# Chromatic Aberration & Lens Effects
+# Chromatic Aberration Baseline
 
-## Description
-Simulates physical optical imperfections of a camera lens, creating RGB "splitting," film grain, or "God Rays" that make digital art feel more physical and cinematic.
+Use this module as a workflow-aware baseline inside `src/prompts/client-create-visual.md`.
+It should guide an agentic AI model on how to build this effect in VVavy, not replace the required client discovery steps.
 
-## Visual Effect
-- RGB color splitting at screen edges
-- Lens distortion and warping
-- Film grain and noise
-- Vignette darkening at corners
-- God Rays (light shafts)
-- Physical camera artifacts
+## Workflow Placement
 
-## How It Works
+- Ask whether the user wants this as a subtle finishing pass or as a dominant stylized effect.
+- If they are transforming live shared video or screen content, keep the underlying image recognizable unless they explicitly ask otherwise.
+- Confirm whether they want cinematic, dreamy, glitchy, VHS-like, or physical-camera behavior.
 
-### Chromatic Aberration
-Light wavelengths refract differently through a lens:
-1. Sample the final rendered image
-2. Offset Red, Green, and Blue channels by different amounts
-3. Base offset on distance from screen center
+## Baseline Effect Goal
 
-```glsl
-vec2 direction = v_texCoord - 0.5; // vector from center
-float dist = length(direction);
-vec2 offset = normalize(direction) * dist * u_aberration;
+Add lens-style post processing that makes the render feel optical and physical.
+This module is best used as a restrained post pass layered onto a stronger base visual or capture effect.
 
-float r = texture2D(u_buffer, v_texCoord + offset).r;
-float g = texture2D(u_buffer, v_texCoord).g;
-float b = texture2D(u_buffer, v_texCoord - offset).b;
+## Baseline Technical Pattern
 
-vec3 color = vec3(r, g, b);
-```
+- Sample the current color buffer or capture frame in a fullscreen post pass.
+- Build chromatic aberration from radial channel offsets based on distance from screen center.
+- Optionally add barrel or pincushion distortion, grain, and light edge shaping.
+- Keep the effect stable, centered, and resolution-safe.
 
-### Additional Lens Effects
-
-#### Barrel/Pincushion Distortion
-```glsl
-vec2 centered = v_texCoord - 0.5;
-float r2 = dot(centered, centered);
-vec2 distorted = centered * (1.0 + u_distortion * r2);
-vec2 uv = distorted + 0.5;
-```
-
-#### Vignette
-```glsl
-float vignette = smoothstep(u_vignetteRadius, u_vignetteRadius - u_vignetteSoftness, dist);
-color *= vignette;
-```
-
-#### Film Grain
-```glsl
-float grain = random(v_texCoord + u_time) * u_grainAmount;
-color += grain;
-```
-
-## Required Uniforms
-- `u_buffer` (sampler2D) - Final rendered image
-- `u_aberration` (float) - Chromatic aberration strength (0.0-0.02)
-- `u_distortion` (float) - Barrel/pincushion distortion (-0.3 to 0.3)
-- `u_vignetteRadius` (float) - Vignette size (0.5-1.5)
-- `u_vignetteSoftness` (float) - Vignette edge softness (0.1-0.5)
-- `u_grainAmount` (float) - Film grain intensity (0.0-0.2)
-- `u_time` (float) - For animated grain
-
-## Audio Integration
-- Increase aberration based on `u_audioHigh` (snare/hats create RGB splits)
-- Pulse vignette with `u_audioLow` (darker on bass hits)
-- Modulate distortion with `u_audioMid`
-- Increase grain on transients for "film damage" effect
-
-## Parameters
+## Core Building Blocks
 
 ### Chromatic Aberration
-- **Strength**: 0.0 (none) to 0.02 (extreme splitting)
-- **Falloff**: How aberration increases toward edges (1.0-3.0 power)
+
+- Compute a direction from the screen center.
+- Scale the RGB offset with distance from center and a controlled strength uniform.
+- Keep the green channel near the original sample as the stable anchor.
 
 ### Distortion
-- **Amount**: -0.3 (pincushion) to 0.3 (barrel)
-- **Type**: Radial, tangential, or combined
 
-### Vignette
-- **Radius**: 0.5 (tight) to 1.5 (subtle)
-- **Softness**: 0.1 (hard edge) to 0.5 (soft fade)
-- **Darkness**: 0.0 (black) to 0.8 (subtle)
+- Use radial distortion for barrel or pincushion warping.
+- Keep values conservative unless the user explicitly wants a broken-lens look.
 
-### Film Grain
-- **Amount**: 0.0 to 0.2 (intensity)
-- **Size**: 1.0 to 4.0 (grain scale)
-- **Monochrome**: true/false (color vs B&W grain)
+### Grain
 
-## Effect Combinations
-- **Vintage Camera**: Medium aberration + barrel distortion + vignette + grain
-- **Glitch**: Extreme aberration (audio-reactive) + random distortion
-- **Dreamy**: Subtle aberration + soft vignette + light grain
-- **VHS**: Horizontal aberration + scanlines + heavy grain
+- Add subtle animated grain or dust for texture.
+- Use grain as a finishing layer, not as the main motion source.
+
+### Edge Treatment
+
+- Avoid heavy vignette by default because the create-client workflow emphasizes full-frame readability unless the user asks for darker edges.
+
+## Audio Mapping Baseline
+
+- `trebleEnergy` or `presenceEnergy`: chromatic split strength.
+- `midEnergy`: radial distortion amount.
+- `spectralFlux` or `novelty`: temporary lens stress or glitch moments.
+- `overallEnergy`: grain visibility or subtle contrast lift.
+- `beatConfidence`: optional short pulses, heavily smoothed and throttled.
+
+## Recommended Behavior
+
+- Keep the effect subtle for cinematic or dreamy briefs.
+- Push it harder only for glitch, VHS, or rupture-style requests.
+- On screen/video effects, preserve legibility first and let the optical damage ride on top.
+
+## VVavy Output Expectations
+
+- Use `WebGLFeatureVisualizer` for normal visuals or `WebGLCaptureVideoVisualizer` for shared-screen/video transformations.
+- Return one minified `.js` file only.
+- Inline all shader code and register the visual at the bottom.

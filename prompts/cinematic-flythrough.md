@@ -1,58 +1,48 @@
-# Cinematic Flythrough
+# Cinematic Flythrough Baseline
 
-Create a real-time, audio-reactive visual that feels alive and constantly evolving. The scene should never loop obviously and should continuously introduce new motion, transformations, and spatial changes to keep the viewer guessing what comes next.
+Use this module after the client-create workflow has established that the user wants a new visual.
+Treat it as a baseline for an agentic AI model building a moving, immersive visual language inside VVavy.
 
-## Camera And Viewpoint
+## Workflow Placement
 
-The camera or viewpoint should feel like it is moving with the visual by floating, drifting, diving, or being pulled through the scene.
+- Confirm whether the user wants a regular visualizer or a screen/video transformation.
+- Ask how intense the motion should feel: drifting, gliding, diving, or aggressive pull-through.
+- Ask what should dominate the experience: geometry, atmosphere, speed, or distortion.
 
-The visual should:
+## Baseline Effect Goal
 
-- Use the full viewport.
-- Interact with the screen boundaries.
-- Warp edges, stretch space, bend perspective, or break the frame when appropriate.
+Create a visual that feels like the viewer is traveling through a living scene.
+The scene should keep evolving, use the entire viewport, and feel synchronized to the track without becoming disorienting.
 
-## Audio-Reactive Mapping
+## Baseline Motion Direction
 
-Use multiple audio features such as bass, mids, highs, overall energy, and transients or peaks to drive different aspects of the scene, including:
+- Favor continuous forward or drifting movement over static composition.
+- Use space warping, parallax, layered depth, and controlled perspective changes to imply travel.
+- Keep the camera readable and smooth unless the user asks for chaos.
+- Let the frame edges participate through stretch, bend, or environmental pressure rather than random clipping.
 
-- Geometry deformation and scale
-- Camera movement and speed
-- Color shifts
-- Spatial warping and distortion
-- Emissive pulses or shockwaves
+## Audio Mapping Baseline
 
-## Drop And Transient Behavior
+- `bassEnergy`: travel speed, large-scale depth pulses, and corridor width.
+- `midEnergy`: structural deformation and scene density.
+- `trebleEnergy` or `presenceEnergy`: edge detail, sparkle, or emissive accents.
+- `overallEnergy`: overall brightness, movement intensity, and atmosphere.
+- `spectralFlux`, `novelty`, or cues like `dropStart`: set-piece transitions and distortion events.
 
-On big drops or strong transients, the screen should visibly react with effects such as:
+## Drop And Phrase Behavior
 
-- Heavy distortion
-- Space bending
-- Brief chaos
-- Explosive motion
-- Dramatic scene transitions
+- On strong drops, create a visible but controlled scene event such as space bending, fold expansion, burst motion, or a temporary palette flip.
+- Let the event resolve over time instead of treating the drop like a one-frame flash.
 
-The visual should feel like it hits with the music.
+## Style Guardrails
 
-## Style Direction
+- Favor flow, motion, and transformation.
+- Avoid static center-framed compositions unless requested.
+- Keep the result immersive and musical rather than random.
+- Maintain enough structure that the viewer can track the space they are moving through.
 
-The visual style should feel dynamic, immersive, and cinematic, like traveling through a living world made of light, shapes, and energy.
+## VVavy Output Expectations
 
-Avoid static compositions. Favor:
-
-- Flow
-- Motion
-- Transformation
-- Surprise
-
-## Desired Result
-
-The result should feel organic, hypnotic, and unpredictable while still being tightly synchronized to the music.
-
-The goal is to make the screen feel:
-
-- Alive
-- Reactive
-- Immersive
-
-The viewer should feel like they are inside the visual and moving through it.
+- Return one minified `.js` file only.
+- Choose `WebGLFeatureVisualizer` unless the user explicitly wants a shared-video effect.
+- Inline everything needed for copy/paste preview.

@@ -1,64 +1,57 @@
-# Temporal Feedback Loop (Echo Effect)
+# Temporal Feedback Baseline
 
-## Description
-Creates "ghost trails," motion blur, and infinite recursive tunnels by feeding the previous frame back into the current frame with slight transformations.
+Use this module as a baseline inside the `client-create-visual` workflow after the user selects a direction.
+It should tell an agentic AI model how to build feedback-based motion in VVavy while still following the normal discovery and final output rules.
 
-## Visual Effect
-- Motion trails that persist over time
-- Liquid-like bleeding and "echoes"
-- Infinite recursive tunnel effect
-- Hallucinogenic motion blur
-- Trailing "hallucination" effects
+## Workflow Placement
 
-## How It Works
+- Ask whether the user wants trails, ghosting, recursive tunnels, smearing, or liquid memory.
+- Ask whether the feedback should feel subtle and cinematic or intense and hallucinogenic.
+- Confirm whether the user wants the feedback to wrap across screen edges or stay center-anchored.
 
-### Core Architecture
-**Double Buffering (Ping-Ponging)**:
-1. Create two Framebuffer Objects (FBOs): `Texture_A` and `Texture_B`
-2. Render current frame's logic into `Texture_B`, sampling `Texture_A` as `u_buffer`
-3. Render `Texture_B` to the screen
-4. Swap `Texture_A` and `Texture_B`
+## Baseline Effect Goal
 
-### Shader Logic
-1. Sample the previous frame from `u_buffer` at `v_texCoord`
-2. Apply transformation: slightly scale UV coordinates toward center or rotate by ~0.01 radians
-3. Blend current and previous frames: `vec3 finalCol = currentFractal + (previousFrame * u_feedback)`
+Create a visual that feeds prior frames into the current frame so motion leaves history behind.
+The key outcome is persistence and memory, not just blur.
 
-## Required Uniforms
-- `u_buffer` (sampler2D) - Previous frame texture
-- `u_feedback` (float, 0.0–1.0) - Controls how much of the old frame is kept
-- `u_resolution` (vec2) - Screen resolution
-- `u_time` (float) - Time elapsed
+## Baseline Technical Pattern
 
-## Audio Integration
-- Map `u_audioLow` to feedback amount for pulsing trails
-- Use `u_audioHigh` for rotation speed modulation
-- Apply `u_audioMid` to scaling transformation intensity
+- Use two framebuffers or textures in a ping-pong loop.
+- Render the new frame while sampling the previous frame.
+- Apply a small transform to the old frame before blending it back in.
+- Present the composited result every frame.
 
-## Parameters
-- **Persistence**: 0.0 (no trails) to 1.0 (infinite persistence)
-- **Rotation**: -0.05 to 0.05 radians per frame
-- **Scale**: 0.98 to 1.02 (zooming effect)
-- **Blend Mode**: Additive, multiplicative, or alpha blend
+## Core Feedback Levers
 
-## Seamless Screen-Wrap Ghosts (No Edge Bounce)
-- For wrap-around visuals, represent center positions in normalized UV space (`0..1`) and wrap with:
-  - `value = ((value % 1.0) + 1.0) % 1.0`
-- Do not compute follow velocity with plain subtraction near edges.
-  - Bad: `delta = target - current`
-  - Good (shortest torus path):
-    - `delta = target - current`
-    - `if (delta > 0.5) delta -= 1.0`
-    - `if (delta < -0.5) delta += 1.0`
-- In shader sampling, wrap previous-frame UVs to avoid clipping at borders:
-  - `prev = texture(u_buffer, fract(uv + flowDrift))`
-- For radial ghost distance to a wrapped center, use wrapped delta:
-  - `wrappedDelta = mod(uv - center + 0.5, 1.0) - 0.5`
+- Feedback persistence.
+- UV scale drift.
+- Rotation drift.
+- Flow drift.
+- Blend mode or decay curve.
 
-## Recommended Smoothing Values (Temporal Feedback Ghost Style)
-- `idleTimeout`: `0.5` seconds before autonomous movement starts.
-- `flowLerp`: `1.0 - pow(0.95, dt * 60.0)` for stable frame-rate-independent smoothing.
-- `mouseFollowGain`: `0.1` (`vx = dx * 0.1`, `vy = dy * 0.1`) for soft but responsive easing.
-- `driftSpeed`: `0.0015 + audioIntensity * 0.009` (optionally multiply by `1.35` on beat).
-- `beatCooldown`: `0.22` seconds to avoid rapid direction flipping.
-- Feedback persistence: start around `0.94` to keep trails without runaway accumulation.
+## Audio Mapping Baseline
+
+- `bassEnergy`: persistence amount and trail weight.
+- `midEnergy`: zoom or scale drift.
+- `trebleEnergy`: rotational shimmer or sharper echo detail.
+- `reverbTail`: linger duration and memory density.
+- `spectralFlux` or `novelty`: sudden disturbances or fresh echo injections.
+
+## Edge-Wrap Baseline
+
+- If the user wants screen-wrap ghosts, keep positions and deltas toroidal so motion crosses edges cleanly.
+- Wrap sampled UVs with `fract()` or equivalent normalized wrapping logic.
+- Avoid naive subtraction near edges when computing feedback motion.
+
+## Stability Baseline
+
+- Start around a safe feedback value rather than near runaway accumulation.
+- Clamp transforms and blend factors.
+- Smooth audio input and throttle beat-triggered direction changes.
+- Keep the effect readable enough that the feedback history contributes structure, not mush.
+
+## VVavy Output Expectations
+
+- Return one minified `.js` file only.
+- Use `WebGLFeatureVisualizer`, or `WebGLCaptureVideoVisualizer` if the user specifically wants feedback on shared video.
+- Keep all buffer setup and shader code inline.

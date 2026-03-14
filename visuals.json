@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-13T19:20:55.191Z",
+  "generatedAt": "2026-03-14T18:33:52.129Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -108,22 +108,7 @@
       ],
       "createdBy": "cineshader",
       "url": "https://vvavy.io/app?visual=cloud-flight",
-      "dateModified": "2026-03-06T01:11:34.372Z"
-    },
-    {
-      "id": "cloud-tunnel-raymarch",
-      "name": "Cloud Tunnel Raymarch",
-      "description": "Volumetric cloud tunnel inspired by Shadertoy classics, pushing clouds faster with song energy while hues and shapes morph with timbre and drops.",
-      "tags": [
-        "High Definition",
-        "trippy",
-        "cinematic",
-        "punchy",
-        "groovy"
-      ],
-      "createdBy": "Nox",
-      "url": "https://vvavy.io/app?visual=cloud-tunnel-raymarch",
-      "dateModified": "2026-03-09T14:15:22.071Z"
+      "dateModified": "2026-03-14T18:33:52.089Z"
     },
     {
       "id": "color-inversion",
@@ -1125,7 +1110,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-13T19:20:55.155Z"
+      "dateModified": "2026-03-14T18:27:29.674Z"
     },
     {
       "id": "the-eye",

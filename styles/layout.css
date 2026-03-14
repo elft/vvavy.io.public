@@ -44,6 +44,14 @@
   height: 100%;
 }
 
+.effects-compositor-canvas {
+  display: block;
+}
+
+.effects-compositor-canvas[hidden] {
+  display: none;
+}
+
 .app-shell.is-casting .visual-stage canvas {
   opacity: 0;
   visibility: hidden;

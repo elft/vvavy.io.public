@@ -2,120 +2,160 @@
   <div class="effects-panel-shell flex flex-col overflow-hidden" role="dialog" aria-label="Visual Effects Controls">
     <div class="effects-panel-header relative flex items-center px-12 py-8" data-role="effects-drag-handle">
       <p class="overlay-title m-0 text-sm uppercase text-muted">Effects</p>
-      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="effects-close" aria-label="Close effects panel" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+      <button class="overlay-close effects-panel-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="effects-close" aria-label="Close effects panel">✕</button>
+    </div>
+    <div class="effects-panel-tabs px-12 pt-10 flex gap-8" role="tablist" aria-label="Effects panel sections">
+      <button class="effects-tab-button is-active px-10 py-8 text-sm uppercase cursor-pointer" type="button" role="tab" aria-selected="true" data-action="effects-tab" data-tab="effects">
+        Additional Effects
+      </button>
+      <button class="effects-tab-button px-10 py-8 text-sm uppercase cursor-pointer" type="button" role="tab" aria-selected="false" data-action="effects-tab" data-tab="globals">
+        Global Toggles
+      </button>
     </div>
     <div class="effects-panel-body p-12 flex flex-col gap-16">
-
-      <div class="visual-control-group flex flex-col gap-8">
-        <div class="flex items-center justify-between">
-          <label class="visual-control-label text-sm uppercase text-muted" for="vc-tint">Color</label>
-          <span class="visual-control-value text-sm uppercase" data-role="vc-tint-value">Off</span>
-        </div>
-        <label class="visual-control-color-field flex items-center gap-12" for="vc-tint">
-          <input
-            class="visual-control-color-picker cursor-pointer"
-            id="vc-tint"
-            type="color"
-            value="#ffffff"
-            data-role="vc-tint"
-            aria-label="Visual tint color"
-          />
-          <span class="visual-control-color-copy text-sm text-soft">Pick an exact tint for the stage output.</span>
-        </label>
-        <p class="visual-control-hint m-0 text-soft" style="font-size: var(--font-size-xs);">
-          Applies a color tint to the visual output.
-        </p>
-      </div>
-
-      <div class="visual-control-group flex flex-col gap-8">
-        <div class="flex items-center justify-between">
-          <label class="visual-control-label text-sm uppercase text-muted" for="vc-saturation">Saturation</label>
-          <span class="visual-control-value text-sm" data-role="vc-saturation-value">1.0x</span>
-        </div>
-        <input
-          class="visual-control-slider w-full cursor-pointer"
-          id="vc-saturation"
-          type="range"
-          min="0"
-          max="2.0"
-          step="0.05"
-          value="1.0"
-          data-role="vc-saturation"
-          aria-label="Color saturation"
-        />
-      </div>
-
-      <div class="visual-control-group flex flex-col gap-8">
-        <div class="flex items-center justify-between">
-          <label class="visual-control-label text-sm uppercase text-muted" for="vc-brightness">Brightness</label>
-          <span class="visual-control-value text-sm" data-role="vc-brightness-value">1.00x</span>
-        </div>
-        <input
-          class="visual-control-slider w-full cursor-pointer"
-          id="vc-brightness"
-          type="range"
-          min="0"
-          max="3.0"
-          step="0.05"
-          value="1.0"
-          data-role="vc-brightness"
-          aria-label="Visual brightness"
-        />
-      </div>
-
-      <div class="visual-control-group flex flex-col gap-8">
-        <div class="flex items-center justify-between">
-          <label class="visual-control-label text-sm uppercase text-muted" for="vc-sensitivity">Sensitivity</label>
-          <span class="visual-control-value text-sm" data-role="vc-sensitivity-value">1.00x</span>
-        </div>
-        <input
-          class="visual-control-slider w-full cursor-pointer"
-          id="vc-sensitivity"
-          type="range"
-          min="0.1"
-          max="3.0"
-          step="0.05"
-          value="1.0"
-          data-role="vc-sensitivity"
-          aria-label="Global audio sensitivity"
-        />
-        <p class="visual-control-hint m-0 text-soft" style="font-size: var(--font-size-xs);">
-          Scales all audio reactivity uniformly across every visual.
-        </p>
-      </div>
-
-      <div class="visual-control-group flex flex-col gap-8">
-        <p class="visual-control-label text-sm uppercase text-muted m-0">Per-Metric Sensitivity</p>
-
-        <div class="flex flex-col gap-8">
-
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center justify-between">
-              <label class="visual-control-label text-sm text-muted" for="vc-metric-energy">Energy</label>
-              <span class="visual-control-value text-sm" data-role="vc-metric-energy-value">1.00x</span>
+      <div data-role="effects-tab-panel" data-tab-panel="effects" class="flex flex-col gap-16">
+        <section class="effects-composer-section flex flex-col gap-10" aria-labelledby="effects-stack-title">
+          <div class="flex items-center justify-between gap-8">
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-stack-title">Current Stack</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="effects-current-visual">No visual selected.</p>
             </div>
-            <input class="visual-control-slider w-full cursor-pointer" id="vc-metric-energy" type="range" min="0.1" max="3.0" step="0.05" value="1.0" data-role="vc-metric-energy" aria-label="Energy sensitivity" />
+            <span class="effects-perf-badge is-hidden" data-role="effects-perf-badge">Performance mode active</span>
+          </div>
+          <div class="effects-stack-list flex flex-col gap-8" data-role="effects-stack-list"></div>
+          <button class="visual-control-reset w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-action="effects-clear-stack">
+            Clear stack
+          </button>
+        </section>
+
+        <section class="effects-composer-section flex flex-col gap-10" aria-labelledby="effects-library-title">
+          <div class="flex items-center justify-between gap-8">
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-library-title">Add Effect</p>
+              <p class="effects-panel-meta m-0 text-soft">Chain up to three live effects over the current visual.</p>
+            </div>
+            <span class="effects-panel-meta text-soft" data-role="effects-stack-count">0 / 3</span>
+          </div>
+          <div class="effects-library-list flex flex-col items-start gap-8" data-role="effects-library-list"></div>
+        </section>
+      </div>
+
+      <div data-role="effects-tab-panel" data-tab-panel="globals" class="is-hidden flex flex-col gap-16">
+        <section class="effects-composer-section flex flex-col gap-12" aria-labelledby="effects-global-title">
+          <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-global-title">Global Controls</p>
+
+          <div class="visual-control-group flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-tint">Color</label>
+              <span class="visual-control-value text-sm uppercase" data-role="vc-tint-value">Off</span>
+            </div>
+            <label class="visual-control-color-field flex items-center gap-12" for="vc-tint">
+              <input
+                class="visual-control-color-picker cursor-pointer"
+                id="vc-tint"
+                type="color"
+                value="#ffffff"
+                data-role="vc-tint"
+                aria-label="Visual tint color"
+              />
+              <span class="visual-control-color-copy text-sm text-soft">Pick an exact tint for the stage output.</span>
+            </label>
+            <p class="visual-control-hint m-0 text-soft text-xs">
+              Applies a color tint to the visual output.
+            </p>
           </div>
 
-          <div class="flex flex-col gap-4">
+          <div class="visual-control-group flex flex-col gap-8">
             <div class="flex items-center justify-between">
-              <label class="visual-control-label text-sm text-muted" for="vc-metric-centroid">Centroid</label>
-              <span class="visual-control-value text-sm" data-role="vc-metric-centroid-value">1.00x</span>
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-saturation">Saturation</label>
+              <span class="visual-control-value text-sm" data-role="vc-saturation-value">1.0x</span>
             </div>
-            <input class="visual-control-slider w-full cursor-pointer" id="vc-metric-centroid" type="range" min="0.1" max="3.0" step="0.05" value="1.0" data-role="vc-metric-centroid" aria-label="Spectral centroid sensitivity" />
+            <input
+              class="visual-control-slider w-full cursor-pointer"
+              id="vc-saturation"
+              type="range"
+              min="0"
+              max="2.0"
+              step="0.05"
+              value="1.0"
+              data-role="vc-saturation"
+              aria-label="Color saturation"
+            />
           </div>
 
-        </div>
+          <div class="visual-control-group flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-brightness">Brightness</label>
+              <span class="visual-control-value text-sm" data-role="vc-brightness-value">1.00x</span>
+            </div>
+            <input
+              class="visual-control-slider w-full cursor-pointer"
+              id="vc-brightness"
+              type="range"
+              min="0"
+              max="3.0"
+              step="0.05"
+              value="1.0"
+              data-role="vc-brightness"
+              aria-label="Visual brightness"
+            />
+          </div>
+
+          <div class="visual-control-group flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-sensitivity">Sensitivity</label>
+              <span class="visual-control-value text-sm" data-role="vc-sensitivity-value">1.00x</span>
+            </div>
+            <input
+              class="visual-control-slider w-full cursor-pointer"
+              id="vc-sensitivity"
+              type="range"
+              min="0.1"
+              max="3.0"
+              step="0.05"
+              value="1.0"
+              data-role="vc-sensitivity"
+              aria-label="Global audio sensitivity"
+            />
+            <p class="visual-control-hint m-0 text-soft text-xs">
+              Scales all audio reactivity uniformly across every visual.
+            </p>
+          </div>
+
+          <div class="visual-control-group flex flex-col gap-8">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Per-Metric Sensitivity</p>
+
+            <div class="flex flex-col gap-8">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <label class="visual-control-label text-sm text-muted" for="vc-metric-energy">Energy</label>
+                  <span class="visual-control-value text-sm" data-role="vc-metric-energy-value">1.00x</span>
+                </div>
+                <input class="visual-control-slider w-full cursor-pointer" id="vc-metric-energy" type="range" min="0.1" max="3.0" step="0.05" value="1.0" data-role="vc-metric-energy" aria-label="Energy sensitivity" />
+              </div>
+
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <label class="visual-control-label text-sm text-muted" for="vc-metric-centroid">Centroid</label>
+                  <span class="visual-control-value text-sm" data-role="vc-metric-centroid-value">1.00x</span>
+                </div>
+                <input class="visual-control-slider w-full cursor-pointer" id="vc-metric-centroid" type="range" min="0.1" max="3.0" step="0.05" value="1.0" data-role="vc-metric-centroid" aria-label="Spectral centroid sensitivity" />
+              </div>
+            </div>
+          </div>
+
+          <button class="visual-control-reset w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-role="vc-reset">
+            Reset to defaults
+          </button>
+        </section>
       </div>
-
-      <button
-        class="visual-control-reset w-full py-8 px-10 text-sm uppercase cursor-pointer"
-        type="button"
-        data-role="vc-reset"
-      >
-        Reset to defaults
-      </button>
-
     </div>
+    <button
+      class="effects-panel-resize-handle"
+      type="button"
+      data-role="effects-resize-handle"
+      aria-label="Resize effects panel"
+      title="Resize effects panel"
+    ></button>
   </div>
 </template>

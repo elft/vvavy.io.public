@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-14T18:33:52.129Z",
+  "generatedAt": "2026-03-14T22:29:52.542Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -23,7 +23,7 @@
     {
       "id": "anime-counter-scan",
       "name": "Anime Counter Scan",
-      "description": "Cel-shaded anime conversion that ping-pong sweeps the live capture, posterizing colors and injecting neon edge crawlers that react to bass, treble, and spectral flux.",
+      "description": "Cel-shaded anime conversion that keeps the live capture fully posterized at all times while neon edge crawlers react to bass, treble, and spectral flux.",
       "tags": [
         "High Definition",
         "interactive",
@@ -34,7 +34,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=anime-counter-scan",
-      "dateModified": "2026-03-13T00:05:55.982Z"
+      "dateModified": "2026-03-14T22:10:04.927Z"
     },
     {
       "id": "aura-orb-hyper-geometric",

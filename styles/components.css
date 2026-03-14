@@ -1,7 +1,13 @@
 /* ── Effects Panel (floating, draggable) ─────────────────────── */
 
 .effects-panel-shell {
-  width: 300px;
+  position: relative;
+  width: 350px;
+  height: 600px;
+  min-width: min(300px, calc(100vw - var(--space-20)));
+  min-height: 280px;
+  max-width: calc(100vw - var(--space-20));
+  max-height: calc(100vh - var(--space-20));
   background: var(--color-surface);
   border: 1px solid var(--color-border-muted);
   border-radius: var(--overlay-radius);
@@ -14,14 +20,118 @@
   border-bottom: 1px solid var(--color-border-faint);
 }
 
+.effects-panel-close {
+  top: 50%;
+  right: var(--space-12);
+  transform: translateY(-50%);
+}
+
 .effects-panel-body {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
-  max-height: calc(100vh - 120px);
+}
+
+.effects-panel-tabs {
+  border-bottom: 1px solid var(--color-border-faint);
+}
+
+.effects-tab-button {
+  border: 1px solid var(--color-border-faint);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.effects-tab-button.is-active {
+  background: var(--color-surface-light);
+  color: var(--color-text);
+}
+
+.effects-panel-meta {
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+.effects-composer-section {
+  border-bottom: 1px solid var(--color-border-faint);
+  padding-bottom: var(--space-12);
+}
+
+.effects-composer-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.effects-stack-card,
+.effects-library-card {
+  border: 1px solid var(--color-border-faint);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-light);
+}
+
+.effects-library-card {
+  width: 100%;
+  max-width: 300px;
+}
+
+.effects-inline-button,
+.effects-toggle-button,
+.effects-input-select {
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.effects-inline-button:disabled,
+.effects-input-select:disabled {
+  opacity: 0.45;
+}
+
+.effects-toggle-button.is-enabled {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+
+.effects-perf-badge {
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  padding: 2px var(--space-8);
+}
+
+.effects-perf-badge.is-hidden {
+  display: none;
+}
+
+.effects-panel-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--space-20);
+  height: var(--space-20);
+  border: 0;
+  border-radius: 0 0 var(--overlay-radius) 0;
+  background:
+    linear-gradient(135deg, transparent 0 45%, var(--color-border-faint) 45% 55%, transparent 55% 100%);
+  cursor: nwse-resize;
+  touch-action: none;
+}
+
+.effects-panel-resize-handle:hover,
+.effects-panel-resize-handle:focus-visible {
+  background:
+    linear-gradient(135deg, transparent 0 40%, var(--color-primary-soft) 40% 60%, transparent 60% 100%);
 }
 
 @media (max-width: 600px) {
   .effects-panel-shell {
-    width: min(92vw, 300px);
+    width: min(94vw, 350px);
+    max-width: calc(100vw - var(--space-16));
+    max-height: calc(100vh - var(--space-16));
   }
 }
 

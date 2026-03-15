@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-15T18:04:16.486Z",
+  "generatedAt": "2026-03-15T18:12:27.763Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -942,23 +942,6 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=serpent-of-harmony",
-      "dateModified": "2026-03-09T13:28:40.694Z"
-    },
-    {
-      "id": "shadow-lit-forge",
-      "name": "Shadow-Lit Forge",
-      "description": "Cathedral pillars, a hovering core, and fractal forge cracks that ignite with audio-driven impact waves.",
-      "tags": [
-        "dark",
-        "cinematic",
-        "punchy",
-        "steady",
-        "High Definition",
-        "particles",
-        "geometry"
-      ],
-      "createdBy": "vvavy",
-      "url": "https://vvavy.io/app?visual=shadow-lit-forge",
       "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-14T22:29:52.542Z",
+  "generatedAt": "2026-03-15T00:11:57.879Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -18,7 +18,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=8bit-showdown",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "anime-counter-scan",
@@ -34,7 +34,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=anime-counter-scan",
-      "dateModified": "2026-03-14T22:10:04.927Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "aura-orb-hyper-geometric",
@@ -95,7 +95,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=chopped-liver",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "cloud-flight",
@@ -124,7 +124,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=color-inversion",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "color-vortex-suck",
@@ -253,7 +253,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=depth-outline-stage",
-      "dateModified": "2026-03-11T18:00:06.155Z"
+      "dateModified": "2026-03-15T00:07:46.106Z"
     },
     {
       "id": "disolve",
@@ -284,7 +284,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=drifter",
-      "dateModified": "2026-03-12T23:38:59.402Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "droste-temple",
@@ -388,7 +388,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=flame-on",
-      "dateModified": "2026-03-11T23:12:49.919Z"
+      "dateModified": "2026-03-15T00:07:46.106Z"
     },
     {
       "id": "fractal-symphony-bloom",
@@ -617,7 +617,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liquid-mirror-hush",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "lock-in",
@@ -755,7 +755,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=oil-float",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "parallax-starfields",
@@ -798,7 +798,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=pixelated-feedback",
-      "dateModified": "2026-03-11T12:52:57.966Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "polar-tilt-grid",
@@ -1110,7 +1110,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-14T18:27:29.674Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "the-eye",
@@ -1178,7 +1178,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=try-this-one",
-      "dateModified": "2026-03-11T18:00:06.155Z"
+      "dateModified": "2026-03-14T23:24:14.965Z"
     },
     {
       "id": "ukg-skyline-pulse",

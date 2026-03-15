@@ -1,0 +1,43 @@
+<template id="tpl-video">
+  <section class="overlay-sheet overlay-sheet--video flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="video-title">
+    <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
+      <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="menu" style="left: var(--space-12);">← Back</button>
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="video-title">Video</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+    </header>
+    <div class="overlay-menu overlay-menu--tight">
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-file" title="Upload a single video file to drive live-stream visuals.">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M10 8l5 3-5 3V8z" fill="currentColor" stroke="none" />
+        </svg>
+        <span class="overlay-menu__label inline-flex items-center gap-4">Upload File</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-library" title="Pick from VVavy's built-in video clip library.">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M10 9.2 15 12l-5 2.8V9.2z" fill="currentColor" stroke="none" />
+        </svg>
+        <span class="overlay-menu__label inline-flex items-center gap-4">Video Library</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-webcam" title="Use your camera as the live video feed.">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          <path d="m17 10 5-3v10l-5-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+        </svg>
+        <span class="overlay-menu__label inline-flex items-center gap-4">Webcam</span>
+      </button>
+      <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-tab" title="Capture video from a browser tab, window, or screen without changing the audio source.">
+        <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          <path d="M3 9.5h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <span class="overlay-menu__label inline-flex items-center gap-4">Tab / Window</span>
+      </button>
+    </div>
+    <div class="overlay-sheet__footer mt-auto p-12">
+      <p class="m-0 text-xs text-muted">Audio stays independent. Use Menu → Audio to mix any audio source with the selected video.</p>
+    </div>
+  </section>
+</template>

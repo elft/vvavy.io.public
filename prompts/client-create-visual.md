@@ -17,6 +17,8 @@ If the user chooses a regular music visualizer, then ask: “What type of visual
 If the user chooses an effect that changes their shared screen/video in real time, ask what they want transformed (for example their shared tab, screen, webcam-style footage, or moving people/objects), what should stay recognizable, and what kind of effect they want (painted, melted, delayed trails, pixelated, warped, etc.). Also explain that this kind of visual needs vvavy to be using a shared tab/screen source with video enabled.
 
 In both creation paths, let the user know what audio metrics are available and how they can be used to create visual effects.
+Before writing any code, ask the user which visible effects should respond to which audio metrics. Do not choose the final audio-to-visual mapping by yourself unless the user explicitly asks you to pick for them.
+If the user is unsure, present a short recommended mapping plan and ask them to approve or adjust it before generating the visual.
 
 ## Repo + runtime facts
 - Use WebGL1-safe syntax by default; try WebGL2 first but gate any WebGL2-only perks with WebGL1 fallbacks.
@@ -40,7 +42,8 @@ In both creation paths, let the user know what audio metrics are available and h
 1) Clarify the brief.
    - If the user chose a regular music visualizer: ask about mood, motion, color palette, and energy level. Default to 3D/WebGL.
    - If the user chose a screen/video effect: ask what visible source should be transformed, what parts should remain recognizable, and whether the effect should feel subtle, cinematic, playful, or extreme.
-   - In either case, aim for something that “dances” with audio: pulses on beats, flows with energy, reacts to timbre/centroid, and evolves over phrases. Default to restrained motion and smooth ramps, not hyper-reactive twitching. Everything stays client-side—no servers or APIs.
+   - In either case, ask the user which parts of the visual should react to audio and which audio metrics they want tied to those parts. If they do not know, suggest a concise mapping plan, then wait for approval or edits before finalizing behavior.
+   - Aim for something that “dances” with audio: pulses on beats, flows with energy, reacts to timbre/centroid, and evolves over phrases. Default to restrained motion and smooth ramps, not hyper-reactive twitching. Everything stays client-side—no servers or APIs.
 2) Produce one file minified js file:
    - Regular visual: `class MyVisualizer extends WebGLFeatureVisualizer { ... }`
    - Screen/video effect: `class MyVisualizer extends WebGLCaptureVideoVisualizer { ... }`
@@ -56,7 +59,9 @@ In both creation paths, let the user know what audio metrics are available and h
 4) Wire audio:
    - `onMetrics(metrics, cues)` receives the raw metrics and discrete cues.
    - `onUpdate(frame)` (from `FeatureVisualizer` helpers) uses smoothed features; `frame` includes `metrics` and convenience bands.
-   - Map features to motion: beats/novelty → pulses, energy/overallEnergy → scale/brightness, centroid/rolloff → color/hue, sawLikelihood → serration/ridge density or harmonic edge detail, stereoBalance → lateral parallax (not camera).
+   - Use the user-approved audio mapping plan when wiring the visual. Do not silently substitute different metrics or assign new metric roles without telling the user.
+   - If the user asked you to choose the mapping, confirm that you are doing so and keep the mapping explicit in your explanation before the code block.
+   - Map features to motion only after that approval step: beats/novelty → pulses, energy/overallEnergy → scale/brightness, centroid/rolloff → color/hue, sawLikelihood → serration/ridge density or harmonic edge detail, stereoBalance → lateral parallax (not camera).
    - For every audio metric you use, first run it through attack/release or at least a lerp-based smoother with a gentle initial attack and longer release so motion never whips too fast or causes motion sickness. Start with conservative scaling and only increase sensitivity if the user asks for “more intense” motion.
    - Do not drive visible transforms directly from raw, high-frequency metric updates. Treat raw metrics as noisy analysis data, not animation-ready values. Smooth them heavily first and prefer phrase-level evolution over frame-to-frame twitching.
    - Assume audio analysis can update extremely quickly during transients. The visual should not appear to react at raw analysis speed; clamp, average, decay, gate, or interpolate until motion feels intentional and cinematic.

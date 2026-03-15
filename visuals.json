@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-15T18:12:27.763Z",
+  "generatedAt": "2026-03-15T23:30:33.137Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -872,6 +872,22 @@
       "dateModified": "2026-02-12T00:52:09.949Z"
     },
     {
+      "id": "push-out",
+      "name": "Push Out",
+      "description": "Live capture is sliced into depth shards that burst toward the viewer along detected motion edges, with beat-driven reseeding and sustained push-out mode. Inspired by https://www.youtube.com/watch?v=USNwrDM6SkA",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=push-out",
+      "dateModified": "2026-03-15T22:44:24.425Z"
+    },
+    {
       "id": "mercury-core",
       "name": "Mercury Core",
       "description": "A living mercury core that twists, boils, and ignites into shrapnel on every beat, featuring a dynamic camera that orbits during the drop.",
@@ -1093,7 +1109,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-15T20:21:43.816Z"
     },
     {
       "id": "the-eye",

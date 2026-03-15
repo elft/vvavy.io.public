@@ -691,7 +691,7 @@ body {
 }
 
 .lp-demo--visuals::after {
-  content: '60+ visuals';
+  content: '80+ visuals';
   position: absolute;
   bottom: 18px;
   right: 18px;

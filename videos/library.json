@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "intro",
+    "title": "Intro",
+    "artist": "vvavy",
+    "src": "/videos/intro.mp4"
+  }
+]

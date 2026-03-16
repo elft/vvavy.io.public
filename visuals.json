@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-15T23:30:33.137Z",
+  "generatedAt": "2026-03-16T21:56:38.435Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -575,6 +575,23 @@
       "dateModified": "2026-02-11T22:24:59.268Z"
     },
     {
+      "id": "lets-melt",
+      "name": "Lets Melt",
+      "description": "Live capture datamosh feedback that corrupts on beats and transients, then restores from the borders inward.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "trippy",
+        "cinematic",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=lets-melt",
+      "dateModified": "2026-03-16T17:56:15.693Z"
+    },
+    {
       "id": "liminal-space-folding",
       "name": "Liminal Space Folding",
       "description": "Liminal space folding corridor with recursive frames and neon fog drift.",
@@ -1109,7 +1126,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-15T20:21:43.816Z"
+      "dateModified": "2026-03-16T21:56:35.896Z"
     },
     {
       "id": "the-eye",

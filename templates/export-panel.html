@@ -16,6 +16,13 @@
             <label class="overlay-label" for="export-format">Format</label>
             <select id="export-format" name="export-format" class="overlay-select"></select>
           </div>
+          <div class="overlay-field flex flex-col">
+            <label class="overlay-label" for="export-scale-mode">Sizing</label>
+            <select id="export-scale-mode" name="export-scale-mode" class="overlay-select">
+              <option value="contain" selected>Fit</option>
+              <option value="cover">Fill</option>
+            </select>
+          </div>
           <div class="export-inline-fields grid gap-8">
             <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
               <label class="overlay-label" for="export-duration">Duration (sec)</label>

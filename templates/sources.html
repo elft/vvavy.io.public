@@ -2,10 +2,17 @@
   <section class="overlay-sheet overlay-sheet--audio flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="audio-title">
     <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
       <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="menu" style="left: var(--space-12);">← Back</button>
-      <p class="overlay-title m-0 text-sm uppercase text-muted" id="audio-title">Audio</p>
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="audio-title">Sources</p>
       <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
     </header>
-    <div class="overlay-menu overlay-menu--tight">
+    <div class="overlay-body p-12 flex flex-col gap-16 overflow-y-auto">
+      <section class="sources-section flex flex-col gap-10" aria-labelledby="sources-audio-title">
+        <div class="flex flex-col gap-4">
+          <p class="sources-section__eyebrow m-0 text-xs uppercase text-muted" id="sources-audio-title">1. Audio Source</p>
+          <h2 class="sources-section__title m-0">Pick what drives the motion.</h2>
+          <p class="sources-section__copy m-0 text-sm text-soft">This is the required step. Start with a file, mic, stream, tab capture, or MIDI. For YouTube or other system capture flows, use Chrome or Edge.</p>
+        </div>
+        <div class="overlay-menu overlay-menu--tight flex flex-col gap-8">
       <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="file" title="Drop in audio files like MP3, WAV, OGG, AAC, and FLAC.">
         <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -36,7 +43,7 @@
         <span class="overlay-menu__label inline-flex items-center gap-4">System audio/video</span>
       </button>
       <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="soundcloud" title="Pull tracks from SoundCloud and let them drive the scene." data-default-title="Pull tracks from SoundCloud and let them drive the scene.">
-        <img class="overlay-menu__icon overlay-menu__icon--image" src="/images/soundcloud.png" alt="" aria-hidden="true" />
+        <img class="overlay-menu__icon overlay-menu__icon--image" src="/images/soundcloud.png" alt="" aria-hidden="true" data-soundcloud-logo />
         <span class="overlay-menu__label inline-flex items-center gap-4">SoundCloud</span>
       </button>
       <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="library" title="Play a track from the built-in music library.">
@@ -47,6 +54,62 @@
         </svg>
         <span class="overlay-menu__label inline-flex items-center gap-4">Library</span>
       </button>
+        </div>
+      </section>
+      <section class="sources-section flex flex-col gap-10" aria-labelledby="sources-video-title">
+        <div class="flex flex-col gap-4">
+          <p class="sources-section__eyebrow m-0 text-xs uppercase text-muted" id="sources-video-title">2. Optional Video Source</p>
+          <h2 class="sources-section__title m-0">Layer in live video or imagery.</h2>
+          <p class="sources-section__copy m-0 text-sm text-soft">Video stays independent from audio. Use it for livestream visuals, webcam scenes, clips, or a static background. Tab and system capture flows work best in Chrome or Edge.</p>
+        </div>
+        <div class="overlay-menu overlay-menu--tight flex flex-col gap-8">
+          <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-file" title="Upload a single video file to drive live-stream visuals.">
+            <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M10 8l5 3-5 3V8z" fill="currentColor" stroke="none" />
+            </svg>
+            <span class="overlay-menu__label inline-flex items-center gap-4">Upload Video</span>
+          </button>
+          <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-image" title="Upload a static image to use as the live visual source.">
+            <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="9" cy="9" r="1.6" fill="currentColor" stroke="none" />
+              <path d="m6 17 4.2-4.2a1.5 1.5 0 0 1 2.12 0L15 15.5l1.8-1.8a1.5 1.5 0 0 1 2.12 0L21 15.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="overlay-menu__label inline-flex items-center gap-4">Upload Image</span>
+          </button>
+          <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-library" title="Pick from VVavy's built-in video clip library.">
+            <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M10 9.2 15 12l-5 2.8V9.2z" fill="currentColor" stroke="none" />
+            </svg>
+            <span class="overlay-menu__label inline-flex items-center gap-4">Video Library</span>
+          </button>
+          <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-webcam" title="Use your camera as the live video feed.">
+            <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="m17 10 5-3v10l-5-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
+            <span class="overlay-menu__label inline-flex items-center gap-4">Webcam</span>
+          </button>
+          <button class="overlay-menu__button overlay-menu__button--icon w-full py-8 px-10 text-sm uppercase cursor-pointer flex items-center justify-start gap-8" type="button" data-source="video-tab" title="Capture system audio/video visuals from a browser tab, window, or screen without changing the audio source.">
+            <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M3 9.5h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <span class="overlay-menu__label inline-flex items-center gap-4">System audio/video</span>
+          </button>
+        </div>
+      </section>
+      <section class="sources-next-step p-12 flex flex-col gap-6" aria-labelledby="sources-next-step-title">
+        <p class="sources-section__eyebrow m-0 text-xs uppercase text-muted" id="sources-next-step-title">3. Next</p>
+        <p class="sources-section__copy m-0 text-sm text-soft">Once something is playing, open Effects to adjust the look or Record to capture it without leaving the stage.</p>
+        <div class="flex gap-8 flex-wrap">
+          <button class="overlay-menu__button py-8 px-10 text-sm uppercase" type="button" data-view="visual-controls">Open Effects</button>
+          <button class="overlay-menu__button overlay-menu__button--ghost py-8 px-10 text-sm uppercase" type="button" data-view="export">Open Record</button>
+        </div>
+      </section>
     </div>
   </section>
 </template>

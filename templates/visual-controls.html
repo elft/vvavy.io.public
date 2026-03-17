@@ -1,49 +1,60 @@
 <template id="tpl-visual-controls">
-  <div class="effects-panel-shell flex flex-col overflow-hidden" role="dialog" aria-label="Visual Effects Controls">
-    <div class="effects-panel-header relative flex items-center px-12 py-8" data-role="effects-drag-handle">
-      <p class="overlay-title m-0 text-sm uppercase text-muted">Effects</p>
+  <div class="effects-panel-shell overlay-sheet flex flex-col overflow-hidden" role="dialog" aria-label="Visual Effects Controls">
+    <div class="effects-panel-header overlay-sheet__header relative flex items-center px-16 py-12" data-role="effects-drag-handle">
+      <div class="effects-panel-header-copy flex flex-col gap-2">
+        <p class="effects-panel-kicker m-0">Chain Lab</p>
+        <p class="overlay-title m-0 text-sm uppercase">Effects</p>
+      </div>
       <button class="overlay-close effects-panel-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="effects-close" aria-label="Close effects panel">✕</button>
     </div>
-    <div class="effects-panel-tabs px-12 pt-10 flex gap-8" role="tablist" aria-label="Effects panel sections">
-      <button class="effects-tab-button is-active px-10 py-8 text-sm uppercase cursor-pointer" type="button" role="tab" aria-selected="true" data-action="effects-tab" data-tab="effects">
-        Additional Effects
+    <div class="effects-panel-tabs visuals-tabs px-16 pt-10 flex gap-4 flex-shrink-0" role="tablist" aria-label="Effects panel sections">
+      <button class="visuals-tab is-active" type="button" role="tab" aria-selected="true" data-action="effects-tab" data-tab="effects">
+        Effects
       </button>
-      <button class="effects-tab-button px-10 py-8 text-sm uppercase cursor-pointer" type="button" role="tab" aria-selected="false" data-action="effects-tab" data-tab="globals">
-        Global Toggles
+      <span class="visuals-tabs__divider" aria-hidden="true">|</span>
+      <button class="visuals-tab" type="button" role="tab" aria-selected="false" data-action="effects-tab" data-tab="globals">
+        Tune
       </button>
     </div>
-    <div class="effects-panel-body p-12 flex flex-col gap-16">
+    <div class="effects-panel-body overlay-body px-16 pb-16 pt-12 flex flex-col gap-14">
       <div data-role="effects-tab-panel" data-tab-panel="effects" class="flex flex-col gap-16">
-        <section class="effects-composer-section flex flex-col gap-10" aria-labelledby="effects-stack-title">
-          <div class="flex items-center justify-between gap-8">
+        <section class="effects-composer-section overlay-panel-section overlay-panel-section--panel effects-composer-section--library flex flex-col gap-12 p-12" aria-labelledby="effects-library-title">
+          <div class="effects-section-header overlay-panel-section__header flex items-center justify-between gap-8">
             <div class="flex flex-col gap-4">
-              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-stack-title">Layer Stack</p>
+              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-library-title">Choose an effect</p>
               <p class="effects-panel-meta m-0 text-soft" data-role="effects-current-visual">No visual selected.</p>
+              <p class="effects-panel-meta m-0 text-soft">Selected tiles stay in place so you can remove them directly.</p>
             </div>
             <span class="effects-perf-badge is-hidden" data-role="effects-perf-badge">Performance mode active</span>
           </div>
-          <div class="effects-stack-list flex flex-col gap-8" data-role="effects-stack-list"></div>
-          <button class="visual-control-reset w-full py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-action="effects-clear-stack">
-            Clear stack
-          </button>
+          <div class="effects-library-list flex flex-col gap-12" data-role="effects-library-list"></div>
         </section>
 
-        <section class="effects-composer-section flex flex-col gap-10" aria-labelledby="effects-library-title">
-          <div class="flex items-center justify-between gap-8">
+        <section class="effects-composer-section overlay-panel-section overlay-panel-section--panel effects-composer-section--stack is-hidden flex flex-col gap-12 p-12" aria-labelledby="effects-stack-list-title" data-role="effects-stack-section">
+          <div class="effects-section-header overlay-panel-section__header flex items-center justify-between gap-8">
             <div class="flex flex-col gap-4">
-              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-library-title">Effect Gallery</p>
-              <p class="effects-panel-meta m-0 text-soft">Click a thumbnail to add it as a layer. Hover to read the description.</p>
+              <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-stack-list-title">Selected effects</p>
+              <p class="effects-panel-meta m-0 text-soft">Active layers stay here in stack order. Use the highlighted tiles above to remove them fast.</p>
             </div>
-            <span class="effects-panel-meta text-soft" data-role="effects-stack-count">0 / 3</span>
+            <div class="flex items-center gap-8">
+              <span class="effects-preview-chip" data-role="effects-stack-count">0 / 3</span>
+              <button class="visual-control-reset effects-reset-button py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-action="effects-clear-stack">
+                Clear
+              </button>
+            </div>
           </div>
-          <div class="effects-library-list flex flex-col gap-12" data-role="effects-library-list"></div>
+          <div class="effects-stack-list flex flex-col gap-10" data-role="effects-stack-list"></div>
         </section>
       </div>
 
       <div data-role="effects-tab-panel" data-tab-panel="globals" class="is-hidden flex flex-col gap-16">
-        <section class="effects-composer-section flex flex-col gap-12" aria-labelledby="effects-global-title">
+        <section class="effects-panel-hero overlay-panel-section overlay-panel-section--panel flex flex-col gap-10 p-12" aria-labelledby="effects-global-title">
           <p class="visual-control-label text-sm uppercase text-muted m-0" id="effects-global-title">Global Controls</p>
+          <h3 class="effects-panel-heading m-0">Shape the whole stage before tuning individual layers.</h3>
+          <p class="effects-panel-meta m-0 text-soft">These settings shape the entire output, so small moves usually read better than extreme ones.</p>
+        </section>
 
+        <section class="effects-composer-section overlay-panel-section overlay-panel-section--panel effects-composer-section--globals flex flex-col gap-14 p-12">
           <div class="visual-control-group flex flex-col gap-8">
             <div class="flex items-center justify-between">
               <label class="visual-control-label text-sm uppercase text-muted" for="vc-tint">Color</label>
@@ -150,12 +161,5 @@
         </section>
       </div>
     </div>
-    <button
-      class="effects-panel-resize-handle"
-      type="button"
-      data-role="effects-resize-handle"
-      aria-label="Resize effects panel"
-      title="Resize effects panel"
-    ></button>
   </div>
 </template>

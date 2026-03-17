@@ -662,23 +662,23 @@
 }
 
 .rounded-sm {
-  border-radius: var(--radius-sm);
+  border-radius: 0;
 }
 
 .rounded-md {
-  border-radius: var(--radius-md);
+  border-radius: 0;
 }
 
 .rounded-lg {
-  border-radius: var(--radius-lg);
+  border-radius: 0;
 }
 
 .rounded-full {
-  border-radius: 50%;
+  border-radius: 0;
 }
 
 .rounded-pill {
-  border-radius: var(--radius-pill);
+  border-radius: 0;
 }
 
 /* ============================================

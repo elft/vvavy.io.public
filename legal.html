@@ -5,18 +5,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VVavy Terms of Service & Privacy Notice</title>
-  <meta name="theme-color" content="#060b16" />
+  <meta name="theme-color" content="#f5f5f3" />
   <link rel="icon" href="/images/vvavy_favicon_256.png" />
   <style>
     :root {
-      --bg: #0c0812;
-      --text: #f4f2ff;
-      --muted: rgba(255, 255, 255, 0.6);
-      --edge: rgba(119, 41, 83, 0.45);
-      --accent: #ffbe98;
-      --accent-soft: rgba(255, 190, 152, 0.18);
-      --card-bg: rgba(28, 18, 40, 0.78);
-      --card-border: rgba(119, 41, 83, 0.45);
+      --bg: #f5f5f3;
+      --text: #1f2328;
+      --muted: rgba(31, 35, 40, 0.62);
+      --edge: rgba(76, 106, 146, 0.24);
+      --accent: #4c6a92;
+      --accent-soft: rgba(76, 106, 146, 0.12);
+      --card-bg: rgba(255, 255, 255, 0.84);
+      --card-border: rgba(31, 35, 40, 0.1);
     }
 
     html,
@@ -26,9 +26,12 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(76, 106, 146, 0.08), transparent 24%),
+        radial-gradient(circle at 100% 14%, rgba(130, 147, 173, 0.1), transparent 20%),
+        var(--bg);
       color: var(--text);
-      font: 16px/1.65 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      font: 16px/1.65 "Ubuntu", "Segoe UI", system-ui, -apple-system, sans-serif;
       -webkit-font-smoothing: antialiased
     }
 
@@ -50,7 +53,7 @@
       width: 36px;
       height: 36px;
       border-radius: 4px;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45)
+      box-shadow: 0 10px 32px rgba(31, 35, 40, 0.12)
     }
 
     h1,
@@ -94,7 +97,7 @@
       border: 1px solid var(--card-border);
       border-radius: 0;
       padding: 20px 22px;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35)
+      box-shadow: 0 14px 34px rgba(31, 35, 40, 0.1)
     }
 
     .grid {
@@ -144,7 +147,7 @@
 
     .code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      background: rgba(12, 8, 18, 0.9);
+      background: rgba(236, 235, 231, 0.8);
       border: 1px solid var(--card-border);
       border-radius: 0;
       padding: 2px 6px
@@ -167,8 +170,8 @@
 
     @media (prefers-color-scheme: light) {
       body {
-        background: #0b1224;
-        color: #e9eef5
+        background: #f5f5f3;
+        color: #1f2328
       }
     }
   </style>

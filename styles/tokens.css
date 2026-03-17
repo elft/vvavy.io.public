@@ -1,63 +1,92 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Color palette */
-  --color-dark: #0b0813;
-  --color-surface: #221540;
-  --color-surface-strong: #2e1f52;
-  --color-overlay: rgba(12, 10, 20, 0.82);
-  --color-border: rgba(233, 84, 32, 0.50);
-  --color-border-strong: rgba(233, 84, 32, 0.80);
-  --color-border-muted: rgba(180, 155, 210, 0.50);
+  --color-dark: #d7cdca;
+  --color-surface: rgba(241, 235, 229, 0.94);
+  --color-surface-strong: #ddd2cb;
+  --color-overlay: rgba(214, 206, 201, 0.82);
+  --color-border: rgba(63, 84, 110, 0.28);
+  --color-border-strong: rgba(63, 84, 110, 0.46);
+  --color-border-muted: rgba(24, 27, 31, 0.14);
 
-  --color-primary: #e95420; /* ubuntu orange */
-  --color-primary-strong: #ff6e32;
-  --color-secondary: #772953; /* ubuntu purple */
-  --color-secondary-soft: rgba(119, 41, 83, 0.6);
-  --color-text: #f6f3ff;
-  --color-text-muted: rgba(246, 243, 255, 0.82);
-  --color-text-soft: rgba(246, 243, 255, 0.68);
-  --color-text-disabled: rgba(246, 243, 255, 0.50);
-  --color-danger: #ff5e81;
-  --color-accent: #43d9ad;
-  --color-error: #ff6b81;
-  --color-warning: #f5c542;
-  --color-success: #43d9ad;
+  --color-primary: #3f5f82;
+  --color-primary-strong: #233b56;
+  --color-primary-soft: rgba(63, 95, 130, 0.14);
+  --color-secondary: #7a8ca2;
+  --color-secondary-soft: rgba(122, 140, 162, 0.18);
+  --color-text: #161a1e;
+  --color-text-muted: rgba(22, 26, 30, 0.78);
+  --color-text-soft: rgba(22, 26, 30, 0.62);
+  --color-text-disabled: rgba(22, 26, 30, 0.42);
+  --color-danger: #be5b67;
+  --color-accent: #5f7ca3;
+  --color-error: #be5b67;
+  --color-warning: #b6842a;
+  --color-success: #567a65;
+  --color-panel: rgba(241, 235, 229, 0.88);
+  --color-panel-strong: rgba(228, 220, 214, 0.96);
+  --color-panel-muted: rgba(211, 202, 196, 0.76);
+  --color-panel-contrast: rgba(22, 26, 30, 0.06);
+  --color-chip-bg: rgba(35, 59, 86, 0.1);
+  --color-chip-bg-strong: rgba(35, 59, 86, 0.16);
+  --color-chip-border: rgba(35, 59, 86, 0.28);
+  --color-chip-text: #2a425f;
 
   /* Surface variants */
-  --color-surface-light: rgba(255, 255, 255, 0.08);
-  --color-surface-lighter: rgba(255, 255, 255, 0.04);
-  --color-border-faint: rgba(180, 155, 210, 0.30);
+  --color-surface-light: rgba(248, 242, 237, 0.7);
+  --color-surface-lighter: rgba(248, 242, 237, 0.48);
+  --color-border-faint: rgba(22, 26, 30, 0.08);
 
   /* Button surfaces */
-  --color-button-surface: rgba(38, 26, 68, 0.90);
-  --color-button-surface-hover: rgba(50, 35, 85, 0.95);
+  --color-button-surface: rgba(235, 228, 221, 0.94);
+  --color-button-surface-hover: rgba(225, 216, 209, 0.98);
+
+  /* Landing page palette */
+  --landing-bg-page: #0b0f14;
+  --landing-bg-nav: rgba(8, 11, 15, 0.88);
+  --landing-bg-hero: #0b0f14;
+  --landing-bg-stats: #101722;
+  --landing-bg-section-a: #131b27;
+  --landing-bg-section-b: #182232;
+  --landing-bg-section-c: #1e1827;
+  --landing-bg-section-d: #111923;
+  --landing-bg-section-e: #1a202d;
+  --landing-bg-cta: #0f1620;
+  --landing-bg-footer: #0a0e13;
+  --landing-surface: rgba(255, 255, 255, 0.05);
+  --landing-surface-strong: rgba(255, 255, 255, 0.08);
+  --landing-border: rgba(219, 232, 245, 0.14);
+  --landing-border-strong: rgba(156, 184, 212, 0.34);
+  --landing-text: #edf2f6;
+  --landing-text-muted: rgba(237, 242, 246, 0.78);
+  --landing-text-soft: rgba(237, 242, 246, 0.64);
 
   /* Scrollbars */
   --scrollbar-size: 12px;
-  --scrollbar-radius: 12px;
-  --scrollbar-track-color: rgba(246, 243, 255, 0.06);
-  --scrollbar-thumb-color: rgba(233, 84, 32, 0.9);
-  --scrollbar-thumb-hover-color: rgba(233, 84, 32, 1);
+  --scrollbar-radius: 0;
+  --scrollbar-track-color: rgba(22, 26, 30, 0.08);
+  --scrollbar-thumb-color: rgba(63, 95, 130, 0.8);
+  --scrollbar-thumb-hover-color: rgba(35, 59, 86, 0.95);
   --scrollbar-thumb-gradient: linear-gradient(180deg, var(--color-primary-strong), var(--color-secondary));
 
   /* Layout */
   --overlay-width: 320px;
   --overlay-width-desktop: 360px;
-  --overlay-radius: 4px;
-  --overlay-shadow: 0 16px 36px rgba(6, 4, 12, 0.65);
+  --overlay-radius: 0;
+  --overlay-shadow: 0 18px 44px rgba(31, 35, 40, 0.14);
 
   /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-card: 14px;
-  --radius-lg: 16px;
-  --radius-pill: 999px;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-card: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
 
   /* Shadows */
-  --shadow-sm: 0 2px 6px rgba(6, 4, 12, 0.4);
-  --shadow-md: 0 2px 10px rgba(6, 4, 12, 0.55);
-  --shadow-lg: 0 8px 24px rgba(6, 4, 12, 0.6);
+  --shadow-sm: 0 4px 12px rgba(31, 35, 40, 0.08);
+  --shadow-md: 0 10px 24px rgba(31, 35, 40, 0.12);
+  --shadow-lg: 0 20px 48px rgba(31, 35, 40, 0.14);
 
   /* Opacity */
   --opacity-disabled: 0.6;
@@ -89,6 +118,66 @@
   /* Timings */
   --transition-fast: 120ms ease;
   --transition-medium: 200ms ease;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-dark: #101317;
+  --color-surface: rgba(17, 20, 24, 0.94);
+  --color-surface-strong: #1a2027;
+  --color-overlay: rgba(8, 10, 13, 0.78);
+  --color-border: rgba(144, 170, 198, 0.28);
+  --color-border-strong: rgba(144, 170, 198, 0.46);
+  --color-border-muted: rgba(232, 238, 245, 0.15);
+
+  --color-primary: #9cb8d4;
+  --color-primary-strong: #dbe8f5;
+  --color-primary-soft: rgba(156, 184, 212, 0.16);
+  --color-secondary: #7f93aa;
+  --color-secondary-soft: rgba(127, 147, 170, 0.18);
+  --color-text: #edf2f6;
+  --color-text-muted: rgba(237, 242, 246, 0.78);
+  --color-text-soft: rgba(237, 242, 246, 0.6);
+  --color-text-disabled: rgba(237, 242, 246, 0.42);
+  --color-panel: rgba(20, 24, 29, 0.9);
+  --color-panel-strong: rgba(28, 34, 40, 0.96);
+  --color-panel-muted: rgba(36, 43, 50, 0.82);
+  --color-panel-contrast: rgba(255, 255, 255, 0.05);
+  --color-chip-bg: rgba(156, 184, 212, 0.12);
+  --color-chip-bg-strong: rgba(156, 184, 212, 0.18);
+  --color-chip-border: rgba(156, 184, 212, 0.3);
+  --color-chip-text: #d3e2f0;
+
+  --color-surface-light: rgba(28, 34, 40, 0.72);
+  --color-surface-lighter: rgba(28, 34, 40, 0.48);
+  --color-border-faint: rgba(237, 242, 246, 0.08);
+
+  --color-button-surface: rgba(25, 30, 36, 0.94);
+  --color-button-surface-hover: rgba(34, 40, 47, 0.98);
+
+  --landing-bg-page: #0b0f14;
+  --landing-bg-nav: rgba(8, 11, 15, 0.88);
+  --landing-bg-hero: #0b0f14;
+  --landing-bg-stats: #101722;
+  --landing-bg-section-a: #131b27;
+  --landing-bg-section-b: #182232;
+  --landing-bg-section-c: #1e1827;
+  --landing-bg-section-d: #111923;
+  --landing-bg-section-e: #1a202d;
+  --landing-bg-cta: #0f1620;
+  --landing-bg-footer: #0a0e13;
+  --landing-surface: rgba(255, 255, 255, 0.05);
+  --landing-surface-strong: rgba(255, 255, 255, 0.08);
+  --landing-border: rgba(219, 232, 245, 0.14);
+  --landing-border-strong: rgba(156, 184, 212, 0.34);
+  --landing-text: #edf2f6;
+  --landing-text-muted: rgba(237, 242, 246, 0.78);
+  --landing-text-soft: rgba(237, 242, 246, 0.64);
+
+  --scrollbar-track-color: rgba(237, 242, 246, 0.08);
+  --scrollbar-thumb-color: rgba(156, 184, 212, 0.78);
+  --scrollbar-thumb-hover-color: rgba(219, 232, 245, 0.92);
 }
 
 @media (min-width: 768px) {

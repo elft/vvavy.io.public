@@ -1,83 +1,94 @@
 <template id="tpl-export-panel">
   <div class="overlay-sheet export-panel-shell flex flex-col overflow-hidden" data-export-state="idle">
-    <div class="overlay-sheet__header relative flex items-center px-12 py-8">
-      <h2 class="overlay-title m-0 text-sm uppercase text-muted">Capture Visual</h2>
+    <div class="overlay-sheet__header relative flex items-center px-16 py-12">
+      <div class="export-header-copy flex flex-col gap-2">
+        <p class="export-panel-kicker m-0">Capture Deck</p>
+        <h2 class="overlay-title m-0 text-sm uppercase">Record Visual</h2>
+      </div>
       <button type="button" class="export-header-toggle overlay-menu__button" data-action="export-toggle-collapse" aria-expanded="false" hidden>Expand</button>
       <button type="button" class="overlay-close export-header-close absolute flex-center text-sm cursor-pointer transition-transform" data-action="export-close" aria-label="Close export panel">✕</button>
     </div>
-    <div class="overlay-body p-12 flex-1 overflow-y-auto flex flex-col">
+    <div class="overlay-body export-panel-body px-16 pb-16 pt-12 flex-1 overflow-y-auto flex flex-col gap-12">
       <div class="export-panel-idle grid gap-10" data-role="export-idle">
-        <form class="overlay-form export-panel-config p-12 grid gap-10" data-role="export-config">
-          <div class="overlay-field flex flex-col">
-            <select id="export-preset" name="export-preset" class="overlay-select"></select>
-            <p class="export-preset-meta" data-role="preset-meta"></p>
-          </div>
-          <div class="overlay-field flex flex-col">
-            <label class="overlay-label" for="export-format">Format</label>
-            <select id="export-format" name="export-format" class="overlay-select"></select>
-          </div>
-          <div class="overlay-field flex flex-col">
-            <label class="overlay-label" for="export-scale-mode">Sizing</label>
-            <select id="export-scale-mode" name="export-scale-mode" class="overlay-select">
-              <option value="contain" selected>Fit</option>
-              <option value="cover">Fill</option>
-            </select>
-          </div>
-          <div class="export-inline-fields grid gap-8">
-            <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
-              <label class="overlay-label" for="export-duration">Duration (sec)</label>
-              <input id="export-duration" name="export-duration" type="number" min="5" max="600" value="30" class="overlay-input" />
+        <form class="overlay-form export-panel-config grid gap-10" data-role="export-config">
+          <section class="export-config-section overlay-panel-section overlay-panel-section--panel export-config-section--setup p-12 grid gap-10">
+            <div class="export-setup-grid">
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-preset">Canvas Preset</label>
+                <select id="export-preset" name="export-preset" class="overlay-select"></select>
+                <p class="export-preset-meta" data-role="preset-meta"></p>
+              </div>
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-format">Format</label>
+                <select id="export-format" name="export-format" class="overlay-select"></select>
+              </div>
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-scale-mode">Sizing</label>
+                <select id="export-scale-mode" name="export-scale-mode" class="overlay-select">
+                  <option value="contain" selected>Fit</option>
+                  <option value="cover">Fill</option>
+                </select>
+              </div>
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-fps">Frame Rate</label>
+                <select id="export-fps" name="export-fps" class="overlay-select">
+                  <option value="30">30 FPS</option>
+                  <option value="60">60 FPS</option>
+                  <option value="0" selected>Uncapped</option>
+                </select>
+              </div>
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-duration">Duration (sec)</label>
+                <input id="export-duration" name="export-duration" type="number" min="5" max="600" value="30" class="overlay-input" />
+              </div>
+              <div class="overlay-field flex flex-col">
+                <label class="overlay-label" for="export-filename">File Name</label>
+                <input id="export-filename" name="export-filename" type="text" value="vvavy-export" class="overlay-input" />
+              </div>
             </div>
-            <div class="overlay-field flex flex-col gap-4 items-stretch justify-start">
-              <label class="overlay-label" for="export-fps">Frame Rate</label>
-              <select id="export-fps" name="export-fps" class="overlay-select">
-                <option value="30">30 FPS</option>
-                <option value="60">60 FPS</option>
-                <option value="0" selected>Uncapped</option>
-              </select>
+          </section>
+          <section class="export-config-section overlay-panel-section overlay-panel-section--panel export-config-section--audio p-12 grid gap-10">
+            <div class="export-config-section__header overlay-panel-section__header flex flex-col gap-4">
+              <div class="flex flex-col gap-4">
+                <p class="export-config-section__eyebrow m-0">Audio Mix</p>
+                <p class="export-config-section__title m-0">Choose which channels get baked into the file.</p>
+              </div>
             </div>
-          </div>
-          <div class="overlay-field flex flex-col">
-            <label class="overlay-label" for="export-filename">File Name</label>
-            <input id="export-filename" name="export-filename" type="text" value="vvavy-export" class="overlay-input" />
-          </div>
-          <div class="export-option-grid">
-            <div class="overlay-field export-option" data-role="export-mic-mute-container">
-              <label class="overlay-label export-option-label">
-                <input id="export-mic-mute" name="export-mic-mute" type="checkbox" />
-                <span>Mute mic audio</span>
-              </label>
+            <div class="export-option-grid">
+              <div class="overlay-field export-option" data-role="export-mic-mute-container">
+                <label class="overlay-label export-option-label">
+                  <input id="export-mic-mute" name="export-mic-mute" type="checkbox" />
+                  <span>Mute mic audio</span>
+                </label>
+              </div>
+              <div class="overlay-field export-option" data-role="export-source-audio-mute-container">
+                <label class="overlay-label export-option-label">
+                  <input id="export-source-audio-mute" name="export-source-audio-mute" type="checkbox" />
+                  <span>Mute source audio</span>
+                </label>
+              </div>
+              <div class="overlay-field export-option" data-role="export-visual-audio-mute-container">
+                <label class="overlay-label export-option-label">
+                  <input id="export-visual-audio-mute" name="export-visual-audio-mute" type="checkbox" />
+                  <span>Mute visual audio</span>
+                </label>
+              </div>
             </div>
-            <div class="overlay-field export-option" data-role="export-source-audio-mute-container">
-              <label class="overlay-label export-option-label">
-                <input id="export-source-audio-mute" name="export-source-audio-mute" type="checkbox" />
-                <span>Mute source audio</span>
-              </label>
-            </div>
-            <div class="overlay-field export-option" data-role="export-visual-audio-mute-container">
-              <label class="overlay-label export-option-label">
-                <input id="export-visual-audio-mute" name="export-visual-audio-mute" type="checkbox" />
-                <span>Mute visual audio</span>
-              </label>
-            </div>
-          </div>
+          </section>
         </form>
       </div>
-      <div class="export-panel-active grid gap-10" data-role="export-active" hidden>
-        <div class="export-active-status flex justify-between">
+      <div class="overlay-form__actions export-panel-actions flex flex-col gap-8">
+        <button type="button" class="overlay-menu__button export-primary-btn" data-action="export-start">Record</button>
+        <div class="export-countdown p-4 flex items-center justify-center" data-role="export-countdown" hidden>5</div>
+        <button type="button" class="overlay-menu__button export-stop-btn" data-action="export-stop">Stop</button>
+      </div>
+      <div class="export-panel-active export-config-section overlay-panel-section overlay-panel-section--panel p-12 grid gap-8" data-role="export-active" hidden>
+        <div class="export-active-status flex justify-between items-center gap-8">
           <span class="export-active-label">Recording</span>
           <span class="export-active-timer" data-role="export-timer">00:00</span>
         </div>
       </div>
-      <div class="export-countdown p-4 flex items-center justify-center" data-role="export-countdown" hidden>5</div>
       <div class="export-active-meta" data-role="export-meta" hidden></div>
-      <p class="export-help-copy text-xs text-muted mt-4">
-        If you run into issues with exports (no motion, missing audio, or playback glitches), try recording and viewing using the latest Chrome or Edge.
-      </p>
-      <div class="overlay-form__actions export-panel-actions">
-        <button type="button" class="overlay-menu__button export-primary-btn" data-action="export-start">Record</button>
-        <button type="button" class="overlay-menu__button export-stop-btn" data-action="export-stop">Stop</button>
-      </div>
     </div>
   </div>
 </template>

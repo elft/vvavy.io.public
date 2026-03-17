@@ -1,0 +1,49 @@
+<template id="tpl-top-status-bar">
+  <div class="top-status-bar flex items-center justify-between gap-12 px-16 py-10">
+    <div class="top-status-bar__primary flex items-center justify-between gap-10 flex-auto min-w-0">
+      <div class="top-status-bar__session flex flex-col gap-4 min-w-0">
+        <span class="top-status-bar__eyebrow uppercase">Current Visual</span>
+        <span class="top-status-bar__source truncate" data-role="top-session-label">Waiting for visual</span>
+      </div>
+      <div class="top-status-bar__actions flex items-center justify-end gap-6">
+        <button class="top-status-action top-status-action--theme inline-flex items-center justify-center gap-6 cursor-pointer transition-colors px-10" type="button" data-action="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg class="top-status-action__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.2A7.8 7.8 0 1 1 9.8 4 6.2 6.2 0 0 0 20 14.2z"></path>
+          </svg>
+          <span class="top-status-action__theme-label uppercase" data-role="theme-toggle-label">Dark</span>
+        </button>
+        <button class="top-status-action top-status-action--icon inline-flex items-center justify-center cursor-pointer transition-colors" id="btn-sources" type="button" aria-label="Open sources" title="Sources">
+          <svg class="top-status-action__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 7.5h14"></path>
+            <path d="M5 12h14"></path>
+            <path d="M5 16.5h14"></path>
+            <circle cx="8" cy="7.5" r="1.5" fill="currentColor" stroke="none"></circle>
+            <circle cx="16" cy="12" r="1.5" fill="currentColor" stroke="none"></circle>
+            <circle cx="11" cy="16.5" r="1.5" fill="currentColor" stroke="none"></circle>
+          </svg>
+          <span class="sr-only">Sources</span>
+        </button>
+        <button class="top-status-action top-status-action--icon inline-flex items-center justify-center cursor-pointer transition-colors" id="btn-effects" type="button" aria-label="Open effects" title="Effects">
+          <svg class="top-status-action__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3.8 13.9 8l4.6.4-3.5 3 1 4.5-4-2.4-4 2.4 1-4.5-3.5-3L10.1 8 12 3.8z"></path>
+          </svg>
+          <span class="sr-only">Effects</span>
+        </button>
+        <button class="top-status-action top-status-action--record top-status-action--icon inline-flex items-center justify-center cursor-pointer transition-colors" id="btn-record" type="button" aria-label="Open record controls" title="Record">
+          <svg class="top-status-action__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6" opacity="0.45"></circle>
+          </svg>
+          <span class="sr-only">Record</span>
+        </button>
+      </div>
+    </div>
+    <div class="top-status-bar__meta flex items-center justify-end gap-8 min-w-0">
+      <div class="top-status-bar__pills flex flex-wrap items-center justify-end gap-8" aria-label="Current setup">
+        <span class="top-status-pill" data-role="footer-audio-status">Audio: Not selected</span>
+        <span class="top-status-pill" data-role="footer-video-status">Video: Off</span>
+        <span class="top-status-pill" data-role="footer-effects-status">Effects: 0</span>
+      </div>
+    </div>
+  </div>
+</template>

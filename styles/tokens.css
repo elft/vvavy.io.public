@@ -32,6 +32,26 @@
   --color-chip-bg-strong: rgba(35, 59, 86, 0.16);
   --color-chip-border: rgba(35, 59, 86, 0.28);
   --color-chip-text: #2a425f;
+  --color-visual-tag-hd-text: #c7ff4f;
+  --color-visual-tag-hd-border: rgba(199, 255, 79, 0.82);
+  --color-visual-tag-hd-bg: rgba(18, 24, 12, 0.8);
+  --color-visual-tag-it-text: #ffb347;
+  --color-visual-tag-it-border: rgba(255, 179, 71, 0.82);
+  --color-visual-tag-it-bg: rgba(34, 20, 8, 0.82);
+  --color-visual-tag-new-text: #ffe66b;
+  --color-visual-tag-new-border: rgba(255, 230, 107, 0.82);
+  --color-visual-tag-new-bg: rgba(34, 28, 6, 0.82);
+  --color-effects-chip-bg: #ebe2dc;
+  --color-effects-chip-border: #c1afa4;
+  --color-effects-chip-text: #314a68;
+  --color-effects-chip-selected-bg: #4f6f91;
+  --color-effects-chip-selected-border: #314a68;
+  --color-effects-chip-selected-text: #f7f2ed;
+  --color-effects-chip-remove-bg: #7b3f4a;
+  --color-effects-chip-remove-border: #5f2f38;
+  --color-effects-chip-remove-hover-bg: #944a57;
+  --color-effects-chip-remove-hover-border: #733a44;
+  --color-effects-chip-remove-text: #fff4f4;
 
   /* Surface variants */
   --color-surface-light: rgba(248, 242, 237, 0.7);
@@ -43,24 +63,24 @@
   --color-button-surface-hover: rgba(225, 216, 209, 0.98);
 
   /* Landing page palette */
-  --landing-bg-page: #0b0f14;
-  --landing-bg-nav: rgba(8, 11, 15, 0.88);
-  --landing-bg-hero: #0b0f14;
-  --landing-bg-stats: #101722;
-  --landing-bg-section-a: #131b27;
-  --landing-bg-section-b: #182232;
-  --landing-bg-section-c: #1e1827;
-  --landing-bg-section-d: #111923;
-  --landing-bg-section-e: #1a202d;
-  --landing-bg-cta: #0f1620;
-  --landing-bg-footer: #0a0e13;
-  --landing-surface: rgba(255, 255, 255, 0.05);
-  --landing-surface-strong: rgba(255, 255, 255, 0.08);
-  --landing-border: rgba(219, 232, 245, 0.14);
-  --landing-border-strong: rgba(156, 184, 212, 0.34);
-  --landing-text: #edf2f6;
-  --landing-text-muted: rgba(237, 242, 246, 0.78);
-  --landing-text-soft: rgba(237, 242, 246, 0.64);
+  --landing-bg-page: #f6f1eb;
+  --landing-bg-nav: rgba(246, 241, 235, 0.88);
+  --landing-bg-hero: #f6f1eb;
+  --landing-bg-stats: #efe7de;
+  --landing-bg-section-a: #f3ece4;
+  --landing-bg-section-b: #ede4da;
+  --landing-bg-section-c: #f1e8df;
+  --landing-bg-section-d: #ebe1d7;
+  --landing-bg-section-e: #f4ece3;
+  --landing-bg-cta: #e8ddd2;
+  --landing-bg-footer: #e2d7cc;
+  --landing-surface: rgba(255, 255, 255, 0.58);
+  --landing-surface-strong: rgba(255, 255, 255, 0.78);
+  --landing-border: rgba(63, 84, 110, 0.14);
+  --landing-border-strong: rgba(63, 95, 130, 0.28);
+  --landing-text: #1d232a;
+  --landing-text-muted: rgba(29, 35, 42, 0.72);
+  --landing-text-soft: rgba(29, 35, 42, 0.62);
 
   /* Scrollbars */
   --scrollbar-size: 12px;
@@ -148,6 +168,26 @@
   --color-chip-bg-strong: rgba(156, 184, 212, 0.18);
   --color-chip-border: rgba(156, 184, 212, 0.3);
   --color-chip-text: #d3e2f0;
+  --color-visual-tag-hd-text: #c7ff4f;
+  --color-visual-tag-hd-border: rgba(199, 255, 79, 0.82);
+  --color-visual-tag-hd-bg: rgba(12, 18, 8, 0.86);
+  --color-visual-tag-it-text: #ffb347;
+  --color-visual-tag-it-border: rgba(255, 179, 71, 0.82);
+  --color-visual-tag-it-bg: rgba(30, 18, 8, 0.86);
+  --color-visual-tag-new-text: #ffe66b;
+  --color-visual-tag-new-border: rgba(255, 230, 107, 0.82);
+  --color-visual-tag-new-bg: rgba(30, 24, 6, 0.86);
+  --color-effects-chip-bg: #2b333d;
+  --color-effects-chip-border: #556270;
+  --color-effects-chip-text: #d7e3ef;
+  --color-effects-chip-selected-bg: #8faecc;
+  --color-effects-chip-selected-border: #dbe8f5;
+  --color-effects-chip-selected-text: #0f141a;
+  --color-effects-chip-remove-bg: #8b5260;
+  --color-effects-chip-remove-border: #cc8f9f;
+  --color-effects-chip-remove-hover-bg: #a86474;
+  --color-effects-chip-remove-hover-border: #e3aaba;
+  --color-effects-chip-remove-text: #fff6f8;
 
   --color-surface-light: rgba(28, 34, 40, 0.72);
   --color-surface-lighter: rgba(28, 34, 40, 0.48);

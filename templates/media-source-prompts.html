@@ -3,7 +3,45 @@
     class="media-source-prompts absolute z-20 flex items-start justify-center overflow-y-auto overflow-hidden"
     data-role="media-source-prompts"
   >
-    <div class="media-source-prompts__rack flex w-full flex-wrap items-stretch justify-center" data-role="media-source-prompts-rack"></div>
+    <div class="media-source-prompts__backdrop absolute inset-0" data-role="media-source-prompts-backdrop" aria-hidden="true"></div>
+    <section
+      class="media-source-prompts__sheet relative z-10 flex w-full flex-col"
+      data-role="media-source-prompts-sheet"
+      aria-label="Choose media sources"
+    >
+      <div class="media-source-prompts__handle self-center" aria-hidden="true"></div>
+      <div class="media-source-prompts__topbar flex items-start justify-between gap-12">
+        <div class="media-source-prompts__copy flex flex-col gap-4">
+          <p class="media-source-prompts__eyebrow m-0 text-xs uppercase text-muted">Source Setup</p>
+          <p class="media-source-prompts__title m-0">Choose audio, video, or both.</p>
+        </div>
+        <button
+          class="media-source-prompts__close overlay-close flex-center text-sm cursor-pointer transition-transform"
+          type="button"
+          data-role="media-source-prompts-close"
+          aria-label="Close source setup"
+        >✕</button>
+      </div>
+      <div
+        class="media-source-prompts__tabs flex items-center gap-8"
+        data-role="media-source-prompts-tabs"
+        hidden
+      >
+        <button
+          class="media-source-prompts__tab overlay-menu__button px-10 py-8 text-sm uppercase cursor-pointer"
+          type="button"
+          data-panel="video-source-prompt"
+          data-role="media-source-prompts-tab"
+        >Video</button>
+        <button
+          class="media-source-prompts__tab overlay-menu__button px-10 py-8 text-sm uppercase cursor-pointer"
+          type="button"
+          data-panel="audio-source-prompt"
+          data-role="media-source-prompts-tab"
+        >Audio</button>
+      </div>
+      <div class="media-source-prompts__rack flex w-full flex-wrap items-stretch justify-center" data-role="media-source-prompts-rack"></div>
+    </section>
   </div>
 </template>
 

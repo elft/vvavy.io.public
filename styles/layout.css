@@ -270,7 +270,12 @@ body.overlay-drawer-open .overlay-panel .overlay-sheet {
 
 @media (max-width: 600px) {
   .site-topbar {
-    padding-top: calc(var(--space-8) + env(safe-area-inset-top, 0));
+    padding-top: calc(var(--space-6) + env(safe-area-inset-top, 0));
+  }
+
+  .site-footer {
+    padding: var(--space-4) 0;
+    padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0));
   }
 
   .welcome-screen {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-17T21:52:58.090Z",
+  "generatedAt": "2026-03-18T18:36:33.714Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -522,6 +522,24 @@
       "dateModified": "2026-03-13T14:03:30.673Z"
     },
     {
+      "id": "journey-through-the-divine-mind",
+      "name": "Journey Through the Divine Mind",
+      "description": "A self-contained preset experience with divine geometry, guided text, and a 528Hz harmonic drone.",
+      "tags": [
+        "High Definition",
+        "raymarching",
+        "preset",
+        "cinematic",
+        "dreamy",
+        "meditative",
+        "slow",
+        "no-stage-toggle"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=journey-through-the-divine-mind",
+      "dateModified": "2026-03-18T18:30:02.285Z"
+    },
+    {
       "id": "kaleidoscope-tunnel",
       "name": "Kaleidoscope Tunnel",
       "description": "Hypnotic kaleidoscope tunnel with audio-driven speed and color shifts. Centroid controls tunnel layer velocity, energy modulates color shift tempo.",
@@ -804,7 +822,7 @@
     {
       "id": "pixelated-feedback",
       "name": "Pixelated Feedback",
-      "description": "GPU frame-diff object detection for live stream (auidio and video).",
+      "description": "Edges in motion will be highlighted, leaving trails of the past frozen in time.",
       "tags": [
         "High Definition",
         "interactive",
@@ -815,7 +833,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=pixelated-feedback",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-18T13:16:38.505Z"
     },
     {
       "id": "polar-tilt-grid",

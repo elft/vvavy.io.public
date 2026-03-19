@@ -15,6 +15,13 @@
   --color-primary-soft: rgba(63, 95, 130, 0.14);
   --color-secondary: #7a8ca2;
   --color-secondary-soft: rgba(122, 140, 162, 0.18);
+  --color-heat-low: #ffd54a;
+  --color-heat-mid: #ff9f31;
+  --color-heat-high: #e34125;
+  --color-heat-marker-top: #ffe36a;
+  --color-heat-marker-bottom: #ff5a2f;
+  --color-heat-outline: rgba(227, 65, 37, 0.42);
+  --color-heat-glow: rgba(227, 65, 37, 0.28);
   --color-text: #161a1e;
   --color-text-muted: rgba(22, 26, 30, 0.78);
   --color-text-soft: rgba(22, 26, 30, 0.62);
@@ -156,6 +163,13 @@
   --color-primary-soft: rgba(156, 184, 212, 0.16);
   --color-secondary: #7f93aa;
   --color-secondary-soft: rgba(127, 147, 170, 0.18);
+  --color-heat-low: #ffe36a;
+  --color-heat-mid: #ffad4d;
+  --color-heat-high: #ff5a2f;
+  --color-heat-marker-top: #fff07d;
+  --color-heat-marker-bottom: #ff6b33;
+  --color-heat-outline: rgba(255, 90, 47, 0.4);
+  --color-heat-glow: rgba(255, 90, 47, 0.32);
   --color-text: #edf2f6;
   --color-text-muted: rgba(237, 242, 246, 0.78);
   --color-text-soft: rgba(237, 242, 246, 0.6);

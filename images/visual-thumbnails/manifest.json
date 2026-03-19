@@ -514,5 +514,23 @@
     "file": "journey-through-the-divine-mind.png",
     "path": "src/images/visual-thumbnails/journey-through-the-divine-mind.png",
     "capturedAt": "2026-03-18T18:34:48.844Z"
+  },
+  {
+    "id": "edge-lightning-strike",
+    "file": "edge-lightning-strike.png",
+    "path": "src/images/visual-thumbnails/edge-lightning-strike.png",
+    "capturedAt": "2026-03-18T21:50:14.634Z"
+  },
+  {
+    "id": "slightly-wavey",
+    "file": "slightly-wavey.png",
+    "path": "src/images/visual-thumbnails/slightly-wavey.png",
+    "capturedAt": "2026-03-19T14:01:32.775Z"
+  },
+  {
+    "id": "lightning-strike",
+    "file": "lightning-strike.png",
+    "path": "src/images/visual-thumbnails/lightning-strike.png",
+    "capturedAt": "2026-03-19T14:11:15.698Z"
   }
 ]

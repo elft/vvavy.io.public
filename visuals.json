@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-18T18:36:33.714Z",
+  "generatedAt": "2026-03-19T14:19:55.829Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -533,11 +533,12 @@
         "dreamy",
         "meditative",
         "slow",
-        "no-stage-toggle"
+        "no-stage-toggle",
+        "audio.self-generated"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=journey-through-the-divine-mind",
-      "dateModified": "2026-03-18T18:30:02.285Z"
+      "dateModified": "2026-03-19T13:56:22.173Z"
     },
     {
       "id": "kaleidoscope-tunnel",
@@ -716,7 +717,7 @@
       "tags": [],
       "createdBy": "Kali",
       "url": "https://vvavy.io/app?visual=neon-matrix-grid",
-      "dateModified": "2026-03-09T13:28:40.694Z"
+      "dateModified": "2026-03-19T13:24:56.969Z"
     },
     {
       "id": "neon-space-fold",
@@ -996,6 +997,23 @@
       "dateModified": "2026-03-09T13:28:40.694Z"
     },
     {
+      "id": "slightly-wavey",
+      "name": "Slightly Wavey",
+      "description": "Any uploaded image or live frame is edge-traced into layered sky and foreground motion fields, then pushed upward and outward on the beat.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=slightly-wavey",
+      "dateModified": "2026-03-19T13:56:34.027Z"
+    },
+    {
       "id": "a-smoke",
       "name": "A Smoke",
       "description": "Dense plumes and iridescent ribbons that react to every swell, from gentle exhales to drop-sized shockwaves.",
@@ -1123,11 +1141,12 @@
         "mid-energy",
         "groovy",
         "Most Popular",
-        "no-stage-toggle"
+        "no-stage-toggle",
+        "audio.self-generated"
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=temporal-feedback-ghost",
-      "dateModified": "2026-02-28T16:18:28.468Z"
+      "dateModified": "2026-03-19T13:56:22.173Z"
     },
     {
       "id": "textures",

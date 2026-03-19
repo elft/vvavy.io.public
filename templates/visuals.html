@@ -22,11 +22,27 @@
       </div>
       <p class="overlay-search__hint">Search by mood, color, genre, or movement. Tags appear in smaller type.</p>
       <div class="visuals-tabs flex gap-4 flex-shrink-0" data-role="visuals-tabs">
-        <button class="visuals-tab is-active" type="button" data-tab="all">All</button>
+        <button class="visuals-tab is-active" type="button" data-tab="all">Browse</button>
         <span class="visuals-tabs__divider" aria-hidden="true">|</span>
-        <button class="visuals-tab" type="button" data-tab="livestream">Live Streams</button>
+        <div class="visuals-tab-group flex items-center gap-4" data-tab-group="livestream">
+          <button class="visuals-tab" type="button" data-tab="livestream">Live Streams</button>
+          <button
+            class="visuals-tab-help"
+            type="button"
+            aria-label="What are live stream visuals?"
+            data-tooltip="Visuals designed for live video inputs like tab capture, webcams, and incoming streams."
+          >?</button>
+        </div>
         <span class="visuals-tabs__divider" aria-hidden="true">|</span>
-        <button class="visuals-tab" type="button" data-tab="presets">Presets</button>
+        <div class="visuals-tab-group flex items-center gap-4" data-tab-group="presets">
+          <button class="visuals-tab" type="button" data-tab="presets">Presets</button>
+          <button
+            class="visuals-tab-help"
+            type="button"
+            aria-label="What are presets?"
+            data-tooltip="Curated visuals that are already configured, so you can launch a complete look without tuning settings first."
+          >?</button>
+        </div>
         <span class="visuals-tabs__divider" aria-hidden="true">|</span>
         <button class="visuals-tab" type="button" data-tab="favorites">Favorites</button>
       </div>

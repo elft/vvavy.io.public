@@ -7,6 +7,9 @@
   <meta name="description" content="Explore VVavy's catalog of audio visualizer effects, music visuals, and audio-reactive art with searchable tags, previews, and one-click launch links." />
   <link rel="canonical" href="https://vvavy.io/visuals" />
   <link rel="alternate" type="application/json" href="https://vvavy.io/visuals.json" title="VVavy Audio Visualizer Catalog JSON" />
+  <meta name="theme-color" content="#f5f5f3" />
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1397,37 +1400,52 @@
   </script>
   <style>
     :root {
-      color-scheme: dark;
-      --catalog-bg: #0b0813;
-      --catalog-surface: rgba(23, 17, 38, 0.9);
-      --catalog-surface-strong: rgba(38, 27, 63, 0.96);
-      --catalog-border: rgba(233, 84, 32, 0.28);
-      --catalog-border-strong: rgba(233, 84, 32, 0.48);
-      --catalog-text: #f6f3ff;
-      --catalog-text-soft: rgba(246, 243, 255, 0.74);
-      --catalog-text-muted: rgba(246, 243, 255, 0.52);
-      --catalog-accent: #e95420;
-      --catalog-accent-soft: rgba(233, 84, 32, 0.16);
-      --catalog-shadow: 0 24px 60px rgba(5, 4, 12, 0.45);
+      color-scheme: light;
+      --catalog-bg: var(--landing-bg-page);
+      --catalog-bg-section: var(--landing-bg-section-a);
+      --catalog-surface: rgba(255, 255, 255, 0.58);
+      --catalog-surface-strong: rgba(255, 255, 255, 0.82);
+      --catalog-border: var(--landing-border);
+      --catalog-border-strong: var(--landing-border-strong);
+      --catalog-text: var(--landing-text);
+      --catalog-text-soft: var(--landing-text-soft);
+      --catalog-text-muted: var(--landing-text-muted);
+      --catalog-accent: var(--color-primary);
+      --catalog-accent-strong: var(--color-primary-strong);
+      --catalog-accent-soft: var(--color-primary-soft);
+      --catalog-shadow: 0 20px 48px rgba(31, 35, 40, 0.12);
+      --catalog-overlay-text: #f7f3ee;
+      --catalog-overlay-text-soft: rgba(247, 243, 238, 0.82);
+      --catalog-overlay-text-muted: rgba(247, 243, 238, 0.68);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Ubuntu, "Segoe UI", system-ui, sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: var(--font-family-base);
       background:
-        radial-gradient(circle at top left, rgba(233, 84, 32, 0.2), transparent 34%),
-        radial-gradient(circle at 85% 18%, rgba(119, 41, 83, 0.26), transparent 30%),
-        linear-gradient(180deg, #100b1c 0%, var(--catalog-bg) 52%, #09070f 100%);
+        radial-gradient(circle at top left, rgba(76, 106, 146, 0.08), transparent 28%),
+        radial-gradient(circle at 100% 12%, rgba(130, 147, 173, 0.1), transparent 22%),
+        linear-gradient(180deg, var(--catalog-bg) 0%, var(--catalog-bg-section) 100%);
       color: var(--catalog-text);
+      user-select: text;
+      -webkit-user-select: text;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     .catalog-shell {
@@ -1440,8 +1458,8 @@
       padding: 28px;
       border: 1px solid var(--catalog-border);
       background:
-        linear-gradient(135deg, rgba(233, 84, 32, 0.08), transparent 52%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+        linear-gradient(135deg, rgba(63, 95, 130, 0.1), transparent 56%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.18)),
         var(--catalog-surface);
       box-shadow: var(--catalog-shadow);
     }
@@ -1461,9 +1479,8 @@
       content: "";
       width: 10px;
       height: 10px;
-      border-radius: 999px;
       background: var(--catalog-accent);
-      box-shadow: 0 0 18px rgba(233, 84, 32, 0.72);
+      box-shadow: 0 0 0 4px rgba(63, 95, 130, 0.12);
     }
 
     .catalog-hero h1 {
@@ -1494,8 +1511,8 @@
       align-items: center;
       min-height: 40px;
       padding: 0 16px;
-      border: 1px solid rgba(246, 243, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--catalog-border);
+      background: rgba(255, 255, 255, 0.38);
       color: var(--catalog-text-soft);
       text-decoration: none;
     }
@@ -1503,7 +1520,7 @@
     .catalog-pill--accent {
       border-color: var(--catalog-border-strong);
       background: var(--catalog-accent-soft);
-      color: var(--catalog-text);
+      color: var(--catalog-accent-strong);
     }
 
     .catalog-grid {
@@ -1518,20 +1535,20 @@
 
     .catalog-card {
       min-height: 250px;
-      border: 1px solid rgba(246, 243, 255, 0.08);
+      border: 1px solid var(--catalog-border);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent),
         var(--catalog-surface);
-      box-shadow: 0 20px 40px rgba(5, 4, 12, 0.22);
+      box-shadow: var(--catalog-shadow);
       overflow: hidden;
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
     .catalog-card:hover {
       transform: translateY(-3px);
-      border-color: var(--catalog-border);
+      border-color: var(--catalog-border-strong);
       background:
-        linear-gradient(180deg, rgba(233, 84, 32, 0.08), transparent),
+        linear-gradient(180deg, rgba(63, 95, 130, 0.08), transparent),
         var(--catalog-surface-strong);
     }
 
@@ -1561,7 +1578,7 @@
       position: relative;
       min-height: 0;
       flex: 1 1 auto;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.24);
       overflow: hidden;
     }
 
@@ -1588,8 +1605,7 @@
       justify-content: flex-end;
       gap: 14px;
       padding: 22px;
-      background:
-        linear-gradient(180deg, rgba(9, 7, 15, 0.08) 0%, rgba(9, 7, 15, 0.3) 35%, rgba(9, 7, 15, 0.92) 100%);
+      background: rgba(6, 8, 12, 0.9);
       opacity: 0;
       transition: opacity 180ms ease;
     }
@@ -1609,7 +1625,7 @@
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--catalog-text-muted);
+      color: var(--catalog-overlay-text-muted);
     }
 
     .catalog-card h2,
@@ -1628,14 +1644,14 @@
 
     .catalog-card__description {
       margin: 0;
-      color: var(--catalog-text-soft);
+      color: var(--catalog-overlay-text-soft);
       line-height: 1.65;
       font-size: 0.98rem;
     }
 
     .catalog-card__meta {
       margin: auto 0 0;
-      color: var(--catalog-text-muted);
+      color: var(--catalog-overlay-text-muted);
       font-size: 0.84rem;
     }
 
@@ -1650,18 +1666,24 @@
 
     .catalog-card__tags li {
       padding: 7px 10px;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--catalog-text-soft);
+      background: var(--color-chip-bg);
+      color: var(--color-chip-text);
       font-size: 0.78rem;
-      border: 1px solid rgba(246, 243, 255, 0.08);
+      border: 1px solid var(--color-chip-border);
     }
 
     .catalog-card__cta {
-      color: var(--catalog-text);
+      color: var(--catalog-accent-strong);
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-size: 0.82rem;
+    }
+
+    .catalog-card__overlay h2,
+    .catalog-card__overlay .catalog-card__title,
+    .catalog-card__overlay .catalog-card__cta {
+      color: var(--catalog-overlay-text);
     }
 
     .catalog-card__footer {

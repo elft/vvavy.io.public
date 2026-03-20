@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-20T14:22:30.119Z",
+  "generatedAt": "2026-03-20T16:40:44.678Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -18,7 +18,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=8bit-showdown",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "anime-counter-scan",
@@ -34,7 +34,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=anime-counter-scan",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "aura-orb-hyper-geometric",
@@ -95,7 +95,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=chopped-liver",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "cloud-flight",
@@ -138,7 +138,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=color-vortex-suck",
-      "dateModified": "2026-03-09T14:15:22.071Z"
+      "dateModified": "2026-03-20T15:03:26.977Z"
     },
     {
       "id": "colors",
@@ -180,7 +180,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=cozy-apartment-vinyl-session",
-      "dateModified": "2026-03-06T13:38:44.321Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "cyber-punk-punch",
@@ -253,7 +253,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=depth-outline-stage",
-      "dateModified": "2026-03-15T00:07:46.106Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "disolve",
@@ -284,7 +284,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=drifter",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "droste-temple",
@@ -388,7 +388,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=flame-on",
-      "dateModified": "2026-03-19T22:02:09.121Z"
+      "dateModified": "2026-03-20T16:40:44.634Z"
     },
     {
       "id": "fractal-symphony-bloom",
@@ -503,7 +503,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=Hpno%20Vortex%20Illusion",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "in-your-face",
@@ -519,7 +519,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=in-your-face",
-      "dateModified": "2026-03-13T14:03:30.673Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "journey-through-the-divine-mind",
@@ -577,7 +577,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=koi-pond",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "lava-lamp-3d",
@@ -608,7 +608,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=lets-melt",
-      "dateModified": "2026-03-16T17:56:15.693Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "liminal-space-folding",
@@ -653,7 +653,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liquid-mirror-hush",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "lock-in",
@@ -791,7 +791,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=oil-float",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "parallax-starfields",
@@ -818,7 +818,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=particle-swarm-ballet",
-      "dateModified": "2026-02-12T00:52:09.949Z"
+      "dateModified": "2026-03-20T15:03:26.977Z"
     },
     {
       "id": "pixelated-feedback",
@@ -834,7 +834,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=pixelated-feedback",
-      "dateModified": "2026-03-18T13:16:38.505Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "polar-tilt-grid",
@@ -921,7 +921,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=push-out",
-      "dateModified": "2026-03-15T22:44:24.425Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "mercury-core",
@@ -936,7 +936,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=mercury-core",
-      "dateModified": "2026-02-11T22:34:51.517Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "red-sea-drifter",
@@ -1011,7 +1011,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=slightly-wavey",
-      "dateModified": "2026-03-19T13:56:34.027Z"
+      "dateModified": "2026-03-20T16:40:44.634Z"
     },
     {
       "id": "a-smoke",
@@ -1024,7 +1024,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=a-smoke",
-      "dateModified": "2026-02-22T13:13:09.669Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "sonic-flow",
@@ -1112,7 +1112,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=summoning-rings",
-      "dateModified": "2026-03-09T14:43:42.822Z"
+      "dateModified": "2026-03-20T15:03:26.977Z"
     },
     {
       "id": "swirling-colors",
@@ -1163,7 +1163,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-16T21:56:35.896Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "the-eye",
@@ -1231,7 +1231,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=try-this-one",
-      "dateModified": "2026-03-14T23:24:14.965Z"
+      "dateModified": "2026-03-20T16:21:13.405Z"
     },
     {
       "id": "ukg-skyline-pulse",

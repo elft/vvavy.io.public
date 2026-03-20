@@ -532,5 +532,35 @@
     "file": "lightning-strike.png",
     "path": "src/images/visual-thumbnails/lightning-strike.png",
     "capturedAt": "2026-03-19T14:11:15.698Z"
+  },
+  {
+    "id": "bloom-burn",
+    "file": "bloom-burn.png",
+    "path": "src/images/visual-thumbnails/bloom-burn.png",
+    "capturedAt": "2026-03-19T22:03:58.621Z"
+  },
+  {
+    "id": "shock-wave",
+    "file": "shock-wave.png",
+    "path": "src/images/visual-thumbnails/shock-wave.png",
+    "capturedAt": "2026-03-19T22:04:11.846Z"
+  },
+  {
+    "id": "overdrive-ripple",
+    "file": "overdrive-ripple.png",
+    "path": "src/images/visual-thumbnails/overdrive-ripple.png",
+    "capturedAt": "2026-03-19T22:04:25.221Z"
+  },
+  {
+    "id": "rgb-glitch",
+    "file": "rgb-glitch.png",
+    "path": "src/images/visual-thumbnails/rgb-glitch.png",
+    "capturedAt": "2026-03-19T22:04:38.493Z"
+  },
+  {
+    "id": "parallax-sway",
+    "file": "parallax-sway.png",
+    "path": "src/images/visual-thumbnails/parallax-sway.png",
+    "capturedAt": "2026-03-19T22:04:51.699Z"
   }
 ]

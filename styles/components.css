@@ -201,9 +201,12 @@
 }
 
 .effects-library-status {
-  top: var(--space-8);
   right: var(--space-8);
-  z-index: 2;
+  bottom: var(--space-8);
+  left: var(--space-8);
+  z-index: 3;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .effects-library-status-chip {
@@ -287,11 +290,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding: var(--space-10);
+  justify-content: flex-end;
+  min-height: 100%;
+  padding: calc(var(--space-10) + 32px) var(--space-10) calc(var(--space-10) + 42px);
   color: rgba(255, 255, 255, 0.82);
   background: linear-gradient(180deg, rgba(31, 35, 40, 0) 0%, rgba(31, 35, 40, 0.88) 54%);
   opacity: 0;
@@ -314,11 +319,16 @@
 .effects-library-card:focus-visible .visual-result__title--overlay,
 .effects-stack-card.is-hovered .visual-result__title--overlay,
 .effects-stack-card:focus-within .visual-result__title--overlay {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .effects-stack-thumbnail .effects-library-description {
   padding-right: calc(var(--space-10) + 72px);
+  padding-bottom: var(--space-10);
+}
+
+.effects-library-description .visual-result__description {
+  color: inherit;
 }
 
 .effects-inline-button {

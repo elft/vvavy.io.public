@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-19T14:19:55.829Z",
+  "generatedAt": "2026-03-20T00:11:33.038Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -268,7 +268,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=disolve",
-      "dateModified": "2026-02-20T01:05:32.464Z"
+      "dateModified": "2026-03-20T00:11:32.944Z"
     },
     {
       "id": "drifter",
@@ -330,7 +330,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=edm-escapism",
-      "dateModified": "2026-03-13T00:05:55.982Z"
+      "dateModified": "2026-03-20T00:11:32.944Z"
     },
     {
       "id": "EDM Show",
@@ -388,7 +388,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=flame-on",
-      "dateModified": "2026-03-15T00:07:46.106Z"
+      "dateModified": "2026-03-19T22:02:09.121Z"
     },
     {
       "id": "fractal-symphony-bloom",

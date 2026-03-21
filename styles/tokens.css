@@ -35,6 +35,7 @@
   --color-panel-strong: rgba(228, 220, 214, 0.96);
   --color-panel-muted: rgba(211, 202, 196, 0.76);
   --color-panel-contrast: rgba(22, 26, 30, 0.06);
+  --color-stage-frame: #000000;
   --color-chip-bg: rgba(35, 59, 86, 0.1);
   --color-chip-bg-strong: rgba(35, 59, 86, 0.16);
   --color-chip-border: rgba(35, 59, 86, 0.28);

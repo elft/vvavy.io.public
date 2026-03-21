@@ -34,6 +34,8 @@
 }
 
 .visual-stage {
+  --visual-stage-frame-width: 100%;
+  --visual-stage-frame-height: 100%;
   position: relative;
   flex: 1 1 auto;
   min-height: 0;
@@ -44,7 +46,21 @@
   grid-template-columns: 100%;
   place-items: center;
   overflow: hidden;
+  background: var(--color-stage-frame);
   transition: filter 0.25s ease;
+}
+
+.visual-stage__frame {
+  position: relative;
+  width: var(--visual-stage-frame-width);
+  height: var(--visual-stage-frame-height);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background: var(--color-stage-frame);
+  transition:
+    width var(--transition-medium),
+    height var(--transition-medium);
 }
 
 .visual-stage canvas {

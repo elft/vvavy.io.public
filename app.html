@@ -176,7 +176,9 @@
     <div class="export-panel is-hidden" data-role="export-panel"></div>
     <div class="effects-panel is-hidden" data-role="effects-panel"></div>
     <main class="visual-stage" aria-live="polite">
-      <canvas id="visualizer-canvas"></canvas>
+      <div class="visual-stage__frame" data-role="visual-stage-frame">
+        <canvas id="visualizer-canvas"></canvas>
+      </div>
       <div class="cast-overlay" data-role="cast-overlay" hidden aria-live="polite">
         <div class="cast-overlay__panel grid gap-10 text-center px-20 py-16">
           <p class="cast-overlay__eyebrow m-0 uppercase text-sm text-muted">Casting</p>

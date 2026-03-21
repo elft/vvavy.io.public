@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-20T17:47:28.712Z",
+  "generatedAt": "2026-03-21T17:01:09.793Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -138,7 +138,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=color-vortex-suck",
-      "dateModified": "2026-03-20T15:03:26.977Z"
+      "dateModified": "2026-03-20T23:33:30.368Z"
     },
     {
       "id": "colors",
@@ -300,7 +300,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=droste-temple",
-      "dateModified": "2026-03-17T20:20:43.792Z"
+      "dateModified": "2026-03-20T23:33:30.368Z"
     },
     {
       "id": "echo-halo",
@@ -519,7 +519,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=in-your-face",
-      "dateModified": "2026-03-20T16:21:13.405Z"
+      "dateModified": "2026-03-21T16:39:14.868Z"
     },
     {
       "id": "journey-through-the-divine-mind",
@@ -622,7 +622,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liminal-space-folding",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-20T23:33:30.368Z"
     },
     {
       "id": "liquid-kaleido-feedback",
@@ -1163,7 +1163,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=textures",
-      "dateModified": "2026-03-20T16:21:13.405Z"
+      "dateModified": "2026-03-21T16:47:48.117Z"
     },
     {
       "id": "the-eye",

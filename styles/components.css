@@ -181,6 +181,11 @@
   overflow: hidden;
 }
 
+.effects-stack-card--with-controls.visual-result--thumbnail {
+  height: auto;
+  max-height: none;
+}
+
 .effects-stack-card.is-dragging {
   opacity: 0.45;
 }
@@ -560,6 +565,11 @@
   border-radius: var(--radius-pill);
   background: var(--color-surface-light);
   outline: none;
+}
+
+.visual-control-slider:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .visual-control-slider::-webkit-slider-thumb {
@@ -2236,6 +2246,12 @@
 
 .overlay-select {
   min-height: 140px;
+}
+
+.visual-control-select--compact {
+  min-height: 36px;
+  height: 36px;
+  font-size: var(--font-size-sm);
 }
 
 .export-panel-shell .overlay-select {

@@ -568,5 +568,17 @@
     "file": "xbox-radial-bars.png",
     "path": "src/images/visual-thumbnails/xbox-radial-bars.png",
     "capturedAt": "2026-03-20T23:38:49.075Z"
+  },
+  {
+    "id": "waveform-orbit-tunnel",
+    "file": "waveform-orbit-tunnel.png",
+    "path": "src/images/visual-thumbnails/waveform-orbit-tunnel.png",
+    "capturedAt": "2026-03-22T12:40:25.441Z"
+  },
+  {
+    "id": "grid-locked",
+    "file": "grid-locked.png",
+    "path": "src/images/visual-thumbnails/grid-locked.png",
+    "capturedAt": "2026-03-22T23:26:12.990Z"
   }
 ]

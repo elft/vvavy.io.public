@@ -735,6 +735,7 @@
 
 .top-status-bar__pills {
   min-width: 0;
+  contain: style;
 }
 
 .top-status-bar__actions {
@@ -754,6 +755,7 @@
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  contain: paint;
 }
 
 .top-status-pill--record {
@@ -767,6 +769,7 @@
   background: var(--color-panel-strong);
   color: var(--color-text-soft);
   border-radius: var(--radius-pill);
+  contain: paint;
 }
 
 .top-status-action--icon {
@@ -821,6 +824,7 @@
   --footer-contrast-text: var(--color-text);
   --footer-contrast-muted: var(--color-text-soft);
   --footer-contrast-border: var(--color-border-muted);
+  contain: style;
 }
 
 .footer-status {
@@ -1302,6 +1306,7 @@
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background var(--transition-medium), border-color var(--transition-medium), color var(--transition-medium), transform var(--transition-fast);
+  contain: paint;
 }
 
 .footer-btn--primary {
@@ -1311,6 +1316,10 @@
     rgba(76, 106, 146, 0.24),
     rgba(130, 147, 173, 0.16)
   );
+}
+
+.footer-btn--has-badge {
+  contain: none;
 }
 
 .footer-btn:hover,
@@ -1367,6 +1376,7 @@
   border: 0;
   background: transparent;
   color: var(--color-text-muted);
+  contain: paint;
 }
 
 .footer-icon-control:hover,
@@ -3747,15 +3757,15 @@
   }
 
   /* Hide footer when overlay is open */
-  body:has(.overlay-backdrop:not(.is-hidden)) .top-status-bar {
+  body.overlay-open .top-status-bar {
     display: none;
   }
 
-  body:has(.overlay-backdrop:not(.is-hidden)) .footer-bar {
+  body.overlay-open .footer-bar {
     display: none;
   }
 
-  body:has(.overlay-backdrop:not(.is-hidden)) .site-footer {
+  body.overlay-open .site-footer {
     display: none;
   }
 

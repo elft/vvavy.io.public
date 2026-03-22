@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-21T17:01:09.793Z",
+  "generatedAt": "2026-03-22T23:37:06.030Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -430,6 +430,23 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=glitch-matrix",
       "dateModified": "2026-02-18T17:07:09.297Z"
+    },
+    {
+      "id": "grid-locked",
+      "name": "Grid Locked",
+      "description": "Motion detection hunts the action, locking it in.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=grid-locked",
+      "dateModified": "2026-03-22T23:27:59.670Z"
     },
     {
       "id": "groove",
@@ -1247,6 +1264,22 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=ukg-skyline-pulse",
       "dateModified": "2026-03-06T01:45:53.864Z"
+    },
+    {
+      "id": "waveform-orbit-tunnel",
+      "name": "Waveform Orbit Tunnel",
+      "description": "A rolling tunnel of raw waveform circles that keeps spawning fresh rings at the camera while older ones drift outward into a neon 3D orbit.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=waveform-orbit-tunnel",
+      "dateModified": "2026-03-22T16:12:08.143Z"
     },
     {
       "id": "winamp-hyperspace",

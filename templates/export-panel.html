@@ -46,6 +46,29 @@
                 <label class="overlay-label" for="export-filename">File Name</label>
                 <input id="export-filename" name="export-filename" type="text" value="vvavy-export" class="overlay-input" />
               </div>
+              <div class="overlay-field export-timed-text-field flex flex-col">
+                <label class="overlay-label" for="export-timed-text">Timed Text</label>
+                <textarea id="export-timed-text" name="export-timed-text" class="overlay-input export-timed-textarea" rows="4" placeholder="Plain text. *Red text*. <Blue text>."></textarea>
+                <p class="export-help-copy m-0">Each sentence or line is spread evenly across the export time and stays stacked as new text appears.</p>
+                <div class="export-text-marker-grid grid gap-6">
+                  <div class="export-text-marker-row flex items-center gap-8">
+                    <label class="overlay-label export-text-marker-row__label m-0" for="export-text-marker-symbol-0">Marker</label>
+                    <input id="export-text-marker-symbol-0" name="export-text-marker-symbol-0" type="text" inputmode="text" maxlength="1" class="overlay-input export-text-marker-symbol" value="*" aria-label="Text marker symbol 1" />
+                    <input id="export-text-marker-color-0" name="export-text-marker-color-0" type="color" class="export-text-marker-color" value="#ff2d55" aria-label="Text marker color 1" />
+                  </div>
+                  <div class="export-text-marker-row flex items-center gap-8">
+                    <label class="overlay-label export-text-marker-row__label m-0" for="export-text-marker-symbol-1">Marker</label>
+                    <input id="export-text-marker-symbol-1" name="export-text-marker-symbol-1" type="text" inputmode="text" maxlength="1" class="overlay-input export-text-marker-symbol" value="&lt;" aria-label="Text marker symbol 2" />
+                    <input id="export-text-marker-color-1" name="export-text-marker-color-1" type="color" class="export-text-marker-color" value="#00f2ff" aria-label="Text marker color 2" />
+                  </div>
+                  <div class="export-text-marker-row flex items-center gap-8">
+                    <label class="overlay-label export-text-marker-row__label m-0" for="export-text-marker-symbol-2">Marker</label>
+                    <input id="export-text-marker-symbol-2" name="export-text-marker-symbol-2" type="text" inputmode="text" maxlength="1" class="overlay-input export-text-marker-symbol" value="~" aria-label="Text marker symbol 3" />
+                    <input id="export-text-marker-color-2" name="export-text-marker-color-2" type="color" class="export-text-marker-color" value="#ffe36a" aria-label="Text marker color 3" />
+                  </div>
+                </div>
+                <p class="export-help-copy m-0" data-role="export-text-marker-legend">Legend: prefix a word with a marker or wrap a phrase with matching markers to color it.</p>
+              </div>
             </div>
           </section>
           <section class="export-config-section overlay-panel-section overlay-panel-section--panel export-config-section--audio p-12 grid gap-10">

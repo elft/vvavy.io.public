@@ -574,5 +574,11 @@
     "file": "winamp-hyperspace.png",
     "path": "src/images/visual-thumbnails/winamp-hyperspace.png",
     "capturedAt": "2026-03-23T14:02:16.075Z"
+  },
+  {
+    "id": "content-farm-simulator",
+    "file": "content-farm-simulator.png",
+    "path": "src/images/visual-thumbnails/content-farm-simulator.png",
+    "capturedAt": "2026-03-23T20:21:58.508Z"
   }
 ]

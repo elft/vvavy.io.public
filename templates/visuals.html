@@ -20,7 +20,7 @@
           Search
         </button>
       </div>
-      <p class="overlay-search__hint">Search by mood, color, genre, or movement. Tags appear in smaller type.</p>
+      <p class="overlay-search__hint" data-role="visual-search-hint">Search by mood, color, genre, or movement. Tags appear in smaller type.</p>
       <div class="visuals-tabs flex gap-4 flex-shrink-0" data-role="visuals-tabs">
         <button class="visuals-tab is-active" type="button" data-tab="all">Browse</button>
         <span class="visuals-tabs__divider" aria-hidden="true">|</span>
@@ -45,13 +45,91 @@
         </div>
         <span class="visuals-tabs__divider" aria-hidden="true">|</span>
         <button class="visuals-tab" type="button" data-tab="favorites">Favorites</button>
+        <span class="visuals-tabs__divider" aria-hidden="true">|</span>
+        <button class="visuals-tab" type="button" data-tab="playlists">Playlists</button>
       </div>
-      <div
-        class="overlay-results visuals-results flex flex-wrap gap-4"
-        data-role="visual-results"
-        role="listbox"
-        aria-live="polite"
-      ></div>
+      <div class="visuals-browser-layout flex flex-col gap-12 flex-1 min-h-0" data-role="visuals-browser-layout">
+        <div class="visuals-library-pane flex flex-col gap-8 flex-1 min-h-0">
+          <section class="visuals-playlists-library-bar overlay-panel-section overlay-panel-section--panel is-hidden flex flex-col gap-8 p-12" data-role="visual-playlists-library-bar" aria-labelledby="visual-playlists-library-title">
+            <div class="flex items-center justify-between gap-8">
+              <div class="flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0" id="visual-playlists-library-title">Scene Library</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="visual-playlists-library-copy">Tap or drag a visual card to add it as the next scene in the rail.</p>
+              </div>
+              <span class="visuals-playlists-library-chip">Tap or Drag to Add</span>
+            </div>
+          </section>
+          <div
+            class="overlay-results visuals-results flex flex-wrap gap-4"
+            data-role="visual-results"
+            role="listbox"
+            aria-live="polite"
+          ></div>
+        </div>
+
+        <aside class="visuals-playlists-aside is-hidden flex flex-col gap-12 min-h-0" data-role="visual-playlists-builder" aria-labelledby="visual-playlists-title">
+          <section class="overlay-panel-section overlay-panel-section--panel flex flex-col gap-12 p-12" aria-labelledby="visual-playlists-title">
+            <div class="overlay-panel-section__header flex items-center justify-between gap-8">
+              <div class="flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0" id="visual-playlists-title">Playlists</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="playlist-status">Create a playlist, then add a few scenes.</p>
+              </div>
+              <button class="visual-control-reset effects-reset-button py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-create">
+                New
+              </button>
+            </div>
+            <div class="flex flex-col gap-8">
+              <select
+                class="overlay-select visual-control-select--compact"
+                data-role="playlist-select"
+                aria-label="Select a visualization playlist"
+              ></select>
+              <input
+                class="overlay-input"
+                data-role="playlist-name"
+                type="text"
+                maxlength="64"
+                placeholder="Playlist name"
+                aria-label="Playlist name"
+              />
+            </div>
+            <p class="effects-panel-meta m-0 playlist-start-guide px-10 py-8" data-role="playlist-guide">Add scenes, then add effects or tune timing right away without starting audio. Press Play Playlist to start the playlist clock from 0:00.</p>
+            <div class="flex flex-wrap gap-8">
+              <button class="visual-control-reset effects-reset-button playlist-primary-action flex-1 py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-activate">
+                Play Playlist
+              </button>
+              <button class="visual-control-reset effects-reset-button flex-1 py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-deactivate">
+                Stop
+              </button>
+              <button class="visual-control-reset effects-reset-button flex-1 py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-prev">
+                Prev
+              </button>
+              <button class="visual-control-reset effects-reset-button flex-1 py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-next">
+                Next
+              </button>
+              <button class="visual-control-reset effects-reset-button flex-1 py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-delete">
+                Delete
+              </button>
+            </div>
+          </section>
+
+          <section class="overlay-panel-section overlay-panel-section--panel flex flex-col gap-12 p-12 min-h-0 flex-1" aria-labelledby="visual-playlists-scenes-title">
+            <div class="overlay-panel-section__header flex items-center justify-between gap-8">
+              <div class="flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0" id="visual-playlists-scenes-title">Scene Rail</p>
+                <p class="effects-panel-meta m-0 text-soft">Scenes stay sorted by playlist time. Edit the start time to decide when each switch happens.</p>
+              </div>
+              <button class="visual-control-reset effects-reset-button py-8 px-10 text-sm uppercase cursor-pointer" type="button" data-playlist-action="playlist-save-current">
+                Save Current
+              </button>
+            </div>
+            <div class="visuals-playlists-dropzone flex flex-col gap-10 min-h-0" data-role="playlist-dropzone">
+              <p class="visuals-playlists-dropcopy m-0">Tap or drag a visual card to append a scene at the next 30-second slot, load it instantly, and start adding effects right away.</p>
+              <div class="visuals-playlists-scene-list flex flex-col gap-10" data-role="playlist-scene-list"></div>
+            </div>
+          </section>
+        </aside>
+      </div>
     </form>
   </section>
 </template>

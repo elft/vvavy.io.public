@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-23T15:23:39.404Z",
+  "generatedAt": "2026-03-23T19:58:23.007Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -198,7 +198,7 @@
     {
       "id": "Debug",
       "name": "Debug HUD",
-      "description": "Audio metrics HUD for inspecting the full analysis stream.",
+      "description": "Analysis HUD prioritizing spectrum, loudness, rhythm, stereo, and timbre.",
       "tags": [
         "cinematic",
         "low-energy",
@@ -206,7 +206,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=Debug",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-23T19:41:46.612Z"
     },
     {
       "id": "deep-house-velvet-drift",

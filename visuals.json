@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-23T15:02:28.155Z",
+  "generatedAt": "2026-03-23T15:23:39.404Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -751,7 +751,7 @@
       "tags": [],
       "createdBy": "Kali",
       "url": "https://vvavy.io/app?visual=neon-matrix-grid",
-      "dateModified": "2026-03-19T13:24:56.969Z"
+      "dateModified": "2026-03-23T15:23:39.328Z"
     },
     {
       "id": "neon-space-fold",
@@ -852,7 +852,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=particle-swarm-ballet",
-      "dateModified": "2026-03-20T15:03:26.977Z"
+      "dateModified": "2026-03-23T15:23:39.328Z"
     },
     {
       "id": "pixelated-feedback",

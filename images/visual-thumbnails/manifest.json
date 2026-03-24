@@ -580,5 +580,11 @@
     "file": "content-farm-simulator.png",
     "path": "src/images/visual-thumbnails/content-farm-simulator.png",
     "capturedAt": "2026-03-23T20:21:58.508Z"
+  },
+  {
+    "id": "puppeteer-thread-capture",
+    "file": "puppeteer-thread-capture.png",
+    "path": "src/images/visual-thumbnails/puppeteer-thread-capture.png",
+    "capturedAt": "2026-03-24T21:33:07.244Z"
   }
 ]

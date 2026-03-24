@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-24T11:45:47.692Z",
+  "generatedAt": "2026-03-24T23:12:37.467Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -940,6 +940,24 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=pulsed-ripple-grid",
       "dateModified": "2026-02-12T00:52:09.949Z"
+    },
+    {
+      "id": "puppeteer-thread-capture",
+      "name": "Puppeteer Thread Capture",
+      "description": "Residual live-video motion latches into one anchored thread that drops from the top and reveals itself in time with the beat.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "geometry",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=puppeteer-thread-capture",
+      "dateModified": "2026-03-24T22:57:58.383Z"
     },
     {
       "id": "push-out",

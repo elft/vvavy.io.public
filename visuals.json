@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-25T13:27:31.175Z",
+  "generatedAt": "2026-03-25T17:40:49.925Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -253,7 +253,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=depth-outline-stage",
-      "dateModified": "2026-03-20T16:21:13.405Z"
+      "dateModified": "2026-03-25T13:52:32.418Z"
     },
     {
       "id": "disolve",

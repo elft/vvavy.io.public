@@ -56,6 +56,40 @@
         <section class="effects-composer-section overlay-panel-section overlay-panel-section--panel effects-composer-section--globals flex flex-col gap-14 p-12">
           <div class="visual-control-group flex flex-col gap-8">
             <div class="flex items-center justify-between gap-8">
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-render-quality">Render Quality</label>
+              <span class="visual-control-value text-sm uppercase" data-role="vc-render-quality-value">Auto · High</span>
+            </div>
+            <select
+              class="overlay-select visual-control-select--compact"
+              id="vc-render-quality"
+              data-role="vc-render-quality"
+              aria-label="Render quality mode"
+            >
+              <option value="auto">Auto</option>
+              <option value="high">High</option>
+              <option value="balanced">Balanced</option>
+              <option value="low">Low</option>
+              <option value="ultra-low">Ultra Low</option>
+            </select>
+            <div class="flex items-center justify-between gap-8">
+              <p class="visual-control-hint m-0 text-soft text-xs" data-role="vc-render-quality-status">
+                Watching playback frame pacing and adjusting stage resolution when needed.
+              </p>
+              <span class="effects-preview-chip" data-role="vc-render-quality-fps">Measuring</span>
+            </div>
+            <div class="flex flex-col gap-4">
+              <p class="effects-panel-meta m-0 text-soft">High: native stage resolution. Best for dedicated streaming PCs and simpler scenes.</p>
+              <p class="effects-panel-meta m-0 text-soft">Balanced: caps stage rendering around 720p before upscaling. Best for mixed gaming and streaming loads.</p>
+              <p class="effects-panel-meta m-0 text-soft">Low: caps stage rendering around 480p before upscaling. Best for older GPUs, rough playback, or TVs that struggle.</p>
+              <p class="effects-panel-meta m-0 text-soft">Ultra Low: caps stage rendering around 240p before upscaling. Best for the weakest devices or receivers that collapse under load.</p>
+            </div>
+            <p class="visual-control-hint m-0 text-soft text-xs">
+              Auto samples the first 3 seconds of each visual, locks one quality tier, and waits for the next visual change before checking again. Export sizing still uses the export pipeline.
+            </p>
+          </div>
+
+          <div class="visual-control-group flex flex-col gap-8">
+            <div class="flex items-center justify-between gap-8">
               <label class="visual-control-label text-sm uppercase text-muted" for="vc-stage-frame">Frame</label>
               <span class="visual-control-value text-sm uppercase" data-role="vc-stage-frame-value">Full Bleed</span>
             </div>

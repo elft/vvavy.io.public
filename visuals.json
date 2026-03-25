@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-25T17:40:49.925Z",
+  "generatedAt": "2026-03-25T20:11:04.420Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -497,6 +497,21 @@
       "dateModified": "2026-02-19T13:43:44.588Z"
     },
     {
+      "id": "hero-string-highway",
+      "name": "Hero String Highway",
+      "description": "Five neon strings stretch into a stage-like highway while yellow beat riders drop down random lanes faster as the song builds.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "playful",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=hero-string-highway",
+      "dateModified": "2026-03-25T20:11:04.382Z"
+    },
+    {
       "id": "hyperspace-tunnel",
       "name": "Hyperspace Tunnel",
       "description": "Enhanced hyperspace tunnel with chromatic aberration, particle stars, glowing rings, and intense audio-reactive effects that pulse and warp through space.",
@@ -688,6 +703,24 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=liquid-mirror-hush",
       "dateModified": "2026-03-20T16:21:13.405Z"
+    },
+    {
+      "id": "live-depth-mesh",
+      "name": "Live Depth Mesh",
+      "description": "Pseudo-LiDAR livestream mesh: RGB depth cues and motion get mapped into real Z displacement so the live frame becomes a lit 3D surface.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=live-depth-mesh",
+      "dateModified": "2026-03-25T19:26:22.216Z"
     },
     {
       "id": "lock-in",
@@ -1039,7 +1072,7 @@
       ],
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=retro-broadcast-glitch-punk",
-      "dateModified": "2026-03-25T13:27:31.134Z"
+      "dateModified": "2026-03-25T19:26:22.216Z"
     },
     {
       "id": "retro-windows-dreamscape",
@@ -1351,6 +1384,24 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=ukg-skyline-pulse",
       "dateModified": "2026-03-06T01:45:53.864Z"
+    },
+    {
+      "id": "volumetric-slice-hologram",
+      "name": "Spectral Beacon Hologram",
+      "description": "A roaming hard-light beacon built from scan planes, lattice rings, and reactive hologram echoes.",
+      "tags": [
+        "High Definition",
+        "geometry",
+        "interactive",
+        "cinematic",
+        "mysterious",
+        "trippy",
+        "mid-energy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=volumetric-slice-hologram",
+      "dateModified": "2026-03-25T19:43:55.243Z"
     },
     {
       "id": "waveform-orbit-tunnel",

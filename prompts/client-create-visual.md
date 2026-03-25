@@ -54,7 +54,8 @@ If the user is unsure, present a short recommended mapping plan and ask them to 
    - In `onRender(gl)`, bind programs, push uniforms, and issue draw calls with minimal per-frame allocations.
    - For screen/video effects, check `this._ensureTabCaptureReady()` and make sure `this._captureVideo` has valid dimensions before uploading or sampling video data.
 3) Add meta for discovery:
-   - `static meta = { createdBy: '<name>', description: '<short pitch>', tags: [VISUAL_TAGS.VIBE.TRIPPY, ...] };`
+   - `static meta = { createdBy: '<name>', description: '<short plain-language description of what the viewer sees>', tags: [VISUAL_TAGS.VIBE.TRIPPY, ...] };`
+   - Write `meta.description` like a human explanation of the visible behavior, not a compressed effect label. Good: `Ripples slowly build and spread outward as the song grows louder.` Bad: `Time-sliced curl-noise refractions.`
    - Import `VISUAL_TAGS` from `./utils/visual-tags.js` and pick from the lists below.
 4) Wire audio:
    - `onMetrics(metrics, cues)` receives the raw metrics and discrete cues.
@@ -133,6 +134,7 @@ precision mediump int;
 - Keep per-frame allocations near zero; reuse buffers/arrays, and clean up via `autoDispose`.
 - Use tone-mapped, gamma-corrected outputs; clamp bloom/blur passes on mobile.
 - Summarize the visual’s intent and controls so users know what to expect after handing off.
+- When you summarize the visual outside the code block, describe what it visibly does in plain language over time. Prefer sentences like `Soft ribbons widen, brighten, and peel outward on each beat` over jargon like `Layered spectral ribbon bloom with centroid-driven deformation`.
 -Put only the minified JS file in the code block.
 - Keep all instructions, “Do this now”, explanations, tips, etc. strictly outside the code block.
 - Make sure the code block is copy/paste safe and contains nothing but the JS visualizer file.
@@ -165,7 +167,7 @@ class SafeBestPracticesDemo extends WebGLFeatureVisualizer {
     savedAt: 1771204707884,
     createdBy: 'vvavy',
     description:
-      'Safe reference visual: bright color bands, steady camera, no default glow or vignette.',
+      'Bright color bands drift and breathe with the music while the camera stays steady and the scene avoids glow-heavy flashes.',
     tags: [
       VISUAL_TAGS.TECH.GEOMETRY,
       VISUAL_TAGS.VIBE.CHILL,

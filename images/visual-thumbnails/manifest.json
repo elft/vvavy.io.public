@@ -592,5 +592,23 @@
     "file": "winamp-hyperspace.png",
     "path": "src/images/visual-thumbnails/winamp-hyperspace.png",
     "capturedAt": "2026-03-25T13:05:55.696Z"
+  },
+  {
+    "id": "live-depth-mesh",
+    "file": "live-depth-mesh.png",
+    "path": "src/images/visual-thumbnails/live-depth-mesh.png",
+    "capturedAt": "2026-03-25T18:47:21.694Z"
+  },
+  {
+    "id": "volumetric-slice-hologram",
+    "file": "volumetric-slice-hologram.png",
+    "path": "src/images/visual-thumbnails/volumetric-slice-hologram.png",
+    "capturedAt": "2026-03-25T19:44:33.065Z"
+  },
+  {
+    "id": "hero-string-highway",
+    "file": "hero-string-highway.png",
+    "path": "src/images/visual-thumbnails/hero-string-highway.png",
+    "capturedAt": "2026-03-25T19:58:05.043Z"
   }
 ]

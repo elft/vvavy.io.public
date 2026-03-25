@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-24T23:12:37.467Z",
+  "generatedAt": "2026-03-25T13:27:31.175Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -703,6 +703,23 @@
       "dateModified": "2026-02-17T00:38:52.493Z"
     },
     {
+      "id": "luma-key-beat-backdrop",
+      "name": "Luma Key Beat Backdrop",
+      "description": "Near-black and near-white parts of the live frame become luma-key windows that reveal a beat-reactive pixel backdrop behind the source.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=luma-key-beat-backdrop",
+      "dateModified": "2026-03-25T12:53:57.218Z"
+    },
+    {
       "id": "lunar-dragon",
       "name": "Lunar Dragon Fireworks",
       "description": "A lunar dragon ascends in ember trails and radiant bursts, with audio-guided firework arcs and shimmering crackle glow.",
@@ -1005,6 +1022,24 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=red-sea-drifter",
       "dateModified": "2026-03-23T20:39:36.547Z"
+    },
+    {
+      "id": "retro-broadcast-glitch-punk",
+      "name": "Retro Broadcast Glitch Punk",
+      "description": "Synthwave live capture melts into CRT scanlines, VHS band tears, and beat-snapped pixel sorting with neon magenta-cyan feedback.",
+      "tags": [
+        "High Definition",
+        "interactive",
+        "tech.livestream",
+        "cinematic",
+        "trippy",
+        "dark",
+        "punchy",
+        "groovy"
+      ],
+      "createdBy": "vvavy",
+      "url": "https://vvavy.io/app?visual=retro-broadcast-glitch-punk",
+      "dateModified": "2026-03-25T13:27:31.134Z"
     },
     {
       "id": "retro-windows-dreamscape",

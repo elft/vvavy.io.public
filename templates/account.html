@@ -1,0 +1,127 @@
+<template id="tpl-account">
+  <section class="overlay-sheet overlay-sheet--account flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="account-title">
+    <header class="overlay-sheet__header relative flex items-center justify-center px-12 py-8">
+      <button class="overlay-link absolute text-sm uppercase cursor-pointer" type="button" data-view="menu" style="left: var(--space-12);">← Back</button>
+      <p class="overlay-title m-0 text-sm uppercase text-muted" id="account-title">Account</p>
+      <button class="overlay-close absolute flex-center text-sm cursor-pointer transition-transform" type="button" data-action="close" aria-label="Close" style="top: 50%; right: var(--space-12); transform: translateY(-50%);">✕</button>
+    </header>
+    <div class="overlay-content account-shell p-16 flex-1 min-h-0 overflow-hidden">
+      <div class="account-layout grid gap-16 h-full items-stretch">
+        <aside class="account-summary p-16 flex flex-col gap-16 h-full" aria-labelledby="account-summary-title">
+          <div class="flex items-start justify-between gap-12">
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0">VVavy Account</p>
+              <p class="account-summary__title m-0" data-role="account-summary-title" id="account-summary-title">Sync your profile across devices only when you want it.</p>
+            </div>
+            <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-auth-chip">Optional</span>
+          </div>
+          <p class="effects-panel-meta m-0 text-soft" data-role="account-status-copy">Checking your account session…</p>
+
+          <div class="account-summary-row p-12 flex flex-col gap-4">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Current</p>
+            <p class="account-summary-row__value m-0" data-role="account-summary-state">Local-only</p>
+          </div>
+
+          <div class="account-summary-row p-12 flex flex-col gap-4">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Syncs</p>
+            <p class="effects-panel-meta m-0 text-soft" data-role="account-summary-syncs">Favorites and playlists across devices, plus account features once you sign in.</p>
+          </div>
+
+          <div class="account-summary-row p-12 flex flex-col gap-4">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Magic Link</p>
+            <p class="effects-panel-meta m-0 text-soft" data-role="account-return-copy">Open the email to finish signing in.</p>
+          </div>
+        </aside>
+
+        <div class="account-main flex flex-col gap-12 h-full min-h-0">
+          <section class="account-card account-card--auth p-16 flex flex-col gap-16" data-role="account-signed-out" aria-labelledby="account-auth-title">
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0">Choose A Method</p>
+              <p class="account-card__title m-0" id="account-auth-title">Sync your profile and unlock more features.</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Google is fastest. Sign in to sync favorites and playlists across devices and access Create Visual, Export, and more.</p>
+            </div>
+
+            <div class="flex flex-col gap-6" data-role="account-captcha-wrap" hidden>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-captcha-copy">Complete the captcha check to continue.</p>
+              <div data-role="account-captcha"></div>
+            </div>
+
+            <button class="overlay-menu__button overlay-menu__button--icon account-primary-button py-10 px-12 text-sm uppercase w-full flex items-center justify-start gap-8" type="button" data-account-action="google-sign-in">
+              <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21.805 10.023h-9.18v3.955h5.278c-.228 1.308-.974 2.416-2.076 3.159v2.623h3.359c1.966-1.812 3.103-4.48 3.103-7.657 0-.683-.061-1.34-.173-1.98z" fill="#4285f4" />
+                <path d="M12.625 21.5c2.79 0 5.128-.92 6.837-2.522l-3.359-2.623c-.93.624-2.119.992-3.478.992-2.673 0-4.938-1.806-5.746-4.234H3.406v2.666A10.312 10.312 0 0 0 12.625 21.5z" fill="#34a853" />
+                <path d="M6.879 13.113a6.166 6.166 0 0 1 0-3.926V6.521H3.406a10.312 10.312 0 0 0 0 9.258l3.473-2.666z" fill="#fbbc04" />
+                <path d="M12.625 4.953c1.517 0 2.88.522 3.953 1.548l2.965-2.966C17.753 1.87 15.415.846 12.625.846A10.31 10.31 0 0 0 3.406 6.521l3.473 2.666c.808-2.428 3.073-4.234 5.746-4.234z" fill="#ea4335" />
+              </svg>
+              <span>Continue With Google</span>
+            </button>
+
+            <div class="account-divider flex items-center gap-8" aria-hidden="true">
+              <span class="account-divider__line flex-1"></span>
+              <span class="account-divider__label">or</span>
+              <span class="account-divider__line flex-1"></span>
+            </div>
+
+            <form class="flex flex-col gap-8" data-role="account-magic-link-form" novalidate>
+              <label class="overlay-label" for="account-email-input">Email Address</label>
+              <input class="overlay-input" id="account-email-input" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" data-role="account-email-input" />
+              <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit">
+                Send Magic Link
+              </button>
+            </form>
+
+            <section class="account-inline-note p-12 flex flex-col gap-4" data-role="account-email-pending" hidden>
+              <p class="visual-control-label text-sm uppercase text-muted m-0">Check Your Inbox</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-email-pending-copy"></p>
+            </section>
+          </section>
+
+          <section class="account-card account-card--profile p-16 flex flex-col gap-16" data-role="account-signed-in" hidden aria-labelledby="account-signed-in-title">
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0" data-role="account-signed-in-eyebrow">Finish Profile</p>
+              <p class="account-card__title m-0" data-role="account-signed-in-title" id="account-signed-in-title">Finish your VVavy profile.</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-signed-in-copy">Claim a username so this profile can sync your favorites and playlists across devices.</p>
+            </div>
+
+            <section class="account-identity-band p-12 flex items-center justify-between gap-12">
+              <div class="flex flex-col gap-4 min-w-0">
+                <p class="account-identity__name m-0" data-role="account-user-name">Username needed</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-user-email"></p>
+              </div>
+              <span class="account-identity__badge flex-shrink-0" data-role="account-identity-badge">1 Step Left</span>
+            </section>
+
+            <section class="account-profile-card p-12 flex flex-col gap-8" data-role="account-profile-completion" hidden>
+              <div class="flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0">Username</p>
+                <p class="effects-panel-meta m-0 text-soft">Pick the name you want attached to this VVavy profile.</p>
+              </div>
+              <form class="flex flex-col gap-8" data-role="account-profile-form" novalidate>
+                <label class="overlay-label" for="account-username-input">Choose Username</label>
+                <input class="overlay-input" id="account-username-input" type="text" autocapitalize="off" autocomplete="username" placeholder="ChillHuman" data-role="account-username-input" />
+                <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit">
+                  Save Username
+                </button>
+              </form>
+            </section>
+
+            <section class="account-sync-panel p-12 flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0">After This</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-sync-copy">Favorites and playlists will sync across devices while they stay attached to your profile.</p>
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Your profile also unlocks account features like Create Visual, Export, and more.</p>
+            </section>
+
+            <button class="overlay-menu__button overlay-menu__button--ghost py-10 px-12 text-sm uppercase w-full" type="button" data-account-action="sign-out">
+              Sign Out
+            </button>
+          </section>
+
+          <section class="account-status-card p-12 flex flex-col gap-4">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Status</p>
+            <p class="effects-panel-meta m-0 text-soft account-action-status" data-role="account-action-status" aria-live="polite"></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

@@ -1985,6 +1985,14 @@
 }
 
 @media (min-width: 601px) {
+  .overlay-sheet--account {
+    width: min(96vw, 1280px);
+    max-width: none;
+    min-width: 760px;
+    height: min(96vh, 980px);
+    max-height: min(96vh, 980px);
+  }
+
   .overlay-sheet--visuals {
     width: 50vw;
     max-width: none;
@@ -2175,6 +2183,141 @@
   background:
     linear-gradient(135deg, rgba(76, 106, 146, 0.18), rgba(130, 147, 173, 0.08)),
     var(--color-panel-contrast);
+}
+
+.account-layout {
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  height: 100%;
+}
+
+.overlay-sheet--account .overlay-content {
+  max-height: none;
+  height: 100%;
+  min-height: 0;
+}
+
+.account-main {
+  min-height: 0;
+}
+
+.account-summary,
+.account-card,
+.account-summary-row,
+.account-inline-note,
+.account-profile-card,
+.account-sync-panel,
+.account-status-card,
+.account-identity-band {
+  border: 1px solid var(--color-border-faint);
+}
+
+.account-summary {
+  background:
+    linear-gradient(180deg, rgba(76, 106, 146, 0.1), transparent 28%),
+    var(--color-panel-strong);
+}
+
+.account-card,
+.account-inline-note,
+.account-profile-card,
+.account-sync-panel,
+.account-status-card,
+.account-identity-band,
+.account-summary-row {
+  background: var(--color-button-surface);
+}
+
+.account-summary__title,
+.account-card__title,
+.account-identity__name {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.account-card__title {
+  font-size: var(--font-size-xl);
+}
+
+.account-summary-row__value {
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.account-step-chip,
+.account-identity__badge {
+  border: 1px solid var(--color-chip-border);
+  background: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.account-step-chip {
+  min-width: 96px;
+}
+
+.account-identity__badge {
+  padding: var(--space-6) var(--space-8);
+}
+
+.account-primary-button {
+  border-color: rgba(76, 106, 146, 0.34);
+  background:
+    linear-gradient(135deg, rgba(76, 106, 146, 0.18), rgba(130, 147, 173, 0.08)),
+    var(--color-panel-strong);
+}
+
+.account-divider__line {
+  border-top: 1px solid var(--color-border-muted);
+}
+
+.account-divider__label {
+  color: var(--color-text-soft);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.account-card--profile {
+  background:
+    linear-gradient(180deg, rgba(76, 106, 146, 0.08), transparent 24%),
+    var(--color-panel);
+}
+
+.account-profile-card {
+  border-color: rgba(76, 106, 146, 0.22);
+}
+
+.account-status-card {
+  min-height: 92px;
+}
+
+.account-action-status {
+  min-height: 1.4em;
+}
+
+.account-action-status[data-tone='error'] {
+  color: var(--color-error);
+}
+
+.account-action-status[data-tone='success'] {
+  color: var(--color-success);
+}
+
+.account-action-status[data-tone='info'] {
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 900px) {
+  .account-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .studio-menu__meta {
@@ -4178,6 +4321,12 @@
   }
 
   .overlay-sheet--visuals {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .overlay-sheet--account {
     height: 100%;
     max-height: 100%;
     overflow-y: auto;

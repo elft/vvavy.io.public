@@ -7,6 +7,10 @@ Allow: /app.html
 Allow: /visuals
 Allow: /visuals.html
 Allow: /visuals.json
+Disallow: /analytics
+Disallow: /analytics/
+Disallow: /admin
+Disallow: /admin/
 
 # Sitemaps
 Sitemap: https://vvavy.io/sitemap.xml

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="admin-page-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>VVavy Access Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f5f5f3" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/utilities.css" />
+  <link rel="stylesheet" href="../styles/admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script type="module" src="../app/admin/admin-page.js"></script>
+</head>
+<body class="admin-page-body">
+  <main class="admin-page flex flex-col gap-20 p-16" data-admin-page>
+    <header class="admin-shell admin-shell--hero grid gap-16 p-16">
+      <div class="flex flex-col gap-8">
+        <p class="admin-kicker m-0">VVavy Admin</p>
+        <div class="flex flex-wrap items-center gap-8">
+          <h1 class="admin-title m-0">Access Admin</h1>
+          <span class="admin-chip" data-role="access-chip">Checking access</span>
+        </div>
+        <p class="admin-copy m-0" data-role="auth-copy">Checking your session and loading this workspace.</p>
+      </div>
+      <div class="admin-summary grid gap-12">
+        <div class="admin-summary-row grid gap-4 p-12">
+          <p class="admin-label m-0">Account</p>
+          <p class="admin-copy m-0" data-role="user-summary">Not signed in</p>
+        </div>
+        <div class="admin-summary-row grid gap-4 p-12">
+          <p class="admin-label m-0">Workspace</p>
+          <p class="admin-copy m-0">Review access definitions, search people, and update assignments in one place.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="admin-shell grid gap-12 p-16" data-role="gate-panel">
+      <div class="grid gap-8">
+        <p class="admin-label m-0" data-role="gate-eyebrow">Checking session</p>
+        <h2 class="admin-section-title m-0" data-role="gate-title">Loading access admin…</h2>
+        <p class="admin-copy m-0" data-role="gate-copy">This workspace opens after your account session is verified.</p>
+      </div>
+      <div class="flex flex-wrap gap-8">
+        <a class="admin-button admin-button--primary" href="/app" data-role="open-app-link">Open VVavy App</a>
+        <button class="admin-button admin-button--ghost" type="button" data-role="retry-access">Retry</button>
+        <button class="admin-button admin-button--ghost" type="button" data-role="sign-out" hidden>Sign Out</button>
+      </div>
+    </section>
+
+    <section class="admin-shell grid gap-16 p-16" data-role="workspace-panel" hidden>
+      <div class="admin-toolbar grid gap-12">
+        <div class="admin-stat-grid">
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Permissions</p>
+            <p class="admin-stat-value m-0" data-role="permission-count">0</p>
+          </article>
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Recent Users</p>
+            <p class="admin-stat-value m-0" data-role="recent-user-count">0</p>
+          </article>
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Selected User</p>
+            <p class="admin-stat-value m-0" data-role="selected-user-count">0</p>
+          </article>
+        </div>
+        <div class="admin-banner admin-banner--status p-12" data-role="page-status" aria-live="polite"></div>
+      </div>
+
+      <div class="admin-flow-grid">
+        <article class="admin-flow-card grid gap-6 p-12">
+          <p class="admin-label m-0">Step 1</p>
+          <h2 class="admin-panel-title m-0">Review definitions</h2>
+          <p class="admin-copy m-0">Keep labels clear so the catalog is easy to scan before assigning access.</p>
+        </article>
+        <article class="admin-flow-card grid gap-6 p-12">
+          <p class="admin-label m-0">Step 2</p>
+          <h2 class="admin-panel-title m-0">Find a person</h2>
+          <p class="admin-copy m-0">Search by email or username, or leave the search empty to load recent activity.</p>
+        </article>
+        <article class="admin-flow-card grid gap-6 p-12">
+          <p class="admin-label m-0">Step 3</p>
+          <h2 class="admin-panel-title m-0">Update access</h2>
+          <p class="admin-copy m-0">Use the selected account panel to add or remove assignments without leaving the page.</p>
+        </article>
+      </div>
+
+      <section class="admin-section grid gap-12" aria-labelledby="admin-user-reports-title">
+        <div class="flex flex-wrap items-end justify-between gap-12">
+          <div class="grid gap-4">
+            <p class="admin-label m-0">Reports</p>
+            <h2 class="admin-section-title m-0" id="admin-user-reports-title">User growth and activity</h2>
+            <p class="admin-copy m-0" data-role="report-summary">No report loaded yet.</p>
+            <p class="admin-copy m-0" data-role="report-mode-copy">Last active counts reflect the current user snapshot, not a historical daily activity log.</p>
+          </div>
+          <label class="grid gap-6" for="reportRangeSelect">
+            <span class="admin-label">Window</span>
+            <select class="admin-input" id="reportRangeSelect" data-role="report-range-select">
+              <option value="30">Last 30 days</option>
+              <option value="90" selected>Last 90 days</option>
+              <option value="180">Last 180 days</option>
+              <option value="365">Last 365 days</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="admin-stat-grid">
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Total Users</p>
+            <p class="admin-stat-value m-0" data-role="report-total-users">0</p>
+          </article>
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Users With Last Active</p>
+            <p class="admin-stat-value m-0" data-role="report-users-with-last-active">0</p>
+          </article>
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Created In Range</p>
+            <p class="admin-stat-value m-0" data-role="report-users-created-in-range">0</p>
+          </article>
+          <article class="admin-stat-card p-12 grid gap-4">
+            <p class="admin-label m-0">Last Active In Range</p>
+            <p class="admin-stat-value m-0" data-role="report-users-last-active-in-range">0</p>
+          </article>
+        </div>
+
+        <div class="admin-banner admin-banner--status p-12" data-role="report-status" aria-live="polite">Load a user report to see account creation and last-active trends.</div>
+
+        <div class="admin-grid admin-grid--split gap-16">
+          <article class="admin-card grid gap-10 p-12">
+            <div class="grid gap-4">
+              <p class="admin-label m-0">Report 1</p>
+              <h3 class="admin-panel-title m-0">Users created over time</h3>
+              <p class="admin-copy m-0">Daily account creations for the selected window.</p>
+            </div>
+            <div class="admin-chart-wrapper">
+              <canvas id="usersCreatedChart"></canvas>
+            </div>
+          </article>
+
+          <article class="admin-card grid gap-10 p-12">
+            <div class="grid gap-4">
+              <p class="admin-label m-0">Report 2</p>
+              <h3 class="admin-panel-title m-0">Users by current last active date</h3>
+              <p class="admin-copy m-0">Distribution of accounts by their current <code>lastActiveAt</code> date.</p>
+            </div>
+            <div class="admin-chart-wrapper">
+              <canvas id="usersLastActiveChart"></canvas>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="admin-grid admin-grid--split gap-16">
+        <section class="admin-section grid gap-12" aria-labelledby="admin-permissions-title">
+          <div class="grid gap-4">
+            <p class="admin-label m-0">Definitions</p>
+            <h2 class="admin-section-title m-0" id="admin-permissions-title">Create and browse permissions</h2>
+            <p class="admin-copy m-0">Use plain labels and short descriptions so the catalog stays readable while you assign access.</p>
+          </div>
+
+          <form class="admin-card grid gap-10 p-12" data-role="permission-form" novalidate>
+            <div class="grid gap-10 admin-form-grid">
+              <label class="grid gap-6" for="permissionKey">
+                <span class="admin-label">Permission Key</span>
+                <input class="admin-input" id="permissionKey" name="permissionKey" type="text" placeholder="reports.overview" />
+              </label>
+              <label class="grid gap-6" for="permissionLabel">
+                <span class="admin-label">Label</span>
+                <input class="admin-input" id="permissionLabel" name="permissionLabel" type="text" placeholder="Reports Overview" />
+              </label>
+            </div>
+            <label class="grid gap-6" for="permissionDescription">
+              <span class="admin-label">Description</span>
+              <textarea class="admin-input admin-textarea" id="permissionDescription" name="permissionDescription" placeholder="Describe the experience or data this enables."></textarea>
+            </label>
+            <div class="flex flex-wrap items-center justify-between gap-8">
+              <p class="admin-copy m-0">New definitions are saved to the catalog before they can be assigned.</p>
+              <button class="admin-button admin-button--primary" type="submit">Create Permission</button>
+            </div>
+          </form>
+
+          <div class="admin-card grid gap-10 p-12">
+            <label class="grid gap-6" for="permissionSearch">
+              <span class="admin-label">Find a permission</span>
+              <input class="admin-input" id="permissionSearch" data-role="permission-search" type="search" placeholder="Search by key, label, or description" />
+            </label>
+            <div class="flex flex-wrap items-center justify-between gap-8">
+              <p class="admin-label m-0">Catalog</p>
+              <p class="admin-copy m-0" data-role="permission-filter-summary">0 results</p>
+            </div>
+            <div class="admin-list" data-role="permission-list"></div>
+          </div>
+        </section>
+
+        <section class="admin-section grid gap-12" aria-labelledby="admin-users-title">
+          <div class="grid gap-4">
+            <p class="admin-label m-0">Assignments</p>
+            <h2 class="admin-section-title m-0" id="admin-users-title">People and access</h2>
+            <p class="admin-copy m-0">Search by email or username, review current access, then update assignments from the selected account panel.</p>
+          </div>
+
+          <form class="admin-card grid gap-10 p-12" data-role="user-search-form" novalidate>
+            <label class="grid gap-6" for="userSearch">
+              <span class="admin-label">Find a user</span>
+              <input class="admin-input" id="userSearch" data-role="user-search" type="search" placeholder="email@domain.com or username" />
+            </label>
+            <div class="flex flex-wrap items-center justify-between gap-8">
+              <p class="admin-copy m-0">Leave the search blank to load recently active accounts.</p>
+              <button class="admin-button admin-button--primary" type="submit">Search Users</button>
+            </div>
+          </form>
+
+          <div class="admin-card grid gap-10 p-12">
+            <div class="flex items-center justify-between gap-8">
+              <p class="admin-label m-0">Matches</p>
+              <p class="admin-copy m-0" data-role="user-filter-summary">0 users</p>
+            </div>
+            <div class="admin-list" data-role="user-list"></div>
+          </div>
+
+          <div class="admin-card grid gap-12 p-12" data-role="user-detail">
+            <div class="grid gap-4">
+              <p class="admin-label m-0">Selected account</p>
+              <h3 class="admin-panel-title m-0" data-role="selected-user-name">Choose a user</h3>
+              <p class="admin-copy m-0" data-role="selected-user-copy">Search for an account to review and update its assignments.</p>
+            </div>
+            <div class="admin-detail-band p-12 grid gap-6" data-role="selected-user-meta">
+              <p class="admin-copy m-0">No account selected yet.</p>
+            </div>
+            <div class="admin-list" data-role="assignment-list"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

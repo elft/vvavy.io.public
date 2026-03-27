@@ -8,3 +8,15 @@
 
 /scripts/*.js
   crawler-price: USD 0.01
+
+/analytics
+  X-Robots-Tag: noindex, nofollow
+
+/analytics/
+  X-Robots-Tag: noindex, nofollow
+
+/admin
+  X-Robots-Tag: noindex, nofollow
+
+/admin/
+  X-Robots-Tag: noindex, nofollow

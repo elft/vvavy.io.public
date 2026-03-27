@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="analytics-dashboard-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>VVavy Reports</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f5f5f3" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/utilities.css" />
+  <link rel="stylesheet" href="../styles/analytics.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script type="module" src="../app/analytics/dashboard-page.js"></script>
+</head>
+<body class="analytics-dashboard-page">
+  <main class="analytics-page flex flex-col gap-16 p-16" data-analytics-dashboard-page>
+    <header class="analytics-shell analytics-shell--hero grid gap-16 p-16">
+      <div class="flex flex-col gap-8">
+        <p class="analytics-kicker m-0">VVavy Reports</p>
+        <div class="flex flex-wrap items-center gap-8">
+          <h1 class="analytics-title m-0">Analytics Dashboard</h1>
+          <span class="analytics-chip" data-role="access-chip">Checking access</span>
+        </div>
+        <p class="analytics-copy m-0" data-role="auth-copy">Checking your session and loading reporting access.</p>
+      </div>
+      <div class="analytics-summary grid gap-12">
+        <div class="analytics-summary-row grid gap-4 p-12">
+          <p class="analytics-label m-0">Account</p>
+          <p class="analytics-copy m-0" data-role="user-summary">Not signed in</p>
+        </div>
+        <div class="analytics-summary-row grid gap-4 p-12">
+          <p class="analytics-label m-0">Range</p>
+          <p class="analytics-copy m-0" data-role="range-summary">Last 30 days by default</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="analytics-shell analytics-shell--gate grid gap-12 p-16" data-role="gate-panel">
+      <div class="grid gap-8">
+        <p class="analytics-label m-0" data-role="gate-eyebrow">Checking session</p>
+        <h2 class="analytics-section-title m-0" data-role="gate-title">Loading report access…</h2>
+        <p class="analytics-copy m-0" data-role="gate-copy">This dashboard opens after your account session is verified.</p>
+      </div>
+      <div class="flex flex-wrap gap-8" data-role="gate-actions">
+        <a class="analytics-button analytics-button--primary" data-role="open-app-link" href="/app">Open VVavy App</a>
+        <button class="analytics-button analytics-button--ghost" type="button" data-role="retry-access">Retry</button>
+        <button class="analytics-button analytics-button--ghost" type="button" data-role="sign-out" hidden>Sign Out</button>
+      </div>
+    </section>
+
+    <section class="analytics-shell analytics-shell--dashboard grid gap-16 p-16" data-role="dashboard-panel" hidden>
+      <div class="analytics-toolbar grid gap-12">
+        <div class="analytics-controls grid gap-12">
+          <label class="analytics-control grid gap-6" for="fromDate">
+            <span class="analytics-label">From</span>
+            <input class="analytics-input" type="date" id="fromDate" />
+          </label>
+          <label class="analytics-control grid gap-6" for="toDate">
+            <span class="analytics-label">To</span>
+            <input class="analytics-input" type="date" id="toDate" />
+          </label>
+          <label class="analytics-control grid gap-6" for="favoritesSelect">
+            <span class="analytics-label">Saved Ranges</span>
+            <div class="flex gap-8">
+              <select class="analytics-input analytics-select flex-1" id="favoritesSelect">
+                <option value="">Saved ranges</option>
+              </select>
+              <button class="analytics-button analytics-button--ghost analytics-button--compact" type="button" id="saveFavorite">Save</button>
+            </div>
+          </label>
+          <div class="analytics-actions flex flex-wrap items-end gap-8">
+            <button class="analytics-button analytics-button--primary" type="button" id="loadData">Load Range</button>
+            <button class="analytics-button analytics-button--ghost" type="button" data-role="sign-out-dashboard">Sign Out</button>
+          </div>
+        </div>
+        <div class="analytics-selection flex flex-wrap items-center gap-8">
+          <p class="analytics-copy m-0" id="selectionStatus">Loaded range: none</p>
+          <button class="analytics-button analytics-button--ghost analytics-button--compact" type="button" id="clearSelection">Clear chart selection</button>
+        </div>
+      </div>
+
+      <div class="analytics-banner analytics-banner--error p-12" id="errorMessage" hidden></div>
+      <div class="analytics-banner analytics-banner--loading p-12" id="loading" hidden>Loading data…</div>
+
+      <section class="analytics-section grid gap-12">
+        <div class="analytics-stats-grid" id="statsGrid"></div>
+      </section>
+
+      <section class="analytics-section grid gap-12">
+        <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+          <span>Daily Activity</span>
+          <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="analytics-section-content grid gap-12" data-section-content>
+          <div class="analytics-chart-card p-12">
+            <div class="analytics-chart-wrapper analytics-chart-wrapper--large">
+              <canvas id="hourlyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analytics-grid analytics-grid--split gap-16">
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Sessions & Views</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-chart-card p-12">
+              <div class="analytics-chart-wrapper analytics-chart-wrapper--small">
+                <canvas id="sessionsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Avg Duration</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-chart-card p-12">
+              <div class="analytics-chart-wrapper analytics-chart-wrapper--small">
+                <canvas id="durationChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="analytics-grid analytics-grid--split gap-16">
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Custom Visuals</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-chart-card p-12">
+              <div class="analytics-chart-wrapper analytics-chart-wrapper--small">
+                <canvas id="customVisualsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Actions</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-chart-card p-12">
+              <div class="analytics-chart-wrapper analytics-chart-wrapper--small">
+                <canvas id="actionsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="analytics-section grid gap-12">
+        <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+          <span>Visuals & Sources by Day</span>
+          <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="analytics-section-content grid gap-12" data-section-content>
+          <div class="analytics-chart-card p-12 grid gap-12">
+            <div class="flex flex-wrap items-center gap-8">
+              <p class="analytics-label m-0">Visuals</p>
+              <p class="analytics-copy m-0" id="visualTotalLabel"></p>
+              <label class="analytics-inline-control flex items-center gap-8" for="visualTopN">
+                <span class="analytics-copy">Show top</span>
+                <select class="analytics-input analytics-select analytics-select--compact" id="visualTopN">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="9999">All</option>
+                </select>
+              </label>
+            </div>
+            <div class="analytics-chart-wrapper">
+              <canvas id="hourlyVisualsChart"></canvas>
+            </div>
+            <div class="flex flex-wrap items-center gap-8">
+              <p class="analytics-label m-0">Sources</p>
+              <p class="analytics-copy m-0" id="sourceTotalLabel"></p>
+              <label class="analytics-inline-control flex items-center gap-8" for="sourceTopN">
+                <span class="analytics-copy">Show top</span>
+                <select class="analytics-input analytics-select analytics-select--compact" id="sourceTopN">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="9999">All</option>
+                </select>
+              </label>
+            </div>
+            <div class="analytics-chart-wrapper analytics-chart-wrapper--small">
+              <canvas id="hourlySourcesChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analytics-grid analytics-grid--split gap-16">
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Selected Visuals</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="todayVisualsSearch" placeholder="Search visuals" />
+                <select class="analytics-input analytics-select" id="todayVisualsSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Selections</option>
+                  <option value="duration-desc">Avg Duration</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <button class="analytics-button analytics-button--ghost analytics-button--compact" type="button" id="todayVisualsCustomOnly">Custom Only</button>
+                <p class="analytics-copy m-0" id="todayVisualsCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="todayVisualsTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="todayVisualsPagination"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Selected Sources</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="todaySourcesSearch" placeholder="Search sources" />
+                <select class="analytics-input analytics-select" id="todaySourcesSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Selections</option>
+                  <option value="duration-desc">Avg Duration</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <p class="analytics-copy m-0" id="todaySourcesCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="todaySourcesTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="todaySourcesPagination"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="analytics-grid analytics-grid--split gap-16">
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Loaded Range Visuals</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="topVisualsSearch" placeholder="Search visuals" />
+                <select class="analytics-input analytics-select" id="topVisualsSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Selections</option>
+                  <option value="duration-desc">Avg Duration</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <p class="analytics-copy m-0" id="topVisualsCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="topVisualsTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="topVisualsPagination"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Loaded Range Sources</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="topSourcesSearch" placeholder="Search sources" />
+                <select class="analytics-input analytics-select" id="topSourcesSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Selections</option>
+                  <option value="duration-desc">Avg Duration</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <p class="analytics-copy m-0" id="topSourcesCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="topSourcesTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="topSourcesPagination"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="analytics-grid analytics-grid--split gap-16">
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Selected Favorites</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="todayFavoritesSearch" placeholder="Search favorites" />
+                <select class="analytics-input analytics-select" id="todayFavoritesSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Count</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <p class="analytics-copy m-0" id="todayFavoritesCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="todayFavoritesTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="todayFavoritesPagination"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analytics-section grid gap-12">
+          <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
+            <span>Selected Saved Visuals</span>
+            <span class="analytics-toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="analytics-section-content grid gap-12" data-section-content>
+            <div class="analytics-table-card p-12 grid gap-12">
+              <div class="analytics-table-controls flex flex-wrap gap-8">
+                <input class="analytics-input analytics-search flex-1" type="text" id="globalFavoritesSearch" placeholder="Search saved visuals" />
+                <select class="analytics-input analytics-select" id="globalFavoritesSort">
+                  <option value="rank-asc">Rank</option>
+                  <option value="selections-desc">Count</option>
+                  <option value="name-asc">Name</option>
+                </select>
+                <p class="analytics-copy m-0" id="globalFavoritesCount"></p>
+              </div>
+              <div class="analytics-table-scroll">
+                <table class="analytics-table" id="globalFavoritesTable"></table>
+              </div>
+              <div class="analytics-pagination flex flex-wrap items-center justify-center gap-8" id="globalFavoritesPagination"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

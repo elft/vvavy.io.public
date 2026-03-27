@@ -4332,6 +4332,19 @@
     overflow-y: auto;
   }
 
+  .overlay-sheet--account .overlay-content {
+    height: auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .overlay-sheet--account .account-layout,
+  .overlay-sheet--account .account-summary,
+  .overlay-sheet--account .account-main {
+    height: auto;
+  }
+
   .overlay-sheet--soundcloud {
     height: 100%;
     max-height: 100%;

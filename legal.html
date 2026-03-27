@@ -181,7 +181,7 @@
   <div class="wrap">
     <div class="brand">
       <img src="/images/vvavy_favicon_256.png" alt="VVavy" />
-      <span class="pill">Last updated: March 1, 2026</span>
+      <span class="pill">Last updated: March 27, 2026</span>
     </div>
     <h1>Terms of Service &amp; Privacy Notice</h1>
     <p class="muted">Welcome to VVavy (“<strong>VVavy</strong>”, “we”, “us”). By using VVavy, you agree to these Terms
@@ -209,6 +209,9 @@
         <li><strong>Changes:</strong> We may modify, suspend, or discontinue VVavy at any time.</li>
         <li><strong>Prohibited:</strong> No stream-ripping, unauthorized copying, or removal of attribution/watermarks.</li>
       </ul>
+
+      <h3>Accounts And Sign-In</h3>
+      <p>You can use core VVavy features without creating an account. If you choose to sign in with Google or an email magic link, you authorize VVavy and its authentication providers to create and maintain the account, session, and verification records reasonably needed to authenticate you, keep you signed in, sync enabled account features across devices, and enforce feature access.</p>
 
       <h3>Third-Party Content</h3>
       <p>VVavy does not host, control, endorse, or assume any responsibility for third-party content you access, load, capture, or record through the service, including audio and video. You are solely responsible for ensuring you have all rights, licenses, and permissions required to use, record, and export that content with VVavy.</p>
@@ -258,12 +261,14 @@
       <h2>3) Privacy Notice</h2>
       <p class="muted">We keep privacy minimal. We do not sell personal data.</p>
       <ul>
-        <li><strong>What we collect:</strong> minimal, aggregated usage analytics (e.g., page views, playback starts,
-          session duration) and basic error/feature telemetry.</li>
-        <li><strong>What we do not store or server-process:</strong> webcam data, microphone input, audio files, raw audio, raw video, or other live device media.</li>
-        <li><strong>Processing:</strong> visualization and any webcam, microphone, or similar device handling happens locally in your browser and is not sent to our servers.</li>
-        <li><strong>Retention:</strong> aggregated analytics are retained for up to <strong>90 days</strong>.</li>
-        <li><strong>Purpose:</strong> operate, improve reliability, and comply with SoundCloud rules and applicable law.</li>
+        <li><strong>Account and sign-in data:</strong> if you create or use an account, we store the contact, profile, session, provider, and verification information reasonably needed to authenticate you and manage your account.</li>
+        <li><strong>Synced account content:</strong> VVavy currently syncs favorites and playlists for signed-in users, along with related state needed to restore that content across devices.</li>
+        <li><strong>Local browser storage:</strong> on your device, VVavy stores preferences and working state such as favorites, recent/seen visuals, playlists, render or export settings, custom visual code and drafts, session markers, and essential authentication state.</li>
+        <li><strong>Usage analytics:</strong> we collect limited product analytics such as page views, visual and source selections, playback and export events, favorite interactions, custom-visual create/preview/save events, session duration, and referrer hostname. These analytics are aggregated in Cloudflare KV and are not intended to include raw audio, raw video, webcam footage, microphone input, uploaded media contents, or pasted custom-visual code.</li>
+        <li><strong>Local processing of media:</strong> visualization and device-media handling happens locally in your browser. Webcam, microphone, tab capture, uploaded audio/video, and similar media are processed client-side rather than sent to VVavy servers for visualization.</li>
+        <li><strong>Session minimization:</strong> VVavy does not intentionally write IP address or user-agent fields into its application-level auth session storage.</li>
+        <li><strong>Retention:</strong> daily analytics records currently use a retention window of up to <strong>1 year</strong>, and some cumulative aggregate analytics counters may be retained longer. Account and session records are retained for as long as reasonably needed to operate the service, maintain security, and comply with legal obligations.</li>
+        <li><strong>Purpose:</strong> authenticate users, sync enabled account features, operate and secure the service, improve reliability, understand product usage at an aggregate level, and comply with applicable law and third-party platform rules.</li>
       </ul>
       <p>Requests or questions: <a href="mailto:vvavy.io@gmail.com">vvavy.io@gmail.com</a>.</p>
     </section>

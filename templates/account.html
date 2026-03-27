@@ -98,7 +98,8 @@
               </div>
               <form class="flex flex-col gap-8" data-role="account-profile-form" novalidate>
                 <label class="overlay-label" for="account-username-input">Choose Username</label>
-                <input class="overlay-input" id="account-username-input" type="text" autocapitalize="off" autocomplete="username" placeholder="ChillHuman" data-role="account-username-input" />
+                <input class="overlay-input" id="account-username-input" type="text" inputmode="text" autocapitalize="off" autocomplete="username" spellcheck="false" minlength="3" maxlength="24" pattern="[A-Za-z0-9]{3,24}" aria-describedby="account-username-help" placeholder="ChillHuman" data-role="account-username-input" />
+                <p class="effects-panel-meta m-0 text-soft" id="account-username-help">Use 3 to 24 letters or numbers. No spaces or special characters.</p>
                 <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit">
                   Save Username
                 </button>

@@ -384,6 +384,10 @@
   padding-bottom: var(--space-12);
 }
 
+.pb-16 {
+  padding-bottom: var(--space-16);
+}
+
 .pl-4 {
   padding-left: var(--space-4);
 }

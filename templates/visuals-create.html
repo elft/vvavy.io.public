@@ -144,6 +144,23 @@
           <input class="overlay-input" id="custom-visual-id" type="text" placeholder="my-custom-visual" data-role="custom-visual-id" />
         </div>
       </div>
+      <section class="visuals-create__review-panel p-10 flex flex-col gap-6" aria-labelledby="custom-visual-submit-review-label">
+        <div class="flex items-start justify-between gap-8">
+          <label class="visuals-create__review-toggle flex items-start gap-8 cursor-pointer" for="custom-visual-submit-review">
+            <input id="custom-visual-submit-review" type="checkbox" data-role="custom-visual-submit-review" />
+            <span class="flex flex-col gap-4">
+              <span class="overlay-label m-0" id="custom-visual-submit-review-label">Submit for review</span>
+              <span class="effects-panel-meta m-0 text-soft" data-role="custom-visual-submit-review-copy">Leave this off to save the visual only to your account.</span>
+            </span>
+          </label>
+          <button
+            class="visuals-tab-help visuals-create__review-help"
+            type="button"
+            aria-label="How review submission works"
+            data-tooltip="When checked, VVavy reviews this code before the visual can be shown to other people."
+          >?</button>
+        </div>
+      </section>
       <div class="visuals-create__actions visuals-create__actions--sticky py-6 flex gap-4 m-0">
         <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-preview">Preview Live</button>
         <button class="overlay-menu__button py-8 px-10 text-sm uppercase flex-1" type="button" data-role="custom-visuals-save">Save changes</button>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="review-runner-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>VVavy Review Runner</title>
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/utilities.css" />
+  <link rel="stylesheet" href="../styles/reviews.css" />
+  <script type="module" src="../app/reviews/review-sandbox-page.js"></script>
+</head>
+<body class="review-dashboard-page">
+  <main class="review-page flex flex-col gap-16 p-16" data-review-runner-page>
+    <section class="review-shell grid gap-12 p-16">
+      <div class="grid gap-4">
+        <p class="review-label m-0">Automation Harness</p>
+        <h1 class="review-title m-0">Custom Visual Sandbox</h1>
+        <p class="review-copy m-0" data-role="runner-status">
+          Waiting for the review runner to connect.
+        </p>
+      </div>
+      <div class="review-detail-band p-12 grid gap-6">
+        <p class="review-copy m-0" data-role="runner-meta">
+          This page is for local and remote review automation only.
+        </p>
+      </div>
+    </section>
+
+    <section class="review-shell grid gap-12 p-16">
+      <div class="grid gap-4">
+        <p class="review-label m-0">Canvas</p>
+        <h2 class="review-panel-title m-0" data-role="runner-visual-title">Idle</h2>
+      </div>
+      <div class="review-card grid gap-12 p-12">
+        <div class="review-runner-stage" data-review-runner-stage>
+          <canvas
+            id="review-runner-canvas"
+            width="640"
+            height="640"
+            aria-label="Custom visual review canvas"
+          ></canvas>
+        </div>
+        <pre class="review-code-block m-0" data-role="runner-log">No review running.</pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

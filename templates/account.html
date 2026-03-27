@@ -27,7 +27,7 @@
             <p class="effects-panel-meta m-0 text-soft" data-role="account-summary-syncs">Favorites and playlists across devices, plus account features once you sign in.</p>
           </div>
 
-          <div class="account-summary-row p-12 flex flex-col gap-4">
+          <div class="account-summary-row p-12 flex flex-col gap-4" data-role="account-return-row">
             <p class="visual-control-label text-sm uppercase text-muted m-0">Magic Link</p>
             <p class="effects-panel-meta m-0 text-soft" data-role="account-return-copy">Open the email to finish signing in.</p>
           </div>
@@ -115,6 +115,20 @@
             <button class="overlay-menu__button overlay-menu__button--ghost py-10 px-12 text-sm uppercase w-full" type="button" data-account-action="sign-out">
               Sign Out
             </button>
+          </section>
+
+          <section class="account-card account-card--submissions p-16 flex flex-col gap-12" data-role="account-submissions-section" hidden aria-labelledby="account-submissions-title">
+            <div class="flex items-start justify-between gap-12">
+              <div class="flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0">Custom Visuals</p>
+                <p class="account-card__title m-0" id="account-submissions-title">Your submitted visuals</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-copy">Only you can see this list. Approved visuals can be shown to other VVavy users after review.</p>
+              </div>
+              <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-submissions-count">0 Submitted</span>
+            </div>
+
+            <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-status" aria-live="polite">Loading your submitted visuals…</p>
+            <div class="account-submissions-list flex flex-col gap-8" data-role="account-submissions-list"></div>
           </section>
 
           <section class="account-status-card p-12 flex flex-col gap-4">

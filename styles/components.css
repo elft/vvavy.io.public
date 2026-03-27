@@ -2223,7 +2223,9 @@
 .account-sync-panel,
 .account-status-card,
 .account-identity-band,
-.account-summary-row {
+.account-summary-row,
+.account-submission-row,
+.visuals-create__review-panel {
   background: var(--color-button-surface);
 }
 
@@ -2296,6 +2298,79 @@
 
 .account-status-card {
   min-height: 92px;
+}
+
+.account-card--submissions {
+  min-height: 0;
+}
+
+.account-submission-row,
+.visuals-create__review-panel {
+  border: 1px solid var(--color-border-faint);
+}
+
+.account-submission__title {
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.account-submission__chip[data-tone='pending'] {
+  border-color: rgba(182, 132, 42, 0.28);
+  background: rgba(182, 132, 42, 0.1);
+  color: var(--color-warning);
+}
+
+.account-submission__chip[data-tone='info'] {
+  border-color: rgba(63, 95, 130, 0.28);
+  background: rgba(63, 95, 130, 0.1);
+  color: var(--color-primary-strong);
+}
+
+.account-submission__chip[data-tone='success'] {
+  border-color: rgba(86, 122, 101, 0.28);
+  background: rgba(86, 122, 101, 0.1);
+  color: var(--color-success);
+}
+
+.account-submission__chip[data-tone='warning'] {
+  border-color: rgba(190, 91, 103, 0.28);
+  background: rgba(190, 91, 103, 0.1);
+  color: var(--color-danger);
+}
+
+.account-submission__toggle {
+  cursor: pointer;
+}
+
+.account-submission__reason {
+  border: 1px solid rgba(190, 91, 103, 0.18);
+  background: rgba(190, 91, 103, 0.04);
+}
+
+.visuals-create__review-toggle input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin: var(--space-2) 0 0;
+  cursor: pointer;
+}
+
+.visuals-create__review-help {
+  flex-shrink: 0;
+}
+
+.visuals-tab-help.visuals-create__review-help[data-tooltip]::after {
+  top: auto;
+  bottom: calc(100% + var(--space-6));
+  left: auto;
+  right: 0;
+  transform: translate(0, 2px);
+}
+
+.visuals-tab-help.visuals-create__review-help[data-tooltip]:hover::after,
+.visuals-tab-help.visuals-create__review-help[data-tooltip]:focus-visible::after {
+  transform: translate(0, 0);
 }
 
 .account-action-status {

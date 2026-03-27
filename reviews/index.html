@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="review-dashboard-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>VVavy Custom Visual Reviews</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f5f5f3" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/utilities.css" />
+  <link rel="stylesheet" href="../styles/reviews.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script type="module" src="../app/reviews/review-dashboard-page.js"></script>
+</head>
+<body class="review-dashboard-page">
+  <main class="review-page flex flex-col gap-20 p-16" data-review-dashboard-page>
+    <header class="review-shell review-shell--hero grid gap-16 p-16">
+      <div class="flex flex-col gap-8">
+        <p class="review-kicker m-0">VVavy Reviews</p>
+        <div class="flex flex-wrap items-center gap-8">
+          <h1 class="review-title m-0">Custom Visual Dashboard</h1>
+          <span class="review-chip" data-role="access-chip">Checking access</span>
+        </div>
+        <p class="review-copy m-0" data-role="auth-copy">Checking your session and loading reviewer access.</p>
+      </div>
+      <div class="review-summary grid gap-12">
+        <div class="review-summary-row grid gap-4 p-12">
+          <p class="review-label m-0">Account</p>
+          <p class="review-copy m-0" data-role="user-summary">Not signed in</p>
+        </div>
+        <div class="review-summary-row grid gap-4 p-12">
+          <p class="review-label m-0">Workspace</p>
+          <p class="review-copy m-0">Use the overview to spot queue pressure, then inspect the selected review without leaving the page.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="review-shell grid gap-12 p-16" data-role="gate-panel">
+      <div class="grid gap-8">
+        <p class="review-label m-0" data-role="gate-eyebrow">Checking session</p>
+        <h2 class="review-section-title m-0" data-role="gate-title">Loading review dashboard…</h2>
+        <p class="review-copy m-0" data-role="gate-copy">This workspace opens after your account session is verified.</p>
+      </div>
+      <div class="flex flex-wrap gap-8">
+        <a class="review-button review-button--primary" href="/app" data-role="open-app-link">Open VVavy App</a>
+        <button class="review-button review-button--ghost" type="button" data-role="retry-access">Retry</button>
+        <button class="review-button review-button--ghost" type="button" data-role="sign-out" hidden>Sign Out</button>
+      </div>
+    </section>
+
+    <section class="review-shell grid gap-16 p-16" data-role="workspace-panel" hidden>
+      <div class="review-toolbar grid gap-12">
+        <div class="review-stat-grid">
+          <article class="review-stat-card p-12 grid gap-4">
+            <p class="review-label m-0">Submissions</p>
+            <p class="review-stat-value m-0" data-role="stat-total">0</p>
+          </article>
+          <button class="review-stat-card review-stat-card--button p-12 grid gap-4" type="button" data-role="status-card" data-status="pending_review">
+            <p class="review-label m-0">Pending</p>
+            <p class="review-stat-value m-0" data-role="stat-pending">0</p>
+          </button>
+          <button class="review-stat-card review-stat-card--button p-12 grid gap-4" type="button" data-role="status-card" data-status="review_running">
+            <p class="review-label m-0">Running</p>
+            <p class="review-stat-value m-0" data-role="stat-running">0</p>
+          </button>
+          <button class="review-stat-card review-stat-card--button p-12 grid gap-4" type="button" data-role="status-card" data-status="review_passed">
+            <p class="review-label m-0">Passed</p>
+            <p class="review-stat-value m-0" data-role="stat-passed">0</p>
+          </button>
+          <button class="review-stat-card review-stat-card--button p-12 grid gap-4" type="button" data-role="status-card" data-status="review_failed">
+            <p class="review-label m-0">Failed</p>
+            <p class="review-stat-value m-0" data-role="stat-failed">0</p>
+          </button>
+          <article class="review-stat-card p-12 grid gap-4">
+            <p class="review-label m-0">Pass Rate</p>
+            <p class="review-stat-value m-0" data-role="stat-pass-rate">0%</p>
+          </article>
+        </div>
+        <div class="review-banner review-banner--status p-12" data-role="page-status" aria-live="polite"></div>
+      </div>
+
+      <div class="review-flow-grid">
+        <article class="review-flow-card grid gap-6 p-12">
+          <p class="review-label m-0">Overview</p>
+          <h2 class="review-panel-title m-0">Watch queue health</h2>
+          <p class="review-copy m-0">Use compact KPIs and trend views to spot pressure before diving into individual submissions.</p>
+        </article>
+        <article class="review-flow-card grid gap-6 p-12">
+          <p class="review-label m-0">Investigate</p>
+          <h2 class="review-panel-title m-0">Filter by status or reason</h2>
+          <p class="review-copy m-0">Click a status, owner, or failure reason to narrow the list to the exact slice you need.</p>
+        </article>
+        <article class="review-flow-card grid gap-6 p-12">
+          <p class="review-label m-0">Inspect</p>
+          <h2 class="review-panel-title m-0">Load the full record</h2>
+          <p class="review-copy m-0">Selecting a row opens the detailed report, raw findings, and submitted code in the side panel.</p>
+        </article>
+      </div>
+
+      <div class="review-grid review-grid--main gap-16">
+        <section class="review-section grid gap-16">
+          <article class="review-card grid gap-12 p-12">
+            <div class="flex flex-wrap items-end justify-between gap-12">
+              <div class="grid gap-4">
+                <p class="review-label m-0">Review list</p>
+                <h2 class="review-panel-title m-0">Filter and inspect submissions</h2>
+                <p class="review-copy m-0" data-role="filter-summary">No data loaded yet.</p>
+              </div>
+              <div class="flex flex-wrap gap-8">
+                <button class="review-button review-button--ghost review-button--compact" type="button" data-role="reset-filters">Reset Filters</button>
+                <button class="review-button review-button--ghost review-button--compact" type="button" data-role="sign-out-dashboard">Sign Out</button>
+              </div>
+            </div>
+
+            <div class="review-filter-grid">
+              <label class="grid gap-6" for="reviewSearch">
+                <span class="review-label">Search</span>
+                <input class="review-input" id="reviewSearch" data-role="review-search" type="search" placeholder="Visual id, name, owner, or description" />
+              </label>
+              <label class="grid gap-6" for="reviewSort">
+                <span class="review-label">Sort</span>
+                <select class="review-input" id="reviewSort" data-role="review-sort">
+                  <option value="queue-desc">Queue priority</option>
+                  <option value="requested-desc">Newest first</option>
+                  <option value="issues-desc">Most issues</option>
+                  <option value="size-desc">Largest code</option>
+                  <option value="owner-asc">Owner</option>
+                  <option value="name-asc">Visual</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="flex flex-wrap gap-8" data-role="active-filters"></div>
+            <div class="review-list" data-role="review-list"></div>
+          </article>
+
+          <div class="review-grid review-grid--split gap-16">
+            <article class="review-card grid gap-10 p-12">
+              <div class="grid gap-4">
+                <p class="review-label m-0">Chart 1</p>
+                <h2 class="review-panel-title m-0">Queue status</h2>
+                <p class="review-copy m-0">Status counts stay categorical so failures and backlog are easier to compare at a glance.</p>
+              </div>
+              <div class="review-chart-wrapper review-chart-wrapper--short">
+                <canvas id="reviewStatusChart"></canvas>
+              </div>
+              <div class="flex flex-wrap gap-8" data-role="status-filter-rail"></div>
+            </article>
+
+            <article class="review-card grid gap-10 p-12">
+              <div class="grid gap-4">
+                <p class="review-label m-0">Chart 2</p>
+                <h2 class="review-panel-title m-0">Submission trend</h2>
+                <p class="review-copy m-0">The stacked timeline shows whether backlog is clearing or accumulating over time.</p>
+              </div>
+              <div class="review-chart-wrapper review-chart-wrapper--short">
+                <canvas id="reviewTimelineChart"></canvas>
+              </div>
+            </article>
+          </div>
+
+          <div class="review-grid review-grid--split gap-16">
+            <article class="review-card grid gap-10 p-12">
+              <div class="grid gap-4">
+                <p class="review-label m-0">Chart 3</p>
+                <h2 class="review-panel-title m-0">Failure reasons</h2>
+                <p class="review-copy m-0">Ranked bars are used here because reviewers usually need to compare exact reason counts, not proportions.</p>
+              </div>
+              <div class="review-chart-wrapper">
+                <canvas id="reviewFailureChart"></canvas>
+              </div>
+            </article>
+
+            <article class="review-card grid gap-10 p-12">
+              <div class="grid gap-4">
+                <p class="review-label m-0">Chart 4</p>
+                <h2 class="review-panel-title m-0">Top submitters</h2>
+                <p class="review-copy m-0">Owner load makes review concentration obvious and doubles as a quick filter into one creator’s queue.</p>
+              </div>
+              <div class="review-chart-wrapper">
+                <canvas id="reviewOwnerChart"></canvas>
+              </div>
+            </article>
+          </div>
+
+        </section>
+
+        <aside class="review-section review-section--detail grid gap-12">
+          <article class="review-card grid gap-12 p-12">
+            <div class="grid gap-4">
+              <p class="review-label m-0">Selected review</p>
+              <div class="flex flex-wrap items-center gap-8">
+                <h2 class="review-panel-title m-0" data-role="detail-title">Select a review</h2>
+                <span class="review-chip" data-role="detail-status-chip">Idle</span>
+              </div>
+              <p class="review-copy m-0" data-role="detail-copy">Choose a submission to inspect its review outcome, metadata, report payload, and source code.</p>
+            </div>
+
+            <div class="review-detail-band p-12 grid gap-6" data-role="detail-meta">
+              <p class="review-copy m-0">No review selected yet.</p>
+            </div>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Automation Snapshot</h3>
+                <p class="review-copy m-0" data-role="detail-snapshot-summary">No snapshot loaded.</p>
+              </div>
+              <div class="review-card grid gap-8 p-12">
+                <img
+                  alt="Rendered custom visual snapshot"
+                  data-role="detail-snapshot-image"
+                  hidden
+                />
+                <div class="review-empty-state p-12" data-role="detail-snapshot-empty">No snapshot loaded.</div>
+              </div>
+            </section>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Human Review</h3>
+                <p class="review-copy m-0" data-role="detail-approval-summary">No decision recorded.</p>
+              </div>
+              <label class="grid gap-6" for="reviewDecisionNotes">
+                <span class="review-label">Decision notes</span>
+                <textarea
+                  class="review-input"
+                  id="reviewDecisionNotes"
+                  data-role="detail-decision-notes"
+                  rows="4"
+                  placeholder="Optional notes for the submitter or reviewers"
+                ></textarea>
+              </label>
+              <div class="flex flex-wrap gap-8">
+                <button class="review-button review-button--primary" type="button" data-role="detail-approve-button">Approve</button>
+                <button class="review-button review-button--ghost" type="button" data-role="detail-reject-button">Reject</button>
+              </div>
+            </section>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Review errors</h3>
+                <p class="review-copy m-0" data-role="detail-errors-summary">0 items</p>
+              </div>
+              <div class="review-list review-list--compact" data-role="detail-errors"></div>
+            </section>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Review findings</h3>
+                <p class="review-copy m-0" data-role="detail-findings-summary">0 items</p>
+              </div>
+              <div class="review-list review-list--compact" data-role="detail-findings"></div>
+            </section>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Report fields</h3>
+                <p class="review-copy m-0" data-role="detail-report-summary">No report loaded.</p>
+              </div>
+              <div class="review-list review-list--compact" data-role="detail-report"></div>
+            </section>
+
+            <section class="grid gap-8">
+              <div class="flex flex-wrap items-center justify-between gap-8">
+                <h3 class="review-subtitle m-0">Submitted code</h3>
+                <p class="review-copy m-0" data-role="detail-code-summary">Code loads after you select a review.</p>
+              </div>
+              <pre class="review-code-block m-0" data-role="detail-code">Select a review to load the submitted source.</pre>
+            </section>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

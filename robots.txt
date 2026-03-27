@@ -11,6 +11,8 @@ Disallow: /analytics
 Disallow: /analytics/
 Disallow: /admin
 Disallow: /admin/
+Disallow: /reviews
+Disallow: /reviews/
 
 # Sitemaps
 Sitemap: https://vvavy.io/sitemap.xml

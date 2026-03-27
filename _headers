@@ -20,3 +20,9 @@
 
 /admin/
   X-Robots-Tag: noindex, nofollow
+
+/reviews
+  X-Robots-Tag: noindex, nofollow
+
+/reviews/
+  X-Robots-Tag: noindex, nofollow

@@ -144,6 +144,31 @@
           </div>
 
           <div class="visual-control-group flex flex-col gap-8">
+            <div class="flex items-center justify-between gap-8">
+              <label class="visual-control-label text-sm uppercase text-muted" for="vc-webgl-draw-mode">Primitive</label>
+              <span class="visual-control-value text-sm uppercase" data-role="vc-webgl-draw-mode-value">Original</span>
+            </div>
+            <select
+              class="overlay-select visual-control-select--compact"
+              id="vc-webgl-draw-mode"
+              data-role="vc-webgl-draw-mode"
+              aria-label="Global WebGL primitive mode"
+            >
+              <option value="native">Original</option>
+              <option value="points">Points</option>
+              <option value="lines">Lines</option>
+              <option value="line-strip">Line Strip</option>
+              <option value="line-loop">Line Loop</option>
+              <option value="triangles">Triangles</option>
+              <option value="triangle-strip">Triangle Strip</option>
+              <option value="triangle-fan">Triangle Fan</option>
+            </select>
+            <p class="visual-control-hint m-0 text-soft text-xs">
+              Forces WebGL visuals to draw with one primitive type globally. Points are the closest option to dot or circle-like rendering.
+            </p>
+          </div>
+
+          <div class="visual-control-group flex flex-col gap-8">
             <div class="flex items-center justify-between">
               <label class="visual-control-label text-sm uppercase text-muted" for="vc-tint">Color</label>
               <span class="visual-control-value text-sm uppercase" data-role="vc-tint-value">Off</span>

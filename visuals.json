@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-28T00:24:03.292Z",
+  "generatedAt": "2026-03-28T12:50:02.142Z",
   "catalogUrl": "https://vvavy.io/visuals",
   "visuals": [
     {
@@ -64,6 +64,19 @@
       "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=beat-drop-grid",
       "dateModified": "2026-02-11T22:24:59.268Z"
+    },
+    {
+      "id": "brutal-columns",
+      "name": "Brutal Columns",
+      "description": "Monolithic neon columns compound their shatter on every beat, only settling when the 5-second volume trend drops.",
+      "tags": [
+        "trippy",
+        "aggressive",
+        "geometry"
+      ],
+      "createdBy": "Gemini",
+      "url": "https://vvavy.io/app?visual=brutal-columns",
+      "dateModified": "2026-03-28T12:42:29.774Z"
     },
     {
       "id": "centroid-crystalline-tunnel",
@@ -806,16 +819,16 @@
     {
       "id": "neon-space-fold",
       "name": "Neon Space Fold",
-      "description": "Advanced audio-reactive 3D space folding. Bass drives propulsion, while overall loudness controls the geometric breathing/expansion.",
+      "description": "A centered neon lattice tunnel where bass pushes the forward pull, beats brighten the ribs, and highs tighten the folded geometry.",
       "tags": [
         "High Definition",
         "raymarching",
         "trippy",
         "punchy"
       ],
-      "createdBy": "vvavy x Gemini",
+      "createdBy": "vvavy",
       "url": "https://vvavy.io/app?visual=neon-space-fold",
-      "dateModified": "2026-02-11T22:24:59.268Z"
+      "dateModified": "2026-03-28T11:40:01.433Z"
     },
     {
       "id": "neon-tunnel-kaleidoscope",

@@ -1,5 +1,7 @@
 /* global fetch */
 
+import { getAccessibleWorkspaces } from '../access/workspace-registry.js';
+
 const AUTH_STATUS_ENDPOINT = '/api/auth/status';
 const SESSION_ENDPOINT = '/api/me';
 const SIGN_OUT_ENDPOINT = '/api/me/sign-out';
@@ -43,12 +45,14 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
     accessChip: root.querySelector('[data-role="access-chip"]'),
     authCopy: root.querySelector('[data-role="auth-copy"]'),
     userSummary: root.querySelector('[data-role="user-summary"]'),
+    workspaceNavigation: root.querySelector('[data-role="workspace-navigation"]'),
+    workspaceNavigationSummary: root.querySelector('[data-role="workspace-navigation-summary"]'),
+    workspaceNavigationList: root.querySelector('[data-role="workspace-navigation-list"]'),
     gateEyebrow: root.querySelector('[data-role="gate-eyebrow"]'),
     gateTitle: root.querySelector('[data-role="gate-title"]'),
     gateCopy: root.querySelector('[data-role="gate-copy"]'),
     retryAccessButton: root.querySelector('[data-role="retry-access"]'),
     signOutButton: root.querySelector('[data-role="sign-out"]'),
-    signOutDashboardButton: root.querySelector('[data-role="sign-out-dashboard"]'),
     pageStatus: root.querySelector('[data-role="page-status"]'),
     filterSummary: root.querySelector('[data-role="filter-summary"]'),
     statusFilterRail: root.querySelector('[data-role="status-filter-rail"]'),
@@ -89,6 +93,7 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
     authStatus: null,
     session: null,
     access: null,
+    accessState: null,
     dashboard: null,
     filters: {
       status: 'all',
@@ -130,6 +135,31 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
   function replaceChildren(node, children = []) {
     if (!node) return;
     node.replaceChildren(...children.filter(Boolean));
+  }
+
+  function renderWorkspaceNavigation() {
+    if (!refs.workspaceNavigation || !refs.workspaceNavigationSummary || !refs.workspaceNavigationList) {
+      return;
+    }
+
+    const items = getAccessibleWorkspaces(state.accessState, {
+      currentPath: '/reviews/',
+    });
+    refs.workspaceNavigation.hidden = !items.length;
+    if (!items.length) {
+      replaceChildren(refs.workspaceNavigationList, []);
+      return;
+    }
+
+    refs.workspaceNavigationSummary.textContent = `${items.length} workspace${items.length === 1 ? '' : 's'} available to this account.`;
+    const links = items.map((item) => createElement('a', {
+      className: `review-button ${item.isCurrent ? 'review-button--primary' : 'review-button--ghost'}${item.isCurrent ? ' is-active' : ''}`,
+      text: item.label,
+      attrs: {
+        href: item.href,
+      },
+    }));
+    replaceChildren(refs.workspaceNavigationList, links);
   }
 
   async function requestJson(url, options = {}) {
@@ -262,6 +292,8 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
     }
     state.detailByKey = Object.create(null);
     state.selectedKey = '';
+    state.accessState = null;
+    renderWorkspaceNavigation();
     await fetchAccessState();
   }
 
@@ -290,8 +322,10 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
       state.authStatus = authStatus ?? null;
       state.session = session ?? null;
       state.access = normalizeAccess(accessPayload);
+      state.accessState = accessPayload ?? null;
       refs.userSummary.textContent = session?.user ? getDisplayName(session.user) : 'Not signed in';
       refs.signOutButton.hidden = !session?.authenticated;
+      renderWorkspaceNavigation();
 
       if (!authStatus?.configured) {
         refs.authCopy.textContent = 'This reviewer workspace is not available on this deployment.';
@@ -356,6 +390,8 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
       refs.workspacePanel.hidden = false;
       return true;
     } catch (error) {
+      state.accessState = null;
+      renderWorkspaceNavigation();
       refs.authCopy.textContent = 'The dashboard could not verify reviewer access right now.';
       showGate({
         eyebrow: 'Connection issue',
@@ -1162,9 +1198,6 @@ export function initReviewDashboardPage(root = document.querySelector('[data-rev
       void bootstrap();
     });
     refs.signOutButton.addEventListener('click', () => {
-      void signOutAndRefresh();
-    });
-    refs.signOutDashboardButton.addEventListener('click', () => {
       void signOutAndRefresh();
     });
     refs.reviewSearch.addEventListener('input', (event) => {

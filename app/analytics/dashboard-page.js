@@ -1,8 +1,11 @@
+import { getAccessibleWorkspaces } from '../access/workspace-registry.js';
+
 const AUTH_STATUS_ENDPOINT = '/api/auth/status';
 const SESSION_ENDPOINT = '/api/me';
 const SIGN_OUT_ENDPOINT = '/api/me/sign-out';
 const ACCESS_ENDPOINT = '/api/access';
 const ANALYTICS_RANGE_ENDPOINT = '/api/analytics/range';
+const ANALYTICS_HOURLY_ENDPOINT = '/api/analytics/hourly';
 const VISUALS_ENDPOINT = '/visuals.json';
 
 const RANGE_CACHE_KEY = 'analyticsRangeCacheV3';
@@ -34,12 +37,14 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     authCopy: root.querySelector('[data-role="auth-copy"]'),
     userSummary: root.querySelector('[data-role="user-summary"]'),
     rangeSummary: root.querySelector('[data-role="range-summary"]'),
+    workspaceNavigation: root.querySelector('[data-role="workspace-navigation"]'),
+    workspaceNavigationSummary: root.querySelector('[data-role="workspace-navigation-summary"]'),
+    workspaceNavigationList: root.querySelector('[data-role="workspace-navigation-list"]'),
     gateEyebrow: root.querySelector('[data-role="gate-eyebrow"]'),
     gateTitle: root.querySelector('[data-role="gate-title"]'),
     gateCopy: root.querySelector('[data-role="gate-copy"]'),
     retryAccessButton: root.querySelector('[data-role="retry-access"]'),
     signOutButton: root.querySelector('[data-role="sign-out"]'),
-    signOutDashboardButton: root.querySelector('[data-role="sign-out-dashboard"]'),
     openAppLink: root.querySelector('[data-role="open-app-link"]'),
     fromDate: root.querySelector('#fromDate'),
     toDate: root.querySelector('#toDate'),
@@ -50,6 +55,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     errorMessage: root.querySelector('#errorMessage'),
     loadingMessage: root.querySelector('#loading'),
     selectionStatus: root.querySelector('#selectionStatus'),
+    activitySectionLabel: root.querySelector('[data-role="activity-section-label"]'),
+    visualsSourcesSectionLabel: root.querySelector('[data-role="visuals-sources-section-label"]'),
     visualTopN: root.querySelector('#visualTopN'),
     sourceTopN: root.querySelector('#sourceTopN'),
     statsGrid: root.querySelector('#statsGrid'),
@@ -62,16 +69,22 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     authStatus: null,
     session: null,
     access: null,
+    accessState: null,
     accessLoading: false,
     charts: Object.create(null),
     tableStates: Object.create(null),
     knownVisualIds: new Set(),
     rangeSelectionAnchor: null,
-    lastRenderedDailyData: null,
+    lastRenderedChartData: null,
     dashboard: {
       loadedRange: null,
-      selectedRange: null,
+      selectedDateRange: null,
+      selectedHourRange: null,
       loadedDailyData: [],
+      hourlyDataByDate: Object.create(null),
+      currentGranularity: 'day',
+      currentGranularityDate: null,
+      selectionRequestId: 0,
     },
   };
 
@@ -112,6 +125,31 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
 
   function replaceChildren(node, children = []) {
     node.replaceChildren(...children.filter(Boolean));
+  }
+
+  function renderWorkspaceNavigation() {
+    if (!refs.workspaceNavigation || !refs.workspaceNavigationSummary || !refs.workspaceNavigationList) {
+      return;
+    }
+
+    const items = getAccessibleWorkspaces(state.accessState, {
+      currentPath: '/analytics/',
+    });
+    refs.workspaceNavigation.hidden = !items.length;
+    if (!items.length) {
+      replaceChildren(refs.workspaceNavigationList, []);
+      return;
+    }
+
+    refs.workspaceNavigationSummary.textContent = `${items.length} workspace${items.length === 1 ? '' : 's'} available to this account.`;
+    const links = items.map((item) => createElement('a', {
+      className: `analytics-button ${item.isCurrent ? 'analytics-button--primary' : 'analytics-button--ghost'}${item.isCurrent ? ' is-active' : ''}`,
+      text: item.label,
+      attrs: {
+        href: item.href,
+      },
+    }));
+    replaceChildren(refs.workspaceNavigationList, links);
   }
 
   function getCssVar(name, fallback = '') {
@@ -166,6 +204,47 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       cursor.setUTCDate(cursor.getUTCDate() + 1);
     }
     return keys;
+  }
+
+  function isSingleDayRange(range) {
+    return Boolean(range?.from && range?.to && range.from === range.to);
+  }
+
+  function formatHourLabel(hour) {
+    return `${String(hour).padStart(2, '0')}:00`;
+  }
+
+  function getHourBucketKey(date, hour) {
+    return `${date}T${formatHourLabel(hour)}`;
+  }
+
+  function getBucketLabel(bucket, granularity = 'day') {
+    if (granularity === 'hour') {
+      return bucket?.label || bucket?.time || formatHourLabel(bucket?.hour ?? 0);
+    }
+    return bucket?.date || '';
+  }
+
+  function normalizeHourlyEntry(date, entry = {}) {
+    const parsedHour = Number.parseInt(entry.hour, 10);
+    const hour = Number.isFinite(parsedHour)
+      ? Math.min(23, Math.max(0, parsedHour))
+      : Number.parseInt(String(entry.time || '00').slice(0, 2), 10) || 0;
+    const label = entry.time || formatHourLabel(hour);
+    return {
+      ...entry,
+      date,
+      hour,
+      label,
+      bucketKey: getHourBucketKey(date, hour),
+      total_session_duration_ms: Number(entry.total_session_duration_ms || 0),
+      avg_session_duration_ms: Number(entry.avg_session_duration_ms || 0),
+      avg_session_duration_minutes: Number(entry.avg_session_duration_minutes || 0),
+      visuals: Array.isArray(entry.visuals) ? entry.visuals : [],
+      sources: Array.isArray(entry.sources) ? entry.sources : [],
+      favorites: Array.isArray(entry.favorites) ? entry.favorites : [],
+      saved_visuals: Array.isArray(entry.saved_visuals) ? entry.saved_visuals : [],
+    };
   }
 
   function getFavoriteRanges() {
@@ -457,8 +536,10 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       state.authStatus = authStatus ?? null;
       state.session = session ?? null;
       state.access = normalizeAccess(accessPayload);
+      state.accessState = accessPayload ?? null;
 
       updateUserSummary();
+      renderWorkspaceNavigation();
 
       if (!authStatus?.configured) {
         refs.authCopy.textContent = 'This reporting workspace is not available on this deployment.';
@@ -511,6 +592,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       setChip('Authorized', 'success');
       return true;
     } catch (error) {
+      state.accessState = null;
+      renderWorkspaceNavigation();
       refs.authCopy.textContent = 'The dashboard could not verify report access right now.';
       showGate({
         eyebrow: 'Connection issue',
@@ -539,6 +622,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     }
     state.session = null;
     state.access = null;
+    state.accessState = null;
+    renderWorkspaceNavigation();
     await fetchAccessState();
   }
 
@@ -548,6 +633,28 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       { method: 'GET' },
     );
     upsertRangeIntoCache(payload);
+  }
+
+  async function fetchHourlyData(date) {
+    const payload = await requestJson(
+      `${ANALYTICS_HOURLY_ENDPOINT}?date=${encodeURIComponent(date)}`,
+      { method: 'GET' },
+    );
+    const hourlyData = Array.isArray(payload?.hourly_data)
+      ? payload.hourly_data.map((entry) => normalizeHourlyEntry(date, entry))
+      : [];
+    state.dashboard.hourlyDataByDate[date] = hourlyData;
+    return hourlyData;
+  }
+
+  async function getHourlyData(date) {
+    if (!date) return [];
+    const hasCached = Object.prototype.hasOwnProperty.call(state.dashboard.hourlyDataByDate, date);
+    if (hasCached && date !== getTodayDateKey()) {
+      const cached = state.dashboard.hourlyDataByDate[date];
+      return cached;
+    }
+    return fetchHourlyData(date);
   }
 
   async function getRangeData(from, to) {
@@ -671,46 +778,77 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
 
   function updateSelectionStatus() {
     const loaded = state.dashboard.loadedRange;
-    const selected = state.dashboard.selectedRange;
+    const selectedDateRange = state.dashboard.selectedDateRange;
+    const selectedHourRange = state.dashboard.selectedHourRange;
 
-    if (!loaded || !selected) {
+    if (!loaded || !selectedDateRange) {
       refs.selectionStatus.textContent = 'Loaded range: none';
       refs.clearSelectionButton.disabled = true;
       return;
     }
 
-    const isFullRange = selected.from === loaded.from && selected.to === loaded.to;
-    refs.selectionStatus.textContent = isFullRange
-      ? `Loaded range: ${loaded.from} → ${loaded.to}. Click a chart twice to filter a sub-range.`
-      : `Chart filter: ${selected.from} → ${selected.to} inside ${loaded.from} → ${loaded.to}`;
-    refs.clearSelectionButton.disabled = isFullRange;
+    const isFullDateRange = selectedDateRange.from === loaded.from && selectedDateRange.to === loaded.to;
+    const hasHourFilter = Boolean(selectedHourRange?.from && selectedHourRange?.to);
+
+    if (hasHourFilter) {
+      refs.selectionStatus.textContent = `Hour filter: ${selectedHourRange.date} ${selectedHourRange.from} → ${selectedHourRange.to} inside ${loaded.from} → ${loaded.to}`;
+    } else if (!isFullDateRange && isSingleDayRange(selectedDateRange)) {
+      refs.selectionStatus.textContent = `Day focus: ${selectedDateRange.from}. Click a chart to focus an hour.`;
+    } else if (!isFullDateRange) {
+      refs.selectionStatus.textContent = `Chart filter: ${selectedDateRange.from} → ${selectedDateRange.to} inside ${loaded.from} → ${loaded.to}`;
+    } else {
+      refs.selectionStatus.textContent = `Loaded range: ${loaded.from} → ${loaded.to}. Click a chart to focus a day.`;
+    }
+
+    refs.clearSelectionButton.disabled = isFullDateRange && !hasHourFilter;
   }
 
-  function getChartSelectionHandler(labels) {
+  function getChartSelectionHandler(labels, granularity = 'day') {
     return (_, elements) => {
       if (!elements?.length || !labels?.length) return;
       const clickedLabel = labels[elements[0].index];
       if (!clickedLabel) return;
 
-      if (!state.rangeSelectionAnchor) {
-        state.rangeSelectionAnchor = clickedLabel;
-        state.dashboard.selectedRange = { from: clickedLabel, to: clickedLabel };
+      const anchor = state.rangeSelectionAnchor;
+      const sameGranularity = anchor?.granularity === granularity;
+
+      if (granularity === 'hour') {
+        const date = state.dashboard.currentGranularityDate;
+        if (!date) return;
+
+        if (!sameGranularity || anchor?.date !== date) {
+          state.rangeSelectionAnchor = { granularity, date, key: clickedLabel };
+          state.dashboard.selectedDateRange = { from: date, to: date };
+          state.dashboard.selectedHourRange = { date, from: clickedLabel, to: clickedLabel };
+        } else {
+          const from = anchor.key < clickedLabel ? anchor.key : clickedLabel;
+          const to = anchor.key > clickedLabel ? anchor.key : clickedLabel;
+          state.dashboard.selectedDateRange = { from: date, to: date };
+          state.dashboard.selectedHourRange = { date, from, to };
+          state.rangeSelectionAnchor = null;
+        }
       } else {
-        const from = state.rangeSelectionAnchor < clickedLabel ? state.rangeSelectionAnchor : clickedLabel;
-        const to = state.rangeSelectionAnchor > clickedLabel ? state.rangeSelectionAnchor : clickedLabel;
-        state.dashboard.selectedRange = { from, to };
-        state.rangeSelectionAnchor = null;
+        state.dashboard.selectedHourRange = null;
+        if (!sameGranularity) {
+          state.rangeSelectionAnchor = { granularity, key: clickedLabel };
+          state.dashboard.selectedDateRange = { from: clickedLabel, to: clickedLabel };
+        } else {
+          const from = anchor.key < clickedLabel ? anchor.key : clickedLabel;
+          const to = anchor.key > clickedLabel ? anchor.key : clickedLabel;
+          state.dashboard.selectedDateRange = { from, to };
+          state.rangeSelectionAnchor = null;
+        }
       }
 
-      applySelectedRange();
+      void applySelectedRange();
     };
   }
 
-  function buildSharedChartOptions(labels, yAxisTitle, stacked = false) {
+  function buildSharedChartOptions(labels, yAxisTitle, stacked = false, granularity = 'day') {
     return {
       responsive: true,
       maintainAspectRatio: false,
-      onClick: getChartSelectionHandler(labels),
+      onClick: getChartSelectionHandler(labels, granularity),
       plugins: {
         legend: { display: true, position: 'top' },
         tooltip: {
@@ -725,7 +863,7 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       scales: {
         x: {
           stacked,
-          title: { display: true, text: 'Date' },
+          title: { display: true, text: granularity === 'hour' ? 'Hour' : 'Date' },
         },
         y: {
           stacked,
@@ -736,8 +874,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     };
   }
 
-  function buildStackedChartOptions(labels, yAxisTitle) {
-    const options = buildSharedChartOptions(labels, yAxisTitle, true);
+  function buildStackedChartOptions(labels, yAxisTitle, granularity = 'day') {
+    const options = buildSharedChartOptions(labels, yAxisTitle, true, granularity);
     options.plugins.legend = {
       display: true,
       position: 'right',
@@ -776,6 +914,29 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     return palette[index % palette.length];
   }
 
+  function getVisibleSelectionForCurrentGranularity() {
+    if (state.dashboard.currentGranularity === 'hour') {
+      const selectedHourRange = state.dashboard.selectedHourRange;
+      if (selectedHourRange?.date === state.dashboard.currentGranularityDate) {
+        return {
+          from: selectedHourRange.from,
+          to: selectedHourRange.to,
+          fullRange: false,
+        };
+      }
+      return null;
+    }
+
+    const loaded = state.dashboard.loadedRange;
+    const selectedDateRange = state.dashboard.selectedDateRange;
+    if (!loaded || !selectedDateRange) return null;
+    return {
+      from: selectedDateRange.from,
+      to: selectedDateRange.to,
+      fullRange: selectedDateRange.from === loaded.from && selectedDateRange.to === loaded.to,
+    };
+  }
+
   function ensureChartSupport() {
     const chartLibrary = globalThis.Chart;
     if (!chartLibrary) {
@@ -786,16 +947,14 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     chartLibrary.register({
       id: 'analyticsRangeSelectionPlugin',
       beforeDatasetsDraw(chart) {
-        const selection = state.dashboard.selectedRange;
+        const selection = getVisibleSelectionForCurrentGranularity();
         const labels = chart?.data?.labels;
         const xScale = chart?.scales?.x;
         const area = chart?.chartArea;
         if (!selection || !labels || !xScale || !area || labels.length === 0) return;
         const firstIndex = labels.indexOf(selection.from);
         const lastIndex = labels.indexOf(selection.to);
-        const loaded = state.dashboard.loadedRange;
-        const fullRange = loaded && selection.from === loaded.from && selection.to === loaded.to;
-        if (firstIndex === -1 || lastIndex === -1 || fullRange) return;
+        if (firstIndex === -1 || lastIndex === -1 || selection.fullRange) return;
 
         const start = Math.min(firstIndex, lastIndex);
         const end = Math.max(firstIndex, lastIndex);
@@ -820,12 +979,12 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     delete state.charts[chartId];
   }
 
-  function buildTopNDatasets(dailyData, key, topN) {
-    const labels = dailyData.map((day) => day.date);
+  function buildTopNDatasets(data, key, topN, granularity = 'day') {
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     const totals = {};
 
-    for (const day of dailyData) {
-      for (const item of day[key] || []) {
+    for (const entry of data) {
+      for (const item of entry[key] || []) {
         if (!item?.name) continue;
         totals[item.name] = (totals[item.name] || 0) + Number(item.selections || 0);
       }
@@ -836,8 +995,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     const othersCount = Math.max(0, sorted.length - topNames.length);
     const datasets = topNames.map((name, index) => ({
       label: name,
-      data: dailyData.map((day) => {
-        const entry = (day[key] || []).find((value) => value.name === name);
+      data: data.map((bucket) => {
+        const entry = (bucket[key] || []).find((value) => value.name === name);
         return entry ? Number(entry.selections || 0) : 0;
       }),
       backgroundColor: getPaletteColor(index),
@@ -847,8 +1006,8 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     if (othersCount > 0) {
       datasets.push({
         label: `Others (${othersCount})`,
-        data: dailyData.map((day) => {
-          return (day[key] || [])
+        data: data.map((bucket) => {
+          return (bucket[key] || [])
             .filter((value) => !topNames.includes(value.name))
             .reduce((sum, value) => sum + Number(value.selections || 0), 0);
         }),
@@ -883,10 +1042,10 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     }));
   }
 
-  function createDailyActivityChart(dailyData) {
+  function createDailyActivityChart(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('hourlyChart');
-    const labels = dailyData.map((day) => day.date);
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     state.charts.hourlyChart = new Chart(document.getElementById('hourlyChart').getContext('2d'), {
       type: 'line',
       data: {
@@ -894,7 +1053,7 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         datasets: [
           {
             label: 'Sessions',
-            data: dailyData.map((day) => day.unique_sessions || day.session_count || 0),
+            data: data.map((entry) => entry.unique_sessions || entry.session_count || 0),
             borderColor: getCssVar('--color-primary', '#3f5f82'),
             backgroundColor: colorWithAlpha(getCssVar('--color-primary', '#3f5f82'), 0.14),
             tension: 0.25,
@@ -902,7 +1061,7 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
           },
           {
             label: 'Page Views',
-            data: dailyData.map((day) => day.page_views || 0),
+            data: data.map((entry) => entry.page_views || 0),
             borderColor: getCssVar('--color-accent', '#5f7ca3'),
             backgroundColor: colorWithAlpha(getCssVar('--color-accent', '#5f7ca3'), 0.12),
             tension: 0.25,
@@ -910,14 +1069,14 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
           },
         ],
       },
-      options: buildSharedChartOptions(labels, 'Count'),
+      options: buildSharedChartOptions(labels, 'Count', false, granularity),
     });
   }
 
-  function createSessionsChart(dailyData) {
+  function createSessionsChart(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('sessionsChart');
-    const labels = dailyData.map((day) => day.date);
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     state.charts.sessionsChart = new Chart(document.getElementById('sessionsChart').getContext('2d'), {
       type: 'bar',
       data: {
@@ -925,45 +1084,45 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         datasets: [
           {
             label: 'Sessions',
-            data: dailyData.map((day) => day.unique_sessions || day.session_count || 0),
+            data: data.map((entry) => entry.unique_sessions || entry.session_count || 0),
             backgroundColor: getCssVar('--color-primary', '#3f5f82'),
           },
           {
             label: 'Views',
-            data: dailyData.map((day) => day.page_views || 0),
+            data: data.map((entry) => entry.page_views || 0),
             backgroundColor: getCssVar('--color-accent', '#5f7ca3'),
           },
         ],
       },
-      options: buildSharedChartOptions(labels, 'Count'),
+      options: buildSharedChartOptions(labels, 'Count', false, granularity),
     });
   }
 
-  function createDurationChart(dailyData) {
+  function createDurationChart(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('durationChart');
-    const labels = dailyData.map((day) => day.date);
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     state.charts.durationChart = new Chart(document.getElementById('durationChart').getContext('2d'), {
       type: 'line',
       data: {
         labels,
         datasets: [{
           label: 'Minutes',
-          data: dailyData.map((day) => Number(day.avg_session_duration_minutes || 0)),
+          data: data.map((entry) => Number(entry.avg_session_duration_minutes || 0)),
           borderColor: getCssVar('--color-danger', '#be5b67'),
           backgroundColor: colorWithAlpha(getCssVar('--color-danger', '#be5b67'), 0.14),
           tension: 0.25,
           fill: true,
         }],
       },
-      options: buildSharedChartOptions(labels, 'Minutes'),
+      options: buildSharedChartOptions(labels, 'Minutes', false, granularity),
     });
   }
 
-  function createCustomVisualsChart(dailyData) {
+  function createCustomVisualsChart(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('customVisualsChart');
-    const labels = dailyData.map((day) => day.date);
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     state.charts.customVisualsChart = new Chart(document.getElementById('customVisualsChart').getContext('2d'), {
       type: 'bar',
       data: {
@@ -971,29 +1130,29 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         datasets: [
           {
             label: 'Creates',
-            data: dailyData.map((day) => day.custom_visual_creates || 0),
+            data: data.map((entry) => entry.custom_visual_creates || 0),
             backgroundColor: getCssVar('--color-success', '#567a65'),
           },
           {
             label: 'Previews',
-            data: dailyData.map((day) => day.custom_visual_previews || 0),
+            data: data.map((entry) => entry.custom_visual_previews || 0),
             backgroundColor: getCssVar('--color-secondary', '#7a8ca2'),
           },
           {
             label: 'Saves',
-            data: dailyData.map((day) => day.custom_visual_saves || 0),
+            data: data.map((entry) => entry.custom_visual_saves || 0),
             backgroundColor: getCssVar('--color-accent', '#5f7ca3'),
           },
         ],
       },
-      options: buildSharedChartOptions(labels, 'Count'),
+      options: buildSharedChartOptions(labels, 'Count', false, granularity),
     });
   }
 
-  function createActionsChart(dailyData) {
+  function createActionsChart(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('actionsChart');
-    const labels = dailyData.map((day) => day.date);
+    const labels = data.map((entry) => getBucketLabel(entry, granularity));
     state.charts.actionsChart = new Chart(document.getElementById('actionsChart').getContext('2d'), {
       type: 'bar',
       data: {
@@ -1001,30 +1160,34 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         datasets: [
           {
             label: 'Playbacks',
-            data: dailyData.map((day) => day.playback_starts || 0),
+            data: data.map((entry) => entry.playback_starts || 0),
             backgroundColor: getCssVar('--color-warning', '#b6842a'),
           },
           {
             label: 'Exports',
-            data: dailyData.map((day) => day.exports || 0),
+            data: data.map((entry) => entry.exports || 0),
             backgroundColor: getCssVar('--color-danger', '#be5b67'),
           },
         ],
       },
-      options: buildSharedChartOptions(labels, 'Count'),
+      options: buildSharedChartOptions(labels, 'Count', false, granularity),
     });
   }
 
-  function createDailyVisualsAndSourcesCharts(dailyData) {
+  function createDailyVisualsAndSourcesCharts(data, granularity = 'day') {
     const Chart = ensureChartSupport();
     destroyChart('hourlyVisualsChart');
     destroyChart('hourlySourcesChart');
-    state.lastRenderedDailyData = dailyData;
+    state.lastRenderedChartData = {
+      data,
+      granularity,
+      date: state.dashboard.currentGranularityDate,
+    };
 
     const visualTopN = Number.parseInt(refs.visualTopN.value, 10) || 10;
     const sourceTopN = Number.parseInt(refs.sourceTopN.value, 10) || 10;
 
-    const visualPayload = buildTopNDatasets(dailyData, 'visuals', visualTopN);
+    const visualPayload = buildTopNDatasets(data, 'visuals', visualTopN, granularity);
     refs.visualTotalLabel.textContent = `${visualPayload.total} total`;
     state.charts.hourlyVisualsChart = new Chart(document.getElementById('hourlyVisualsChart').getContext('2d'), {
       type: 'bar',
@@ -1032,10 +1195,10 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         labels: visualPayload.labels,
         datasets: visualPayload.datasets,
       },
-      options: buildStackedChartOptions(visualPayload.labels, 'Selections'),
+      options: buildStackedChartOptions(visualPayload.labels, 'Selections', granularity),
     });
 
-    const sourcePayload = buildTopNDatasets(dailyData, 'sources', sourceTopN);
+    const sourcePayload = buildTopNDatasets(data, 'sources', sourceTopN, granularity);
     refs.sourceTotalLabel.textContent = `${sourcePayload.total} total`;
     state.charts.hourlySourcesChart = new Chart(document.getElementById('hourlySourcesChart').getContext('2d'), {
       type: 'bar',
@@ -1043,7 +1206,7 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
         labels: sourcePayload.labels,
         datasets: sourcePayload.datasets,
       },
-      options: buildStackedChartOptions(sourcePayload.labels, 'Selections'),
+      options: buildStackedChartOptions(sourcePayload.labels, 'Selections', granularity),
     });
   }
 
@@ -1299,17 +1462,32 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     createDataTable(tableId, entries);
   }
 
-  function renderDashboard(selectedDailyData) {
-    const selectedAggregate = aggregateRangeData(selectedDailyData);
+  function updateGranularityLabels(granularity) {
+    if (refs.activitySectionLabel) {
+      refs.activitySectionLabel.textContent = granularity === 'hour' ? 'Hourly Activity' : 'Daily Activity';
+    }
+    if (refs.visualsSourcesSectionLabel) {
+      refs.visualsSourcesSectionLabel.textContent = granularity === 'hour'
+        ? 'Visuals & Sources by Hour'
+        : 'Visuals & Sources by Day';
+    }
+  }
+
+  function renderDashboard(selectedData, { granularity = 'day', date = null } = {}) {
+    state.dashboard.currentGranularity = granularity;
+    state.dashboard.currentGranularityDate = granularity === 'hour' ? date : null;
+    updateGranularityLabels(granularity);
+
+    const selectedAggregate = aggregateRangeData(selectedData);
     const loadedAggregate = aggregateRangeData(state.dashboard.loadedDailyData);
 
     createStatsCards(selectedAggregate.summary);
-    createDailyActivityChart(selectedDailyData);
-    createDailyVisualsAndSourcesCharts(selectedDailyData);
-    createSessionsChart(selectedDailyData);
-    createDurationChart(selectedDailyData);
-    createCustomVisualsChart(selectedDailyData);
-    createActionsChart(selectedDailyData);
+    createDailyActivityChart(selectedData, granularity);
+    createDailyVisualsAndSourcesCharts(selectedData, granularity);
+    createSessionsChart(selectedData, granularity);
+    createDurationChart(selectedData, granularity);
+    createCustomVisualsChart(selectedData, granularity);
+    createActionsChart(selectedData, granularity);
 
     createDataTable('todayVisualsTable', selectedAggregate.visuals);
     createDataTable('todaySourcesTable', selectedAggregate.sources);
@@ -1321,12 +1499,53 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     updateSelectionStatus();
   }
 
-  function applySelectedRange() {
-    if (!state.dashboard.loadedDailyData.length || !state.dashboard.selectedRange) return;
+  async function applySelectedRange() {
+    if (!state.dashboard.loadedDailyData.length || !state.dashboard.selectedDateRange) return;
+
+    clearError();
+    const requestId = ++state.dashboard.selectionRequestId;
     const selectedDailyData = state.dashboard.loadedDailyData.filter((day) => {
-      return day.date >= state.dashboard.selectedRange.from && day.date <= state.dashboard.selectedRange.to;
+      return day.date >= state.dashboard.selectedDateRange.from && day.date <= state.dashboard.selectedDateRange.to;
     });
-    renderDashboard(selectedDailyData);
+
+    if (!isSingleDayRange(state.dashboard.selectedDateRange)) {
+      state.dashboard.selectedHourRange = null;
+      renderDashboard(selectedDailyData, { granularity: 'day' });
+      return;
+    }
+
+    const date = state.dashboard.selectedDateRange.from;
+    const showHourlyLoading = !Object.prototype.hasOwnProperty.call(state.dashboard.hourlyDataByDate, date)
+      || date === getTodayDateKey();
+
+    if (showHourlyLoading) {
+      showLoading(true);
+    }
+
+    try {
+      const hourlyData = await getHourlyData(date);
+      if (requestId !== state.dashboard.selectionRequestId) return;
+
+      const selectedHourRange = state.dashboard.selectedHourRange?.date === date
+        ? state.dashboard.selectedHourRange
+        : null;
+      const selectedHourlyData = selectedHourRange
+        ? hourlyData.filter((entry) => entry.label >= selectedHourRange.from && entry.label <= selectedHourRange.to)
+        : hourlyData;
+
+      renderDashboard(selectedHourlyData.length > 0 ? selectedHourlyData : selectedDailyData, {
+        granularity: selectedHourlyData.length > 0 ? 'hour' : 'day',
+        date: selectedHourlyData.length > 0 ? date : null,
+      });
+    } catch (error) {
+      if (requestId !== state.dashboard.selectionRequestId) return;
+      showError(error.message || 'Could not load hourly analytics data.');
+      renderDashboard(selectedDailyData, { granularity: 'day' });
+    } finally {
+      if (showHourlyLoading && requestId === state.dashboard.selectionRequestId) {
+        showLoading(false);
+      }
+    }
   }
 
   async function loadData({ forceAccessRefresh = false } = {}) {
@@ -1352,10 +1571,11 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       await loadKnownVisualIds();
       const dailyData = await getRangeData(from, to);
       state.dashboard.loadedRange = { from, to };
-      state.dashboard.selectedRange = { from, to };
+      state.dashboard.selectedDateRange = { from, to };
+      state.dashboard.selectedHourRange = null;
       state.dashboard.loadedDailyData = dailyData;
       updateRangeSummary();
-      renderDashboard(dailyData);
+      await applySelectedRange();
     } catch (error) {
       if (error.status === 401 || error.status === 403) {
         await fetchAccessState();
@@ -1410,20 +1630,18 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
     refs.signOutButton.addEventListener('click', () => {
       void signOutAndRefresh();
     });
-    refs.signOutDashboardButton.addEventListener('click', () => {
-      void signOutAndRefresh();
-    });
     refs.loadDataButton.addEventListener('click', () => {
       void loadData();
     });
     refs.clearSelectionButton.addEventListener('click', () => {
       if (!state.dashboard.loadedRange) return;
       state.rangeSelectionAnchor = null;
-      state.dashboard.selectedRange = {
+      state.dashboard.selectedDateRange = {
         from: state.dashboard.loadedRange.from,
         to: state.dashboard.loadedRange.to,
       };
-      applySelectedRange();
+      state.dashboard.selectedHourRange = null;
+      void applySelectedRange();
     });
     refs.saveFavoriteButton.addEventListener('click', saveCurrentRangeAsFavorite);
     refs.favoritesSelect.addEventListener('change', (event) => {
@@ -1442,13 +1660,19 @@ export function initAnalyticsDashboardPage(root = document.querySelector('[data-
       applyTodayVisualsFilter();
     });
     refs.visualTopN.addEventListener('change', () => {
-      if (state.lastRenderedDailyData) {
-        createDailyVisualsAndSourcesCharts(state.lastRenderedDailyData);
+      if (state.lastRenderedChartData) {
+        createDailyVisualsAndSourcesCharts(
+          state.lastRenderedChartData.data,
+          state.lastRenderedChartData.granularity,
+        );
       }
     });
     refs.sourceTopN.addEventListener('change', () => {
-      if (state.lastRenderedDailyData) {
-        createDailyVisualsAndSourcesCharts(state.lastRenderedDailyData);
+      if (state.lastRenderedChartData) {
+        createDailyVisualsAndSourcesCharts(
+          state.lastRenderedChartData.data,
+          state.lastRenderedChartData.granularity,
+        );
       }
     });
 

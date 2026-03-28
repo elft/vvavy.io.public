@@ -22,119 +22,301 @@
             <p class="account-summary-row__value m-0" data-role="account-summary-state">Local-only</p>
           </div>
 
-          <div class="account-summary-row p-12 flex flex-col gap-4">
-            <p class="visual-control-label text-sm uppercase text-muted m-0">Syncs</p>
-            <p class="effects-panel-meta m-0 text-soft" data-role="account-summary-syncs">Favorites and playlists across devices, plus account features once you sign in.</p>
-          </div>
-
-          <div class="account-summary-row p-12 flex flex-col gap-4" data-role="account-return-row">
-            <p class="visual-control-label text-sm uppercase text-muted m-0">Magic Link</p>
+          <div class="account-summary-row p-12 flex flex-col gap-4" data-role="account-return-row" hidden>
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Check Your Inbox</p>
             <p class="effects-panel-meta m-0 text-soft" data-role="account-return-copy">Open the email to finish signing in.</p>
           </div>
+
+          <div class="account-summary-row p-12 flex flex-col gap-4" data-role="account-create-row">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Create/BYOP</p>
+            <p class="effects-panel-meta m-0 text-soft">Sign in to bring your own pixels, create custom visuals, and submit them for review. Approved visuals can be shared with the rest of VVavy.</p>
+          </div>
+
+          <div class="account-summary-row p-12 flex flex-col gap-4" data-role="account-support-row">
+            <p class="visual-control-label text-sm uppercase text-muted m-0">Support</p>
+            <p class="effects-panel-meta m-0 text-soft">Sign in to report issues, send feature requests, and follow support updates from your account.</p>
+          </div>
+
+          <section class="account-nav-shell p-12 flex flex-col gap-8" data-role="account-nav-shell" hidden>
+            <div class="flex flex-col gap-4">
+              <p class="visual-control-label text-sm uppercase text-muted m-0">Sections</p>
+            </div>
+
+            <nav class="account-nav flex flex-col gap-8" data-role="account-nav" role="tablist" aria-label="Account sections" aria-orientation="vertical">
+              <button
+                class="overlay-menu__button overlay-menu__button--ghost account-nav__button w-full p-12 flex items-start justify-between gap-12 text-left"
+                type="button"
+                data-account-view="overview"
+                role="tab"
+                id="account-tab-overview"
+                aria-controls="account-panel-overview"
+                aria-selected="true"
+              >
+                <span class="flex flex-col items-start gap-4 min-w-0">
+                  <span>Overview</span>
+                  <span class="effects-panel-meta text-soft">Profile, sync status, and sign out.</span>
+                </span>
+                <span class="account-nav__count" data-role="account-nav-overview-count">Main</span>
+              </button>
+
+              <button
+                class="overlay-menu__button overlay-menu__button--ghost account-nav__button w-full p-12 flex items-start justify-between gap-12 text-left"
+                type="button"
+                data-account-view="workspaces"
+                role="tab"
+                id="account-tab-workspaces"
+                aria-controls="account-panel-workspaces"
+                aria-selected="false"
+              >
+                <span class="flex flex-col items-start gap-4 min-w-0">
+                  <span>Workspaces</span>
+                  <span class="effects-panel-meta text-soft">Open the pages this account can access.</span>
+                </span>
+                <span class="account-nav__count" data-role="account-nav-workspaces-count">0</span>
+              </button>
+
+              <button
+                class="overlay-menu__button overlay-menu__button--ghost account-nav__button w-full p-12 flex items-start justify-between gap-12 text-left"
+                type="button"
+                data-account-view="submissions"
+                role="tab"
+                id="account-tab-submissions"
+                aria-controls="account-panel-submissions"
+                aria-selected="false"
+              >
+                <span class="flex flex-col items-start gap-4 min-w-0">
+                  <span>My Visuals</span>
+                  <span class="effects-panel-meta text-soft">Track submitted custom visuals and review status.</span>
+                </span>
+                <span class="account-nav__count" data-role="account-nav-submissions-count">0</span>
+              </button>
+
+              <button
+                class="overlay-menu__button overlay-menu__button--ghost account-nav__button w-full p-12 flex items-start justify-between gap-12 text-left"
+                type="button"
+                data-account-view="support"
+                role="tab"
+                id="account-tab-support"
+                aria-controls="account-panel-support"
+                aria-selected="false"
+              >
+                <span class="flex flex-col items-start gap-4 min-w-0">
+                  <span>Support</span>
+                  <span class="effects-panel-meta text-soft">Send requests and follow reviewer updates.</span>
+                </span>
+                <span class="account-nav__count" data-role="account-nav-support-count">0</span>
+              </button>
+            </nav>
+          </section>
+
         </aside>
 
         <div class="account-main flex flex-col gap-12 h-full min-h-0">
-          <section class="account-card account-card--auth p-16 flex flex-col gap-16" data-role="account-signed-out" aria-labelledby="account-auth-title">
-            <div class="flex flex-col gap-4">
-              <p class="visual-control-label text-sm uppercase text-muted m-0">Choose A Method</p>
-              <p class="account-card__title m-0" id="account-auth-title">Sync your profile and unlock more features.</p>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Google is fastest. Sign in to sync favorites and playlists across devices and access Create Visual, Export, and more.</p>
-            </div>
-
-            <div class="flex flex-col gap-6" data-role="account-captcha-wrap" hidden>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-captcha-copy">Complete the captcha check to continue.</p>
-              <div data-role="account-captcha"></div>
-            </div>
-
-            <button class="overlay-menu__button overlay-menu__button--icon account-primary-button py-10 px-12 text-sm uppercase w-full flex items-center justify-center gap-8" type="button" data-account-action="google-sign-in">
-              <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21.805 10.023h-9.18v3.955h5.278c-.228 1.308-.974 2.416-2.076 3.159v2.623h3.359c1.966-1.812 3.103-4.48 3.103-7.657 0-.683-.061-1.34-.173-1.98z" fill="#4285f4" />
-                <path d="M12.625 21.5c2.79 0 5.128-.92 6.837-2.522l-3.359-2.623c-.93.624-2.119.992-3.478.992-2.673 0-4.938-1.806-5.746-4.234H3.406v2.666A10.312 10.312 0 0 0 12.625 21.5z" fill="#34a853" />
-                <path d="M6.879 13.113a6.166 6.166 0 0 1 0-3.926V6.521H3.406a10.312 10.312 0 0 0 0 9.258l3.473-2.666z" fill="#fbbc04" />
-                <path d="M12.625 4.953c1.517 0 2.88.522 3.953 1.548l2.965-2.966C17.753 1.87 15.415.846 12.625.846A10.31 10.31 0 0 0 3.406 6.521l3.473 2.666c.808-2.428 3.073-4.234 5.746-4.234z" fill="#ea4335" />
-              </svg>
-              <span>Continue With Google</span>
-            </button>
-
-            <div class="account-divider flex items-center gap-8" aria-hidden="true">
-              <span class="account-divider__line flex-1"></span>
-              <span class="account-divider__label">or</span>
-              <span class="account-divider__line flex-1"></span>
-            </div>
-
-            <form class="flex flex-col gap-8" data-role="account-magic-link-form" novalidate>
-              <label class="overlay-label" for="account-email-input">Email Address</label>
-              <input class="overlay-input" id="account-email-input" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" data-role="account-email-input" />
-              <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit">
-                Send Magic Link
-              </button>
-            </form>
-
-            <section class="account-inline-note p-12 flex flex-col gap-4" data-role="account-email-pending" hidden>
-              <p class="visual-control-label text-sm uppercase text-muted m-0">Check Your Inbox</p>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-email-pending-copy"></p>
-            </section>
-          </section>
-
-          <section class="account-card account-card--profile p-16 flex flex-col gap-16" data-role="account-signed-in" hidden aria-labelledby="account-signed-in-title">
-            <div class="flex flex-col gap-4">
-              <p class="visual-control-label text-sm uppercase text-muted m-0" data-role="account-signed-in-eyebrow">Finish Profile</p>
-              <p class="account-card__title m-0" data-role="account-signed-in-title" id="account-signed-in-title">Finish your VVavy profile.</p>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-signed-in-copy">Claim a username so this profile can sync your favorites and playlists across devices.</p>
-            </div>
-
-            <section class="account-identity-band p-12 flex items-center justify-between gap-12">
-              <div class="flex flex-col gap-4 min-w-0">
-                <p class="account-identity__name m-0" data-role="account-user-name">Username needed</p>
-                <p class="effects-panel-meta m-0 text-soft" data-role="account-user-email"></p>
-              </div>
-              <span class="account-identity__badge flex-shrink-0" data-role="account-identity-badge">1 Step Left</span>
-            </section>
-
-            <section class="account-profile-card p-12 flex flex-col gap-8" data-role="account-profile-completion" hidden>
+          <div class="account-panel-stack flex flex-col gap-12 min-h-0" data-account-view-panel="overview" data-role="account-panel-overview" role="tabpanel" id="account-panel-overview" aria-labelledby="account-tab-overview">
+            <section class="account-card account-card--auth p-16 flex flex-col gap-16" data-role="account-signed-out" aria-labelledby="account-auth-title">
               <div class="flex flex-col gap-4">
-                <p class="visual-control-label text-sm uppercase text-muted m-0">Username</p>
-                <p class="effects-panel-meta m-0 text-soft">Pick the name you want attached to this VVavy profile.</p>
+                <p class="visual-control-label text-sm uppercase text-muted m-0">Choose A Method</p>
+                <p class="account-card__title m-0" id="account-auth-title">Sync your profile and unlock more features.</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Google is fastest. Sign in to sync favorites and playlists across devices and access Create Visual, Export, and more.</p>
               </div>
-              <form class="flex flex-col gap-8" data-role="account-profile-form" novalidate>
-                <label class="overlay-label" for="account-username-input">Choose Username</label>
-                <input class="overlay-input" id="account-username-input" type="text" inputmode="text" autocapitalize="off" autocomplete="username" spellcheck="false" minlength="3" maxlength="24" pattern="[A-Za-z0-9]{3,24}" aria-describedby="account-username-help" placeholder="ChillHuman" data-role="account-username-input" />
-                <p class="effects-panel-meta m-0 text-soft" id="account-username-help">Use 3 to 24 letters or numbers. No spaces or special characters.</p>
-                <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit">
-                  Save Username
+
+              <div class="flex flex-col gap-6" data-role="account-captcha-wrap" hidden>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-captcha-copy">Complete the captcha check to continue.</p>
+                <div data-role="account-captcha"></div>
+              </div>
+
+              <button class="overlay-menu__button overlay-menu__button--icon account-primary-button py-10 px-12 text-sm uppercase w-full flex items-center justify-center gap-8" type="button" data-account-action="google-sign-in">
+                <svg class="overlay-menu__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21.805 10.023h-9.18v3.955h5.278c-.228 1.308-.974 2.416-2.076 3.159v2.623h3.359c1.966-1.812 3.103-4.48 3.103-7.657 0-.683-.061-1.34-.173-1.98z" fill="#4285f4" />
+                  <path d="M12.625 21.5c2.79 0 5.128-.92 6.837-2.522l-3.359-2.623c-.93.624-2.119.992-3.478.992-2.673 0-4.938-1.806-5.746-4.234H3.406v2.666A10.312 10.312 0 0 0 12.625 21.5z" fill="#34a853" />
+                  <path d="M6.879 13.113a6.166 6.166 0 0 1 0-3.926V6.521H3.406a10.312 10.312 0 0 0 0 9.258l3.473-2.666z" fill="#fbbc04" />
+                  <path d="M12.625 4.953c1.517 0 2.88.522 3.953 1.548l2.965-2.966C17.753 1.87 15.415.846 12.625.846A10.31 10.31 0 0 0 3.406 6.521l3.473 2.666c.808-2.428 3.073-4.234 5.746-4.234z" fill="#ea4335" />
+                </svg>
+                <span>Continue With Google</span>
+              </button>
+
+              <div class="account-divider flex items-center gap-8" aria-hidden="true">
+                <span class="account-divider__line flex-1"></span>
+                <span class="account-divider__label">or</span>
+                <span class="account-divider__line flex-1"></span>
+              </div>
+
+              <form class="flex flex-col gap-8" data-role="account-magic-link-form" novalidate>
+                <label class="overlay-label" for="account-email-input">Email Address</label>
+                <input class="overlay-input" id="account-email-input" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" data-role="account-email-input" />
+                <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit" data-pending-label="Sending Magic Link…">
+                  Send Magic Link
                 </button>
               </form>
+
+              <section class="account-inline-note p-12 flex flex-col gap-4" data-role="account-email-pending" hidden>
+                <p class="visual-control-label text-sm uppercase text-muted m-0">Check Your Inbox</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-email-pending-copy"></p>
+              </section>
             </section>
 
-            <section class="account-sync-panel p-12 flex flex-col gap-4">
-              <p class="visual-control-label text-sm uppercase text-muted m-0">After This</p>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-sync-copy">Favorites and playlists will sync across devices while they stay attached to your profile.</p>
-              <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Your profile also unlocks account features like Create Visual, Export, and more.</p>
-            </section>
-
-            <button class="overlay-menu__button overlay-menu__button--ghost py-10 px-12 text-sm uppercase w-full" type="button" data-account-action="sign-out">
-              Sign Out
-            </button>
-          </section>
-
-          <section class="account-card account-card--submissions p-16 flex flex-col gap-12" data-role="account-submissions-section" hidden aria-labelledby="account-submissions-title">
-            <div class="flex items-start justify-between gap-12">
+            <section class="account-card account-card--profile p-16 flex flex-col gap-16" data-role="account-signed-in" hidden aria-labelledby="account-signed-in-title">
               <div class="flex flex-col gap-4">
-                <p class="visual-control-label text-sm uppercase text-muted m-0">Custom Visuals</p>
-                <p class="account-card__title m-0" id="account-submissions-title">Your submitted visuals</p>
-                <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-copy">Only you can see this list. Approved visuals can be shown to other VVavy users after review.</p>
+                <p class="visual-control-label text-sm uppercase text-muted m-0" data-role="account-signed-in-eyebrow">Finish Profile</p>
+                <p class="account-card__title m-0" data-role="account-signed-in-title" id="account-signed-in-title">Finish your VVavy profile.</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-signed-in-copy">Claim a username so this profile can sync your favorites and playlists across devices.</p>
               </div>
-              <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-submissions-count">0 Submitted</span>
-            </div>
 
-            <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-status" aria-live="polite">Loading your submitted visuals…</p>
-            <div class="account-submissions-list flex flex-col gap-8" data-role="account-submissions-list"></div>
-          </section>
+              <section class="account-identity-band p-12 flex items-center justify-between gap-12">
+                <div class="flex flex-col gap-4 min-w-0">
+                  <p class="account-identity__name m-0" data-role="account-user-name">Username needed</p>
+                  <p class="effects-panel-meta m-0 text-soft" data-role="account-user-email"></p>
+                </div>
+                <span class="account-identity__badge flex-shrink-0" data-role="account-identity-badge">1 Step Left</span>
+              </section>
 
-          <section class="account-status-card p-12 flex flex-col gap-4">
-            <p class="visual-control-label text-sm uppercase text-muted m-0">Status</p>
-            <p class="effects-panel-meta m-0 text-soft account-action-status" data-role="account-action-status" aria-live="polite"></p>
-          </section>
+              <section class="account-profile-card p-12 flex flex-col gap-8" data-role="account-profile-completion" hidden>
+                <div class="flex flex-col gap-4">
+                  <p class="visual-control-label text-sm uppercase text-muted m-0">Username</p>
+                  <p class="effects-panel-meta m-0 text-soft">Pick the name you want attached to this VVavy profile.</p>
+                </div>
+                <form class="flex flex-col gap-8" data-role="account-profile-form" novalidate>
+                  <label class="overlay-label" for="account-username-input">Choose Username</label>
+                  <input class="overlay-input" id="account-username-input" type="text" inputmode="text" autocapitalize="off" autocomplete="username" spellcheck="false" minlength="3" maxlength="24" pattern="[A-Za-z0-9]{3,24}" aria-describedby="account-username-help" placeholder="ChillHuman" data-role="account-username-input" />
+                  <p class="effects-panel-meta m-0 text-soft" id="account-username-help">Use 3 to 24 letters or numbers. No spaces or special characters.</p>
+                  <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit" data-pending-label="Saving Username…">
+                    Save Username
+                  </button>
+                </form>
+              </section>
+
+              <section class="account-sync-panel p-12 flex flex-col gap-4">
+                <p class="visual-control-label text-sm uppercase text-muted m-0">After This</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-sync-copy">Favorites and playlists will sync across devices while they stay attached to your profile.</p>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-helper-copy">Your profile also unlocks account features like Create Visual, Export, and more.</p>
+              </section>
+
+              <button class="overlay-menu__button overlay-menu__button--ghost py-10 px-12 text-sm uppercase w-full" type="button" data-account-action="sign-out">
+                Sign Out
+              </button>
+            </section>
+
+            <p class="account-action-status effects-panel-meta m-0" data-role="account-action-status" aria-live="polite"></p>
+          </div>
+
+          <div class="account-panel-stack flex flex-col gap-12 min-h-0" data-account-view-panel="workspaces" data-role="account-panel-workspaces" role="tabpanel" id="account-panel-workspaces" aria-labelledby="account-tab-workspaces" hidden>
+            <section class="account-card p-16 flex flex-col gap-12" data-role="account-workspaces-section" hidden aria-labelledby="account-workspaces-title">
+              <div class="flex items-start justify-between gap-12">
+                <div class="flex flex-col gap-4">
+                  <p class="visual-control-label text-sm uppercase text-muted m-0">Navigation</p>
+                  <p class="account-card__title m-0" id="account-workspaces-title">Authorized workspaces</p>
+                  <p class="effects-panel-meta m-0 text-soft" data-role="account-workspaces-copy">Open the pages this account can access.</p>
+                </div>
+                <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-workspaces-count">0 Workspaces</span>
+              </div>
+
+              <nav class="flex flex-col gap-8" data-role="account-workspaces-list" aria-label="Authorized workspaces"></nav>
+            </section>
+          </div>
+
+          <div class="account-panel-stack flex flex-col gap-12 min-h-0" data-account-view-panel="submissions" data-role="account-panel-submissions" role="tabpanel" id="account-panel-submissions" aria-labelledby="account-tab-submissions" hidden>
+            <section class="account-card account-card--submissions p-16 flex flex-col gap-12" data-role="account-submissions-section" hidden aria-labelledby="account-submissions-title">
+              <div class="flex items-start justify-between gap-12">
+                <div class="flex flex-col gap-4">
+                  <p class="visual-control-label text-sm uppercase text-muted m-0">Custom Visuals</p>
+                  <p class="account-card__title m-0" id="account-submissions-title">Your submitted visuals</p>
+                  <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-copy">Only you can see this list. Approved visuals can be shown to other VVavy users after review.</p>
+                </div>
+                <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-submissions-count">0 Submitted</span>
+              </div>
+
+              <p class="effects-panel-meta m-0 text-soft" data-role="account-submissions-status" aria-live="polite">Loading your submitted visuals…</p>
+              <div class="account-submissions-list flex flex-col gap-8" data-role="account-submissions-list"></div>
+            </section>
+          </div>
+
+          <div class="account-panel-stack flex flex-col gap-12 min-h-0" data-account-view-panel="support" data-role="account-panel-support" role="tabpanel" id="account-panel-support" aria-labelledby="account-tab-support" hidden>
+            <section class="account-card account-card--support p-16 flex flex-col gap-16" data-role="account-support-section" hidden aria-labelledby="account-support-title">
+              <div class="flex items-start justify-between gap-12">
+                <div class="flex flex-col gap-4">
+                  <p class="visual-control-label text-sm uppercase text-muted m-0">Support</p>
+                  <p class="account-card__title m-0" id="account-support-title">Report an issue or request a feature</p>
+                  <p class="effects-panel-meta m-0 text-soft" data-role="account-support-copy">Be as specific as possible</p>
+                </div>
+                <span class="account-step-chip py-8 px-10 text-sm uppercase flex-shrink-0" data-role="account-support-count">0 Requests</span>
+              </div>
+
+              <form class="flex flex-col gap-12" data-role="account-support-form" novalidate>
+                <div class="flex flex-col gap-6">
+                  <p class="visual-control-label text-sm uppercase text-muted m-0">Type</p>
+                  <div class="account-support-kind-row grid gap-8">
+                    <button class="overlay-menu__button overlay-menu__button--ghost overlay-menu__button--icon account-support-kind-button py-10 px-12 text-sm uppercase w-full flex items-center justify-center gap-8" type="button" data-account-support-kind="bug" aria-pressed="true">
+                      <svg class="overlay-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 9h6" />
+                        <path d="M10 5.5V3" />
+                        <path d="M14 5.5V3" />
+                        <path d="M5.5 10H3" />
+                        <path d="M21 10h-2.5" />
+                        <path d="M6.5 6.5 5 5" />
+                        <path d="m17.5 6.5 1.5-1.5" />
+                        <path d="M8 21h8" />
+                        <path d="M7 9.5h10v5a5 5 0 0 1-5 5 5 5 0 0 1-5-5z" />
+                      </svg>
+                      <span>Issue</span>
+                    </button>
+                    <button class="overlay-menu__button overlay-menu__button--ghost overlay-menu__button--icon account-support-kind-button py-10 px-12 text-sm uppercase w-full flex items-center justify-center gap-8" type="button" data-account-support-kind="feature" aria-pressed="false">
+                      <svg class="overlay-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3v5" />
+                        <path d="M12 16v5" />
+                        <path d="M21 12h-5" />
+                        <path d="M8 12H3" />
+                        <path d="m18.364 5.636-3.536 3.536" />
+                        <path d="m9.172 14.828-3.536 3.536" />
+                        <path d="m18.364 18.364-3.536-3.536" />
+                        <path d="M9.172 9.172 5.636 5.636" />
+                        <circle cx="12" cy="12" r="2.5" />
+                      </svg>
+                      <span>Feature</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-8">
+                  <label class="overlay-label" for="account-support-description">Describe the issue or request</label>
+                  <textarea class="overlay-input account-support-textarea" id="account-support-description" rows="6" minlength="20" maxlength="4000" data-role="account-support-description"></textarea>
+                  <p class="effects-panel-meta m-0 text-soft">Include what you expected, what happened instead, and what visual or source you were using if it matters.</p>
+                </div>
+
+                <label class="account-support-toggle flex items-start gap-8">
+                  <input type="checkbox" data-role="account-support-diagnostics" checked />
+                  <span class="effects-panel-meta m-0 text-soft">Include technical diagnostics like the browser, active visual, source kind, theme, and viewport size.</span>
+                </label>
+
+                <button class="overlay-menu__button py-10 px-12 text-sm uppercase w-full" type="submit" data-pending-label="Sending Request…">
+                  Send Request
+                </button>
+              </form>
+
+              <section class="account-support-panel p-12 flex flex-col gap-8" aria-labelledby="account-support-requests-title">
+                <div class="flex items-start justify-between gap-12">
+                  <div class="flex flex-col gap-4">
+                    <p class="visual-control-label text-sm uppercase text-muted m-0">Requests</p>
+                    <p class="account-submission__title m-0" id="account-support-requests-title">Your support requests</p>
+                  </div>
+                  <p class="effects-panel-meta m-0 text-soft" data-role="account-support-list-status">Loading your requests…</p>
+                </div>
+                <div class="account-submissions-list flex flex-col gap-8" data-role="account-support-list"></div>
+              </section>
+
+              <section class="account-support-panel p-12 flex flex-col gap-8" aria-labelledby="account-support-detail-title">
+                <div class="flex items-start justify-between gap-12">
+                  <div class="flex flex-col gap-4">
+                    <p class="visual-control-label text-sm uppercase text-muted m-0">Detail</p>
+                    <p class="account-submission__title m-0" id="account-support-detail-title" data-role="account-support-detail-title">Select a request</p>
+                  </div>
+                  <span class="effects-preview-chip account-submission__chip" data-tone="pending" data-role="account-support-detail-status">Idle</span>
+                </div>
+                <p class="effects-panel-meta m-0 text-soft" data-role="account-support-detail-copy">Choose a request to inspect its description, diagnostics, and reviewer updates.</p>
+                <div class="account-submission__reason p-12 flex flex-col gap-8" data-role="account-support-detail-context" hidden></div>
+                <div class="account-submissions-list flex flex-col gap-8" data-role="account-support-detail-activity"></div>
+              </section>
+            </section>
+          </div>
         </div>
       </div>
     </div>

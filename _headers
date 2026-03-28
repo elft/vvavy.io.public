@@ -26,3 +26,12 @@
 
 /reviews/
   X-Robots-Tag: noindex, nofollow
+
+/reviews/support
+  X-Robots-Tag: noindex, nofollow
+
+/reviews/support/
+  X-Robots-Tag: noindex, nofollow
+
+/reviews/support.html
+  X-Robots-Tag: noindex, nofollow

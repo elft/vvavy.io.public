@@ -1,5 +1,7 @@
 /* global fetch, FormData, URL */
 
+import { getAccessibleWorkspaces } from '../access/workspace-registry.js';
+
 const AUTH_STATUS_ENDPOINT = '/api/auth/status';
 const SESSION_ENDPOINT = '/api/me';
 const SIGN_OUT_ENDPOINT = '/api/me/sign-out';
@@ -18,6 +20,9 @@ export function initAdminPage(root = document.querySelector('[data-admin-page]')
     accessChip: root.querySelector('[data-role="access-chip"]'),
     authCopy: root.querySelector('[data-role="auth-copy"]'),
     userSummary: root.querySelector('[data-role="user-summary"]'),
+    workspaceNavigation: root.querySelector('[data-role="workspace-navigation"]'),
+    workspaceNavigationSummary: root.querySelector('[data-role="workspace-navigation-summary"]'),
+    workspaceNavigationList: root.querySelector('[data-role="workspace-navigation-list"]'),
     gateEyebrow: root.querySelector('[data-role="gate-eyebrow"]'),
     gateTitle: root.querySelector('[data-role="gate-title"]'),
     gateCopy: root.querySelector('[data-role="gate-copy"]'),
@@ -94,6 +99,31 @@ export function initAdminPage(root = document.querySelector('[data-admin-page]')
   function replaceChildren(node, children = []) {
     if (!node) return;
     node.replaceChildren(...children.filter(Boolean));
+  }
+
+  function renderWorkspaceNavigation() {
+    if (!refs.workspaceNavigation || !refs.workspaceNavigationSummary || !refs.workspaceNavigationList) {
+      return;
+    }
+
+    const items = getAccessibleWorkspaces(state.access, {
+      currentPath: '/admin/',
+    });
+    refs.workspaceNavigation.hidden = !items.length;
+    if (!items.length) {
+      replaceChildren(refs.workspaceNavigationList, []);
+      return;
+    }
+
+    refs.workspaceNavigationSummary.textContent = `${items.length} workspace${items.length === 1 ? '' : 's'} available to this account.`;
+    const links = items.map((item) => createElement('a', {
+      className: `admin-button ${item.isCurrent ? 'admin-button--primary' : 'admin-button--ghost'}`,
+      text: item.label,
+      attrs: {
+        href: item.href,
+      },
+    }));
+    replaceChildren(refs.workspaceNavigationList, links);
   }
 
   function getAuthorizationAdminAccess() {
@@ -717,6 +747,7 @@ export function initAdminPage(root = document.querySelector('[data-admin-page]')
       state.authStatus = authStatus;
       state.session = session;
       state.access = access;
+      renderWorkspaceNavigation();
       renderAccessState();
       renderPermissions();
       renderUsers();
@@ -729,6 +760,8 @@ export function initAdminPage(root = document.querySelector('[data-admin-page]')
         setStatus('This session cannot open access admin.', 'warning');
       }
     } catch (error) {
+      state.access = null;
+      renderWorkspaceNavigation();
       refs.accessChip.textContent = 'Error';
       refs.accessChip.dataset.tone = 'danger';
       refs.authCopy.textContent = 'Unable to load this workspace right now.';

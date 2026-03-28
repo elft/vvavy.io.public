@@ -3,6 +3,34 @@
   pointer-events: none;
 }
 
+:root {
+  --site-topbar-safe-space: 0px;
+  --site-footer-safe-space: 0px;
+  --overlay-viewport-height: 100vh;
+  --overlay-available-height: max(
+    0px,
+    calc(
+      var(--overlay-viewport-height)
+      - var(--site-topbar-safe-space)
+      - var(--site-footer-safe-space)
+      - (var(--space-24) * 2)
+    )
+  );
+}
+
+@media (min-width: 601px) {
+  :root {
+    --site-topbar-safe-space: 88px;
+    --site-footer-safe-space: 112px;
+  }
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --overlay-viewport-height: 100dvh;
+  }
+}
+
 .app-shell {
   position: relative;
   min-height: 100vh;
@@ -225,10 +253,14 @@ body.overlay-drawer-open .overlay-backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-24);
+  padding:
+    calc(var(--space-24) + var(--site-topbar-safe-space))
+    var(--space-24)
+    calc(var(--space-24) + var(--site-footer-safe-space));
   z-index: 11;
   overflow-y: auto;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .overlay-panel .side-drawer,

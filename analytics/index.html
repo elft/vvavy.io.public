@@ -34,6 +34,13 @@
           <p class="analytics-label m-0">Range</p>
           <p class="analytics-copy m-0" data-role="range-summary">Last 30 days by default</p>
         </div>
+        <div class="analytics-summary-row grid gap-8 p-12" data-role="workspace-navigation" hidden>
+          <div class="flex flex-wrap items-center justify-between gap-8">
+            <p class="analytics-label m-0">Navigation</p>
+            <p class="analytics-copy m-0" data-role="workspace-navigation-summary">No authorized workspaces</p>
+          </div>
+          <nav class="flex flex-wrap gap-8" data-role="workspace-navigation-list" aria-label="Authorized workspaces"></nav>
+        </div>
       </div>
     </header>
 
@@ -72,7 +79,6 @@
           </label>
           <div class="analytics-actions flex flex-wrap items-end gap-8">
             <button class="analytics-button analytics-button--primary" type="button" id="loadData">Load Range</button>
-            <button class="analytics-button analytics-button--ghost" type="button" data-role="sign-out-dashboard">Sign Out</button>
           </div>
         </div>
         <div class="analytics-selection flex flex-wrap items-center gap-8">
@@ -90,7 +96,7 @@
 
       <section class="analytics-section grid gap-12">
         <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
-          <span>Daily Activity</span>
+          <span data-role="activity-section-label">Daily Activity</span>
           <span class="analytics-toggle-indicator" aria-hidden="true"></span>
         </button>
         <div class="analytics-section-content grid gap-12" data-section-content>
@@ -164,7 +170,7 @@
 
       <section class="analytics-section grid gap-12">
         <button class="analytics-section-toggle flex items-center justify-between gap-12" type="button" data-section-toggle aria-expanded="true">
-          <span>Visuals & Sources by Day</span>
+          <span data-role="visuals-sources-section-label">Visuals & Sources by Day</span>
           <span class="analytics-toggle-indicator" aria-hidden="true"></span>
         </button>
         <div class="analytics-section-content grid gap-12" data-section-content>
